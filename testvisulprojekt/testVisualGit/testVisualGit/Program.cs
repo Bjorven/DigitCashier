@@ -11,6 +11,7 @@ namespace testVisualGit
         static void Main(string[] args)
         {
             Console.WriteLine("hej alla gruppmedlemmar!");
+            Console.WriteLine("hej igen");
         }
     }
 }
