@@ -14,6 +14,7 @@ namespace testVisualGit
             Console.WriteLine("hej igen");
             Console.WriteLine("vi provar lite till här");
             Console.WriteLine("Hej Anders testar grejer");
+            Console.WriteLine("Donia testar");
         }
     }
 }
