@@ -233,15 +233,51 @@ namespace ovningArraySattar
             //Console.WriteLine(namn[3]);
 
 
-            //Ö.12 band mellan två strings
+            ////Ö.12 band mellan två strings
+
+
+            //A)
+
+            //String[] namn = { "Sattar", "Anders", "Lisa", "Ragnar" };
+            //int[] age = { 35, 62, 34, 18 };
+
+            //Console.WriteLine("Write the name of the person you want to check the age of: ");
+            //String checker = "";
+
+            //checker = Console.ReadLine();
+
+            //if (checker == namn[0])
+            //{
+            //    Console.WriteLine(namn[0] + " is " + age[0] + " years old ");
+            //}
+
+            //if  (checker == namn[1])
+            //{
+            //    Console.WriteLine(namn[1] + " is " + age[1] + " years old ");
+            //}
+
+            //if (checker == namn[2])
+            //{
+            //    Console.WriteLine(namn[2] + " is " + age[2] + " years old ");
+
+            //}
+
+            //if (checker == namn[3])
+            //{
+            //    Console.WriteLine(namn[3] + " is " + age[3] + " years old ");
+
+            //}
+
+            //else
+            //{
+            //    Console.WriteLine("The requested person does not exist in array");
+            //}
+
+
+            //B)
 
             String[] namn = { "Sattar", "Anders", "Lisa", "Ragnar" };
             int[] age = { 35, 62, 34, 18 };
-            
-
-
-
-
 
         }
 
