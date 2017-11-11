@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace dbFileTest
 {
@@ -16,6 +17,7 @@ namespace dbFileTest
         {
             InitializeComponent();
         }
+        // TA INT BORT DETTA!!
 
         private void LogInGUI_Load(object sender, EventArgs e)
         {
@@ -26,5 +28,33 @@ namespace dbFileTest
         {
 
         }
+        // TA INT BORT DETTA!!
+
+
+        private void btn_logIn_click(object sender, EventArgs e)
+        {
+            if (txtb_UserName.Text == "" || txtb_Password.Text == "")
+            {
+                MessageBox.Show("Please provide UserName and Password");
+                return;
+            }
+            string un;
+            foreach (Int32 i in Cashier.getusername)
+            {
+                ToString()
+            }
+
+
+
+
+
+        }   
+
+
     }
 }
+
+
+
+// this.Hide();
+//new welcomePage().Show();
