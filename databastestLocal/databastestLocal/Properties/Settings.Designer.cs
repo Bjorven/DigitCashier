@@ -33,5 +33,17 @@ namespace databastestLocal.Properties {
                 return ((string)(this["Database1ConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool chasieracess {
+            get {
+                return ((bool)(this["chasieracess"]));
+            }
+            set {
+                this["chasieracess"] = value;
+            }
+        }
     }
 }

@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace databastestLocal
+namespace dbFileTest
 {
     class Cashier:User
     {
+
         private int userName;
         private int acesslevel = 2;
 
@@ -19,6 +20,13 @@ namespace databastestLocal
         }
 
         public int UserName { get; set; }
+
+
+
+
+
+
+
 
     }
 }

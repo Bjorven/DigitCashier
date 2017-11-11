@@ -19,22 +19,22 @@ namespace databastestLocal
         }
 
         //Connection string
-        string cs = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Björn\source\repos\databastestLocal\databastestLocal\Database1.mdf;Integrated Security=True";
+        //string cs = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Björn\source\repos\databastestLocal\databastestLocal\Database1.mdf;Integrated Security=True";
 
         //Display name from DB
         private void EmployeeName_text()
         {
 
-            SqlConnection con = new SqlConnection(cs);
-            SqlCommand cmd = new SqlCommand("Select * from Employees where name=@name and surname=@surname", con);
-            cmd.Parameters.AddWithValue("@name", EmployeeName.Text);
-            cmd.Parameters.AddWithValue("@surname", Surname.Text);
-            //EmployeeName.text = "@name";
-            con.Open();
-            SqlDataAdapter adapt = new SqlDataAdapter(cmd);
-            DataSet ds = new DataSet();
-            adapt.Fill(ds);
-            con.Close();
+            //SqlConnection con = new SqlConnection(cs);
+            //SqlCommand cmd = new SqlCommand("Select * from Employees where name=@name and surname=@surname", con);
+            //cmd.Parameters.AddWithValue("@name", EmployeeName.Text);
+            //cmd.Parameters.AddWithValue("@surname", Surname.Text);
+            ////EmployeeName.text = "@name";
+            //con.Open();
+            //SqlDataAdapter adapt = new SqlDataAdapter(cmd);
+            //DataSet ds = new DataSet();
+            //adapt.Fill(ds);
+            //con.Close();
         }
         //btn_LogOut Click Event
         private void btn_LogOut_Click(object sender, EventArgs e)
@@ -51,22 +51,25 @@ namespace databastestLocal
 
         private void frmMain_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'database1DataSet2.Employees' table. You can move, or remove it, as needed.
-            this.employeesTableAdapter2.Fill(this.database1DataSet2.Employees);
-            
+           
 
         }
 
-
+         
 
         private void EmployeeName_Click(object sender, EventArgs e)
         {
-
+          
         }
 
         private void WelcomeLabel_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btn_adminSys_Click(object sender, EventArgs e)
+        {
+           
         }
     }
 }

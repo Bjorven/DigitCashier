@@ -18,10 +18,16 @@ namespace databastestLocal
         {
             InitializeComponent();
         }
+
+        private void frmLogin_Load(object sender, EventArgs e)
+        {
+
+        }
+
         //Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Björn\source\repos\databastestLocal\databastestLocal\Database1.mdf;Integrated Security=True
 
         //Connection String
-        string cs = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Björn\source\repos\databastestLocal\databastestLocal\Database1.mdf;Integrated Security=True";
+        string cs = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Björn\Documents\GitHub\DigitCashier\databastestLocal\databastestLocal\Database1.mdf;Integrated Security=True";
         //btn_Submit Click event
         private void button1_Click(object sender, EventArgs e)
         {
@@ -61,6 +67,8 @@ namespace databastestLocal
                 MessageBox.Show(ex.Message);
             }
         }
+
+        
     }
 }
 //        private void btn_Submit_Click(object sender, EventArgs e)

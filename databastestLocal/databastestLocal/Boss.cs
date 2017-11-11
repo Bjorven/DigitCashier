@@ -8,17 +8,17 @@ namespace databastestLocal
 {
     class Boss:User
     {
+        private int userName;
         private int acesslevel = 5;
 
 
 
-
-
-
-        public Boss()
+        public Boss(int uname)
         {
-
+            uname = UserName;
         }
+
+        public int UserName { get; set; }
 
 
 

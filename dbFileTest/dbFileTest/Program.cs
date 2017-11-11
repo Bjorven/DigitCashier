@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace databastestLocal
+namespace dbFileTest
 {
     static class Program
     {
@@ -16,13 +16,14 @@ namespace databastestLocal
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmLogin());
-
-            User user1 = new User();
-            
+            Application.Run(new Form1());
 
 
-         
+
+
+
+
+
         }
     }
 }

@@ -4,21 +4,28 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace databastestLocal
+namespace dbFileTest
 {
-    class Cashier:User
+    class Boss:User
     {
+
         private int userName;
-        private int acesslevel = 2;
+        private int acesslevel = 5;
 
 
 
-        public Cashier(int uname)
+        public Boss(int uname)
         {
             uname = UserName;
         }
 
         public int UserName { get; set; }
+
+
+
+
+
+
 
     }
 }
