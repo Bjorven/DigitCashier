@@ -26,7 +26,7 @@ namespace databastestLocal
 
 
         //Connection String
-        string cs = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Björn\Documents\GitHub\DigitCashier\databastestLocal\databastestLocal\Database1.mdf;Integrated Security=True";
+        string cs = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=H:\skola\GIT\Digitcashier\databastestLocal\databastestLocal\databasen\Empolees.mdf;Integrated Security=True";
         //btn_Submit Click event
         private void button1_Click(object sender, EventArgs e)
         {
@@ -39,7 +39,7 @@ namespace databastestLocal
             {
                 //Create SqlConnection
                 SqlConnection con = new SqlConnection(cs);
-                SqlCommand cmd = new SqlCommand("Select * from Employees where employeeID=@employeeID and password=@password", con);
+                SqlCommand cmd = new SqlCommand("Select * from EmployeeUsers where employeeID=@employeeID and password=@password", con);
                 cmd.Parameters.AddWithValue("@employeeID", txt_UserName.Text);
                 cmd.Parameters.AddWithValue("@password", txt_Password.Text);
                 con.Open();

@@ -85,7 +85,16 @@ namespace databastestLocal
 
         }
 
-//////////////////////////////////////////////////////////////
+        private void btn_cashierSys_Click_1(object sender, EventArgs e)
+        {
+            if (new User().Acesslevel != 5)
+            {
+                this.Hide();
+            }
+
+        }
+
+        //////////////////////////////////////////////////////////////
 
 
 
