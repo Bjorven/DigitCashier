@@ -39,6 +39,6 @@ namespace dbFileTest
         public string City { get; set; }
         public string Personnr { get; set; }
         public Int64 Salary { get; set; }
-*-
+
     }
 }
