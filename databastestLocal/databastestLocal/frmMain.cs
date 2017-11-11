@@ -18,24 +18,12 @@ namespace databastestLocal
             InitializeComponent();
         }
 
-        //Connection string
-        //string cs = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Björn\source\repos\databastestLocal\databastestLocal\Database1.mdf;Integrated Security=True";
-
-        //Display name from DB
-        private void EmployeeName_text()
+        private void frmMain_Load(object sender, EventArgs e)
         {
 
-            //SqlConnection con = new SqlConnection(cs);
-            //SqlCommand cmd = new SqlCommand("Select * from Employees where name=@name and surname=@surname", con);
-            //cmd.Parameters.AddWithValue("@name", EmployeeName.Text);
-            //cmd.Parameters.AddWithValue("@surname", Surname.Text);
-            ////EmployeeName.text = "@name";
-            //con.Open();
-            //SqlDataAdapter adapt = new SqlDataAdapter(cmd);
-            //DataSet ds = new DataSet();
-            //adapt.Fill(ds);
-            //con.Close();
+
         }
+
         //btn_LogOut Click Event
         private void btn_LogOut_Click(object sender, EventArgs e)
         {
@@ -49,17 +37,16 @@ namespace databastestLocal
             Application.Exit();
         }
 
-        private void frmMain_Load(object sender, EventArgs e)
-        {
-           
 
-        }
 
+
+       
          
-
+     
         private void EmployeeName_Click(object sender, EventArgs e)
         {
-          
+
+
         }
 
         private void WelcomeLabel_Click(object sender, EventArgs e)
@@ -67,16 +54,44 @@ namespace databastestLocal
 
         }
 
+////////////////////////////////////////////////////////
+        // här gör vi så att bara admin ser knappen!!
+
         private void btn_adminSys_Click(object sender, EventArgs e)
         {
-           
+            if (new User().Acesslevel !=3)
+            {
+                this.Hide();
+            }
+
+
         }
+
+        private void btn_cashierSys_Click(object sender, EventArgs e)
+        {
+            if (new User().Acesslevel != 2)
+            {
+                this.Hide();
+            }
+
+        }
+
+        private void btn_bossSys_Click(object sender, EventArgs e)
+        {
+            if (new User().Acesslevel != 5)
+            {
+                this.Hide();
+            }
+
+        }
+
+//////////////////////////////////////////////////////////////
+
+
+
+
+
+
+
     }
 }
-
-//        private void btn_LogOut_Click(object sender, EventArgs e)
-//        {
-
-//        }
-//    }
-//}

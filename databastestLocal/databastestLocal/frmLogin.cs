@@ -24,7 +24,6 @@ namespace databastestLocal
 
         }
 
-        //Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Björn\source\repos\databastestLocal\databastestLocal\Database1.mdf;Integrated Security=True
 
         //Connection String
         string cs = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Björn\Documents\GitHub\DigitCashier\databastestLocal\databastestLocal\Database1.mdf;Integrated Security=True";
