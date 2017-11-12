@@ -59,42 +59,33 @@ namespace databastestLocal
 
         private void btn_adminSys_Click(object sender, EventArgs e)
         {
-            if (new User().Acesslevel !=3)
-            {
-                this.Hide();
-            }
+            //if (.Acesslevel !=3)
+            //{
+            //    this.Hide();
+            //}
 
-
-        }
-
-        private void btn_cashierSys_Click(object sender, EventArgs e)
-        {
-            if (new User().Acesslevel != 2)
-            {
-                this.Hide();
-            }
 
         }
 
         private void btn_bossSys_Click(object sender, EventArgs e)
         {
-            if (new User().Acesslevel != 5)
-            {
-                this.Hide();
-            }
+            //if (User().Acesslevel != 5)
+            //{
+            //    this.Hide();
+            //}
 
         }
 
         private void btn_cashierSys_Click_1(object sender, EventArgs e)
         {
-            if (new User().Acesslevel != 5)
-            {
-                this.Hide();
-            }
+            //if (User().Acesslevel != 2)
+            //{
+            //    this.Hide();
+            //}
 
         }
 
-        //////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////
 
 
 

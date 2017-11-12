@@ -64,6 +64,9 @@
     <Compile Include="Boss.cs" />
     <Compile Include="Cashier.cs" />
     <Compile Include="Employee.cs" />
+    <Compile Include="EmpoleesDataSet.cs">
+      <DependentUpon>EmpoleesDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="EmpoleesDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

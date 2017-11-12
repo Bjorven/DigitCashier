@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 
 
+
 namespace databastestLocal
 {
     public partial class frmLogin : Form
@@ -18,6 +19,7 @@ namespace databastestLocal
         {
             InitializeComponent();
         }
+        User nw = new User();
 
         private void frmLogin_Load(object sender, EventArgs e)
         {
@@ -28,7 +30,7 @@ namespace databastestLocal
         //Connection String
         string cs = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=H:\skola\GIT\Digitcashier\databastestLocal\databastestLocal\databasen\Empolees.mdf;Integrated Security=True";
         //btn_Submit Click event
-        private void button1_Click(object sender, EventArgs e)
+        private void btn_Submit_Click(object sender, EventArgs e)
         {
             if (txt_UserName.Text == "" || txt_Password.Text == "")
             {
@@ -47,11 +49,22 @@ namespace databastestLocal
                 DataSet ds = new DataSet();
                 adapt.Fill(ds);
                 con.Close();
+
+                
+
                 int count = ds.Tables[0].Rows.Count;
-                //If count is equal to 1, than show frmMain form
+                //If count is equal to 1, then show frmMain form
                 if (count == 1)
                 {
-                    MessageBox.Show("Login Successful!");
+                    
+                    SqlCommand call = new SqlCommand("Select * from EmployeeUsers where in row = txt_UserName.text employeeID=@employeeID and acesslvl=@acesslvl and forname=@forename", con);
+                    call.Parameters.AddWithValue("@employeeID", nw.UserName);
+                    call.Parameters.AddWithValue("@acesslvl", nw.Acesslevel);
+                    call.Parameters.AddWithValue("@forename", nw.Fname);
+
+                    
+
+                    MessageBox.Show(nw.Fname);
                     this.Hide();
                     frmMain fm = new frmMain();
                     fm.Show();
@@ -67,7 +80,14 @@ namespace databastestLocal
             }
         }
 
-        
+        private static void NewMethod()
+        {
+            
+
+
+
+        }
+
     }
 }
 //        private void btn_Submit_Click(object sender, EventArgs e)

@@ -18,7 +18,7 @@ namespace databastestLocal
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new frmLogin());
 
-            User user1 = new User();
+          
             
 
 
