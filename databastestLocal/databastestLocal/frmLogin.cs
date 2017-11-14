@@ -19,7 +19,7 @@ namespace databastestLocal
         {
             InitializeComponent();
         }
-        User nw = new User();
+
 
         private void frmLogin_Load(object sender, EventArgs e)
         {
@@ -27,11 +27,13 @@ namespace databastestLocal
         }
 
 
-        //Connection String
-        string cs = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=H:\skola\GIT\Digitcashier\databastestLocal\databastestLocal\databasen\Empolees.mdf;Integrated Security=True";
+
         //btn_Submit Click event
-        private void btn_Submit_Click(object sender, EventArgs e)
+        public void btn_Submit_Click(object sender, EventArgs e)
         {
+
+
+            //User nw = new User();
             if (txt_UserName.Text == "" || txt_Password.Text == "")
             {
                 MessageBox.Show("Please provide UserName and Password");
@@ -39,32 +41,15 @@ namespace databastestLocal
             }
             try
             {
-                //Create SqlConnection
-                SqlConnection con = new SqlConnection(cs);
-                SqlCommand cmd = new SqlCommand("Select * from EmployeeUsers where employeeID=@employeeID and password=@password", con);
-                cmd.Parameters.AddWithValue("@employeeID", txt_UserName.Text);
-                cmd.Parameters.AddWithValue("@password", txt_Password.Text);
-                con.Open();
-                SqlDataAdapter adapt = new SqlDataAdapter(cmd);
-                DataSet ds = new DataSet();
-                adapt.Fill(ds);
-                con.Close();
+                bool svar = dbAcess.credentialcheckerLogin(txt_UserName.Text, txt_Password.Text);
 
-                
 
-                int count = ds.Tables[0].Rows.Count;
-                //If count is equal to 1, then show frmMain form
-                if (count == 1)
+                //    //If count is equal to 1, then show frmMain form
+
+
+                if (svar == true)
                 {
-                    
-                    SqlCommand call = new SqlCommand("Select * from EmployeeUsers where in row = txt_UserName.text employeeID=@employeeID and acesslvl=@acesslvl and forname=@forename", con);
-                    call.Parameters.AddWithValue("@employeeID", nw.UserName);
-                    call.Parameters.AddWithValue("@acesslvl", nw.Acesslevel);
-                    call.Parameters.AddWithValue("@forename", nw.Fname);
-
-                    
-
-                    MessageBox.Show(nw.Fname);
+                    MessageBox.Show("Login Successful!");
                     this.Hide();
                     frmMain fm = new frmMain();
                     fm.Show();
@@ -79,17 +64,11 @@ namespace databastestLocal
                 MessageBox.Show(ex.Message);
             }
         }
-
-        private static void NewMethod()
-        {
-            
-
-
-
-        }
-
     }
 }
+
+
+
 //        private void btn_Submit_Click(object sender, EventArgs e)
 //        {
 

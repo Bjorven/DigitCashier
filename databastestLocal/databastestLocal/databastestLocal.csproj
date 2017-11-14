@@ -63,6 +63,7 @@
     <Compile Include="Admin.cs" />
     <Compile Include="Boss.cs" />
     <Compile Include="Cashier.cs" />
+    <Compile Include="dbAcess.cs" />
     <Compile Include="Employee.cs" />
     <Compile Include="EmpoleesDataSet.cs">
       <DependentUpon>EmpoleesDataSet.xsd</DependentUpon>
