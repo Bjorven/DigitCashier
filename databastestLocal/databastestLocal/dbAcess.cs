@@ -13,7 +13,8 @@ using System.Data.OleDb;
 
 namespace databastestLocal
 {
-    class dbAcess   
+
+    class dbAcess
     {
         // Detta för att slippa upprepa senare i de olika metoderna
         // variabler
@@ -60,12 +61,13 @@ namespace databastestLocal
         public bool credentialcheckerLogin(DataSet ds)
         {
 
+
             int count = ds.Tables[0].Rows.Count;
 
             if (count == 1)
             {
                 return true;
-                
+
             }
             else
             {
@@ -73,10 +75,8 @@ namespace databastestLocal
             }
             
 
-
-    }
+        }
         
-
         // denna är inte klar men ska kunna användas för att kunna hämta information i databasen på användarna
 
         public bool GetUsersData(ref string acesslvl, ref string forename)
