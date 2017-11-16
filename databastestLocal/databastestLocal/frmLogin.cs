@@ -18,22 +18,25 @@ namespace databastestLocal
         public frmLogin()
         {
             InitializeComponent();
+
         }
 
-
+       
         private void frmLogin_Load(object sender, EventArgs e)
         {
+
+
 
         }
 
 
 
         //btn_Submit Click event
-        public void btn_Submit_Click(object sender, EventArgs e)
+        private void btn_Submit_Click(object sender, EventArgs e)
         {
 
-
-            //User nw = new User();
+            
+            
             if (txt_UserName.Text == "" || txt_Password.Text == "")
             {
                 MessageBox.Show("Please provide UserName and Password");
@@ -41,18 +44,47 @@ namespace databastestLocal
             }
             try
             {
-                bool svar = dbAcess.credentialcheckerLogin(txt_UserName.Text, txt_Password.Text);
+                dbAcess db = new dbAcess();
+                // vi tar först och skapar ett data set av inmatade information i textboxen
+                DataSet ds = db.getdataset(txt_UserName.Text, txt_Password.Text);
+                // sen kör vi  en boolmetod för att få true till nästa if statmennt.
+                bool svar = db.credentialcheckerLogin(ds);
 
 
-                //    //If count is equal to 1, then show frmMain form
-
-
+                // får ut datan ur ds
+                Int32 First = Convert.ToInt32(ds.Tables[0].Rows[0]["employeeID"].ToString());
+                Int32 Second = Convert.ToInt32(ds.Tables[0].Rows[0]["password"].ToString());
+                Int32 Third = Convert.ToInt32(ds.Tables[0].Rows[0]["acesslvl"].ToString());
+                string  Fourth= Convert.ToString(ds.Tables[0].Rows[0]["fname"].ToString());
+               
+                
+                
+                //    //If bool is true then it askes if the dataset contains a 2,3 or a 5 in the acesslvl columm
                 if (svar == true)
                 {
-                    MessageBox.Show("Login Successful!");
-                    this.Hide();
-                    frmMain fm = new frmMain();
-                    fm.Show();
+                    if (Third == 2)
+                    {
+                        MessageBox.Show("Login Successful! cashier");
+                        this.Hide();
+                        frmCashier fc = new frmCashier();
+                        fc.Show();
+                    }
+                    else if (Third == 3)
+                    {
+                        MessageBox.Show("Login Successful! admin");
+                        this.Hide();
+                        frmAdmin fa = new frmAdmin();
+                        fa.Show();
+                    }
+                    else if (Third == 5)
+                    {
+                        MessageBox.Show("Login Successful! Boss");
+                        this.Hide();
+                        frmBoss fb = new frmBoss();
+                        fb.Show();
+                    }
+
+                    
                 }
                 else
                 {
@@ -64,6 +96,18 @@ namespace databastestLocal
                 MessageBox.Show(ex.Message);
             }
         }
+
+
+        
+
+
+
+
+
+
+
+
+
     }
 }
 

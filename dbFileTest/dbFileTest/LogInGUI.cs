@@ -17,6 +17,59 @@ namespace dbFileTest
         {
             InitializeComponent();
         }
+
+
+        private void btn_logIn_click(object sender, EventArgs e)
+        {
+            if (txtb_UserName.Text == "" || txtb_Password.Text == "")
+            {
+                MessageBox.Show("Please provide UserName and Password");
+                return;
+            }
+            string line;
+
+            using (StreamReader reader = new StreamReader(@"H:\\skola\\GIT\\Digitcashier\\dbFileTest\\dbFileTest\\txtf_users\\EmployeeCredentials.txt"))
+
+            {
+
+                while ((line = reader.ReadLine()) != null) ;
+
+
+            }
+
+            string[] ss = line.Split(',');
+
+            if (txtb_UserName.Text == ss[0])
+
+            {
+
+                if (txtb_Password.Text == ss[1])
+
+                {
+
+                    this.Hide();
+
+
+
+                    welcomePage mf = new welcomePage();
+
+                    mf.Show();
+
+                }
+
+                else
+
+                {
+
+                    MessageBox.Show("Sorry Wrong Password");
+
+                }
+
+            }
+        }
+
+
+
         // TA INT BORT DETTA!!
 
         private void LogInGUI_Load(object sender, EventArgs e)
@@ -31,24 +84,19 @@ namespace dbFileTest
         // TA INT BORT DETTA!!
 
 
-        private void btn_logIn_click(object sender, EventArgs e)
-        {
-            if (txtb_UserName.Text == "" || txtb_Password.Text == "")
-            {
-                MessageBox.Show("Please provide UserName and Password");
-                return;
-            }
-            string un;
-            foreach (Int32 i in Cashier.getusername)
-            {
-                ToString()
-            }
 
 
 
 
 
-        }   
+
+
+
+
+
+
+
+        
 
 
     }
