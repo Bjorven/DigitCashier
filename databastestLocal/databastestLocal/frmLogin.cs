@@ -18,20 +18,25 @@ namespace databastestLocal
         public frmLogin()
         {
             InitializeComponent();
-        }
-        User nw = new User();
 
+        }
+
+       
         private void frmLogin_Load(object sender, EventArgs e)
         {
 
+
+
         }
 
 
-        //Connection String
-        string cs = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=H:\skola\GIT\Digitcashier\databastestLocal\databastestLocal\databasen\Empolees.mdf;Integrated Security=True";
+
         //btn_Submit Click event
         private void btn_Submit_Click(object sender, EventArgs e)
         {
+
+            
+            
             if (txt_UserName.Text == "" || txt_Password.Text == "")
             {
                 MessageBox.Show("Please provide UserName and Password");
@@ -39,35 +44,47 @@ namespace databastestLocal
             }
             try
             {
-                //Create SqlConnection
-                SqlConnection con = new SqlConnection(cs);
-                SqlCommand cmd = new SqlCommand("Select * from EmployeeUsers where employeeID=@employeeID and password=@password", con);
-                cmd.Parameters.AddWithValue("@employeeID", txt_UserName.Text);
-                cmd.Parameters.AddWithValue("@password", txt_Password.Text);
-                con.Open();
-                SqlDataAdapter adapt = new SqlDataAdapter(cmd);
-                DataSet ds = new DataSet();
-                adapt.Fill(ds);
-                con.Close();
+                dbAcess db = new dbAcess();
+                // vi tar först och skapar ett data set av inmatade information i textboxen
+                DataSet ds = db.getdataset(txt_UserName.Text, txt_Password.Text);
+                // sen kör vi  en boolmetod för att få true till nästa if statmennt.
+                bool svar = db.credentialcheckerLogin(ds);
 
+
+                // får ut datan ur ds
+                Int32 First = Convert.ToInt32(ds.Tables[0].Rows[0]["employeeID"].ToString());
+                Int32 Second = Convert.ToInt32(ds.Tables[0].Rows[0]["password"].ToString());
+                Int32 Third = Convert.ToInt32(ds.Tables[0].Rows[0]["acesslvl"].ToString());
+                string  Fourth= Convert.ToString(ds.Tables[0].Rows[0]["fname"].ToString());
+               
                 
-
-                int count = ds.Tables[0].Rows.Count;
-                //If count is equal to 1, then show frmMain form
-                if (count == 1)
+                
+                //    //If bool is true then it askes if the dataset contains a 2,3 or a 5 in the acesslvl columm
+                if (svar == true)
                 {
-                    
-                    SqlCommand call = new SqlCommand("Select * from EmployeeUsers where in row = txt_UserName.text employeeID=@employeeID and acesslvl=@acesslvl and forname=@forename", con);
-                    call.Parameters.AddWithValue("@employeeID", nw.UserName);
-                    call.Parameters.AddWithValue("@acesslvl", nw.Acesslevel);
-                    call.Parameters.AddWithValue("@forename", nw.Fname);
+                    if (Third == 2)
+                    {
+                        MessageBox.Show("Login Successful! cashier");
+                        this.Hide();
+                        frmCashier fc = new frmCashier();
+                        fc.Show();
+                    }
+                    else if (Third == 3)
+                    {
+                        MessageBox.Show("Login Successful! admin");
+                        this.Hide();
+                        frmAdmin fa = new frmAdmin();
+                        fa.Show();
+                    }
+                    else if (Third == 5)
+                    {
+                        MessageBox.Show("Login Successful! Boss");
+                        this.Hide();
+                        frmBoss fb = new frmBoss();
+                        fb.Show();
+                    }
 
                     
-
-                    MessageBox.Show(nw.Fname);
-                    this.Hide();
-                    frmMain fm = new frmMain();
-                    fm.Show();
                 }
                 else
                 {
@@ -80,16 +97,22 @@ namespace databastestLocal
             }
         }
 
-        private static void NewMethod()
-        {
-            
+
+        
 
 
 
-        }
+
+
+
+
+
 
     }
 }
+
+
+
 //        private void btn_Submit_Click(object sender, EventArgs e)
 //        {
 

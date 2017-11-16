@@ -43,18 +43,7 @@ namespace dbFileTest
 
      
 
-        public static void getusername()
-        {
-            
-            StreamReader sr = new StreamReader(@"H:\\skola\\GIT\\Digitcashier\\dbFileTest\\dbFileTest\\txtf_users\\EmployeeCredentials.txt");
-            string s = sr.ReadLine();
-            string[] parts = s.Split('\t');
-            for (parts[0])
-            {
-                
-            }
-         
-        }
+        
 
 
 

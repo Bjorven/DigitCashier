@@ -12,13 +12,13 @@ namespace databastestLocal
         ///Instansvariabler
         ///
 
-        private int userName;
-        private Int64 password;
-        private int acesslevel;
+        private string userName;
+        private string password;
+        private string acesslevel;
 
         public User() { }
 
-        public User(int uname, Int64 passcode, int alvl)
+        public User(string uname, string passcode, string alvl)
         {
             uname = UserName;
             passcode = Password;
@@ -26,9 +26,9 @@ namespace databastestLocal
 
            
         }
-        public int UserName { get; set; }
-        public Int64 Password { get; set; }
-        public int Acesslevel { get; set; }
+        public string UserName { get; set; }
+        public string Password { get; set; }
+        public string Acesslevel { get; set; }
 
 
 
