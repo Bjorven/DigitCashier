@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Kvitto
 {
-    public partial class Form1 : Form
+    public partial class Kvittosystem : Form
     {
-        public Form1()
+        public Kvittosystem()
         {
             InitializeComponent();
         }

@@ -1,6 +1,6 @@
 ﻿namespace Kvitto
 {
-    partial class Form1
+    partial class Kvittosystem
     {
         /// <summary>
         /// Required designer variable.
@@ -163,7 +163,7 @@
             this.button6.Text = "SUB TOTAL";
             this.button6.UseVisualStyleBackColor = true;
             // 
-            // Form1
+            // Kvittosystem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -178,8 +178,8 @@
             this.Controls.Add(this.richTextBox2);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.listBox1);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "Kvittosystem";
+            this.Text = "Kvitto";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
 
