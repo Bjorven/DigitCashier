@@ -51,40 +51,44 @@ namespace databastestLocal
                 bool svar = db.credentialcheckerLogin(ds);
 
 
-                // får ut datan ur ds
-                Int32 First = Convert.ToInt32(ds.Tables[0].Rows[0]["employeeID"].ToString());
-                Int32 Second = Convert.ToInt32(ds.Tables[0].Rows[0]["password"].ToString());
-                Int32 Third = Convert.ToInt32(ds.Tables[0].Rows[0]["acesslvl"].ToString());
-                string  Fourth= Convert.ToString(ds.Tables[0].Rows[0]["fname"].ToString());
+                //// får ut datan ur ds
+                //Int32 First = Convert.ToInt32(ds.Tables[0].Rows[0]["employeeID"].ToString());
+                //Int32 Second = Convert.ToInt32(ds.Tables[0].Rows[0]["password"].ToString());
+                //Int32 Third = Convert.ToInt32(ds.Tables[0].Rows[0]["acesslvl"].ToString());
+                //string  Fourth= Convert.ToString(ds.Tables[0].Rows[0]["fname"].ToString());
                
                 
                 
                 //    //If bool is true then it askes if the dataset contains a 2,3 or a 5 in the acesslvl columm
                 if (svar == true)
                 {
-                    if (Third == 2)
-                    {
-                        MessageBox.Show("Login Successful! cashier");
-                        this.Hide();
-                        frmCashier fc = new frmCashier();
-                        fc.Show();
-                    }
-                    else if (Third == 3)
-                    {
-                        MessageBox.Show("Login Successful! admin");
-                        this.Hide();
-                        frmAdmin fa = new frmAdmin();
-                        fa.Show();
-                    }
-                    else if (Third == 5)
-                    {
-                        MessageBox.Show("Login Successful! Boss");
-                        this.Hide();
-                        frmBoss fb = new frmBoss();
-                        fb.Show();
-                    }
+                    MessageBox.Show("Login Successful!");
+                    this.Hide();
+                    frmMain fm = new frmMain(ds);
+                    fm.Show();
+                    //if (Third == 2)
+                    //{
+                    //    MessageBox.Show("Login Successful! cashier");
+                    //    this.Hide();
+                    //    frmCashier fc = new frmCashier();
+                    //    fc.Show();
+                    //}
+                    //else if (Third == 3)
+                    //{
+                    //    MessageBox.Show("Login Successful! admin");
+                    //    this.Hide();
+                    //    frmAdmin fa = new frmAdmin();
+                    //    fa.Show();
+                    //}
+                    //else if (Third == 5)
+                    //{
+                    //    MessageBox.Show("Login Successful! Boss");
+                    //    this.Hide();
+                    //    frmBoss fb = new frmBoss();
+                    //    fb.Show();
+                    //}
 
-                    
+
                 }
                 else
                 {
