@@ -16,5 +16,10 @@ namespace databastestLocal
         {
             InitializeComponent();
         }
+
+        private void frmAdmin_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
