@@ -43,31 +43,6 @@
             // 
             this.listBox1.FormattingEnabled = true;
             this.listBox1.ItemHeight = 16;
-            this.listBox1.Items.AddRange(new object[] {
-            "\t\t",
-            "",
-            "\t\tBUTIKENS NAMN",
-            "",
-            "\t\tADRESS",
-            "\t\tTELEFON",
-            "",
-            "\t\tORG NUMMER",
-            "",
-            "\t\tVAROR",
-            "",
-            "\t\tTOTALSUMMA",
-            "",
-            "\t\tBETALMEDEL",
-            "\t\tKORT..KONTANT",
-            "\t\tMOTTAGIT",
-            "\t\tDEBITERAT",
-            "\t\t\t",
-            "\t\tMOMS...NETTO",
-            "\t\t\t",
-            "\t\tRABATTER",
-            "",
-            "\t\tKASSA",
-            "\t\tKASSA ID"});
             this.listBox1.Location = new System.Drawing.Point(12, 19);
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(387, 580);
@@ -93,7 +68,8 @@
             this.richTextBox2.Name = "richTextBox2";
             this.richTextBox2.Size = new System.Drawing.Size(162, 44);
             this.richTextBox2.TabIndex = 5;
-            this.richTextBox2.Text = "FUEL PREMIUM";
+            this.richTextBox2.Text = "";
+            this.richTextBox2.TextChanged += new System.EventHandler(this.richTextBox2_TextChanged);
             // 
             // richTextBox1
             // 
@@ -102,7 +78,7 @@
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.Size = new System.Drawing.Size(162, 44);
             this.richTextBox1.TabIndex = 6;
-            this.richTextBox1.Text = "TOTAL 53.80 $";
+            this.richTextBox1.Text = "";
             this.richTextBox1.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
             // 
             // button1
