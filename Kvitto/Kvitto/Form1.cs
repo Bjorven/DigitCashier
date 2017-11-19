@@ -55,19 +55,23 @@ namespace Kvitto
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            string[] lines = File.ReadAllLines(@"C:\Users\Anders\Documents\kvittodelar.txt");
+            string[] lines = File.ReadAllLines(@"C:\Users\Anders\Documents\Utbildning 2017\OOP\Digit Cashier\kvittodelar.txt");
 
             listBox1.Items.AddRange(lines);
+            listBox2.Items.Add(" ÄPPLEN");
+            listBox3.Items.Add(" 650 KR ");
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             listBox1.Items.Clear();
+            listBox2.Items.Clear();
+            listBox3.Items.Clear();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            listBox1.Items.Add("BUTIKENS NAMN "+ " ADRESS " + "TELEFON " + "ORG NUMMER");
+            listBox1.Items.Add(" KVITTO "+ " ID: 25060 " + " 20170325 " + " 723.50 KR");
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -82,12 +86,22 @@ namespace Kvitto
 
         private void label1_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
 
+        }
+
+        private void button5_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listBox3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 }
