@@ -56,6 +56,7 @@ namespace Kvitto
         private void button1_Click_1(object sender, EventArgs e)
         {
             string[] lines = File.ReadAllLines(@"C:\Users\Anders\Documents\kvittodelar.txt");
+
             listBox1.Items.AddRange(lines);
         }
 
@@ -71,12 +72,22 @@ namespace Kvitto
 
         private void button4_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Print receipt");
+            MessageBox.Show("Printing receipt");
         }
 
         private void richTextBox2_TextChanged(object sender, EventArgs e)
         {
             
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+
         }
     }
 }
