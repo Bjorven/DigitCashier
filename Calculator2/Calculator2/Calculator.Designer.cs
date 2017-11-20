@@ -31,13 +31,13 @@ namespace Calculator2
         private void InitializeComponent()
         {
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.button5 = new System.Windows.Forms.Button();
+            this.tenPercentButton = new System.Windows.Forms.Button();
             this.EveningRegisterButton = new System.Windows.Forms.Button();
             this.MorningRegisterButton = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.twentyPercentButton = new System.Windows.Forms.Button();
             this.TimesButton = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.thertyPercentButton = new System.Windows.Forms.Button();
+            this.nrSearchButton = new System.Windows.Forms.Button();
             this.CloseButton = new System.Windows.Forms.Button();
             this.CustomerButton = new System.Windows.Forms.Button();
             this.NewCustomerButton = new System.Windows.Forms.Button();
@@ -87,6 +87,8 @@ namespace Calculator2
             this.reciptNrTextBox = new System.Windows.Forms.TextBox();
             this.reciptNrLabel = new System.Windows.Forms.Label();
             this.goodsListBox = new System.Windows.Forms.ListBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.searchTextBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // dateTimePicker1
@@ -96,19 +98,21 @@ namespace Calculator2
             this.dateTimePicker1.Size = new System.Drawing.Size(183, 22);
             this.dateTimePicker1.TabIndex = 237;
             // 
-            // button5
+            // tenPercentButton
             // 
-            this.button5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button5.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button5.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button5.Font = new System.Drawing.Font("Comic Sans MS", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.ForeColor = System.Drawing.Color.White;
-            this.button5.Location = new System.Drawing.Point(199, 434);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(97, 58);
-            this.button5.TabIndex = 236;
-            this.button5.UseVisualStyleBackColor = false;
+            this.tenPercentButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.tenPercentButton.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.tenPercentButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.tenPercentButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.tenPercentButton.Font = new System.Drawing.Font("Comic Sans MS", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tenPercentButton.ForeColor = System.Drawing.Color.White;
+            this.tenPercentButton.Location = new System.Drawing.Point(199, 434);
+            this.tenPercentButton.Name = "tenPercentButton";
+            this.tenPercentButton.Size = new System.Drawing.Size(97, 58);
+            this.tenPercentButton.TabIndex = 236;
+            this.tenPercentButton.Text = "10%";
+            this.tenPercentButton.UseVisualStyleBackColor = false;
+            this.tenPercentButton.Click += new System.EventHandler(this.tenPercentButton_Click);
             // 
             // EveningRegisterButton
             // 
@@ -140,19 +144,21 @@ namespace Calculator2
             this.MorningRegisterButton.Text = "Morning register";
             this.MorningRegisterButton.UseVisualStyleBackColor = false;
             // 
-            // button1
+            // twentyPercentButton
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.Font = new System.Drawing.Font("Comic Sans MS", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(198, 497);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(97, 58);
-            this.button1.TabIndex = 233;
-            this.button1.UseVisualStyleBackColor = false;
+            this.twentyPercentButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.twentyPercentButton.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.twentyPercentButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.twentyPercentButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.twentyPercentButton.Font = new System.Drawing.Font("Comic Sans MS", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.twentyPercentButton.ForeColor = System.Drawing.Color.White;
+            this.twentyPercentButton.Location = new System.Drawing.Point(198, 497);
+            this.twentyPercentButton.Name = "twentyPercentButton";
+            this.twentyPercentButton.Size = new System.Drawing.Size(97, 58);
+            this.twentyPercentButton.TabIndex = 233;
+            this.twentyPercentButton.Text = "20%";
+            this.twentyPercentButton.UseVisualStyleBackColor = false;
+            this.twentyPercentButton.Click += new System.EventHandler(this.twentyPercentButton_Click);
             // 
             // TimesButton
             // 
@@ -170,33 +176,37 @@ namespace Calculator2
             this.TimesButton.UseVisualStyleBackColor = false;
             this.TimesButton.Click += new System.EventHandler(this.TimesButton_Click_1);
             // 
-            // button3
+            // thertyPercentButton
             // 
-            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button3.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button3.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button3.Font = new System.Drawing.Font("Comic Sans MS", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(198, 561);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(97, 58);
-            this.button3.TabIndex = 231;
-            this.button3.UseVisualStyleBackColor = false;
+            this.thertyPercentButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.thertyPercentButton.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.thertyPercentButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.thertyPercentButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.thertyPercentButton.Font = new System.Drawing.Font("Comic Sans MS", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.thertyPercentButton.ForeColor = System.Drawing.Color.White;
+            this.thertyPercentButton.Location = new System.Drawing.Point(198, 561);
+            this.thertyPercentButton.Name = "thertyPercentButton";
+            this.thertyPercentButton.Size = new System.Drawing.Size(97, 58);
+            this.thertyPercentButton.TabIndex = 231;
+            this.thertyPercentButton.Text = "30%";
+            this.thertyPercentButton.UseVisualStyleBackColor = false;
+            this.thertyPercentButton.Click += new System.EventHandler(this.thertyPercentButton_Click);
             // 
-            // button4
+            // nrSearchButton
             // 
-            this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button4.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button4.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button4.Font = new System.Drawing.Font("Comic Sans MS", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ForeColor = System.Drawing.Color.White;
-            this.button4.Location = new System.Drawing.Point(198, 625);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(97, 58);
-            this.button4.TabIndex = 230;
-            this.button4.UseVisualStyleBackColor = false;
+            this.nrSearchButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.nrSearchButton.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.nrSearchButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.nrSearchButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.nrSearchButton.Font = new System.Drawing.Font("Comic Sans MS", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nrSearchButton.ForeColor = System.Drawing.Color.White;
+            this.nrSearchButton.Location = new System.Drawing.Point(198, 625);
+            this.nrSearchButton.Name = "nrSearchButton";
+            this.nrSearchButton.Size = new System.Drawing.Size(97, 58);
+            this.nrSearchButton.TabIndex = 230;
+            this.nrSearchButton.Text = "#";
+            this.nrSearchButton.UseVisualStyleBackColor = false;
+            this.nrSearchButton.Click += new System.EventHandler(this.nrSearchButton_Click);
             // 
             // CloseButton
             // 
@@ -632,6 +642,7 @@ namespace Calculator2
             this.DiscountButton.TabIndex = 202;
             this.DiscountButton.Text = "Discount";
             this.DiscountButton.UseVisualStyleBackColor = false;
+            this.DiscountButton.Click += new System.EventHandler(this.DiscountButton_Click);
             // 
             // ClearBotton
             // 
@@ -752,6 +763,7 @@ namespace Calculator2
             this.discountTextBox.TabIndex = 191;
             this.discountTextBox.Text = "0.00";
             this.discountTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.discountTextBox.TextChanged += new System.EventHandler(this.discountTextBox_TextChanged);
             // 
             // totalTextBox
             // 
@@ -762,6 +774,7 @@ namespace Calculator2
             this.totalTextBox.TabIndex = 190;
             this.totalTextBox.Text = "0.00";
             this.totalTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.totalTextBox.TextChanged += new System.EventHandler(this.totalTextBox_TextChanged);
             // 
             // totalLabel
             // 
@@ -776,7 +789,7 @@ namespace Calculator2
             // 
             // customerNrTextBox2
             // 
-            this.customerNrTextBox2.Location = new System.Drawing.Point(609, 17);
+            this.customerNrTextBox2.Location = new System.Drawing.Point(587, 17);
             this.customerNrTextBox2.Name = "customerNrTextBox2";
             this.customerNrTextBox2.Size = new System.Drawing.Size(195, 22);
             this.customerNrTextBox2.TabIndex = 188;
@@ -784,7 +797,7 @@ namespace Calculator2
             // 
             // customerNrTextBox
             // 
-            this.customerNrTextBox.Location = new System.Drawing.Point(533, 17);
+            this.customerNrTextBox.Location = new System.Drawing.Point(511, 17);
             this.customerNrTextBox.Name = "customerNrTextBox";
             this.customerNrTextBox.Size = new System.Drawing.Size(70, 22);
             this.customerNrTextBox.TabIndex = 187;
@@ -793,7 +806,7 @@ namespace Calculator2
             // customerNrLabel
             // 
             this.customerNrLabel.AutoSize = true;
-            this.customerNrLabel.Location = new System.Drawing.Point(448, 14);
+            this.customerNrLabel.Location = new System.Drawing.Point(426, 14);
             this.customerNrLabel.Name = "customerNrLabel";
             this.customerNrLabel.Size = new System.Drawing.Size(91, 17);
             this.customerNrLabel.TabIndex = 186;
@@ -803,7 +816,7 @@ namespace Calculator2
             // 
             this.idNrTextBox.Location = new System.Drawing.Point(299, 17);
             this.idNrTextBox.Name = "idNrTextBox";
-            this.idNrTextBox.Size = new System.Drawing.Size(143, 22);
+            this.idNrTextBox.Size = new System.Drawing.Size(110, 22);
             this.idNrTextBox.TabIndex = 185;
             this.idNrTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -842,19 +855,42 @@ namespace Calculator2
             this.goodsListBox.Size = new System.Drawing.Size(772, 292);
             this.goodsListBox.TabIndex = 181;
             // 
+            // label1
+            // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Comic Sans MS", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(821, 275);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(118, 33);
+            this.label1.TabIndex = 239;
+            this.label1.Text = "Search....";
+            // 
+            // searchTextBox
+            // 
+            this.searchTextBox.Location = new System.Drawing.Point(945, 286);
+            this.searchTextBox.Name = "searchTextBox";
+            this.searchTextBox.Size = new System.Drawing.Size(131, 22);
+            this.searchTextBox.TabIndex = 240;
+            this.searchTextBox.Text = "Search";
+            this.searchTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.searchTextBox.TextChanged += new System.EventHandler(this.searchTextBox_TextChanged_1);
+            // 
             // Calculator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1100, 696);
+            this.Controls.Add(this.searchTextBox);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.button5);
+            this.Controls.Add(this.tenPercentButton);
             this.Controls.Add(this.EveningRegisterButton);
             this.Controls.Add(this.MorningRegisterButton);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.twentyPercentButton);
             this.Controls.Add(this.TimesButton);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button4);
+            this.Controls.Add(this.thertyPercentButton);
+            this.Controls.Add(this.nrSearchButton);
             this.Controls.Add(this.CloseButton);
             this.Controls.Add(this.CustomerButton);
             this.Controls.Add(this.NewCustomerButton);
@@ -915,13 +951,13 @@ namespace Calculator2
         #endregion
 
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button tenPercentButton;
         private System.Windows.Forms.Button EveningRegisterButton;
         private System.Windows.Forms.Button MorningRegisterButton;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button twentyPercentButton;
         private System.Windows.Forms.Button TimesButton;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button thertyPercentButton;
+        private System.Windows.Forms.Button nrSearchButton;
         private System.Windows.Forms.Button CloseButton;
         private System.Windows.Forms.Button CustomerButton;
         private System.Windows.Forms.Button NewCustomerButton;
@@ -971,6 +1007,8 @@ namespace Calculator2
         private System.Windows.Forms.TextBox reciptNrTextBox;
         private System.Windows.Forms.Label reciptNrLabel;
         private System.Windows.Forms.ListBox goodsListBox;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox searchTextBox;
     }
 }
 

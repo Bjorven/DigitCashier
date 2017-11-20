@@ -19,7 +19,10 @@ namespace Calculator2
         double result = 0.0;
         double tal1 = 0;
         double tal2 = 0;
-      
+        Double resultValue = 0;
+        String operationPerformed = "";
+        bool isOperationPerformed = false;
+        
         public Calculator()
         {
             InitializeComponent();
@@ -122,6 +125,8 @@ namespace Calculator2
         {
             
                 totalTextBox.Clear();
+                discountTextBox.Clear();    
+
               
         }
 
@@ -133,8 +138,8 @@ namespace Calculator2
         }
         private void OkBotton_Click(object sender, EventArgs e)
         {
-            //tal1 = ;
-            //tal2 = ;
+            ////tal1 = ;
+            ////tal2 = ;
             double num1, num2;
             double.TryParse(operand1, out num1);
             double.TryParse(operand2, out num2);
@@ -153,9 +158,75 @@ namespace Calculator2
             {
                 totalTextBox.Text = "";
             }
+            //switch (operationPerformed)
+            //{
+            //    case "+":
+            //        totalTextBox.Text = (resultValue + Double.Parse(totalTextBox.Text)).ToString();
+            //        break;
+            //    case "*":
+            //        totalTextBox.Text = (resultValue * Double.Parse(totalTextBox.Text)).ToString();
+            //        break;
+
+            //    default:
+            //        break;
+            //}
+            //resultValue = Double.Parse(totalTextBox.Text);
+
+
+
+        }
+
+        private void discountTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (discountTextBox.Text == "0.00")
+                discountTextBox.Clear();
             
         }
 
+        private void DiscountButton_Click(object sender, EventArgs e)
+        {
+            if (discountTextBox.Text == "0.00")
+                discountTextBox.Clear();
+            discountTextBox.Text = discountTextBox.Text + "%";
+        }
+
+        private void totalTextBox_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void twentyPercentButton_Click(object sender, EventArgs e)
+        {
+            if (discountTextBox.Text == "0.00")
+                discountTextBox.Clear();
+            discountTextBox.Text = discountTextBox.Text + "20%";
+        }
+
+        private void tenPercentButton_Click(object sender, EventArgs e)
+        {
+            if (discountTextBox.Text == "0.00")
+                discountTextBox.Clear();
+            discountTextBox.Text = discountTextBox.Text + "10%";
+        }
+
+        private void thertyPercentButton_Click(object sender, EventArgs e)
+        {
+            if (discountTextBox.Text == "0.00")
+                discountTextBox.Clear();
+            discountTextBox.Text = discountTextBox.Text + "30%";
+        }
+
+        private void nrSearchButton_Click(object sender, EventArgs e)
+        {
+            if (searchTextBox.Text == "Search")
+                searchTextBox.Clear();
+            searchTextBox.Text = searchTextBox.Text + "#";
+        }
+
+        private void searchTextBox_TextChanged_1(object sender, EventArgs e)
+        {
+           
+        }
     }
 }
    
