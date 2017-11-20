@@ -57,25 +57,7 @@ namespace databastestLocal
             }
         }
 
-        // detta är vår bool metod som bara kollar ifall vårt dataset innehåller något.
-        public bool credentialcheckerLogin(DataSet ds)
-        {
-
-
-            int count = ds.Tables[0].Rows.Count;
-
-            if (count == 1)
-            {
-                return true;
-
-            }
-            else
-            {
-                return false;
-            }
-            
-
-        }
+      
         
         // denna är inte klar men ska kunna användas för att kunna hämta information i databasen på användarna
 
