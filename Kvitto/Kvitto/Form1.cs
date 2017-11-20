@@ -55,7 +55,7 @@ namespace Kvitto
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            string[] lines = File.ReadAllLines(@"C:\Users\Anders\Documents\Utbildning 2017\OOP\Digit Cashier\kvittodelar.txt");
+            string[] lines = File.ReadAllLines(@"C:\Users\Björn\Documents\kvittodelar.txt");
 
             listBox1.Items.AddRange(lines);
             listBox2.Items.Add(" ÄPPLEN");
