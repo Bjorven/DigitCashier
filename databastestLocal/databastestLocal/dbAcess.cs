@@ -13,7 +13,8 @@ using System.Data.OleDb;
 
 namespace databastestLocal
 {
-    class dbAcess   
+
+    class dbAcess
     {
         // Detta för att slippa upprepa senare i de olika metoderna
         // variabler
@@ -23,7 +24,7 @@ namespace databastestLocal
         public dbAcess()
         {
             connection = new SqlConnection();
-            connection.ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=H:\skola\GIT\Digitcashier\databastestLocal\databastestLocal\databasen\Empolees.mdf;Integrated Security=True;Connect Timeout=30";
+            connection.ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Björn\Documents\GitHub\DigitCashier\databastestLocal\databastestLocal\databasen\Empolees.mdf;Integrated Security=True;Connect Timeout=30";
             command = new SqlCommand();
             command.Connection = connection;
             command.CommandType = CommandType.Text;
@@ -56,27 +57,8 @@ namespace databastestLocal
             }
         }
 
-        // detta är vår bool metod som bara kollar ifall vårt dataset innehåller något.
-        public bool credentialcheckerLogin(DataSet ds)
-        {
-
-            int count = ds.Tables[0].Rows.Count;
-
-            if (count == 1)
-            {
-                return true;
-                
-            }
-            else
-            {
-                return false;
-            }
-            
-
-
-    }
+      
         
-
         // denna är inte klar men ska kunna användas för att kunna hämta information i databasen på användarna
 
         public bool GetUsersData(ref string acesslvl, ref string forename)
