@@ -21,7 +21,7 @@ namespace databastestLocal
 
         }
 
-       
+
         private void frmLogin_Load(object sender, EventArgs e)
         {
 
@@ -35,8 +35,8 @@ namespace databastestLocal
         private void btn_Submit_Click(object sender, EventArgs e)
         {
 
-            
-            
+
+
             if (txt_UserName.Text == "" || txt_Password.Text == "")
             {
                 MessageBox.Show("Please provide UserName and Password");
@@ -44,40 +44,32 @@ namespace databastestLocal
             }
             try
             {
-                dbAcess db = new dbAcess();
+                DbAcess db = new DbAcess();
                 // vi tar först och skapar ett data set av inmatade information i textboxen
                 DataSet ds = db.getdataset(txt_UserName.Text, txt_Password.Text);
 
-                int count = ds.Tables[0].Rows.Count;
-
-               
 
 
 
-                //    //If count == 1 then go to next formapp
-                if (count == 1)
-                {
+                
 
-                    MessageBox.Show("Login Successful!");
-                    this.Hide();
-                    frmMain fm = new frmMain (ds);
-                    fm.Show();
-                    
 
-                }
-                else
-                {
-                    MessageBox.Show("Login Failed!");
-                }
+                MessageBox.Show("Login Successful!");
+                this.Hide();
+                frmMain fm = new frmMain(ds);
+                fm.Show();
+
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Login Failed!");
+                //goggla how to stacktrace print
+                //ex.StackTrace
             }
         }
 
 
-        
+
 
 
 

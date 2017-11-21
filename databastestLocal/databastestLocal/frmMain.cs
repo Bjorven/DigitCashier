@@ -20,27 +20,41 @@ namespace databastestLocal
             Int32 Second = Convert.ToInt32(ds.Tables[0].Rows[0]["password"].ToString());
             Int32 Third = Convert.ToInt32(ds.Tables[0].Rows[0]["acesslvl"].ToString());
             string Fourth = Convert.ToString(ds.Tables[0].Rows[0]["fname"].ToString());
-            if (Third == 2)
+            switch (Third)
             {
-                btn_admin.Hide();
-                btn_boss.Hide();   
+                case 2:
+                    Cashier cashier = new Cashier(First);
+                    cashier.Acesslevel = Third.ToString();
+                    cashier.Fname = Fourth;
+                    btn_admin.Hide();
+                    btn_boss.Hide();
+                    break;
+                case 3:
+                    Admin admin = new Admin(First);
+                    admin.Acesslevel = Third.ToString();
+                    admin.Fname = Fourth;
+                    btn_cashier.Hide();
+                    btn_boss.Hide();
+                    break;
+                case 5:
+                    Boss boss = new Boss(First);
+                    boss.Acesslevel = Third.ToString();
+                    boss.Fname = Fourth;
+                    btn_cashier.Hide();
+                    btn_admin.Hide();
+                    break;
+                default:
+                    break;
+
+
             }
-            else if (Third == 3)
-            {
-                btn_cashier.Hide();
-                btn_boss.Hide();
-            }
-            else if (Third == 5)
-            {
-                btn_admin.Hide();
-                btn_cashier.Hide();
-            }
+
             
         }
-        
+
         private void btn_cashier_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void btn_admin_Click(object sender, EventArgs e)

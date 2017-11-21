@@ -14,14 +14,14 @@ using System.Data.OleDb;
 namespace databastestLocal
 {
 
-    class dbAcess
+    class DbAcess
     {
         // Detta för att slippa upprepa senare i de olika metoderna
         // variabler
         SqlConnection connection;
         SqlCommand command;
 
-        public dbAcess()
+        public DbAcess()
         {
             connection = new SqlConnection();
             connection.ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=H:\skola\GIT\Digitcashier\databastestLocal\databastestLocal\databasen\Empolees.mdf;Integrated Security=True;Connect Timeout=30";
@@ -53,7 +53,7 @@ namespace databastestLocal
             }
             else
             {
-                return null;
+                throw new Exception();
             }
         }
 
