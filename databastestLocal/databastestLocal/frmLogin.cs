@@ -15,7 +15,7 @@ namespace databastestLocal
 {
     public partial class frmLogin : Form
     {
-        public static User user;
+        //public static User user;
 
         public frmLogin()
         {
