@@ -12,19 +12,20 @@ namespace databastestLocal
 {
     public partial class frmMain : Form
     {
-        public frmMain(DataSet ds)
+        private User user;
+        public frmMain(User user)
         {
             InitializeComponent();
+            this.user = user;
 
 
 
+            //DbAcess db = new DbAcess();
 
-            DbAcess db = new DbAcess();
-            
 
             // får ut datan ur ds
             //Int32 passcode = Convert.ToInt32(ds.Tables[0].Rows[0]["passwordPIN"].ToString());
-            Int32 acesslvl = Convert.ToInt32(ds.Tables[0].Rows[0]["acessLvl"].ToString());
+            //Int32 acesslvl = Convert.ToInt32(ds.Tables[0].Rows[0]["acessLvl"].ToString());
             //Int32 postalCode = Convert.ToInt32(ds.Tables[0].Rows[0]["postCode"].ToString());
             //Int32 username = Convert.ToInt32(ds.Tables[0].Rows[0]["id"].ToString());
             //Int32 salary = Convert.ToInt32(ds.Tables[0].Rows[0]["Salary"].ToString());
@@ -39,14 +40,35 @@ namespace databastestLocal
             //string companyId = Convert.ToString(ds.Tables[0].Rows[0]["CompanyId"].ToString());
             //DateTime hoursWorked = Convert.ToDateTime(ds.Tables[0].Rows[0]["hoursWorked"].ToString());
 
+        }
 
-            switch (acesslvl)
+
+        private void btn_cashier_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_admin_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_boss_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
+        private void frmMain_Load(object sender, EventArgs e)
+        {
+
+            switch (this.user.RoleId)
             {
                 case 2:
-                    
 
-                    
-                    
+
+
+
 
 
                     btn_admin.Hide();
@@ -68,32 +90,7 @@ namespace databastestLocal
                     break;
                 default:
                     break;
-
-
             }
-
-            
-        }
-
-        private void btn_cashier_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btn_admin_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btn_boss_Click(object sender, EventArgs e)
-        {
-
-        }
-
-
-        private void frmMain_Load(object sender, EventArgs e)
-        {
-           // frmLogin.user.Acesslevel
         }
     }
 }

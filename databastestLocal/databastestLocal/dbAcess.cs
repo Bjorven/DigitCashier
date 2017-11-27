@@ -34,7 +34,7 @@ namespace databastestLocal
 
         // getdataset är den metod vi använder för att checka username och password mot databas, den returnerar ett dataset med all data som tillhör denna användaren.
         
-        public User getdataset(string txt_UserName, string txt_Password)
+        public User getUser(string txt_UserName, string txt_Password)
         {
             command.CommandText = "Select * from EmployeeUsers where employeeID=@employeeID and password=@password";
             command.Parameters.AddWithValue("@employeeID", txt_UserName);
