@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace databastestLocal
 {
-    class User//:Employee
+   public class User//:Employee
     {
 
         ///Instansvariabler
@@ -34,9 +34,10 @@ namespace databastestLocal
         private DateTime hiredDate;
 
 
-        public User(string uname)
+        public User(string uname, int pword)
         {
-            UserName = uname;
+            uname = UserName;
+            pword = Password;
         }
         //string forename, string surname, string hadress, int postcode, string hcity, string persnr,  int agey
         public User(string uname, string forename, string surname, string persnr, string hadress, Int64 sal, int postcode, int agey, int passcode, int ropTo, string compId, int roleIdy, int hw, DateTime hirDate, DateTime lstActivDat, DateTime cekIn, DateTime cekOut)

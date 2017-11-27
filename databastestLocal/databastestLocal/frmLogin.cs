@@ -15,7 +15,7 @@ namespace databastestLocal
 {
     public partial class frmLogin : Form
     {
-        //public static User user;
+         
 
         public frmLogin()
         {
@@ -48,7 +48,7 @@ namespace databastestLocal
             {
                 DbAcess db = new DbAcess();
                 // vi tar först och skapar ett data set av inmatade information i textboxen
-               User user = db.getdataset(txt_UserName.Text, txt_Password.Text);
+                User user = db.getUser(txt_UserName.Text, txt_Password.Text);
                 //user4.UserName = (ds.Tables[0].Rows[0][1].ToString());
                 
 
@@ -59,7 +59,7 @@ namespace databastestLocal
 
                 MessageBox.Show("Login Successful!");
                 this.Hide();
-                
+                frmMain Main = new frmMain(user);
 
             }
             catch (Exception ex)

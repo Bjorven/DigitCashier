@@ -21,7 +21,7 @@ namespace databastestLocal
         // variabler
         SqlConnection connection;
         SqlCommand command;
-
+        //Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=H:\skola\GIT\Digitcashier\databastestLocal\databastestLocal\databasen\Empolees.mdf;Integrated Security=True;Connect Timeout=30
         public DbAcess()
         {
             connection = new SqlConnection();
@@ -34,12 +34,11 @@ namespace databastestLocal
 
         // getdataset är den metod vi använder för att checka username och password mot databas, den returnerar ett dataset med all data som tillhör denna användaren.
         
-        public User getdataset(string txt_UserName, string txt_Password)
+        public User getUser(string txt_UserName, string txt_Password)
         {
-            
-            command.CommandText = "Select * from Employee where id=@id and passwordPIN=@passwordPIN";
-            command.Parameters.AddWithValue("@id", txt_UserName);
-            command.Parameters.AddWithValue("@passwordPIN", txt_Password);
+            command.CommandText = "Select * from EmployeeUsers where employeeID=@employeeID and password=@password";
+            command.Parameters.AddWithValue("@employeeID", txt_UserName);
+            command.Parameters.AddWithValue("@password", txt_Password);
             connection.Open();
             SqlDataAdapter adapt = new SqlDataAdapter(command);
             DataSet ds = new DataSet();
