@@ -6,29 +6,80 @@ using System.Threading.Tasks;
 
 namespace databastestLocal
 {
-    class User:Employee
+    class User//:Employee
     {
 
         ///Instansvariabler
         ///
 
         private string userName;
-        private string password;
-        private string acesslevel;
+        private int password;
+        private string companyId;
+        private string fname;
+        private string sname;
+        private string adress;
+        //private string city;
+        private string personnr;
 
-        public User() { }
+        private int roleId;
+        private int hoursWorked;
+        private int reportsTo;
+        private int age;
+        private int postnr;
+        private Int64 salary;
 
-        public User(string uname, string passcode, string alvl)
+        private DateTime checkIn;
+        private DateTime checkOut;
+        private DateTime lastActivityDate;
+        private DateTime hiredDate;
+
+
+        public User(string uname)
+        {
+            UserName = uname;
+        }
+        //string forename, string surname, string hadress, int postcode, string hcity, string persnr,  int agey
+        public User(string uname, string forename, string surname, string persnr, string hadress, Int64 sal, int postcode, int agey, int passcode, int ropTo, string compId, int roleIdy, int hw, DateTime hirDate, DateTime lstActivDat, DateTime cekIn, DateTime cekOut)
         {
             uname = UserName;
             passcode = Password;
-            alvl = Acesslevel;
+            roleIdy = RoleId;
+            hw = HoursWorked;
+            ropTo = ReportsTo;
+            compId = CompanyId;
+            cekIn = CheckIn;
+            cekOut = CheckOut;
+            lstActivDat = LastActivityDate;
+            hirDate = HiredDate;
+            forename = Fname;
+            surname = Sname;
+            hadress = Adress;
+            postcode = Postnr;
+            //hcity = City;
+            persnr = Personnr;
+            sal = Salary;
+            agey = Age;
 
-           
+
         }
         public string UserName { get; set; }
-        public string Password { get; set; }
-        public string Acesslevel { get; set; }
+        public int Password { get; set; }
+        public int RoleId { get; set; }
+        public int HoursWorked { get; set; }
+        public int ReportsTo { get; set; }
+        public string CompanyId { get; set; }
+        public DateTime CheckIn { get; set; }
+        public DateTime CheckOut { get; set; }
+        public DateTime LastActivityDate { get; set; }
+        public DateTime HiredDate { get; set; }
+        public string Fname { get; set; }
+        public string Sname { get; set; }
+        public string Adress { get; set; }
+        public int Postnr { get; set; }
+        //public string City { get; set; }
+        public string Personnr { get; set; }
+        public Int64 Salary { get; set; }
+        public int Age { get; set; }
 
 
 

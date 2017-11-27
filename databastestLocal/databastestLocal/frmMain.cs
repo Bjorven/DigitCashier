@@ -15,31 +15,54 @@ namespace databastestLocal
         public frmMain(DataSet ds)
         {
             InitializeComponent();
+
+
+
+
+            DbAcess db = new DbAcess();
+            
+
             // får ut datan ur ds
-            Int32 First = Convert.ToInt32(ds.Tables[0].Rows[0]["id"].ToString());
-            Int32 Second = Convert.ToInt32(ds.Tables[0].Rows[0]["passwordPIN"].ToString());
-            Int32 Third = Convert.ToInt32(ds.Tables[0].Rows[0]["acessLvl"].ToString());
-            string Fourth = Convert.ToString(ds.Tables[0].Rows[0]["fName"].ToString());
-            switch (Third)
+            //Int32 passcode = Convert.ToInt32(ds.Tables[0].Rows[0]["passwordPIN"].ToString());
+            Int32 acesslvl = Convert.ToInt32(ds.Tables[0].Rows[0]["acessLvl"].ToString());
+            //Int32 postalCode = Convert.ToInt32(ds.Tables[0].Rows[0]["postCode"].ToString());
+            //Int32 username = Convert.ToInt32(ds.Tables[0].Rows[0]["id"].ToString());
+            //Int32 salary = Convert.ToInt32(ds.Tables[0].Rows[0]["Salary"].ToString());
+            //Int32 age = Convert.ToInt32(ds.Tables[0].Rows[0]["age"].ToString());
+            //Int32 reportsTo = Convert.ToInt32(ds.Tables[0].Rows[0]["reportsTo"].ToString());
+            //
+            //
+            //string fname = Convert.ToString(ds.Tables[0].Rows[0]["fName"].ToString());
+            //string sname = Convert.ToString(ds.Tables[0].Rows[0]["sName"].ToString());
+            //string dob = Convert.ToString(ds.Tables[0].Rows[0]["dob"].ToString());
+            //string adress = Convert.ToString(ds.Tables[0].Rows[0]["adress"].ToString());
+            //string companyId = Convert.ToString(ds.Tables[0].Rows[0]["CompanyId"].ToString());
+            //DateTime hoursWorked = Convert.ToDateTime(ds.Tables[0].Rows[0]["hoursWorked"].ToString());
+
+
+            switch (acesslvl)
             {
                 case 2:
-                    Cashier cashier = new Cashier(First);
-                    cashier.Acesslevel = Third.ToString();
-                    cashier.Fname = Fourth;
+                    
+
+                    
+                    
+
+
                     btn_admin.Hide();
                     btn_boss.Hide();
                     break;
                 case 3:
-                    Admin admin = new Admin(First);
-                    admin.Acesslevel = Third.ToString();
-                    admin.Fname = Fourth;
+                    //Admin admin = new Admin(username);
+                    //admin.Acesslevel = acesslvl.ToString();
+                    //admin.Fname = fname;
                     btn_cashier.Hide();
                     btn_boss.Hide();
                     break;
                 case 5:
-                    Boss boss = new Boss(First);
-                    boss.Acesslevel = Third.ToString();
-                    boss.Fname = Fourth;
+                    //Boss boss = new Boss(username);
+                    //boss.Acesslevel = acesslvl.ToString();
+                    //boss.Fname = fname;
                     btn_cashier.Hide();
                     btn_admin.Hide();
                     break;
@@ -70,7 +93,7 @@ namespace databastestLocal
 
         private void frmMain_Load(object sender, EventArgs e)
         {
-
+           // frmLogin.user.Acesslevel
         }
     }
 }

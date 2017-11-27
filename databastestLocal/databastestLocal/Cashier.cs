@@ -10,15 +10,25 @@ namespace databastestLocal
     {
         private int userName;
         private int acesslevel = 2;
+        private int hoursWorked;
+
+        private DateTime checkIn;
+        private DateTime checkOut;
+        private DateTime lastActivityDate;
+        private DateTime hiredDate;
+
+        private int reportsTo;
+        private string companyId;
 
 
 
-        public Cashier(int uname)
-        {
-            uname = UserName;
-        }
+       
 
-        public int UserName { get; set; }
+
+
+
+
+
 
     }
 }

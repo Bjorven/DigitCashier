@@ -13,12 +13,6 @@ namespace databastestLocal
 
 
 
-        public Admin(int uname)
-        {
-            uname = UserName;
-        }
-
-        public int UserName { get; set; }
-
+   
     }
 }

@@ -60,11 +60,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Admin.cs" />
-    <Compile Include="Boss.cs" />
-    <Compile Include="Cashier.cs" />
     <Compile Include="DbAcess.cs" />
-    <Compile Include="Employee.cs" />
     <Compile Include="frmAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
