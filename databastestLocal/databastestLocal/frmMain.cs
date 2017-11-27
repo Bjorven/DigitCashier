@@ -16,10 +16,10 @@ namespace databastestLocal
         {
             InitializeComponent();
             // får ut datan ur ds
-            Int32 First = Convert.ToInt32(ds.Tables[0].Rows[0]["employeeID"].ToString());
-            Int32 Second = Convert.ToInt32(ds.Tables[0].Rows[0]["password"].ToString());
-            Int32 Third = Convert.ToInt32(ds.Tables[0].Rows[0]["acesslvl"].ToString());
-            string Fourth = Convert.ToString(ds.Tables[0].Rows[0]["fname"].ToString());
+            Int32 First = Convert.ToInt32(ds.Tables[0].Rows[0]["id"].ToString());
+            Int32 Second = Convert.ToInt32(ds.Tables[0].Rows[0]["passwordPIN"].ToString());
+            Int32 Third = Convert.ToInt32(ds.Tables[0].Rows[0]["acessLvl"].ToString());
+            string Fourth = Convert.ToString(ds.Tables[0].Rows[0]["fName"].ToString());
             switch (Third)
             {
                 case 2:
