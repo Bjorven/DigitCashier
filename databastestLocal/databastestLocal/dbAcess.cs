@@ -36,9 +36,9 @@ namespace databastestLocal
         
         public User getUser(string txt_UserName, string txt_Password)
         {
-            command.CommandText = "Select * from EmployeeUsers where employeeID=@employeeID and password=@password";
-            command.Parameters.AddWithValue("@employeeID", txt_UserName);
-            command.Parameters.AddWithValue("@password", txt_Password);
+            command.CommandText = "Select * from Employee where id=@id and passwordPIN=@passwordPIN";
+            command.Parameters.AddWithValue("@id", txt_UserName);
+            command.Parameters.AddWithValue("@passwordPIN", txt_Password);
             connection.Open();
             SqlDataAdapter adapt = new SqlDataAdapter(command);
             DataSet ds = new DataSet();
@@ -49,42 +49,43 @@ namespace databastestLocal
 
             if (count == 1)
             {
-                
+                 // här skickar vi ut och tilldelar user's data
+                 //vi måste göra detta en och en för att se vilken jag har parsat fel.
                 User getuser = new User(
-                //UserName = 
-                ds.Tables[0].Rows[0][0].ToString(),
-                //Fname = 
-                ds.Tables[0].Rows[0][1].ToString(),
-                //Sname = 
-                ds.Tables[0].Rows[0][2].ToString(),
-                //dob
-                ds.Tables[0].Rows[0][3].ToString(),
-                //adress
-                ds.Tables[0].Rows[0][4].ToString(), 
-                //Salary
-                (int)ds.Tables[0].Rows[0][5],
-                //postcode
-                (int)ds.Tables[0].Rows[0][6],
-                //age
-                (int)ds.Tables[0].Rows[0][7],
-                //passwordPin
-                (int)ds.Tables[0].Rows[0][8],
-                //reportsTo
-                (int)ds.Tables[0].Rows[0][9],
-                //companyId
-                ds.Tables[0].Rows[0][10].ToString(),
-                //RoleId
-                (int)ds.Tables[0].Rows[0][11],
-                //hoursWorked
-                (int)ds.Tables[0].Rows[0][12],
-                //hiredDate
-                (DateTime)ds.Tables[0].Rows[0][13],
-                //lastActiveDateTime
-                (DateTime)ds.Tables[0].Rows[0][14],
-                //checkIn
-                (DateTime)ds.Tables[0].Rows[0][15],
-                //checkOut
-                (DateTime)ds.Tables[0].Rows[0][16]
+                ////UserName = 
+                Convert.ToString(ds.Tables[0].Rows[0][0].ToString()),
+                ////Fname = 
+                //Convert.ToString(ds.Tables[0].Rows[0][1].ToString()),
+                ////Sname = 
+                //Convert.ToString(ds.Tables[0].Rows[0][2].ToString()),
+                ////dob
+                //Convert.ToString(ds.Tables[0].Rows[0][3].ToString()),
+                ////adress
+                //Convert.ToString(ds.Tables[0].Rows[0][4].ToString()),
+                ////Salary
+                //Convert.ToInt32(ds.Tables[0].Rows[0][5].ToString()),
+                ////postcode
+                //Convert.ToInt32(ds.Tables[0].Rows[0][6].ToString()),
+                ////age
+                //Convert.ToInt32(ds.Tables[0].Rows[0][7].ToString()),
+                ////passwordPin
+                Convert.ToInt32(ds.Tables[0].Rows[0][8].ToString()),
+                ////reportsTo
+                //Convert.ToInt32(ds.Tables[0].Rows[0][9].ToString()),
+                ////companyId
+                //Convert.ToString(ds.Tables[0].Rows[0][10].ToString()),
+                ////RoleId
+                Convert.ToInt32(ds.Tables[0].Rows[0][11].ToString())
+                ////hoursWorked
+                //Convert.ToInt32(ds.Tables[0].Rows[0][12].ToString()),
+                ////hiredDate
+                //Convert.ToDateTime(ds.Tables[0].Rows[0][13].ToString()),
+                ////lastActiveDateTime
+                //Convert.ToDateTime(ds.Tables[0].Rows[0][14].ToString()),
+                ////checkIn
+                //Convert.ToDateTime(ds.Tables[0].Rows[0][15].ToString()),
+                ////checkOut
+                //Convert.ToDateTime(ds.Tables[0].Rows[0][16].ToString())
                 );
                 return getuser;
 

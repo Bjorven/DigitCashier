@@ -34,10 +34,11 @@ namespace databastestLocal
         private DateTime hiredDate;
 
 
-        public User(string uname, int pword)
+        public User(string uname, int pword, int roly)
         {
-            uname = UserName;
-            pword = Password;
+            UserName = uname;
+            Password = pword;
+            RoleId = roly;
         }
         //string forename, string surname, string hadress, int postcode, string hcity, string persnr,  int agey
         public User(string uname, string forename, string surname, string persnr, string hadress, Int64 sal, int postcode, int agey, int passcode, int ropTo, string compId, int roleIdy, int hw, DateTime hirDate, DateTime lstActivDat, DateTime cekIn, DateTime cekOut)

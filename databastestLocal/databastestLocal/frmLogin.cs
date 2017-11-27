@@ -47,9 +47,10 @@ namespace databastestLocal
             try
             {
                 DbAcess db = new DbAcess();
-                // vi tar först och skapar ett data set av inmatade information i textboxen
+                // här är vår metod för att kolla Db om lösenord och username finns och är rätt.
+                // Därefter skickas en fylld instans av klassen User ut.
                 User user = db.getUser(txt_UserName.Text, txt_Password.Text);
-                //user4.UserName = (ds.Tables[0].Rows[0][1].ToString());
+                
                 
 
 
@@ -59,7 +60,10 @@ namespace databastestLocal
 
                 MessageBox.Show("Login Successful!");
                 this.Hide();
+                // Om allt är rätt skickas vi till nästa fönster, och då skickar vi med den ifyllda instansen
+                // av klassen User
                 frmMain Main = new frmMain(user);
+                Main.Show();
 
             }
             catch (Exception ex)
