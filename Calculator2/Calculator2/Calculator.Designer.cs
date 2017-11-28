@@ -272,6 +272,7 @@ namespace Calculator2
             this.BarcodeBotton.TabIndex = 226;
             this.BarcodeBotton.Text = "Barcode";
             this.BarcodeBotton.UseVisualStyleBackColor = false;
+            this.BarcodeBotton.Click += new System.EventHandler(this.BarcodeBotton_Click);
             // 
             // SignOutBotton
             // 
@@ -997,6 +998,7 @@ namespace Calculator2
             this.Controls.Add(this.reciptNrTextBox);
             this.Controls.Add(this.reciptNrLabel);
             this.Controls.Add(this.goodsListBox);
+            this.MaximizeBox = false;
             this.Name = "Calculator";
             this.Text = "Form1";
             this.ResumeLayout(false);

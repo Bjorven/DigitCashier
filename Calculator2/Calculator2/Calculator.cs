@@ -28,6 +28,7 @@ namespace Calculator2
         {
             InitializeComponent();
         }
+        Barcode barcode;
 
         private void NrOneButton_Click_1(object sender, EventArgs e)
         {
@@ -396,7 +397,12 @@ namespace Calculator2
 
             }
 
+        private void BarcodeBotton_Click(object sender, EventArgs e)
+        {
+            barcode = new Barcode();
+            barcode.Show();
         }
+    }
     }
 
 

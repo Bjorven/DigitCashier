@@ -45,6 +45,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Barcode.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Barcode.Designer.cs">
+      <DependentUpon>Barcode.cs</DependentUpon>
+    </Compile>
     <Compile Include="Calculator.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -55,6 +61,9 @@
     <Compile Include="Product.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Barcode.resx">
+      <DependentUpon>Barcode.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Calculator.resx">
       <DependentUpon>Calculator.cs</DependentUpon>
     </EmbeddedResource>
