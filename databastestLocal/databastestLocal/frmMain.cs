@@ -60,5 +60,18 @@ namespace databastestLocal
                     break;
             }
         }
+
+        private void btn_logOut_Click(object sender, EventArgs e)
+        {
+            // vid utloggning ändrar vi värdet på user.checkOut till tidpunktens datum och tid.
+            // vi skickar också in user'n till en metod som kommer att räkna ut differansen mellan checkIn och -Out, denna ska sparas till
+            // hoursWork.
+            DbAcess db = new DbAcess();
+            this.Hide();
+            user.CheckOut = DateTime.Now;
+            db.getTimestamp(user);
+            frmLogin frmLogin= new frmLogin();
+            frmLogin.Show();
+        }
     }
 }

@@ -17,11 +17,11 @@ namespace databastestLocal
 
     class DbAcess
     {
-        // Detta för att slippa upprepa senare i de olika metoderna
+        // Detta läggs här för att slippa upprepa senare i de olika metoderna
         // variabler
         SqlConnection connection;
         SqlCommand command;
-        //Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=H:\skola\GIT\Digitcashier\databastestLocal\databastestLocal\databasen\Empolees.mdf;Integrated Security=True;Connect Timeout=30
+
         public DbAcess()
         {
             connection = new SqlConnection();
@@ -30,12 +30,13 @@ namespace databastestLocal
             command.Connection = connection;
             command.CommandType = CommandType.Text;
         } // constructor
-          ///////////////////////////////////////////////////////////////////
+
 
         // getdataset är den metod vi använder för att checka username och password mot databas, den returnerar ett dataset med all data som tillhör denna användaren.
-        
+
         public User getUser(string txt_UserName, string txt_Password)
         {
+            
             command.CommandText = "Select * from Employee where id=@id and passwordPIN=@passwordPIN";
             command.Parameters.AddWithValue("@id", txt_UserName);
             command.Parameters.AddWithValue("@passwordPIN", txt_Password);
@@ -49,61 +50,88 @@ namespace databastestLocal
 
             if (count == 1)
             {
-                 // här skickar vi ut och tilldelar user's data
-                 //vi måste göra detta en och en för att se vilken jag har parsat fel.
+                // här skickar vi ut och tilldelar user's data
+                //vi måste göra detta en och en för att se vilken jag har parsat/castat fel.
                 User getuser = new User(
-                ////UserName = 
+                ////UserName 
                 Convert.ToString(ds.Tables[0].Rows[0][0].ToString()),
-                ////Fname = 
-                //Convert.ToString(ds.Tables[0].Rows[0][1].ToString()),
-                ////Sname = 
-                //Convert.ToString(ds.Tables[0].Rows[0][2].ToString()),
+                ////Fname 
+                Convert.ToString(ds.Tables[0].Rows[0][1].ToString()),
+                ////Sname 
+                Convert.ToString(ds.Tables[0].Rows[0][2].ToString()),
                 ////dob
-                //Convert.ToString(ds.Tables[0].Rows[0][3].ToString()),
+                Convert.ToString(ds.Tables[0].Rows[0][3].ToString()),
                 ////adress
-                //Convert.ToString(ds.Tables[0].Rows[0][4].ToString()),
+                Convert.ToString(ds.Tables[0].Rows[0][4].ToString()),
                 ////Salary
-                //Convert.ToInt32(ds.Tables[0].Rows[0][5].ToString()),
+                Convert.ToInt32(ds.Tables[0].Rows[0][5].ToString()),
                 ////postcode
-                //Convert.ToInt32(ds.Tables[0].Rows[0][6].ToString()),
+                Convert.ToInt32(ds.Tables[0].Rows[0][6].ToString()),
                 ////age
-                //Convert.ToInt32(ds.Tables[0].Rows[0][7].ToString()),
+                Convert.ToInt32(ds.Tables[0].Rows[0][7].ToString()),
                 ////passwordPin
                 Convert.ToInt32(ds.Tables[0].Rows[0][8].ToString()),
                 ////reportsTo
-                //Convert.ToInt32(ds.Tables[0].Rows[0][9].ToString()),
+                Convert.ToInt32(ds.Tables[0].Rows[0][9].ToString()),
                 ////companyId
-                //Convert.ToString(ds.Tables[0].Rows[0][10].ToString()),
+                Convert.ToString(ds.Tables[0].Rows[0][10].ToString()),
                 ////RoleId
-                Convert.ToInt32(ds.Tables[0].Rows[0][11].ToString())
-                ////hoursWorked
-                //Convert.ToInt32(ds.Tables[0].Rows[0][12].ToString()),
-                ////hiredDate
-                //Convert.ToDateTime(ds.Tables[0].Rows[0][13].ToString()),
-                ////lastActiveDateTime
-                //Convert.ToDateTime(ds.Tables[0].Rows[0][14].ToString()),
-                ////checkIn
-                //Convert.ToDateTime(ds.Tables[0].Rows[0][15].ToString()),
-                ////checkOut
-                //Convert.ToDateTime(ds.Tables[0].Rows[0][16].ToString())
+                Convert.ToInt32(ds.Tables[0].Rows[0][11].ToString()),
+                ////hoursWorked denna funkar inte!!
+                Convert.ToInt16(ds.Tables[0].Rows[0][12].ToString()),
+                //hiredDate
+                Convert.ToDateTime(ds.Tables[0].Rows[0][13].ToString()),
+                //lastActiveDateTime
+                Convert.ToDateTime(ds.Tables[0].Rows[0][14].ToString()),
+                //checkIn
+                Convert.ToDateTime(ds.Tables[0].Rows[0][15].ToString()),
+                //checkOut
+                Convert.ToDateTime(ds.Tables[0].Rows[0][16].ToString())
                 );
+
                 return getuser;
+
 
             }
             else
             {
+
                 throw new Exception();
             }
         }
 
 
+        public User getTimestamp(User user)
+        {
 
+            int timeelapsed = (int)user.CheckOut.Subtract(user.CheckIn).TotalMinutes;
+            
+
+
+            
+            user.HoursWorked = user.HoursWorked + timeelapsed;
+
+            command.CommandText = "UPDATE Employee SET checkIn=@checkIn, checkOut=@checkOut, hoursWorked=@hoursWorked where id=@id";
+            command.Parameters.AddWithValue("@id", user.UserName);
+            command.Parameters.AddWithValue("@checkIn", user.CheckIn);
+            command.Parameters.AddWithValue("@checkOut", user.CheckOut);
+            command.Parameters.AddWithValue("@hoursWorked", user.HoursWorked);
+            //command.Parameters.AddWithValue("@lasActiveDateTime", user.CheckIn);
+            connection.Open();
+            SqlDataAdapter adapt = new SqlDataAdapter(command);
+            DataSet ds = new DataSet();
+            adapt.Fill(ds);
+            connection.Close();
+
+
+            return user;
+        }
         // denna är inte klar men ska kunna användas för att kunna hämta information i databasen på användarna
 
         //public static User GetUsersData(int id)
         //{
 
-            
+
 
 
         //    command.CommandText = "Select * from User where employeeId=@employeeId";
@@ -124,12 +152,11 @@ namespace databastestLocal
         //    {
         //        throw new Exception();
         //    }
-          
+
 
         //}
 
 
-        
 
 
 
@@ -144,5 +171,6 @@ namespace databastestLocal
 
 
 
-        }
+
     }
+}

@@ -20,8 +20,8 @@ namespace databastestLocal
         private string adress;
         //private string city;
         private string personnr;
-
         private int roleId;
+
         private int hoursWorked;
         private int reportsTo;
         private int age;
@@ -33,37 +33,51 @@ namespace databastestLocal
         private DateTime lastActivityDate;
         private DateTime hiredDate;
 
-
-        public User(string uname, int pword, int roly)
+        //
+        public User(string uname, string forename, string surname, string persnr, string hadress, Int64 sal, int postcode, int agey, int pword, int ropTo, string compId, int roly, int hw, DateTime hirDate, DateTime lstActivDat, DateTime cekIn, DateTime cekOut)
         {
             UserName = uname;
+            Fname = forename;
+            Sname = surname;
+            Personnr = persnr;
+            Adress = hadress;
+            Salary = sal;
+            Postnr = postcode;
+            Age = agey;
             Password = pword;
+            ReportsTo = ropTo;
+            CompanyId = compId;
             RoleId = roly;
+            HoursWorked = hw;
+            HiredDate = hirDate;
+            LastActivityDate = lstActivDat;
+            CheckIn = cekIn;
+            CheckOut = cekOut;
         }
         //string forename, string surname, string hadress, int postcode, string hcity, string persnr,  int agey
-        public User(string uname, string forename, string surname, string persnr, string hadress, Int64 sal, int postcode, int agey, int passcode, int ropTo, string compId, int roleIdy, int hw, DateTime hirDate, DateTime lstActivDat, DateTime cekIn, DateTime cekOut)
-        {
-            uname = UserName;
-            passcode = Password;
-            roleIdy = RoleId;
-            hw = HoursWorked;
-            ropTo = ReportsTo;
-            compId = CompanyId;
-            cekIn = CheckIn;
-            cekOut = CheckOut;
-            lstActivDat = LastActivityDate;
-            hirDate = HiredDate;
-            forename = Fname;
-            surname = Sname;
-            hadress = Adress;
-            postcode = Postnr;
-            //hcity = City;
-            persnr = Personnr;
-            sal = Salary;
-            agey = Age;
-
-
-        }
+       // public User(string uname, string forename, string surname, string persnr, string hadress, Int64 sal, int postcode, int agey, int passcode, int ropTo, string compId, string roleIdy, int hw, DateTime hirDate, DateTime lstActivDat, DateTime cekIn, DateTime cekOut)
+       // {
+       //     uname = UserName;
+       //     passcode = Password;
+       //     roleIdy = RoleId;
+       //     hw = HoursWorked;
+       //     ropTo = ReportsTo;
+       //     compId = CompanyId;
+       //     cekIn = CheckIn;
+       //     cekOut = CheckOut;
+       //     lstActivDat = LastActivityDate;
+       //     hirDate = HiredDate;
+       //     forename = Fname;
+       //     surname = Sname;
+       //     hadress = Adress;
+       //     postcode = Postnr;
+       //     //hcity = City;
+       //     persnr = Personnr;
+       //     sal = Salary;
+       //     agey = Age;
+       //
+       //
+       // }
         public string UserName { get; set; }
         public int Password { get; set; }
         public int RoleId { get; set; }

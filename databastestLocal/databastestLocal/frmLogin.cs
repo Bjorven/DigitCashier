@@ -62,6 +62,9 @@ namespace databastestLocal
                 this.Hide();
                 // Om allt är rätt skickas vi till nästa fönster, och då skickar vi med den ifyllda instansen
                 // av klassen User
+                
+                // vi  ändrar också värdet på user.checkIn till tidpunktens datum och tid.
+                user.CheckIn = DateTime.Now;
                 frmMain Main = new frmMain(user);
                 Main.Show();
 
