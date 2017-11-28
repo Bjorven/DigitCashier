@@ -29,9 +29,9 @@ namespace databastestLocal
             command.Connection = connection;
             command.CommandType = CommandType.Text;
         } // constructor
-        ///////////////////////////////////////////////////////////////////
+          ///////////////////////////////////////////////////////////////////
 
-            // getdataset är den metod vi använder för att checka username och password mot databas, den returnerar ett dataset med all data som tillhör denna användaren.
+        // getdataset är den metod vi använder för att checka username och password mot databas, den returnerar ett dataset med all data som tillhör denna användaren.
 
         public DataSet getdataset(string txt_UserName, string txt_Password)
         {
@@ -57,18 +57,18 @@ namespace databastestLocal
             }
         }
 
-      
-        
+
+
         // denna är inte klar men ska kunna användas för att kunna hämta information i databasen på användarna
 
         public bool GetUsersData(ref string acesslvl, ref string forename)
         {
-           
+
 
             bool returnvalue = false;
             try
             {
-                
+
                 command.CommandText = "Select * from EmployeeUsers where employeeID=@employeeID and password=@password";
                 command.Parameters.Add("@forename", SqlDbType.VarChar).Value = forename;
                 command.Parameters.Add("@acesslvl", SqlDbType.NChar).Value = acesslvl;
@@ -111,5 +111,5 @@ namespace databastestLocal
 
 
 
-        }
     }
+}
