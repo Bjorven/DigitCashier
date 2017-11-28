@@ -64,7 +64,7 @@ namespace Calculator2
             this.NrOneButton = new System.Windows.Forms.Button();
             this.DoubleZeroButton = new System.Windows.Forms.Button();
             this.ZeroButton = new System.Windows.Forms.Button();
-            this.ReturnButton = new System.Windows.Forms.Button();
+            this.momsButton = new System.Windows.Forms.Button();
             this.DiscountButton = new System.Windows.Forms.Button();
             this.ClearBotton = new System.Windows.Forms.Button();
             this.toPayLabel = new System.Windows.Forms.Label();
@@ -78,17 +78,21 @@ namespace Calculator2
             this.discountLabel = new System.Windows.Forms.Label();
             this.discountTextBox = new System.Windows.Forms.TextBox();
             this.totalTextBox = new System.Windows.Forms.TextBox();
-            this.totalLabel = new System.Windows.Forms.Label();
-            this.customerNrTextBox2 = new System.Windows.Forms.TextBox();
-            this.customerNrTextBox = new System.Windows.Forms.TextBox();
-            this.customerNrLabel = new System.Windows.Forms.Label();
+            this.changeLabel = new System.Windows.Forms.Label();
             this.idNrTextBox = new System.Windows.Forms.TextBox();
+            this.customerNrLabel = new System.Windows.Forms.Label();
+            this.customerNrTextBox = new System.Windows.Forms.TextBox();
             this.idNrLabel = new System.Windows.Forms.Label();
             this.reciptNrTextBox = new System.Windows.Forms.TextBox();
             this.reciptNrLabel = new System.Windows.Forms.Label();
             this.goodsListBox = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
             this.searchTextBox = new System.Windows.Forms.TextBox();
+            this.momsTextBox = new System.Windows.Forms.TextBox();
+            this.momsLabel = new System.Windows.Forms.Label();
+            this.changeTextBox = new System.Windows.Forms.TextBox();
+            this.totalLabel = new System.Windows.Forms.Label();
+            this.idnameComboBox = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // dateTimePicker1
@@ -112,7 +116,7 @@ namespace Calculator2
             this.tenPercentButton.TabIndex = 236;
             this.tenPercentButton.Text = "10%";
             this.tenPercentButton.UseVisualStyleBackColor = false;
-            this.tenPercentButton.Click += new System.EventHandler(this.tenPercentButton_Click);
+            this.tenPercentButton.Click += new System.EventHandler(this.TenPercentButton_Click);
             // 
             // EveningRegisterButton
             // 
@@ -158,7 +162,7 @@ namespace Calculator2
             this.twentyPercentButton.TabIndex = 233;
             this.twentyPercentButton.Text = "20%";
             this.twentyPercentButton.UseVisualStyleBackColor = false;
-            this.twentyPercentButton.Click += new System.EventHandler(this.twentyPercentButton_Click);
+            this.twentyPercentButton.Click += new System.EventHandler(this.TwentyPercentButton_Click);
             // 
             // TimesButton
             // 
@@ -174,7 +178,7 @@ namespace Calculator2
             this.TimesButton.TabIndex = 232;
             this.TimesButton.Text = "X";
             this.TimesButton.UseVisualStyleBackColor = false;
-            this.TimesButton.Click += new System.EventHandler(this.TimesButton_Click_1);
+            this.TimesButton.Click += new System.EventHandler(this.TimesButton_Click);
             // 
             // thertyPercentButton
             // 
@@ -190,7 +194,7 @@ namespace Calculator2
             this.thertyPercentButton.TabIndex = 231;
             this.thertyPercentButton.Text = "30%";
             this.thertyPercentButton.UseVisualStyleBackColor = false;
-            this.thertyPercentButton.Click += new System.EventHandler(this.thertyPercentButton_Click);
+            this.thertyPercentButton.Click += new System.EventHandler(this.ThertyPercentButton_Click);
             // 
             // nrSearchButton
             // 
@@ -206,7 +210,7 @@ namespace Calculator2
             this.nrSearchButton.TabIndex = 230;
             this.nrSearchButton.Text = "#";
             this.nrSearchButton.UseVisualStyleBackColor = false;
-            this.nrSearchButton.Click += new System.EventHandler(this.nrSearchButton_Click);
+            this.nrSearchButton.Click += new System.EventHandler(this.NrSearchButton_Click);
             // 
             // CloseButton
             // 
@@ -222,6 +226,7 @@ namespace Calculator2
             this.CloseButton.TabIndex = 229;
             this.CloseButton.Text = "Close";
             this.CloseButton.UseVisualStyleBackColor = false;
+            this.CloseButton.Click += new System.EventHandler(this.CloseButton_Click);
             // 
             // CustomerButton
             // 
@@ -312,7 +317,7 @@ namespace Calculator2
             this.OkBotton.TabIndex = 223;
             this.OkBotton.Text = "OK";
             this.OkBotton.UseVisualStyleBackColor = false;
-            this.OkBotton.Click += new System.EventHandler(this.OkBotton_Click);
+            this.OkBotton.Click += new System.EventHandler(this.OkBotton__Click);
             // 
             // PlusButton
             // 
@@ -328,7 +333,7 @@ namespace Calculator2
             this.PlusButton.TabIndex = 222;
             this.PlusButton.Text = "+";
             this.PlusButton.UseVisualStyleBackColor = false;
-            this.PlusButton.Click += new System.EventHandler(this.PlusButton_Click_1);
+            this.PlusButton.Click += new System.EventHandler(this.PlusButton_Click);
             // 
             // DeleteButton
             // 
@@ -344,7 +349,7 @@ namespace Calculator2
             this.DeleteButton.TabIndex = 221;
             this.DeleteButton.Text = "C";
             this.DeleteButton.UseVisualStyleBackColor = false;
-            this.DeleteButton.Click += new System.EventHandler(this.DeleteButton_Click_1);
+            this.DeleteButton.Click += new System.EventHandler(this.DeleteButton_Click);
             // 
             // GoodsButton
             // 
@@ -360,6 +365,7 @@ namespace Calculator2
             this.GoodsButton.TabIndex = 220;
             this.GoodsButton.Text = "Goods";
             this.GoodsButton.UseVisualStyleBackColor = false;
+            this.GoodsButton.Click += new System.EventHandler(this.GoodsButton_Click);
             // 
             // CardButton
             // 
@@ -405,7 +411,7 @@ namespace Calculator2
             this.NrEightButton.TabIndex = 217;
             this.NrEightButton.Text = "8";
             this.NrEightButton.UseVisualStyleBackColor = false;
-            this.NrEightButton.Click += new System.EventHandler(this.NrEightButton_Click_1);
+            this.NrEightButton.Click += new System.EventHandler(this.NrEightButton_Click);
             // 
             // NrNineButton
             // 
@@ -421,7 +427,7 @@ namespace Calculator2
             this.NrNineButton.TabIndex = 216;
             this.NrNineButton.Text = "9";
             this.NrNineButton.UseVisualStyleBackColor = false;
-            this.NrNineButton.Click += new System.EventHandler(this.NrNineButton_Click_1);
+            this.NrNineButton.Click += new System.EventHandler(this.NrNineButton_Click);
             // 
             // NrTwoButton
             // 
@@ -469,7 +475,7 @@ namespace Calculator2
             this.nrFourButton.TabIndex = 213;
             this.nrFourButton.Text = "4";
             this.nrFourButton.UseVisualStyleBackColor = false;
-            this.nrFourButton.Click += new System.EventHandler(this.nrFourButton_Click_1);
+            this.nrFourButton.Click += new System.EventHandler(this.NrFourButton_Click_1);
             // 
             // nrFiveButton
             // 
@@ -485,7 +491,7 @@ namespace Calculator2
             this.nrFiveButton.TabIndex = 212;
             this.nrFiveButton.Text = "5";
             this.nrFiveButton.UseVisualStyleBackColor = false;
-            this.nrFiveButton.Click += new System.EventHandler(this.nrFiveButton_Click_1);
+            this.nrFiveButton.Click += new System.EventHandler(this.NrFiveButton_Click);
             // 
             // NrSixButton
             // 
@@ -501,7 +507,7 @@ namespace Calculator2
             this.NrSixButton.TabIndex = 211;
             this.NrSixButton.Text = "6";
             this.NrSixButton.UseVisualStyleBackColor = false;
-            this.NrSixButton.Click += new System.EventHandler(this.NrSixButton_Click_1);
+            this.NrSixButton.Click += new System.EventHandler(this.NrSixButton_Click);
             // 
             // NrSevenButton
             // 
@@ -517,7 +523,7 @@ namespace Calculator2
             this.NrSevenButton.TabIndex = 210;
             this.NrSevenButton.Text = "7";
             this.NrSevenButton.UseVisualStyleBackColor = false;
-            this.NrSevenButton.Click += new System.EventHandler(this.NrSevenButton_Click_1);
+            this.NrSevenButton.Click += new System.EventHandler(this.NrSevenButton_Click);
             // 
             // ReceiptButton
             // 
@@ -533,6 +539,7 @@ namespace Calculator2
             this.ReceiptButton.TabIndex = 209;
             this.ReceiptButton.Text = "Receipt";
             this.ReceiptButton.UseVisualStyleBackColor = false;
+            this.ReceiptButton.Click += new System.EventHandler(this.ReceiptButton_Click);
             // 
             // CashButton
             // 
@@ -563,7 +570,7 @@ namespace Calculator2
             this.CommaButton.TabIndex = 207;
             this.CommaButton.Text = ",";
             this.CommaButton.UseVisualStyleBackColor = false;
-            this.CommaButton.Click += new System.EventHandler(this.CommaButton_Click_1);
+            this.CommaButton.Click += new System.EventHandler(this.CommaButton_Click);
             // 
             // NrOneButton
             // 
@@ -595,7 +602,7 @@ namespace Calculator2
             this.DoubleZeroButton.TabIndex = 205;
             this.DoubleZeroButton.Text = "00";
             this.DoubleZeroButton.UseVisualStyleBackColor = false;
-            this.DoubleZeroButton.Click += new System.EventHandler(this.DoubleZeroButton_Click_1);
+            this.DoubleZeroButton.Click += new System.EventHandler(this.DoubleZeroButton_Click);
             // 
             // ZeroButton
             // 
@@ -611,22 +618,23 @@ namespace Calculator2
             this.ZeroButton.TabIndex = 204;
             this.ZeroButton.Text = "0";
             this.ZeroButton.UseVisualStyleBackColor = false;
-            this.ZeroButton.Click += new System.EventHandler(this.ZeroButton_Click_1);
+            this.ZeroButton.Click += new System.EventHandler(this.ZeroButton_Click);
             // 
-            // ReturnButton
+            // momsButton
             // 
-            this.ReturnButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.ReturnButton.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.ReturnButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.ReturnButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.ReturnButton.Font = new System.Drawing.Font("Comic Sans MS", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ReturnButton.ForeColor = System.Drawing.Color.White;
-            this.ReturnButton.Location = new System.Drawing.Point(25, 561);
-            this.ReturnButton.Name = "ReturnButton";
-            this.ReturnButton.Size = new System.Drawing.Size(170, 58);
-            this.ReturnButton.TabIndex = 203;
-            this.ReturnButton.Text = "Return";
-            this.ReturnButton.UseVisualStyleBackColor = false;
+            this.momsButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.momsButton.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.momsButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.momsButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.momsButton.Font = new System.Drawing.Font("Comic Sans MS", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.momsButton.ForeColor = System.Drawing.Color.White;
+            this.momsButton.Location = new System.Drawing.Point(25, 561);
+            this.momsButton.Name = "momsButton";
+            this.momsButton.Size = new System.Drawing.Size(170, 58);
+            this.momsButton.TabIndex = 203;
+            this.momsButton.Text = "Moms";
+            this.momsButton.UseVisualStyleBackColor = false;
+            this.momsButton.Click += new System.EventHandler(this.momsButton_Click);
             // 
             // DiscountButton
             // 
@@ -642,7 +650,7 @@ namespace Calculator2
             this.DiscountButton.TabIndex = 202;
             this.DiscountButton.Text = "Discount";
             this.DiscountButton.UseVisualStyleBackColor = false;
-            this.DiscountButton.Click += new System.EventHandler(this.DiscountButton_Click);
+            this.DiscountButton.Click += new System.EventHandler(this.DiscountButton__Click);
             // 
             // ClearBotton
             // 
@@ -658,6 +666,7 @@ namespace Calculator2
             this.ClearBotton.TabIndex = 201;
             this.ClearBotton.Text = "Clear";
             this.ClearBotton.UseVisualStyleBackColor = false;
+            this.ClearBotton.Click += new System.EventHandler(this.ClearBotton_Click);
             // 
             // toPayLabel
             // 
@@ -722,6 +731,7 @@ namespace Calculator2
             this.toPayTextBox.TabIndex = 195;
             this.toPayTextBox.Text = "0.00";
             this.toPayTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.toPayTextBox.TextChanged += new System.EventHandler(this.ToPayTextBox_TextChanged);
             // 
             // cardTextBox
             // 
@@ -763,67 +773,59 @@ namespace Calculator2
             this.discountTextBox.TabIndex = 191;
             this.discountTextBox.Text = "0.00";
             this.discountTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.discountTextBox.TextChanged += new System.EventHandler(this.discountTextBox_TextChanged);
+            this.discountTextBox.TextChanged += new System.EventHandler(this.DiscountTextBox_TextChanged);
             // 
             // totalTextBox
             // 
             this.totalTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.totalTextBox.Location = new System.Drawing.Point(944, 117);
+            this.totalTextBox.Location = new System.Drawing.Point(944, 89);
             this.totalTextBox.Name = "totalTextBox";
             this.totalTextBox.Size = new System.Drawing.Size(132, 22);
             this.totalTextBox.TabIndex = 190;
             this.totalTextBox.Text = "0.00";
             this.totalTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.totalTextBox.TextChanged += new System.EventHandler(this.totalTextBox_TextChanged);
+            this.totalTextBox.TextChanged += new System.EventHandler(this.TotalTextBox_TextChanged);
             // 
-            // totalLabel
+            // changeLabel
             // 
-            this.totalLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.totalLabel.AutoSize = true;
-            this.totalLabel.Font = new System.Drawing.Font("Comic Sans MS", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.totalLabel.Location = new System.Drawing.Point(841, 106);
-            this.totalLabel.Name = "totalLabel";
-            this.totalLabel.Size = new System.Drawing.Size(97, 33);
-            this.totalLabel.TabIndex = 189;
-            this.totalLabel.Text = "Total....";
+            this.changeLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.changeLabel.AutoSize = true;
+            this.changeLabel.Font = new System.Drawing.Font("Comic Sans MS", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.changeLabel.Location = new System.Drawing.Point(825, 106);
+            this.changeLabel.Name = "changeLabel";
+            this.changeLabel.Size = new System.Drawing.Size(116, 33);
+            this.changeLabel.TabIndex = 189;
+            this.changeLabel.Text = "change....";
             // 
-            // customerNrTextBox2
+            // idNrTextBox
             // 
-            this.customerNrTextBox2.Location = new System.Drawing.Point(587, 17);
-            this.customerNrTextBox2.Name = "customerNrTextBox2";
-            this.customerNrTextBox2.Size = new System.Drawing.Size(195, 22);
-            this.customerNrTextBox2.TabIndex = 188;
-            this.customerNrTextBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // customerNrTextBox
-            // 
-            this.customerNrTextBox.Location = new System.Drawing.Point(511, 17);
-            this.customerNrTextBox.Name = "customerNrTextBox";
-            this.customerNrTextBox.Size = new System.Drawing.Size(70, 22);
-            this.customerNrTextBox.TabIndex = 187;
-            this.customerNrTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.idNrTextBox.Location = new System.Drawing.Point(511, 18);
+            this.idNrTextBox.Name = "idNrTextBox";
+            this.idNrTextBox.Size = new System.Drawing.Size(70, 22);
+            this.idNrTextBox.TabIndex = 187;
+            this.idNrTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // customerNrLabel
             // 
             this.customerNrLabel.AutoSize = true;
-            this.customerNrLabel.Location = new System.Drawing.Point(426, 14);
+            this.customerNrLabel.Location = new System.Drawing.Point(254, 17);
             this.customerNrLabel.Name = "customerNrLabel";
             this.customerNrLabel.Size = new System.Drawing.Size(91, 17);
             this.customerNrLabel.TabIndex = 186;
             this.customerNrLabel.Text = "CustomerNr: ";
             // 
-            // idNrTextBox
+            // customerNrTextBox
             // 
-            this.idNrTextBox.Location = new System.Drawing.Point(299, 17);
-            this.idNrTextBox.Name = "idNrTextBox";
-            this.idNrTextBox.Size = new System.Drawing.Size(110, 22);
-            this.idNrTextBox.TabIndex = 185;
-            this.idNrTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.customerNrTextBox.Location = new System.Drawing.Point(345, 18);
+            this.customerNrTextBox.Name = "customerNrTextBox";
+            this.customerNrTextBox.Size = new System.Drawing.Size(110, 22);
+            this.customerNrTextBox.TabIndex = 185;
+            this.customerNrTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // idNrLabel
             // 
             this.idNrLabel.AutoSize = true;
-            this.idNrLabel.Location = new System.Drawing.Point(254, 14);
+            this.idNrLabel.Location = new System.Drawing.Point(461, 18);
             this.idNrLabel.Name = "idNrLabel";
             this.idNrLabel.Size = new System.Drawing.Size(48, 17);
             this.idNrLabel.TabIndex = 184;
@@ -860,7 +862,7 @@ namespace Calculator2
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Comic Sans MS", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(821, 275);
+            this.label1.Location = new System.Drawing.Point(820, 305);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(118, 33);
             this.label1.TabIndex = 239;
@@ -868,19 +870,74 @@ namespace Calculator2
             // 
             // searchTextBox
             // 
-            this.searchTextBox.Location = new System.Drawing.Point(945, 286);
+            this.searchTextBox.Location = new System.Drawing.Point(945, 313);
             this.searchTextBox.Name = "searchTextBox";
             this.searchTextBox.Size = new System.Drawing.Size(131, 22);
             this.searchTextBox.TabIndex = 240;
             this.searchTextBox.Text = "Search";
             this.searchTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.searchTextBox.TextChanged += new System.EventHandler(this.searchTextBox_TextChanged_1);
+            this.searchTextBox.TextChanged += new System.EventHandler(this.SearchTextBox_TextChanged_1);
+            // 
+            // momsTextBox
+            // 
+            this.momsTextBox.Location = new System.Drawing.Point(945, 285);
+            this.momsTextBox.Name = "momsTextBox";
+            this.momsTextBox.Size = new System.Drawing.Size(131, 22);
+            this.momsTextBox.TabIndex = 242;
+            this.momsTextBox.Text = "0.00";
+            this.momsTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // momsLabel
+            // 
+            this.momsLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.momsLabel.AutoSize = true;
+            this.momsLabel.Font = new System.Drawing.Font("Comic Sans MS", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.momsLabel.Location = new System.Drawing.Point(834, 279);
+            this.momsLabel.Name = "momsLabel";
+            this.momsLabel.Size = new System.Drawing.Size(103, 33);
+            this.momsLabel.TabIndex = 241;
+            this.momsLabel.Text = "Moms....";
+            // 
+            // changeTextBox
+            // 
+            this.changeTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.changeTextBox.Location = new System.Drawing.Point(944, 117);
+            this.changeTextBox.Name = "changeTextBox";
+            this.changeTextBox.Size = new System.Drawing.Size(132, 22);
+            this.changeTextBox.TabIndex = 244;
+            this.changeTextBox.Text = "0.00";
+            this.changeTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.changeTextBox.TextChanged += new System.EventHandler(this.TextBox2_TextChanged);
+            // 
+            // totalLabel
+            // 
+            this.totalLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.totalLabel.AutoSize = true;
+            this.totalLabel.Font = new System.Drawing.Font("Comic Sans MS", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.totalLabel.Location = new System.Drawing.Point(840, 78);
+            this.totalLabel.Name = "totalLabel";
+            this.totalLabel.Size = new System.Drawing.Size(97, 33);
+            this.totalLabel.TabIndex = 243;
+            this.totalLabel.Text = "Total....";
+            // 
+            // idnameComboBox
+            // 
+            this.idnameComboBox.FormattingEnabled = true;
+            this.idnameComboBox.Location = new System.Drawing.Point(587, 17);
+            this.idnameComboBox.Name = "idnameComboBox";
+            this.idnameComboBox.Size = new System.Drawing.Size(190, 24);
+            this.idnameComboBox.TabIndex = 245;
             // 
             // Calculator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1100, 696);
+            this.Controls.Add(this.idnameComboBox);
+            this.Controls.Add(this.changeTextBox);
+            this.Controls.Add(this.totalLabel);
+            this.Controls.Add(this.momsTextBox);
+            this.Controls.Add(this.momsLabel);
             this.Controls.Add(this.searchTextBox);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dateTimePicker1);
@@ -917,7 +974,7 @@ namespace Calculator2
             this.Controls.Add(this.NrOneButton);
             this.Controls.Add(this.DoubleZeroButton);
             this.Controls.Add(this.ZeroButton);
-            this.Controls.Add(this.ReturnButton);
+            this.Controls.Add(this.momsButton);
             this.Controls.Add(this.DiscountButton);
             this.Controls.Add(this.ClearBotton);
             this.Controls.Add(this.toPayLabel);
@@ -931,11 +988,10 @@ namespace Calculator2
             this.Controls.Add(this.discountLabel);
             this.Controls.Add(this.discountTextBox);
             this.Controls.Add(this.totalTextBox);
-            this.Controls.Add(this.totalLabel);
-            this.Controls.Add(this.customerNrTextBox2);
-            this.Controls.Add(this.customerNrTextBox);
-            this.Controls.Add(this.customerNrLabel);
+            this.Controls.Add(this.changeLabel);
             this.Controls.Add(this.idNrTextBox);
+            this.Controls.Add(this.customerNrLabel);
+            this.Controls.Add(this.customerNrTextBox);
             this.Controls.Add(this.idNrLabel);
             this.Controls.Add(this.reciptNrTextBox);
             this.Controls.Add(this.reciptNrLabel);
@@ -984,7 +1040,7 @@ namespace Calculator2
         private System.Windows.Forms.Button NrOneButton;
         private System.Windows.Forms.Button DoubleZeroButton;
         private System.Windows.Forms.Button ZeroButton;
-        private System.Windows.Forms.Button ReturnButton;
+        private System.Windows.Forms.Button momsButton;
         private System.Windows.Forms.Button DiscountButton;
         private System.Windows.Forms.Button ClearBotton;
         private System.Windows.Forms.Label toPayLabel;
@@ -998,17 +1054,45 @@ namespace Calculator2
         private System.Windows.Forms.Label discountLabel;
         private System.Windows.Forms.TextBox discountTextBox;
         private System.Windows.Forms.TextBox totalTextBox;
-        private System.Windows.Forms.Label totalLabel;
-        private System.Windows.Forms.TextBox customerNrTextBox2;
-        private System.Windows.Forms.TextBox customerNrTextBox;
-        private System.Windows.Forms.Label customerNrLabel;
+        private System.Windows.Forms.Label changeLabel;
         private System.Windows.Forms.TextBox idNrTextBox;
+        private System.Windows.Forms.Label customerNrLabel;
+        private System.Windows.Forms.TextBox customerNrTextBox;
         private System.Windows.Forms.Label idNrLabel;
         private System.Windows.Forms.TextBox reciptNrTextBox;
         private System.Windows.Forms.Label reciptNrLabel;
         private System.Windows.Forms.ListBox goodsListBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox searchTextBox;
+        private System.Windows.Forms.TextBox momsTextBox;
+        private System.Windows.Forms.Label momsLabel;
+        private System.Windows.Forms.TextBox changeTextBox;
+        private System.Windows.Forms.Label totalLabel;
+        private System.Windows.Forms.ComboBox idnameComboBox;
+
+        public EventHandler CommaButton_Click_1 { get; private set; }
+        public EventHandler DeleteButton_Click_1 { get; private set; }
+        public EventHandler DiscountButton_Click { get; private set; }
+        public EventHandler discountTextBox_TextChanged { get; private set; }
+        public EventHandler DoubleZeroButton_Click_1 { get; private set; }
+        public EventHandler NrEightButton_Click_1 { get; private set; }
+        public EventHandler nrFiveButton_Click_1 { get; private set; }
+        public EventHandler nrFourButton_Click_1 { get; private set; }
+        public EventHandler NrNineButton_Click_1 { get; private set; }
+        public EventHandler nrSearchButton_Click { get; private set; }
+        public EventHandler NrSevenButton_Click_1 { get; private set; }
+        public EventHandler NrSixButton_Click_1 { get; private set; }
+        public EventHandler OkBotton_Click { get; private set; }
+        public EventHandler PlusButton_Click_1 { get; private set; }
+        public EventHandler searchTextBox_TextChanged_1 { get; private set; }
+        public EventHandler tenPercentButton_Click { get; private set; }
+        public EventHandler textBox2_TextChanged { get; private set; }
+        public EventHandler thertyPercentButton_Click { get; private set; }
+        public EventHandler TimesButton_Click_1 { get; private set; }
+        public EventHandler toPayTextBox_TextChanged { get; private set; }
+        public EventHandler totalTextBox_TextChanged { get; private set; }
+        public EventHandler twentyPercentButton_Click { get; private set; }
+        public EventHandler ZeroButton_Click_1 { get; private set; }
     }
 }
 

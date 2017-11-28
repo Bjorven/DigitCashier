@@ -22,7 +22,8 @@ namespace Calculator2
         Double resultValue = 0;
         String operationPerformed = "";
         bool isOperationPerformed = false;
-        
+        bool isSearchBtn = false;
+        double Mresult = 1;
         public Calculator()
         {
             InitializeComponent();
@@ -30,119 +31,199 @@ namespace Calculator2
 
         private void NrOneButton_Click_1(object sender, EventArgs e)
         {
-            if (totalTextBox.Text == "0.00")
-                totalTextBox.Clear();
-            totalTextBox.Text = totalTextBox.Text + "1";
+            if (isSearchBtn)
+            {
+                searchTextBox.Text = "1";
+            }
+            else
+            {
+                if (totalTextBox.Text == "0.00")
+                    totalTextBox.Clear();
+                totalTextBox.Text = totalTextBox.Text + "1";
+            }
+
         }
 
         private void NrTwoButton_Click_1(object sender, EventArgs e)
         {
-            if (totalTextBox.Text == "0.00")
-                totalTextBox.Clear();
-            totalTextBox.Text = totalTextBox.Text + "2";
+            if (isSearchBtn)
+            {
+                searchTextBox.Text = "2";
+            }
+            else
+            {
+                if (totalTextBox.Text == "0.00")
+                    totalTextBox.Clear();
+                totalTextBox.Text = totalTextBox.Text + "2";
+            }
         }
 
         private void NrThreeButton_Click(object sender, EventArgs e)
         {
-            if (totalTextBox.Text == "0.00")
-                totalTextBox.Clear();
-            totalTextBox.Text = totalTextBox.Text + "3";
+            if (isSearchBtn)
+            {
+                searchTextBox.Text = "3";
+            }
+            else
+            {
+                if (totalTextBox.Text == "0.00")
+                    totalTextBox.Clear();
+                totalTextBox.Text = totalTextBox.Text + "3";
+            }
         }
 
-        private void nrFourButton_Click_1(object sender, EventArgs e)
+        private void NrFourButton_Click_1(object sender, EventArgs e)
         {
-            if (totalTextBox.Text == "0.00")
-                totalTextBox.Clear();
-            totalTextBox.Text = totalTextBox.Text + "4";
+            if (isSearchBtn)
+            {
+                searchTextBox.Text = "4";
+            }
+            else
+            {
+                if (totalTextBox.Text == "0.00")
+                    totalTextBox.Clear();
+                totalTextBox.Text = totalTextBox.Text + "4";
+            }
         }
 
-        private void nrFiveButton_Click_1(object sender, EventArgs e)
+        private void NrFiveButton_Click(object sender, EventArgs e)
         {
-            if (totalTextBox.Text == "0.00")
-                totalTextBox.Clear();
-            totalTextBox.Text = totalTextBox.Text + "5";
+            if (isSearchBtn)
+            {
+                searchTextBox.Text = "5";
+            }
+            else
+            {
+                if (totalTextBox.Text == "0.00")
+                    totalTextBox.Clear();
+                totalTextBox.Text = totalTextBox.Text + "5";
+            }
         }
 
-        private void NrSixButton_Click_1(object sender, EventArgs e)
+        private void NrSixButton_Click(object sender, EventArgs e)
         {
-            if (totalTextBox.Text == "0.00")
-                totalTextBox.Clear();
-            totalTextBox.Text = totalTextBox.Text + "6";
+            if (isSearchBtn)
+            {
+                searchTextBox.Text = "6";
+            }
+            else
+            {
+                if (totalTextBox.Text == "0.00")
+                    totalTextBox.Clear();
+                totalTextBox.Text = totalTextBox.Text + "6";
+            }
         }
 
-        private void NrSevenButton_Click_1(object sender, EventArgs e)
+        private void NrSevenButton_Click(object sender, EventArgs e)
         {
-            if (totalTextBox.Text == "0.00")
-                totalTextBox.Clear();
-            totalTextBox.Text = totalTextBox.Text + "7";
+            if (isSearchBtn)
+            {
+                searchTextBox.Text = "7";
+            }
+            else
+            {
+                if (totalTextBox.Text == "0.00")
+                    totalTextBox.Clear();
+                totalTextBox.Text = totalTextBox.Text + "7";
+            }
         }
 
-        private void NrEightButton_Click_1(object sender, EventArgs e)
-        { 
-            if (totalTextBox.Text == "0.00")
-                totalTextBox.Clear();
-            totalTextBox.Text = totalTextBox.Text + "8";
-        }
-
-        private void NrNineButton_Click_1(object sender, EventArgs e)
+        private void NrEightButton_Click(object sender, EventArgs e)
         {
-            if (totalTextBox.Text == "0.00")
-                totalTextBox.Clear();
-            totalTextBox.Text = totalTextBox.Text + "9";
+            if (isSearchBtn)
+            {
+                searchTextBox.Text = "8";
+            }
+            else
+            {
+                if (totalTextBox.Text == "0.00")
+                    totalTextBox.Clear();
+                totalTextBox.Text = totalTextBox.Text + "8";
+            }
         }
 
-        private void PlusButton_Click_1(object sender, EventArgs e)
+        private void NrNineButton_Click(object sender, EventArgs e)
+        {
+            if (isSearchBtn)
+            {
+                searchTextBox.Text = "9";
+            }
+            else
+            {
+                if (totalTextBox.Text == "0.00")
+                    totalTextBox.Clear();
+                totalTextBox.Text = totalTextBox.Text + "9";
+            }
+        }
+
+        private void PlusButton_Click(object sender, EventArgs e)
         {
             string operand1 = PlusButton.Text;
             result += double.Parse(totalTextBox.Text);
             totalTextBox.Text = "";
             operation = "+";
-            
+
         }
 
-        private void CommaButton_Click_1(object sender, EventArgs e)
+        private void CommaButton_Click(object sender, EventArgs e)
         {
             if (totalTextBox.Text == "0.00")
                 totalTextBox.Clear();
             totalTextBox.Text = totalTextBox.Text + ",";
         }
 
-        private void DoubleZeroButton_Click_1(object sender, EventArgs e)
+        private void DoubleZeroButton_Click(object sender, EventArgs e)
         {
-            if (totalTextBox.Text == "0.00")
-                totalTextBox.Clear();
-            totalTextBox.Text = totalTextBox.Text + "00";
+            if (isSearchBtn)
+            {
+                searchTextBox.Text = "00";
+            }
+            else
+            {
+                if (totalTextBox.Text == "0.00")
+                    totalTextBox.Clear();
+                totalTextBox.Text = totalTextBox.Text + "00";
+            }
         }
 
-        private void ZeroButton_Click_1(object sender, EventArgs e)
+        private void ZeroButton_Click(object sender, EventArgs e)
         {
-            if (totalTextBox.Text == "0.00")
-                totalTextBox.Clear();
-            totalTextBox.Text = totalTextBox.Text + "0";
+            if (isSearchBtn)
+            {
+                searchTextBox.Text = "0";
+            }
+            else
+            {
+                if (totalTextBox.Text == "0.00")
+                    totalTextBox.Clear();
+                totalTextBox.Text = totalTextBox.Text + "0";
+            }
         }
 
-        private void DeleteButton_Click_1(object sender, EventArgs e)
+        private void DeleteButton_Click(object sender, EventArgs e)
         {
-            
-                totalTextBox.Clear();
-                discountTextBox.Clear();    
 
-              
+            totalTextBox.Clear();
+            discountTextBox.Clear();
+
+
         }
 
-        private void TimesButton_Click_1(object sender, EventArgs e)
+        private void TimesButton_Click(object sender, EventArgs e)
         {
-            string operand1 = PlusButton.Text;
-            result = double.Parse(totalTextBox.Text);
-            totalTextBox.Text = totalTextBox.Text + "*";
+            string operand2 = TimesButton.Text;
+            Mresult *= double.Parse(totalTextBox.Text);
+            totalTextBox.Text = "";
+            operation = "*";
         }
-        private void OkBotton_Click(object sender, EventArgs e)
+        private void OkBotton__Click(object sender, EventArgs e)
         {
+
             ////tal1 = ;
             ////tal2 = ;
-            double num1, num2;
-            double.TryParse(operand1, out num1);
-            double.TryParse(operand2, out num2);
+            //double num1, num2;
+            //double.TryParse(operand1, out num1);
+            //double.TryParse(operand2, out num2);
 
             if (operation == "+")
             {
@@ -151,13 +232,16 @@ namespace Calculator2
             }
             else if (operation == "*")
             {
-                result = num1 * num2;
-                totalTextBox.Text = result.ToString();
+                Mresult = Mresult * Convert.ToDouble(totalTextBox.Text);
+                totalTextBox.Text = Mresult.ToString();
             }
             else
             {
                 totalTextBox.Text = "";
+
             }
+
+
             //switch (operationPerformed)
             //{
             //    case "+":
@@ -176,58 +260,109 @@ namespace Calculator2
 
         }
 
-        private void discountTextBox_TextChanged(object sender, EventArgs e)
+        private void DiscountTextBox_TextChanged(object sender, EventArgs e)
         {
             if (discountTextBox.Text == "0.00")
                 discountTextBox.Clear();
-            
+
         }
 
-        private void DiscountButton_Click(object sender, EventArgs e)
+        private void DiscountButton__Click(object sender, EventArgs e)
         {
             if (discountTextBox.Text == "0.00")
                 discountTextBox.Clear();
             discountTextBox.Text = discountTextBox.Text + "%";
         }
 
-        private void totalTextBox_TextChanged(object sender, EventArgs e)
+        private void TotalTextBox_TextChanged(object sender, EventArgs e)
         {
-            
+
         }
 
-        private void twentyPercentButton_Click(object sender, EventArgs e)
+        private void TwentyPercentButton_Click(object sender, EventArgs e)
         {
             if (discountTextBox.Text == "0.00")
                 discountTextBox.Clear();
             discountTextBox.Text = discountTextBox.Text + "20%";
+            toPayTextBox.Text = (Convert.ToInt32(totalTextBox.Text) * 0.8).ToString();
         }
 
-        private void tenPercentButton_Click(object sender, EventArgs e)
+        private void TenPercentButton_Click(object sender, EventArgs e)
         {
             if (discountTextBox.Text == "0.00")
                 discountTextBox.Clear();
             discountTextBox.Text = discountTextBox.Text + "10%";
+            toPayTextBox.Text = (Convert.ToInt32(totalTextBox.Text) * 0.9).ToString();
         }
 
-        private void thertyPercentButton_Click(object sender, EventArgs e)
+        private void ThertyPercentButton_Click(object sender, EventArgs e)
         {
             if (discountTextBox.Text == "0.00")
                 discountTextBox.Clear();
             discountTextBox.Text = discountTextBox.Text + "30%";
+            toPayTextBox.Text = (Convert.ToInt32(totalTextBox.Text) * 0.7).ToString();
         }
 
-        private void nrSearchButton_Click(object sender, EventArgs e)
+        private void NrSearchButton_Click(object sender, EventArgs e)
         {
+
             if (searchTextBox.Text == "Search")
                 searchTextBox.Clear();
             searchTextBox.Text = searchTextBox.Text + "#";
+            isSearchBtn = true;
+
         }
 
-        private void searchTextBox_TextChanged_1(object sender, EventArgs e)
+        private void SearchTextBox_TextChanged_1(object sender, EventArgs e)
         {
+
+        }
+
+        private void TextBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ToPayTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ClearBotton_Click(object sender, EventArgs e)
+        {
+            searchTextBox.Clear();
+        }
+
+        private void momsButton_Click(object sender, EventArgs e)
+        {
+            if (momsTextBox.Text == "0.00")
+                momsTextBox.Clear();
+            momsTextBox.Text = toPayTextBox.Text;
+            toPayTextBox.Text = (Convert.ToInt32(momsTextBox.Text) * 0.2).ToString();
+        }
+
+        private void GoodsButton_Click(object sender, EventArgs e)
+        {
+            Dbaccess db = new Dbaccess();
+            Product product = db.GetProduct(01);
            
+
+        }
+
+        private void CloseButton_Click(object sender, EventArgs e)
+        {
+            Calculator.ActiveForm.Close();
+
+        }
+
+        private void ReceiptButton_Click(object sender, EventArgs e)
+        {
+            
+            Receipt receipt = new Receipt();
+            receipt.show();
+
         }
     }
 }
-   
-    
+
+
