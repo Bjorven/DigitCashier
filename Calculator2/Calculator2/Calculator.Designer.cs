@@ -758,7 +758,7 @@ namespace Calculator2
             this.discountLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.discountLabel.AutoSize = true;
             this.discountLabel.Font = new System.Drawing.Font("Comic Sans MS", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.discountLabel.Location = new System.Drawing.Point(803, 134);
+            this.discountLabel.Location = new System.Drawing.Point(803, 135);
             this.discountLabel.Name = "discountLabel";
             this.discountLabel.Size = new System.Drawing.Size(135, 33);
             this.discountLabel.TabIndex = 192;
@@ -791,7 +791,7 @@ namespace Calculator2
             this.changeLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.changeLabel.AutoSize = true;
             this.changeLabel.Font = new System.Drawing.Font("Comic Sans MS", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.changeLabel.Location = new System.Drawing.Point(825, 106);
+            this.changeLabel.Location = new System.Drawing.Point(825, 105);
             this.changeLabel.Name = "changeLabel";
             this.changeLabel.Size = new System.Drawing.Size(116, 33);
             this.changeLabel.TabIndex = 189;
@@ -927,6 +927,7 @@ namespace Calculator2
             this.idnameComboBox.Name = "idnameComboBox";
             this.idnameComboBox.Size = new System.Drawing.Size(190, 24);
             this.idnameComboBox.TabIndex = 245;
+            this.idnameComboBox.SelectedIndexChanged += new System.EventHandler(this.idnameComboBox_SelectedIndexChanged);
             // 
             // Calculator
             // 

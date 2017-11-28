@@ -202,9 +202,14 @@ namespace Calculator2
 
         private void DeleteButton_Click(object sender, EventArgs e)
         {
-
+            cashTextBox.Clear();
             totalTextBox.Clear();
             discountTextBox.Clear();
+            cardTextBox.Clear();
+            couponTextBox.Clear();
+            changeTextBox.Clear();
+            toPayTextBox.Clear();
+            momsTextBox.Clear();
 
 
         }
@@ -218,9 +223,9 @@ namespace Calculator2
         }
         private void OkBotton__Click(object sender, EventArgs e)
         {
-
-            ////tal1 = ;
-            ////tal2 = ;
+            //testing a method
+            //tal1 = ;
+            //tal2 = ;
             //double num1, num2;
             //double.TryParse(operand1, out num1);
             //double.TryParse(operand2, out num2);
@@ -241,7 +246,7 @@ namespace Calculator2
 
             }
 
-
+            //testing a method
             //switch (operationPerformed)
             //{
             //    case "+":
@@ -358,11 +363,41 @@ namespace Calculator2
         private void ReceiptButton_Click(object sender, EventArgs e)
         {
             
-            Receipt receipt = new Receipt();
-            receipt.show();
+            //Receipt receipt = new Receipt();
+            //receipt.show();
+
+        }
+
+        private void idnameComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //ListViewItem minaFilmer;
+            
+
+            //livFilmer.Items.Clear();
+            //DataSet ds = new DataSet();
+            //ds = Databas.ListaFilmer();//     .ListaFilmer();
+
+            //int antal = ds.Tables[0].Rows.Count;
+
+            //for (int i = 0; i < antal; i++)
+            //{
+            //    minaFilmer = new ListViewItem(Convert.ToString((ds.Tables[0].Rows[i][0])));
+            //    minaFilmer.SubItems.Add(Convert.ToString((ds.Tables[0].Rows[i][1])));
+
+            //    livFilmer.Items.Add(minaFilmer);
+            //}
+            //foreach(DataRow dr in ds.Tables[0].Rows)
+            //{
+            //    chk3.Items.Add(dr[0]);
+            //    lsb3.Items.Add(dr[0]);
+            //    cmb3.Items.Add(dr[0]);
+            //    txt3.Text = txt3.Text + dr[0] + Environment.NewLine;
+
+
+            }
 
         }
     }
-}
+
 
 
