@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace databastestLocal
 {
-    public partial class frmCashier : Form
+    public partial class FrmCashier : Form
     {
-        public frmCashier()
+        public FrmCashier()
         {
             InitializeComponent();
         }

@@ -32,9 +32,9 @@ namespace databastestLocal
         } // constructor
 
 
-        // getdataset är den metod vi använder för att checka username och password mot databas, den returnerar ett dataset med all data som tillhör denna användaren.
+        // GetUser är den metod vi använder för att checka username och password mot databas, den returnerar en instans av klassen User med all data som tillhör denna användaren.
 
-        public User getUser(string txt_UserName, string txt_Password)
+        public User GetUser(string txt_UserName, string txt_Password)
         {
             
             command.CommandText = "Select * from Employee where id=@id and passwordPIN=@passwordPIN";
@@ -100,14 +100,12 @@ namespace databastestLocal
             }
         }
 
-
-        public User getTimestamp(User user)
+        // Detta är vår metod för att spara upp hur lång tid en användare har arbetat (varit inloggad), 
+        // denna tid summeras upp till en "total arbetade timmar"-coloumn i Databasen.
+        public User GetTimestamp(User user)
         {
 
             int timeelapsed = (int)user.CheckOut.Subtract(user.CheckIn).TotalMinutes;
-            
-
-
             
             user.HoursWorked = user.HoursWorked + timeelapsed;
 
@@ -126,6 +124,19 @@ namespace databastestLocal
 
             return user;
         }
+
+
+
+
+
+
+
+
+
+
+
+
+
         // denna är inte klar men ska kunna användas för att kunna hämta information i databasen på användarna
 
         //public static User GetUsersData(int id)

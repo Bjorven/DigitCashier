@@ -1,6 +1,6 @@
 ﻿namespace databastestLocal
 {
-    partial class frmAdmin
+    partial class FrmAdmin
     {
         /// <summary>
         /// Required designer variable.

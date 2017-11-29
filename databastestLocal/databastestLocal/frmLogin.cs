@@ -13,18 +13,18 @@ using System.Data.SqlClient;
 
 namespace databastestLocal
 {
-    public partial class frmLogin : Form
+    public partial class FrmLogin : Form
     {
          
 
-        public frmLogin()
+        public FrmLogin()
         {
             InitializeComponent();
 
         }
 
 
-        private void frmLogin_Load(object sender, EventArgs e)
+        private void FrmLogin_Load(object sender, EventArgs e)
         {
 
 
@@ -33,8 +33,8 @@ namespace databastestLocal
 
 
 
-        //btn_Submit Click event
-        private void btn_Submit_Click(object sender, EventArgs e)
+        //LOGIN BUTTON
+        private void Btn_Submit_Click(object sender, EventArgs e)
         {
 
 
@@ -49,7 +49,7 @@ namespace databastestLocal
                 DbAcess db = new DbAcess();
                 // här är vår metod för att kolla Db om lösenord och username finns och är rätt.
                 // Därefter skickas en fylld instans av klassen User ut.
-                User user = db.getUser(txt_UserName.Text, txt_Password.Text);
+                User user = db.GetUser(txt_UserName.Text, txt_Password.Text);
                 
                 
 
@@ -65,7 +65,7 @@ namespace databastestLocal
                 
                 // vi  ändrar också värdet på user.checkIn till tidpunktens datum och tid.
                 user.CheckIn = DateTime.Now;
-                frmMain Main = new frmMain(user);
+                FrmMain Main = new FrmMain(user);
                 Main.Show();
 
             }
@@ -93,7 +93,7 @@ namespace databastestLocal
 
 
 
-//        private void btn_Submit_Click(object sender, EventArgs e)
+//        private void Btn_Submit_Click(object sender, EventArgs e)
 //        {
 
 //        }

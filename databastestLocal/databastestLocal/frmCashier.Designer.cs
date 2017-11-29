@@ -1,6 +1,6 @@
 ﻿namespace databastestLocal
 {
-    partial class frmCashier
+    partial class FrmCashier
     {
         /// <summary>
         /// Required designer variable.

@@ -1,6 +1,6 @@
 ﻿namespace databastestLocal
 {
-    partial class frmMain
+    partial class FrmMain
     {
         /// <summary>
         /// Required designer variable.
@@ -43,7 +43,7 @@
             this.btn_cashier.TabIndex = 0;
             this.btn_cashier.Text = "cashier";
             this.btn_cashier.UseVisualStyleBackColor = true;
-            this.btn_cashier.Click += new System.EventHandler(this.btn_cashier_Click);
+            this.btn_cashier.Click += new System.EventHandler(this.Btn_cashier_Click);
             // 
             // btn_admin
             // 
@@ -73,7 +73,7 @@
             this.btn_logOut.TabIndex = 3;
             this.btn_logOut.Text = "Log Out";
             this.btn_logOut.UseVisualStyleBackColor = true;
-            this.btn_logOut.Click += new System.EventHandler(this.btn_logOut_Click);
+            this.btn_logOut.Click += new System.EventHandler(this.Btn_logOut_Click);
             // 
             // frmMain
             // 
@@ -87,7 +87,7 @@
             this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "frmMain";
             this.Text = "frmMain";
-            this.Load += new System.EventHandler(this.frmMain_Load);
+            this.Load += new System.EventHandler(this.FrmMain_Load);
             this.ResumeLayout(false);
 
         }

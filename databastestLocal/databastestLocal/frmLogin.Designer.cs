@@ -1,6 +1,6 @@
 ﻿namespace databastestLocal
 {
-    partial class frmLogin
+    partial class FrmLogin
     {
         /// <summary>
         /// Required designer variable.
@@ -44,7 +44,7 @@
             this.btn_Submit.TabIndex = 0;
             this.btn_Submit.Text = "Login";
             this.btn_Submit.UseVisualStyleBackColor = true;
-            this.btn_Submit.Click += new System.EventHandler(this.btn_Submit_Click);
+            this.btn_Submit.Click += new System.EventHandler(this.Btn_Submit_Click);
             // 
             // label1
             // 
@@ -96,7 +96,7 @@
             this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "frmLogin";
             this.Text = "frmLogin";
-            this.Load += new System.EventHandler(this.frmLogin_Load);
+            this.Load += new System.EventHandler(this.FrmLogin_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
