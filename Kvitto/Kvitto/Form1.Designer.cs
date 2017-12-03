@@ -108,6 +108,7 @@
             this.button6.TabIndex = 14;
             this.button6.Text = "SUB TOTAL";
             this.button6.UseVisualStyleBackColor = false;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // button5
             // 
@@ -129,6 +130,7 @@
             this.listBox2.Name = "listBox2";
             this.listBox2.Size = new System.Drawing.Size(162, 52);
             this.listBox2.TabIndex = 16;
+            this.listBox2.SelectedIndexChanged += new System.EventHandler(this.listBox2_SelectedIndexChanged);
             // 
             // listBox3
             // 
