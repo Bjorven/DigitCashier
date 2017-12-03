@@ -31,8 +31,8 @@ namespace Calculator2
         }
         Barcode barcode;
         RegisterNewCustomer customer;
-        Existing_Customer oldcustomer; 
-        
+        Existing_Customer oldcustomer;
+        Receipt Receipt;
 
         private void NrOneButton_Click_1(object sender, EventArgs e)
         {
@@ -375,8 +375,8 @@ namespace Calculator2
         private void ReceiptButton_Click(object sender, EventArgs e)
         {
             
-            //Receipt receipt = new Receipt();
-            //receipt.show();
+            Receipt receipt = new Receipt();
+            receipt.Show();
 
         }
 
