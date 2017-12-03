@@ -30,12 +30,12 @@
         {
             this.listBox3 = new System.Windows.Forms.ListBox();
             this.listBox2 = new System.Windows.Forms.ListBox();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.iteamSelectedButton = new System.Windows.Forms.Button();
+            this.subTotalButton = new System.Windows.Forms.Button();
+            this.printReceiptButton = new System.Windows.Forms.Button();
+            this.SearchItemButton = new System.Windows.Forms.Button();
+            this.addItemButton = new System.Windows.Forms.Button();
+            this.removeItemButton = new System.Windows.Forms.Button();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
@@ -59,78 +59,82 @@
             this.listBox2.Size = new System.Drawing.Size(162, 44);
             this.listBox2.TabIndex = 25;
             // 
-            // button5
+            // iteamSelectedButton
             // 
-            this.button5.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button5.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button5.Location = new System.Drawing.Point(422, 421);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(162, 30);
-            this.button5.TabIndex = 24;
-            this.button5.Text = "ITEM SELECTED";
-            this.button5.UseVisualStyleBackColor = false;
+            this.iteamSelectedButton.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.iteamSelectedButton.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iteamSelectedButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.iteamSelectedButton.Location = new System.Drawing.Point(422, 421);
+            this.iteamSelectedButton.Name = "iteamSelectedButton";
+            this.iteamSelectedButton.Size = new System.Drawing.Size(162, 30);
+            this.iteamSelectedButton.TabIndex = 24;
+            this.iteamSelectedButton.Text = "ITEM SELECTED";
+            this.iteamSelectedButton.UseVisualStyleBackColor = false;
             // 
-            // button6
+            // subTotalButton
             // 
-            this.button6.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button6.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button6.Location = new System.Drawing.Point(422, 512);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(162, 30);
-            this.button6.TabIndex = 23;
-            this.button6.Text = "SUB TOTAL";
-            this.button6.UseVisualStyleBackColor = false;
+            this.subTotalButton.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.subTotalButton.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.subTotalButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.subTotalButton.Location = new System.Drawing.Point(422, 512);
+            this.subTotalButton.Name = "subTotalButton";
+            this.subTotalButton.Size = new System.Drawing.Size(162, 30);
+            this.subTotalButton.TabIndex = 23;
+            this.subTotalButton.Text = "SUB TOTAL";
+            this.subTotalButton.UseVisualStyleBackColor = false;
             // 
-            // button4
+            // printReceiptButton
             // 
-            this.button4.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button4.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button4.Location = new System.Drawing.Point(422, 318);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(162, 79);
-            this.button4.TabIndex = 22;
-            this.button4.Text = "PRINT RECEIPT";
-            this.button4.UseVisualStyleBackColor = false;
-            this.button4.UseWaitCursor = true;
+            this.printReceiptButton.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.printReceiptButton.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.printReceiptButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.printReceiptButton.Location = new System.Drawing.Point(422, 318);
+            this.printReceiptButton.Name = "printReceiptButton";
+            this.printReceiptButton.Size = new System.Drawing.Size(162, 79);
+            this.printReceiptButton.TabIndex = 22;
+            this.printReceiptButton.Text = "PRINT RECEIPT";
+            this.printReceiptButton.UseVisualStyleBackColor = false;
+            this.printReceiptButton.UseWaitCursor = true;
+            this.printReceiptButton.Click += new System.EventHandler(this.printReceiptButton_Click);
             // 
-            // button2
+            // SearchItemButton
             // 
-            this.button2.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button2.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button2.Location = new System.Drawing.Point(422, 217);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(162, 79);
-            this.button2.TabIndex = 21;
-            this.button2.Text = "SEARCH RECEIPT";
-            this.button2.UseVisualStyleBackColor = false;
+            this.SearchItemButton.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.SearchItemButton.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SearchItemButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.SearchItemButton.Location = new System.Drawing.Point(422, 217);
+            this.SearchItemButton.Name = "SearchItemButton";
+            this.SearchItemButton.Size = new System.Drawing.Size(162, 79);
+            this.SearchItemButton.TabIndex = 21;
+            this.SearchItemButton.Text = "SEARCH RECEIPT";
+            this.SearchItemButton.UseVisualStyleBackColor = false;
+            this.SearchItemButton.Click += new System.EventHandler(this.SearchItemButton_Click);
             // 
-            // button1
+            // addItemButton
             // 
-            this.button1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button1.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button1.Location = new System.Drawing.Point(422, 12);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(162, 79);
-            this.button1.TabIndex = 20;
-            this.button1.Text = "ADD ITEM";
-            this.button1.UseVisualStyleBackColor = false;
+            this.addItemButton.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.addItemButton.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addItemButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.addItemButton.Location = new System.Drawing.Point(422, 12);
+            this.addItemButton.Name = "addItemButton";
+            this.addItemButton.Size = new System.Drawing.Size(162, 79);
+            this.addItemButton.TabIndex = 20;
+            this.addItemButton.Text = "ADD ITEM";
+            this.addItemButton.UseVisualStyleBackColor = false;
+            this.addItemButton.Click += new System.EventHandler(this.addItemButton_Click);
             // 
-            // button3
+            // removeItemButton
             // 
-            this.button3.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button3.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button3.Location = new System.Drawing.Point(422, 114);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(162, 79);
-            this.button3.TabIndex = 19;
-            this.button3.Text = "REMOVE ITEM";
-            this.button3.UseVisualStyleBackColor = false;
+            this.removeItemButton.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.removeItemButton.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.removeItemButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.removeItemButton.Location = new System.Drawing.Point(422, 114);
+            this.removeItemButton.Name = "removeItemButton";
+            this.removeItemButton.Size = new System.Drawing.Size(162, 79);
+            this.removeItemButton.TabIndex = 19;
+            this.removeItemButton.Text = "REMOVE ITEM";
+            this.removeItemButton.UseVisualStyleBackColor = false;
+            this.removeItemButton.Click += new System.EventHandler(this.button3_Click);
             // 
             // listBox1
             // 
@@ -149,12 +153,12 @@
             this.ClientSize = new System.Drawing.Size(601, 611);
             this.Controls.Add(this.listBox3);
             this.Controls.Add(this.listBox2);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button6);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.iteamSelectedButton);
+            this.Controls.Add(this.subTotalButton);
+            this.Controls.Add(this.printReceiptButton);
+            this.Controls.Add(this.SearchItemButton);
+            this.Controls.Add(this.addItemButton);
+            this.Controls.Add(this.removeItemButton);
             this.Controls.Add(this.listBox1);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -169,12 +173,12 @@
 
         private System.Windows.Forms.ListBox listBox3;
         private System.Windows.Forms.ListBox listBox2;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button iteamSelectedButton;
+        private System.Windows.Forms.Button subTotalButton;
+        private System.Windows.Forms.Button printReceiptButton;
+        private System.Windows.Forms.Button SearchItemButton;
+        private System.Windows.Forms.Button addItemButton;
+        private System.Windows.Forms.Button removeItemButton;
         private System.Windows.Forms.ListBox listBox1;
     }
 }
