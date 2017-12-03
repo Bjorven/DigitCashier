@@ -25,10 +25,14 @@ namespace Calculator2
         bool isSearchBtn = false;
         double Mresult = 1;
         public Calculator()
+           
         {
             InitializeComponent();
         }
         Barcode barcode;
+        RegisterNewCustomer customer;
+        Existing_Customer oldcustomer; 
+        
 
         private void NrOneButton_Click_1(object sender, EventArgs e)
         {
@@ -346,12 +350,19 @@ namespace Calculator2
             momsTextBox.Text = toPayTextBox.Text;
             toPayTextBox.Text = (Convert.ToInt32(momsTextBox.Text) * 0.2).ToString();
         }
-
+        
         private void GoodsButton_Click(object sender, EventArgs e)
         {
+            
             Dbaccess db = new Dbaccess();
-            Product product = db.GetProduct(01);
-           
+            DataSet ds = db.GetGoodsList();
+
+            foreach (DataRow r in ds.Tables[0].Rows)
+            {
+                if (r["name"].ToString() == goodsListBox.SelectedValue)
+                    label1.Text = r["id"].ToString();
+            }
+
 
         }
 
@@ -401,6 +412,31 @@ namespace Calculator2
         {
             barcode = new Barcode();
             barcode.Show();
+        }
+
+        private void NewCustomerButton_Click(object sender, EventArgs e)
+        {
+            customer = new RegisterNewCustomer();
+            customer.Show();
+        }
+
+        private void CustomerButton_Click(object sender, EventArgs e)
+        {
+            oldcustomer = new Existing_Customer();
+            oldcustomer.Show();
+        }
+
+        private void goodsListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //Dbaccess db = new Dbaccess();
+            //DataSet ds = db.GetGoodsList();
+
+            //foreach (DataRow r in ds.Tables[0].Rows)
+            //{
+            //    if (r["name"].ToString() == goodsListBox.SelectedValue)
+            //        label1.Text = r["id"].ToString();
+            //}
+
         }
     }
     }

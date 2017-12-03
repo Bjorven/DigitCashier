@@ -21,6 +21,10 @@ namespace Calculator2
         private Boolean pricePerKg;
         private Boolean pricePerHg;
 
+        public Product()
+        {
+        }
+
         public Product(int idy, int pricy, string manufac, string supply, string productG, int vaty, Boolean ppkg, Boolean ppHg, string namey)
         {
             Id = idy;
@@ -45,14 +49,9 @@ namespace Calculator2
         public Boolean PricePerHG { get; set; }
         public string Name { get; set; }
 
-
-
-
-
-
-
-
-
-
+        internal void Show()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

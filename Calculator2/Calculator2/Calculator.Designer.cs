@@ -242,6 +242,7 @@ namespace Calculator2
             this.CustomerButton.TabIndex = 228;
             this.CustomerButton.Text = "Customer";
             this.CustomerButton.UseVisualStyleBackColor = false;
+            this.CustomerButton.Click += new System.EventHandler(this.CustomerButton_Click);
             // 
             // NewCustomerButton
             // 
@@ -257,6 +258,7 @@ namespace Calculator2
             this.NewCustomerButton.TabIndex = 227;
             this.NewCustomerButton.Text = "New ";
             this.NewCustomerButton.UseVisualStyleBackColor = false;
+            this.NewCustomerButton.Click += new System.EventHandler(this.NewCustomerButton_Click);
             // 
             // BarcodeBotton
             // 
@@ -857,6 +859,7 @@ namespace Calculator2
             this.goodsListBox.Name = "goodsListBox";
             this.goodsListBox.Size = new System.Drawing.Size(772, 292);
             this.goodsListBox.TabIndex = 181;
+            this.goodsListBox.SelectedIndexChanged += new System.EventHandler(this.goodsListBox_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -1000,7 +1003,7 @@ namespace Calculator2
             this.Controls.Add(this.goodsListBox);
             this.MaximizeBox = false;
             this.Name = "Calculator";
-            this.Text = "Form1";
+            this.Text = "Kassa";
             this.ResumeLayout(false);
             this.PerformLayout();
 
