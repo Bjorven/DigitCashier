@@ -533,6 +533,7 @@ namespace Calculator2
             this.ReceiptButton.TabIndex = 209;
             this.ReceiptButton.Text = "Receipt";
             this.ReceiptButton.UseVisualStyleBackColor = false;
+            this.ReceiptButton.Click += new System.EventHandler(this.ReceiptButton_Click);
             // 
             // CashButton
             // 

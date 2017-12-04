@@ -227,6 +227,11 @@ namespace Calculator2
         {
            
         }
+
+        private void ReceiptButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
    
