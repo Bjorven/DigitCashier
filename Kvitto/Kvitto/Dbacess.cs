@@ -11,7 +11,7 @@ using System.Data.OleDb;
 
 namespace Kvitto
 {
-    class Dbacess
+    class DbAcess
     {
         SqlConnection connection;
         SqlCommand command;
@@ -31,6 +31,7 @@ namespace Kvitto
         public DataSet getReceipt(string Search_text)
         {
             command.CommandText = "Select * from receipt id=@id";
+            
             command.Parameters.AddWithValue("@id", Search_text);
             connection.Open();
             SqlDataAdapter adapt = new SqlDataAdapter(command);

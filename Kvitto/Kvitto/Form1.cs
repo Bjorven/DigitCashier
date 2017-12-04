@@ -33,10 +33,7 @@ namespace Kvitto
             
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            
-        }
+      
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -55,18 +52,12 @@ namespace Kvitto
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            string[] lines = File.ReadAllLines(@"C:\Users\Björn\Documents\kvittodelar.txt");
-
-            listBox1.Items.AddRange(lines);
-            listBox2.Items.Add(" ÄPPLEN");
-            listBox3.Items.Add(" 650 KR ");
+            
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            listBox1.Items.Clear();
-            listBox2.Items.Clear();
-            listBox3.Items.Clear();
+            
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -114,10 +105,12 @@ namespace Kvitto
             }
             try
             {
-                Dbacess db = new Dbacess();
+                DbAcess db = new DbAcess();
                 DataSet ds = db.getReceipt(txtb_Search.Text);
-                List<receiptinfo> myReceipt = new List<receiptinfo>();
-                foreach (DataRow r in ds)
+
+
+                
+                foreach (DataRow r in ds.Tables[0].Rows)
                 {
 
                 }
