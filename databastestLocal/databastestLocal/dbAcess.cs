@@ -52,7 +52,7 @@ namespace databastestLocal
             {
                 // här skickar vi ut och tilldelar user's data
                 //vi måste göra detta en och en för att se vilken jag har parsat/castat fel.
-                User getuser = new User(
+                User getUser = new User(
                 ////UserName 
                 Convert.ToString(ds.Tables[0].Rows[0][0].ToString()),
                 ////Fname 
@@ -89,7 +89,7 @@ namespace databastestLocal
                 Convert.ToDateTime(ds.Tables[0].Rows[0][16].ToString())
                 );
 
-                return getuser;
+                return getUser;
 
 
             }
