@@ -362,7 +362,7 @@ namespace Calculator2
             this.GoodsButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.GoodsButton.Font = new System.Drawing.Font("Comic Sans MS", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GoodsButton.ForeColor = System.Drawing.Color.White;
-            this.GoodsButton.Location = new System.Drawing.Point(25, 433);
+            this.GoodsButton.Location = new System.Drawing.Point(25, 434);
             this.GoodsButton.Name = "GoodsButton";
             this.GoodsButton.Size = new System.Drawing.Size(170, 58);
             this.GoodsButton.TabIndex = 220;
