@@ -57,21 +57,22 @@ namespace Kvitto
         {
             string[] lines = File.ReadAllLines(@"C:\Users\Björn\Documents\kvittodelar.txt");
 
-            listBox1.Items.AddRange(lines);
-            listBox2.Items.Add(" ÄPPLEN");
+            lBox_display.Items.AddRange(lines);
+            lbox_ItemSel.Items.Add(" ÄPPLEN");
             listBox3.Items.Add(" 650 KR ");
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            listBox1.Items.Clear();
-            listBox2.Items.Clear();
+            lBox_display.Items.Clear();
+            lbox_ItemSel.Items.Clear();
             listBox3.Items.Clear();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            listBox1.Items.Add(" KVITTO "+ " ID: 25060 " + " 20170325 " + " 723.50 KR");
+            pnl_Search.BringToFront();
+            //lBox_display.Items.Add(" KVITTO "+ " ID: 25060 " + " 20170325 " + " 723.50 KR");
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -102,6 +103,30 @@ namespace Kvitto
         private void listBox3_SelectedIndexChanged(object sender, EventArgs e)
         {
             
+        }
+
+        private void btn_SearchRId_Click(object sender, EventArgs e)
+        {
+            if (txtb_Search.Text == "")
+            {
+                MessageBox.Show("Please Enter Value");
+                return;
+            }
+            try
+            {
+                Dbacess db = new Dbacess();
+                DataSet ds = db.getReceipt(txtb_Search.Text);
+                List<receiptinfo> myReceipt = new List<receiptinfo>();
+                foreach (DataRow r in ds)
+                {
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+            }
         }
     }
 }
