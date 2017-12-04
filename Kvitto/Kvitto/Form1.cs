@@ -57,15 +57,15 @@ namespace Kvitto
         {
             string[] lines = File.ReadAllLines(@"C:\Users\Björn\Documents\kvittodelar.txt");
 
-            lBox_display.Items.AddRange(lines);
-            lbox_ItemSel.Items.Add(" ÄPPLEN");
+            listBox1.Items.AddRange(lines);
+            listBox2.Items.Add(" ÄPPLEN");
             listBox3.Items.Add(" 650 KR ");
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            lBox_display.Items.Clear();
-            lbox_ItemSel.Items.Clear();
+            listBox1.Items.Clear();
+            listBox2.Items.Clear();
             listBox3.Items.Clear();
         }
 
@@ -127,6 +127,16 @@ namespace Kvitto
             {
 
             }
+        }
+
+        private void listBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
