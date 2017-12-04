@@ -31,12 +31,38 @@ namespace Calculator2
 
         private void SearchItemButton_Click(object sender, EventArgs e)
         {
-            //listBox1.Items.Add(" KVITTO " + " ID: 25060 " + " 20170325 " + " 723.50 KR");
+            pnl_Search.BringToFront();
+            
+            
+            
         }
 
         private void printReceiptButton_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Printing receipt");
+        }
+
+        private void btn_SubmitSearch_Click(object sender, EventArgs e)
+        {
+
+            if (txtb_SearchBar.Text == "")
+            {
+                MessageBox.Show("Enter Search parameter");
+            }
+            try
+            {
+                Dbaccess db = new Dbaccess();
+                DataSet ds = db.getReceipt(txtb_SearchBar.Text);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btn_CancelSearch_Click(object sender, EventArgs e)
+        {
+            pnl_Search.SendToBack();
         }
     }
 }

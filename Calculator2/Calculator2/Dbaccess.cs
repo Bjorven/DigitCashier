@@ -20,7 +20,7 @@ namespace Calculator2
         public Dbaccess()
         {
             connection = new SqlConnection();
-            connection.ConnectionString = @"Data Source=LAPTOP-B9AASP37\SQLEXPRESS;Initial Catalog=DigitCashier;Integrated Security=True;Connect Timeout=30;";
+            connection.ConnectionString = @"Data Source=LAPTOP-TU1UMOIC;Initial Catalog=DigitCashier;Integrated Security=True";
             command = new SqlCommand();
             command.Connection = connection;
             command.CommandType = CommandType.Text;
@@ -70,6 +70,23 @@ namespace Calculator2
         //     throw new Exception();
         // }
 
+        public DataSet getReceipt(string Search_text)
+        {
+            command.CommandText = "Select * from receipt where id=@id or salePerson=@salePerson or receiptDate=@receiptDate ";
+            
+            command.Parameters.AddWithValue("@id", Search_text);
+            command.Parameters.AddWithValue("@salePerson", Search_text);
+            command.Parameters.AddWithValue("@receiptDate", Search_text);
+
+
+            connection.Open();
+            SqlDataAdapter adapt = new SqlDataAdapter(command);
+            DataSet ds = new DataSet();
+            adapt.Fill(ds);
+            connection.Close();
+
+            return ds;
+        }
 
 
     }

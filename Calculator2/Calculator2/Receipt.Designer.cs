@@ -37,6 +37,12 @@
             this.addItemButton = new System.Windows.Forms.Button();
             this.removeItemButton = new System.Windows.Forms.Button();
             this.listBox1 = new System.Windows.Forms.ListBox();
+            this.pnl_Search = new System.Windows.Forms.Panel();
+            this.lbl_Search = new System.Windows.Forms.Label();
+            this.txtb_SearchBar = new System.Windows.Forms.TextBox();
+            this.btn_SubmitSearch = new System.Windows.Forms.Button();
+            this.btn_CancelSearch = new System.Windows.Forms.Button();
+            this.pnl_Search.SuspendLayout();
             this.SuspendLayout();
             // 
             // listBox3
@@ -146,6 +152,53 @@
             this.listBox1.Size = new System.Drawing.Size(387, 564);
             this.listBox1.TabIndex = 18;
             // 
+            // pnl_Search
+            // 
+            this.pnl_Search.Controls.Add(this.btn_CancelSearch);
+            this.pnl_Search.Controls.Add(this.btn_SubmitSearch);
+            this.pnl_Search.Controls.Add(this.txtb_SearchBar);
+            this.pnl_Search.Controls.Add(this.lbl_Search);
+            this.pnl_Search.Location = new System.Drawing.Point(107, 226);
+            this.pnl_Search.Name = "pnl_Search";
+            this.pnl_Search.Size = new System.Drawing.Size(292, 171);
+            this.pnl_Search.TabIndex = 27;
+            // 
+            // lbl_Search
+            // 
+            this.lbl_Search.AutoSize = true;
+            this.lbl_Search.Location = new System.Drawing.Point(15, 23);
+            this.lbl_Search.Name = "lbl_Search";
+            this.lbl_Search.Size = new System.Drawing.Size(119, 17);
+            this.lbl_Search.TabIndex = 0;
+            this.lbl_Search.Text = "Enter search item";
+            // 
+            // txtb_SearchBar
+            // 
+            this.txtb_SearchBar.Location = new System.Drawing.Point(18, 47);
+            this.txtb_SearchBar.Name = "txtb_SearchBar";
+            this.txtb_SearchBar.Size = new System.Drawing.Size(271, 22);
+            this.txtb_SearchBar.TabIndex = 1;
+            // 
+            // btn_SubmitSearch
+            // 
+            this.btn_SubmitSearch.Location = new System.Drawing.Point(18, 136);
+            this.btn_SubmitSearch.Name = "btn_SubmitSearch";
+            this.btn_SubmitSearch.Size = new System.Drawing.Size(75, 23);
+            this.btn_SubmitSearch.TabIndex = 2;
+            this.btn_SubmitSearch.Text = "Search";
+            this.btn_SubmitSearch.UseVisualStyleBackColor = true;
+            this.btn_SubmitSearch.Click += new System.EventHandler(this.btn_SubmitSearch_Click);
+            // 
+            // btn_CancelSearch
+            // 
+            this.btn_CancelSearch.Location = new System.Drawing.Point(214, 136);
+            this.btn_CancelSearch.Name = "btn_CancelSearch";
+            this.btn_CancelSearch.Size = new System.Drawing.Size(75, 23);
+            this.btn_CancelSearch.TabIndex = 3;
+            this.btn_CancelSearch.Text = "Cancel";
+            this.btn_CancelSearch.UseVisualStyleBackColor = true;
+            this.btn_CancelSearch.Click += new System.EventHandler(this.btn_CancelSearch_Click);
+            // 
             // Receipt
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -160,11 +213,14 @@
             this.Controls.Add(this.addItemButton);
             this.Controls.Add(this.removeItemButton);
             this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.pnl_Search);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Receipt";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Receipt";
+            this.pnl_Search.ResumeLayout(false);
+            this.pnl_Search.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -180,5 +236,10 @@
         private System.Windows.Forms.Button addItemButton;
         private System.Windows.Forms.Button removeItemButton;
         private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.Panel pnl_Search;
+        private System.Windows.Forms.Button btn_CancelSearch;
+        private System.Windows.Forms.Button btn_SubmitSearch;
+        private System.Windows.Forms.TextBox txtb_SearchBar;
+        private System.Windows.Forms.Label lbl_Search;
     }
 }
