@@ -32,7 +32,8 @@ namespace Calculator2
         Barcode barcode;
         RegisterNewCustomer customer;
         Existing_Customer oldcustomer;
-        Receipt Receipt;
+        Receipt receipt;
+        
 
         private void NrOneButton_Click_1(object sender, EventArgs e)
         {
@@ -357,12 +358,14 @@ namespace Calculator2
             Dbaccess db = new Dbaccess();
             DataSet ds = db.GetGoodsList();
 
+
             foreach (DataRow r in ds.Tables[0].Rows)
             {
                 if (r["name"].ToString() == goodsListBox.SelectedValue)
                     label1.Text = r["id"].ToString();
             }
 
+            
 
         }
 
