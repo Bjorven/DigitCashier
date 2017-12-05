@@ -37,6 +37,8 @@ namespace Calculator2
             connection.Close();
             return ds;
 
+
+
         }
 
         // public Product(int productid)
@@ -69,23 +71,29 @@ namespace Calculator2
         // {
         //     throw new Exception();
         // }
+        // or salePerson=@salePerson or receiptDate=@receiptDate
 
-        public DataSet getReceipt(string Search_text)
+
+
+        public DataTable getReceipt(string Search_text)
         {
-            command.CommandText = "Select * from receipt where id=@id or salePerson=@salePerson or receiptDate=@receiptDate ";
-            
-            command.Parameters.AddWithValue("@id", Search_text);
-            command.Parameters.AddWithValue("@salePerson", Search_text);
-            command.Parameters.AddWithValue("@receiptDate", Search_text);
-
-
+            SqlParameter workparameter1 = new SqlParameter();
             connection.Open();
-            SqlDataAdapter adapt = new SqlDataAdapter(command);
-            DataSet ds = new DataSet();
-            adapt.Fill(ds);
-            connection.Close();
+            command.CommandText = "spGetReceipt";
+            command.CommandType = CommandType.StoredProcedure;
 
-            return ds;
+            workparameter1 = command.Parameters.Add("@Search_text", SqlDbType.VarChar);
+            workparameter1.Value = Search_text;
+            command.ExecuteNonQuery();
+
+            
+            SqlDataAdapter adapt = new SqlDataAdapter(command);
+            DataTable dt = new DataTable();
+            adapt.Fill(dt);
+            connection.Close();
+           
+
+            return dt;
         }
 
 
