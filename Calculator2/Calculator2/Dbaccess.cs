@@ -74,7 +74,8 @@ namespace Calculator2
         // or salePerson=@salePerson or receiptDate=@receiptDate
 
 
-
+        //***************************************************************************************************************************************************
+        //***************************************************************************************************************************************************
         public DataTable getReceipt(string Search_text)
         {
             SqlParameter workparameter1 = new SqlParameter();
@@ -86,15 +87,17 @@ namespace Calculator2
             workparameter1.Value = Search_text;
             command.ExecuteNonQuery();
 
-            
+
             SqlDataAdapter adapt = new SqlDataAdapter(command);
             DataTable dt = new DataTable();
             adapt.Fill(dt);
             connection.Close();
-           
+
 
             return dt;
         }
+        //***************************************************************************************************************************************************
+        //***************************************************************************************************************************************************
 
 
     }
