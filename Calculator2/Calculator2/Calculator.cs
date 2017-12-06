@@ -7,11 +7,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
+using System.Data;
+using System.Data.SqlTypes;
+using System.Data.Sql;
+using System.Data.OleDb;
+using System.Data.Common;
 
 namespace Calculator2
 {
     public partial class Calculator : Form
     {
+
+
         string input = string.Empty;
         string operation = string.Empty;
         string operand1 = string.Empty;
@@ -28,13 +36,14 @@ namespace Calculator2
 
         {
             InitializeComponent();
+
         }
 
         Barcode barcode;
         RegisterNewCustomer customer;
         Existing_Customer oldcustomer;
         Receipt receipt;
-        
+
 
         private void NrOneButton_Click_1(object sender, EventArgs e)
         {
@@ -352,40 +361,33 @@ namespace Calculator2
             momsTextBox.Text = toPayTextBox.Text;
             toPayTextBox.Text = (Convert.ToInt32(momsTextBox.Text) * 0.2).ToString();
         }
+       
+        
+        //*************************************************************************************************************************************
 
         private void GoodsButton_Click(object sender, EventArgs e)
         {
 
             Dbaccess db = new Dbaccess();
             DataSet ds = db.GetGoodsList();
-
-            List<Product> productList = new List<Product>();
-            productList = (from DataRow dr in ds.Tables[0].Rows
-                           select new Product()
-                           {
-                               Id = Convert.ToInt32(dr["idnumber"]),
-                               Name = dr["Pname"].ToString(),
-                               Price = Convert.ToInt32(dr["price"]),
-                               Qty = Convert.ToInt32(dr["qty"]),
-                               PricePerHG = Convert.ToBoolean(dr["PricePerHg"]),
-                               PricePerKG = Convert.ToBoolean(dr["PricePerKg"]),
-                               ProductGroup = dr["PGname"].ToString(),
-                               Vat = Convert.ToDecimal(dr["Vvalue"]),
-                               Manufacturer = dr["Mname"].ToString(),
-                               Supplier = dr["Supname"].ToString(),
-
-
-                           }).ToList();
-
-            //foreach (DataRow r in ds.Tables[0].Rows)
-            //{
-            //    if (r["name"].ToString() == goodsListBox.SelectedValue)
-            //        label1.Text = r["id"].ToString();
-            //}
-
-
-
+            if (ds.Tables[0].Rows.Count == 0)
+            {
+                MessageBox.Show("No items found");
+            }
+            try
+            {
+                DataTable dtable = ds.Tables[0];
+                GoodsListGridView gLGV = new GoodsListGridView(dtable);
+                gLGV.Show();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
+
+        //*************************************************************************************************************************************
+
 
         private void CloseButton_Click(object sender, EventArgs e)
         {
@@ -462,6 +464,7 @@ namespace Calculator2
 
         private void Calculator_Load(object sender, EventArgs e)
         {
+
 
         }
     }

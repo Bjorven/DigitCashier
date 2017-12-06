@@ -65,7 +65,7 @@ namespace Calculator2
         //      Convert.ToBoolean(ds.Tables[0].Rows[0][7].ToString()),
         //      Convert.ToString(ds.Tables[0].Rows[0][8].ToString())
         //      );
-        //     return ds;
+        //     return getproduct;
         // }
         // else
         // {
