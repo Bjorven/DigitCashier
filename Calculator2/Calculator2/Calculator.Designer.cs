@@ -930,7 +930,7 @@ namespace Calculator2
             this.goodsListView.Size = new System.Drawing.Size(770, 310);
             this.goodsListView.TabIndex = 246;
             this.goodsListView.UseCompatibleStateImageBehavior = false;
-            this.goodsListView.SelectedIndexChanged += new System.EventHandler(this.goodsListView_SelectedIndexChanged);
+           // this.goodsListView.SelectedIndexChanged += new System.EventHandler(this.goodsListView_SelectedIndexChanged);
             // 
             // Calculator
             // 
@@ -1003,7 +1003,7 @@ namespace Calculator2
             this.MaximizeBox = false;
             this.Name = "Calculator";
             this.Text = "Kassa";
-            this.Load += new System.EventHandler(this.Calculator_Load);
+            
             this.ResumeLayout(false);
             this.PerformLayout();
 

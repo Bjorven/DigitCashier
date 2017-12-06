@@ -363,8 +363,9 @@ namespace Calculator2
 
             foreach (DataRow r in ds.Tables[0].Rows)
             {
-                if (r["name"].ToString() == goodsListBox.SelectedValue)
-                    label1.Text = r["id"].ToString();
+                //  if (r["name"].ToString() == goodsListBox.SelectedValue)
+
+                //label1.Text = r["id"].ToString();
             }
 
             
