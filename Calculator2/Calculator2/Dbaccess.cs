@@ -20,7 +20,7 @@ namespace Calculator2
         public Dbaccess()
         {
             connection = new SqlConnection();
-            connection.ConnectionString = @"Data Source=LAPTOP-TU1UMOIC;Initial Catalog=DigitCashier;Integrated Security=True";
+            connection.ConnectionString = @"Data Source=LAPTOP-B9AASP37\SQLEXPRESS;Initial Catalog=DigitCashier;Integrated Security=True;Connect Timeout=30;";
             command = new SqlCommand();
             command.Connection = connection;
             command.CommandType = CommandType.Text;

@@ -43,7 +43,8 @@ namespace Calculator2
         RegisterNewCustomer customer;
         Existing_Customer oldcustomer;
         Receipt receipt;
-
+        Product productList;
+        
 
         private void NrOneButton_Click_1(object sender, EventArgs e)
         {
@@ -468,7 +469,6 @@ namespace Calculator2
 
         }
     }
-}
 
 
 

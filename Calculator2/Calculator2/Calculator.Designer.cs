@@ -85,7 +85,6 @@ namespace Calculator2
             this.idNrLabel = new System.Windows.Forms.Label();
             this.reciptNrTextBox = new System.Windows.Forms.TextBox();
             this.reciptNrLabel = new System.Windows.Forms.Label();
-            this.goodsListBox = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
             this.searchTextBox = new System.Windows.Forms.TextBox();
             this.momsTextBox = new System.Windows.Forms.TextBox();
@@ -93,6 +92,7 @@ namespace Calculator2
             this.changeTextBox = new System.Windows.Forms.TextBox();
             this.totalLabel = new System.Windows.Forms.Label();
             this.idnameComboBox = new System.Windows.Forms.ComboBox();
+            this.goodsListView = new System.Windows.Forms.ListView();
             this.SuspendLayout();
             // 
             // dateTimePicker1
@@ -851,16 +851,6 @@ namespace Calculator2
             this.reciptNrLabel.TabIndex = 182;
             this.reciptNrLabel.Text = "ReceiptNr: ";
             // 
-            // goodsListBox
-            // 
-            this.goodsListBox.FormattingEnabled = true;
-            this.goodsListBox.ItemHeight = 16;
-            this.goodsListBox.Location = new System.Drawing.Point(27, 69);
-            this.goodsListBox.Name = "goodsListBox";
-            this.goodsListBox.Size = new System.Drawing.Size(772, 292);
-            this.goodsListBox.TabIndex = 181;
-            this.goodsListBox.SelectedIndexChanged += new System.EventHandler(this.goodsListBox_SelectedIndexChanged);
-            // 
             // label1
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -933,11 +923,21 @@ namespace Calculator2
             this.idnameComboBox.TabIndex = 245;
             this.idnameComboBox.SelectedIndexChanged += new System.EventHandler(this.idnameComboBox_SelectedIndexChanged);
             // 
+            // goodsListView
+            // 
+            this.goodsListView.Location = new System.Drawing.Point(26, 52);
+            this.goodsListView.Name = "goodsListView";
+            this.goodsListView.Size = new System.Drawing.Size(770, 310);
+            this.goodsListView.TabIndex = 246;
+            this.goodsListView.UseCompatibleStateImageBehavior = false;
+           // this.goodsListView.SelectedIndexChanged += new System.EventHandler(this.goodsListView_SelectedIndexChanged);
+            // 
             // Calculator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1100, 696);
+            this.Controls.Add(this.goodsListView);
             this.Controls.Add(this.idnameComboBox);
             this.Controls.Add(this.changeTextBox);
             this.Controls.Add(this.totalLabel);
@@ -1000,11 +1000,10 @@ namespace Calculator2
             this.Controls.Add(this.idNrLabel);
             this.Controls.Add(this.reciptNrTextBox);
             this.Controls.Add(this.reciptNrLabel);
-            this.Controls.Add(this.goodsListBox);
             this.MaximizeBox = false;
             this.Name = "Calculator";
             this.Text = "Kassa";
-            this.Load += new System.EventHandler(this.Calculator_Load);
+            
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1068,7 +1067,6 @@ namespace Calculator2
         private System.Windows.Forms.Label idNrLabel;
         private System.Windows.Forms.TextBox reciptNrTextBox;
         private System.Windows.Forms.Label reciptNrLabel;
-        private System.Windows.Forms.ListBox goodsListBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox searchTextBox;
         private System.Windows.Forms.TextBox momsTextBox;
@@ -1076,6 +1074,7 @@ namespace Calculator2
         private System.Windows.Forms.TextBox changeTextBox;
         private System.Windows.Forms.Label totalLabel;
         private System.Windows.Forms.ComboBox idnameComboBox;
+        private System.Windows.Forms.ListView goodsListView;
 
         public EventHandler CommaButton_Click_1 { get; private set; }
         public EventHandler DeleteButton_Click_1 { get; private set; }
