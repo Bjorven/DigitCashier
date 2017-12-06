@@ -359,14 +359,31 @@ namespace Calculator2
             Dbaccess db = new Dbaccess();
             DataSet ds = db.GetGoodsList();
 
+            List<Product> productList = new List<Product>();
+            productList = (from DataRow dr in ds.Tables[0].Rows
+                           select new Product()
+                           {
+                               Id = Convert.ToInt32(dr["idnumber"]),
+                               Name = dr["Pname"].ToString(),
+                               Price = Convert.ToInt32(dr["price"]),
+                               Qty = Convert.ToInt32(dr["qty"]),
+                               PricePerHG = Convert.ToBoolean(dr["PricePerHg"]),
+                               PricePerKG = Convert.ToBoolean(dr["PricePerKg"]),
+                               ProductGroup = dr["PGname"].ToString(),
+                               Vat = Convert.ToDecimal(dr["Vvalue"]),
+                               Manufacturer = dr["Mname"].ToString(),
+                               Supplier = dr["Supname"].ToString(),
 
-            foreach (DataRow r in ds.Tables[0].Rows)
-            {
-                if (r["name"].ToString() == goodsListBox.SelectedValue)
-                    label1.Text = r["id"].ToString();
-            }
 
-            
+                           }).ToList();
+
+            //foreach (DataRow r in ds.Tables[0].Rows)
+            //{
+            //    if (r["name"].ToString() == goodsListBox.SelectedValue)
+            //        label1.Text = r["id"].ToString();
+            //}
+
+
 
         }
 
@@ -443,7 +460,10 @@ namespace Calculator2
 
         }
 
+        private void Calculator_Load(object sender, EventArgs e)
+        {
 
+        }
     }
 }
 

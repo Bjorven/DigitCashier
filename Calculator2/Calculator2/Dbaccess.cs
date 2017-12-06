@@ -29,7 +29,7 @@ namespace Calculator2
         public DataSet GetGoodsList()
         {
 
-            command.CommandText = "Select * from Product";
+            command.CommandText = "Select P.idnumber, P.Pname, P.price, P.qty, P.PricePerHg, P.pricePerKg, PG.PGname, V.Vvalue, M.Mname, S.Supname from Product P, ProductGroup PG, Vat V, Manufacturer M, Supplier s Where P.receiptId is NULL and P.productGroupId = PG.PGid and P.vatId = V.Vid and P.manufacturerId = M.Mid and P.supplierId = S.Supid";
             connection.Open();
             SqlDataAdapter adapt = new SqlDataAdapter(command);
             DataSet ds = new DataSet();

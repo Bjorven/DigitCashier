@@ -10,8 +10,9 @@ namespace Calculator2
     {
         private int id;
         private int price;
-        private int vat;
+        private int qty;
 
+        private decimal vat;
 
         private string manufacturer;
         private string supplier;
@@ -25,10 +26,11 @@ namespace Calculator2
         {
         }
 
-        public Product(int idy, int pricy, string manufac, string supply, string productG, int vaty, Boolean ppkg, Boolean ppHg, string namey)
+        public Product(int idy, int pricy, int qty1, string manufac, string supply, string productG, decimal vaty, Boolean ppkg, Boolean ppHg, string namey)
         {
             Id = idy;
             Price = pricy;
+            Qty = qty1;
             Manufacturer = manufac;
             Supplier = supply;
             ProductGroup = productG;
@@ -41,10 +43,11 @@ namespace Calculator2
 
         public int Id { get; set; }
         public int Price { get; set; }
+        public int Qty { get; set; }
         public string Manufacturer { get; set; }
         public string Supplier { get; set; }
         public string ProductGroup { get; set; }
-        public int Vat { get; set; }
+        public decimal Vat { get; set; }
         public Boolean PricePerKG { get; set; }
         public Boolean PricePerHG { get; set; }
         public string Name { get; set; }

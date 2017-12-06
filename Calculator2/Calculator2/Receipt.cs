@@ -47,11 +47,32 @@ namespace Calculator2
 
         private void printReceiptButton_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Printing receipt");
+            //MessageBox.Show("Printing receipt");
+
+            List<Reeipt> studentList = new List<Reeipt>();
+            studentList = (from DataRow dr in dt.Rows
+                           select new Reeipt()
+                           {
+                               //Foretagsnamn = dr[""].ToString(),
+                               //Orgnr = Convert.ToInt32(dr[]),
+                               //ReceiptId = Convert.ToInt32(dr["id"]),
+                               //ProductQty = Convert.ToInt32(dt.Rows.Count),
+                               //Issuedate = Convert.ToDateTime(dr["receiptDate"]),
+                               //ProductWeight = Convert.ToDecimal(dr[]),
+                               //TotalPrice = Convert.ToDouble(dr[]),
+                               //Vat1 = Convert.ToDouble(dr[]),
+                               //SumOfItems = Convert.ToDouble(dr[]),
+                               //Cash = Convert.ToBoolean(dr[]),
+                               //Credit = Convert.ToBoolean(dr[]),
+                               //Coupon = Convert.ToBoolean(dr[]),
+                               
+                           }).ToList();
+
+            
         }
         //***************************************************************************************************************************************************
         //***************************************************************************************************************************************************
-
+        DataTable dt = new DataTable();
         private void btn_SubmitSearch_Click(object sender, EventArgs e)
         {
 
@@ -64,7 +85,8 @@ namespace Calculator2
                 Dbaccess db = new Dbaccess();
 
                 dG_List.AutoGenerateColumns = true;
-                bindingSource1.DataSource = db.getReceipt(txtb_SearchBar.Text);
+                DataTable dt = db.getReceipt(txtb_SearchBar.Text);
+                bindingSource1.DataSource = dt;
                 dG_List.DataSource = bindingSource1;
 
                 dG_List.AutoSizeRowsMode =
@@ -72,7 +94,7 @@ namespace Calculator2
 
                 dG_List.BorderStyle = BorderStyle.Fixed3D;
 
-
+                this.dt = dt;
                 pnl_Search.SendToBack();
 
             }
