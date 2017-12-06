@@ -18,9 +18,10 @@ namespace Calculator2
         SqlCommand command;
 
         public Dbaccess()
-        {
-            connection = new SqlConnection();
-            connection.ConnectionString = @"Data Source=LAPTOP-B9AASP37\SQLEXPRESS;Initial Catalog=DigitCashier;Integrated Security=True;Connect Timeout=30;";
+        {                                       // DONIAS CON STRING @"Data Source=LAPTOP-B9AASP37\SQLEXPRESS;Initial Catalog=DigitCashier;Integrated Security=True;Connect Timeout=30;";
+                                                // BJÖRNS CON STRING Data Source=LAPTOP-TU1UMOIC;Initial Catalog=DigitCashier;Integrated Security=True
+            connection = new SqlConnection();   
+            connection.ConnectionString = @"Data Source=LAPTOP-TU1UMOIC;Initial Catalog=DigitCashier;Integrated Security=True";
             command = new SqlCommand();
             command.Connection = connection;
             command.CommandType = CommandType.Text;
