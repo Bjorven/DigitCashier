@@ -20,7 +20,7 @@ namespace Calculator2
         public Dbaccess()
         {
             connection = new SqlConnection();
-            connection.ConnectionString = @"Data Source=LAPTOP-B9AASP37\SQLEXPRESS;Initial Catalog=DigitCashier;Integrated Security=True";
+            connection.ConnectionString = @"Data Source=LAPTOP-B9AASP37\SQLEXPRESS;Initial Catalog=DigitCashier;Integrated Security=True;Connect Timeout=30;";
             command = new SqlCommand();
             command.Connection = connection;
             command.CommandType = CommandType.Text;
@@ -29,13 +29,15 @@ namespace Calculator2
         public DataSet GetGoodsList()
         {
 
-            command.CommandText = "Select * from Product";
+            command.CommandText = "Select P.idnumber, P.Pname, P.price, P.qty, P.PricePerHg, P.pricePerKg, PG.PGname, V.Vvalue, M.Mname, S.Supname from Product P, ProductGroup PG, Vat V, Manufacturer M, Supplier s Where P.receiptId is NULL and P.productGroupId = PG.PGid and P.vatId = V.Vid and P.manufacturerId = M.Mid and P.supplierId = S.Supid";
             connection.Open();
             SqlDataAdapter adapt = new SqlDataAdapter(command);
             DataSet ds = new DataSet();
             adapt.Fill(ds);
             connection.Close();
             return ds;
+
+
 
         }
 
@@ -69,7 +71,33 @@ namespace Calculator2
         // {
         //     throw new Exception();
         // }
+        // or salePerson=@salePerson or receiptDate=@receiptDate
 
+
+        //***************************************************************************************************************************************************
+        //***************************************************************************************************************************************************
+        public DataTable getReceipt(string Search_text)
+        {
+            SqlParameter workparameter1 = new SqlParameter();
+            connection.Open();
+            command.CommandText = "spGetReceipt";
+            command.CommandType = CommandType.StoredProcedure;
+
+            workparameter1 = command.Parameters.Add("@Search_text", SqlDbType.VarChar);
+            workparameter1.Value = Search_text;
+            command.ExecuteNonQuery();
+
+
+            SqlDataAdapter adapt = new SqlDataAdapter(command);
+            DataTable dt = new DataTable();
+            adapt.Fill(dt);
+            connection.Close();
+
+
+            return dt;
+        }
+        //***************************************************************************************************************************************************
+        //***************************************************************************************************************************************************
 
 
     }

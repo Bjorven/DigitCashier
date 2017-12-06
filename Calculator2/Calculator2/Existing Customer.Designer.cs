@@ -43,7 +43,7 @@
             this.NameLabel.Name = "NameLabel";
             this.NameLabel.Size = new System.Drawing.Size(61, 24);
             this.NameLabel.TabIndex = 0;
-            this.NameLabel.Text = "Name:";
+            this.NameLabel.Text = "ProductName:";
             // 
             // CustomerNumberLabel
             // 

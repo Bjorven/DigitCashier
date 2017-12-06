@@ -25,10 +25,11 @@ namespace Calculator2
         bool isSearchBtn = false;
         double Mresult = 1;
         public Calculator()
-           
+
         {
             InitializeComponent();
         }
+
         Barcode barcode;
         RegisterNewCustomer customer;
         Existing_Customer oldcustomer;
@@ -352,27 +353,21 @@ namespace Calculator2
             momsTextBox.Text = toPayTextBox.Text;
             toPayTextBox.Text = (Convert.ToInt32(momsTextBox.Text) * 0.2).ToString();
         }
-        
+
         private void GoodsButton_Click(object sender, EventArgs e)
         {
-            
+
             Dbaccess db = new Dbaccess();
             DataSet ds = db.GetGoodsList();
-            List<Product> myprod = new List<Product>();
-            foreach (DataRow r in ds.Tables[0].Rows)
-            {
-               // myprod.Add(new Product()
-            }
-            foreach (DataRow r in ds.Tables[0].Rows)
-            {
-                //if (r["name"].ToString() == goodsListView.)
-                //{
-                //    label1.Text = r["id"].ToString();
-                //}
 
+
+            foreach (DataRow r in ds.Tables[0].Rows)
+            {
+                if (r["name"].ToString() == goodsListBox.SelectedValue)
+                    label1.Text = r["id"].ToString();
             }
+
             
-                      
 
         }
 
@@ -384,7 +379,7 @@ namespace Calculator2
 
         private void ReceiptButton_Click(object sender, EventArgs e)
         {
-            
+
             Receipt receipt = new Receipt();
             receipt.Show();
 
@@ -393,7 +388,7 @@ namespace Calculator2
         private void idnameComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             //ListViewItem minaFilmer;
-            
+
 
             //livFilmer.Items.Clear();
             //DataSet ds = new DataSet();
@@ -416,7 +411,7 @@ namespace Calculator2
             //    txt3.Text = txt3.Text + dr[0] + Environment.NewLine;
 
 
-            }
+        }
 
         private void BarcodeBotton_Click(object sender, EventArgs e)
         {
@@ -449,12 +444,7 @@ namespace Calculator2
 
         }
 
-        private void goodsListView_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            productList = new Product();
-            productList.Show();
-            
-        }
+        
     }
     }
 

@@ -75,6 +75,7 @@
     <Compile Include="Receipt.Designer.cs">
       <DependentUpon>Receipt.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reeipt.cs" />
     <Compile Include="Register new customer.cs">
       <SubType>Form</SubType>
     </Compile>

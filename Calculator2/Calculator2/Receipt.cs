@@ -7,11 +7,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
+using System.Data;
+using System.Data.SqlTypes;
+using System.Data.Sql;
+using System.Data.OleDb;
+using System.Data.Common;
 
 namespace Calculator2
 {
     public partial class Receipt : Form
     {
+        private BindingSource bindingSource1 = new BindingSource();
+
         public Receipt()
         {
             InitializeComponent();
@@ -19,9 +27,9 @@ namespace Calculator2
 
         private void button3_Click(object sender, EventArgs e)
         {
-            listBox1.Items.Clear();
-            listBox2.Items.Clear();
-            listBox3.Items.Clear();
+            listV_searchResult.Items.Clear();
+            listV_searchResult.Items.Clear();
+            listV_searchResult.Items.Clear();
         }
 
         private void addItemButton_Click(object sender, EventArgs e)
@@ -31,12 +39,90 @@ namespace Calculator2
 
         private void SearchItemButton_Click(object sender, EventArgs e)
         {
-            //listBox1.Items.Add(" KVITTO " + " ID: 25060 " + " 20170325 " + " 723.50 KR");
+            pnl_Search.BringToFront();
+
+
+
         }
 
         private void printReceiptButton_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Printing receipt");
+            //MessageBox.Show("Printing receipt");
+
+            List<Reeipt> studentList = new List<Reeipt>();
+            studentList = (from DataRow dr in dt.Rows
+                           select new Reeipt()
+                           {
+                               //Foretagsnamn = dr[""].ToString(),
+                               //Orgnr = Convert.ToInt32(dr[]),
+                               //ReceiptId = Convert.ToInt32(dr["id"]),
+                               //ProductQty = Convert.ToInt32(dt.Rows.Count),
+                               //Issuedate = Convert.ToDateTime(dr["receiptDate"]),
+                               //ProductWeight = Convert.ToDecimal(dr[]),
+                               //TotalPrice = Convert.ToDouble(dr[]),
+                               //Vat1 = Convert.ToDouble(dr[]),
+                               //SumOfItems = Convert.ToDouble(dr[]),
+                               //Cash = Convert.ToBoolean(dr[]),
+                               //Credit = Convert.ToBoolean(dr[]),
+                               //Coupon = Convert.ToBoolean(dr[]),
+                               
+                           }).ToList();
+
+            
         }
+        //***************************************************************************************************************************************************
+        //***************************************************************************************************************************************************
+        DataTable dt = new DataTable();
+        private void btn_SubmitSearch_Click(object sender, EventArgs e)
+        {
+
+            if (txtb_SearchBar.Text == "")
+            {
+                MessageBox.Show("Enter Search parameter");
+            }
+            try
+            {
+                Dbaccess db = new Dbaccess();
+
+                dG_List.AutoGenerateColumns = true;
+                DataTable dt = db.getReceipt(txtb_SearchBar.Text);
+                bindingSource1.DataSource = dt;
+                dG_List.DataSource = bindingSource1;
+
+                dG_List.AutoSizeRowsMode =
+                DataGridViewAutoSizeRowsMode.DisplayedCellsExceptHeaders;
+
+                dG_List.BorderStyle = BorderStyle.Fixed3D;
+
+                this.dt = dt;
+                pnl_Search.SendToBack();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            //***************************************************************************************************************************************************
+            //***************************************************************************************************************************************************
+        }
+
+        private void btn_CancelSearch_Click(object sender, EventArgs e)
+        {
+            pnl_Search.SendToBack();
+        }
+
+        private void listV_searchResult_ColumnClick(object sender, ColumnClickEventArgs e)
+        {
+
+        }
+
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+
     }
 }
