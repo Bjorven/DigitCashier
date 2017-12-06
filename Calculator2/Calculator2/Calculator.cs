@@ -33,6 +33,7 @@ namespace Calculator2
         RegisterNewCustomer customer;
         Existing_Customer oldcustomer;
         Receipt receipt;
+        Product productList;
         
 
         private void NrOneButton_Click_1(object sender, EventArgs e)
@@ -357,15 +358,21 @@ namespace Calculator2
             
             Dbaccess db = new Dbaccess();
             DataSet ds = db.GetGoodsList();
-
-
+            List<Product> myprod = new List<Product>();
             foreach (DataRow r in ds.Tables[0].Rows)
             {
-                if (r["name"].ToString() == goodsListBox.SelectedValue)
-                    label1.Text = r["id"].ToString();
+               // myprod.Add(new Product()
             }
+            foreach (DataRow r in ds.Tables[0].Rows)
+            {
+                //if (r["name"].ToString() == goodsListView.)
+                //{
+                //    label1.Text = r["id"].ToString();
+                //}
 
+            }
             
+                      
 
         }
 
@@ -442,7 +449,12 @@ namespace Calculator2
 
         }
 
-        
+        private void goodsListView_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            productList = new Product();
+            productList.Show();
+            
+        }
     }
     }
 
