@@ -9,8 +9,10 @@ namespace Calculator2
     public class Product
     {
         private int id;
-        private int price;
         private int qty;
+
+        private long price;
+
 
         private decimal vat;
 
@@ -46,7 +48,7 @@ namespace Calculator2
             this.v8 = v8;
         }
 
-        public Product(int idy, int pricy, int qty1, string manufac, string supply, string productG, decimal vaty, Boolean ppkg, Boolean ppHg, string namey)
+        public Product(int idy, long pricy, int qty1, string manufac, string supply, string productG, decimal vaty, Boolean ppkg, Boolean ppHg, string namey)
         {
             Id = idy;
             Price = pricy;
@@ -62,8 +64,8 @@ namespace Calculator2
 
 
         public int Id { get; set; }
-        public int Price { get; set; }
         public int Qty { get; set; }
+        public long Price { get; set; }
         public string Manufacturer { get; set; }
         public string Supplier { get; set; }
         public string ProductGroup { get; set; }
@@ -72,9 +74,6 @@ namespace Calculator2
         public Boolean PricePerHG { get; set; }
         public string Name { get; set; }
 
-        internal void Show()
-        {
-            throw new NotImplementedException();
-        }
+        
     }
 }

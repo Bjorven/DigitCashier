@@ -49,8 +49,8 @@ namespace Calculator2
         {
             //MessageBox.Show("Printing receipt");
 
-            List<Reeipt> studentList = new List<Reeipt>();
-            studentList = (from DataRow dr in dt.Rows
+            List<Reeipt> ReceiptList = new List<Reeipt>();
+            ReceiptList = (from DataRow dr in dt.Rows
                            select new Reeipt()
                            {
                                //Foretagsnamn = dr[""].ToString(),

@@ -7,11 +7,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
+using System.Data;
+using System.Data.SqlTypes;
+using System.Data.Sql;
+using System.Data.OleDb;
+using System.Data.Common;
 
 namespace Calculator2
 {
     public partial class Calculator : Form
     {
+
+
         string input = string.Empty;
         string operation = string.Empty;
         string operand1 = string.Empty;
@@ -28,6 +36,7 @@ namespace Calculator2
 
         {
             InitializeComponent();
+
         }
 
         Barcode barcode;
@@ -35,7 +44,7 @@ namespace Calculator2
         Existing_Customer oldcustomer;
         Receipt receipt;
         Product productList;
-        
+
 
         private void NrOneButton_Click_1(object sender, EventArgs e)
         {
@@ -386,26 +395,32 @@ namespace Calculator2
             toPayTextBox.Text = (Convert.ToInt32(momsTextBox.Text) * 0.2).ToString();
         }
 
+
+        //*************************************************************************************************************************************
+
         private void GoodsButton_Click(object sender, EventArgs e)
         {
 
             Dbaccess db = new Dbaccess();
             DataSet ds = db.GetGoodsList();
-
-
-            foreach (DataRow r in ds.Tables[0].Rows)
-
+            if (ds.Tables[0].Rows.Count == 0)
             {
-
-                //if (r["name"].ToString() == goodsListView.SelectedValue)
-                //{
-                //    label1.Text = r["id"].ToString();
-                //}
+                MessageBox.Show("No items found");
             }
-
-
-
+            try
+            {
+                DataTable dtable = ds.Tables[0];
+                GoodsListGridView gLGV = new GoodsListGridView(dtable);
+                gLGV.Show();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
+
+        //*************************************************************************************************************************************
+
 
         private void CloseButton_Click(object sender, EventArgs e)
         {
@@ -480,9 +495,13 @@ namespace Calculator2
 
         }
 
-        
+        private void Calculator_Load(object sender, EventArgs e)
+        {
+
+
+        }
     }
-    }
+}
 
 
 
