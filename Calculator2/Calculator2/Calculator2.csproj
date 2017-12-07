@@ -62,7 +62,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Dbaccess.cs" />
+    <Compile Include="DbAccess.cs" />
     <Compile Include="Existing Customer.cs">
       <SubType>Form</SubType>
     </Compile>
