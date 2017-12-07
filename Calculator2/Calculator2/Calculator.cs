@@ -259,7 +259,7 @@ namespace Calculator2
 
                 if (searchTextBox.Text != "")
                 {
-                    Dbaccess db = new Dbaccess();
+                    DbAccess db = new DbAccess();
 
                     Product searchProduct = db.getProduct(searchTextBox.Text);
 
@@ -387,7 +387,7 @@ namespace Calculator2
             private void GoodsButton_Click(object sender, EventArgs e)
             {
 
-                Dbaccess db = new Dbaccess();
+                DbAccess db = new DbAccess();
                 DataSet ds = db.GetGoodsList();
                 if (ds.Tables[0].Rows.Count == 0)
                 {

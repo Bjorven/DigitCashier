@@ -12,12 +12,12 @@ using System.Data.Common;
 
 namespace Calculator2
 {
-    class Dbaccess
+    class DbAccess
     {
         SqlConnection connection;
         SqlCommand command;
 
-        public Dbaccess()
+        public DbAccess()
         {                                       // DONIAS CON STRING @"Data Source=LAPTOP-B9AASP37\SQLEXPRESS;Initial Catalog=DigitCashier;Integrated Security=True;Connect Timeout=30;";
                                                 // BJÖRNS CON STRING Data Source=LAPTOP-TU1UMOIC;Initial Catalog=DigitCashier;Integrated Security=True
             connection = new SqlConnection();

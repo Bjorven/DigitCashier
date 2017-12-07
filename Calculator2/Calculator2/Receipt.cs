@@ -82,7 +82,7 @@ namespace Calculator2
             }
             try
             {
-                Dbaccess db = new Dbaccess();
+                DbAccess db = new DbAccess();
 
                 dG_List.AutoGenerateColumns = true;
                 DataTable dt = db.getReceipt(txtb_SearchBar.Text);
