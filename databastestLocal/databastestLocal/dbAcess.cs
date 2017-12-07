@@ -30,7 +30,9 @@ namespace databastestLocal
             command.Connection = connection;
             command.CommandType = CommandType.Text;
         } // constructor
+          ///////////////////////////////////////////////////////////////////
 
+            // getdataset är den metod vi använder för att checka username och password mot databas, den returnerar ett dataset med all data som tillhör denna användaren.
 
         // GetUser är den metod vi använder för att checka username och password mot databas, den returnerar en instans av klassen User med all data som tillhör denna användaren.
 
