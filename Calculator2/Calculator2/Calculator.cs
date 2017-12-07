@@ -50,7 +50,7 @@ namespace Calculator2
         {
             if (isSearchBtn)
             {
-                searchTextBox.Text = "1";
+                searchTextBox.Text = searchTextBox.Text + "1";
             }
             else
             {
@@ -65,7 +65,7 @@ namespace Calculator2
         {
             if (isSearchBtn)
             {
-                searchTextBox.Text = "2";
+                searchTextBox.Text = searchTextBox.Text + "2";
             }
             else
             {
@@ -79,7 +79,7 @@ namespace Calculator2
         {
             if (isSearchBtn)
             {
-                searchTextBox.Text = "3";
+                searchTextBox.Text = searchTextBox.Text + "3";
             }
             else
             {
@@ -93,7 +93,7 @@ namespace Calculator2
         {
             if (isSearchBtn)
             {
-                searchTextBox.Text = "4";
+                searchTextBox.Text = searchTextBox.Text + "4";
             }
             else
             {
@@ -107,7 +107,7 @@ namespace Calculator2
         {
             if (isSearchBtn)
             {
-                searchTextBox.Text = "5";
+                searchTextBox.Text = searchTextBox.Text + "5";
             }
             else
             {
@@ -121,7 +121,7 @@ namespace Calculator2
         {
             if (isSearchBtn)
             {
-                searchTextBox.Text = "6";
+                searchTextBox.Text = searchTextBox.Text + "6";
             }
             else
             {
@@ -135,7 +135,7 @@ namespace Calculator2
         {
             if (isSearchBtn)
             {
-                searchTextBox.Text = "7";
+                searchTextBox.Text = searchTextBox.Text + "7";
             }
             else
             {
@@ -149,7 +149,7 @@ namespace Calculator2
         {
             if (isSearchBtn)
             {
-                searchTextBox.Text = "8";
+                searchTextBox.Text = searchTextBox.Text + "8";
             }
             else
             {
@@ -163,7 +163,7 @@ namespace Calculator2
         {
             if (isSearchBtn)
             {
-                searchTextBox.Text = "9";
+                searchTextBox.Text = searchTextBox.Text + "9";
             }
             else
             {
@@ -193,7 +193,7 @@ namespace Calculator2
         {
             if (isSearchBtn)
             {
-                searchTextBox.Text = "00";
+                searchTextBox.Text = searchTextBox.Text + "00";
             }
             else
             {
@@ -207,7 +207,7 @@ namespace Calculator2
         {
             if (isSearchBtn)
             {
-                searchTextBox.Text = "0";
+                searchTextBox.Text = searchTextBox.Text + "0";
             }
             else
             {
@@ -240,7 +240,7 @@ namespace Calculator2
         }
         private void OkBotton__Click(object sender, EventArgs e)
         {
-          
+
             if (operation == "+")
             {
                 result += result;
@@ -252,256 +252,242 @@ namespace Calculator2
                 totalTextBox.Text = Mresult.ToString();
             }
 
-           
-            else
+
+            else if
+                (isSearchBtn == true)
             {
-                totalTextBox.Text = "";
+
+                if (searchTextBox.Text != "")
+                {
+                    Dbaccess db = new Dbaccess();
+
+                    Product searchProduct = db.getProduct(searchTextBox.Text);
+
+                    goodsListView.Items.Add(searchProduct.Name);
+
+                }
+                else
+                {
+                    totalTextBox.Text = "";
+
+                }
+            }
+        
+                //testing a method
+                //switch (operationPerformed)
+                //{
+                //    case "+":
+                //        totalTextBox.Text = (resultValue + Double.Parse(totalTextBox.Text)).ToString();
+                //        break;
+                //    case "*":
+                //        totalTextBox.Text = (resultValue * Double.Parse(totalTextBox.Text)).ToString();
+                //        break;
+
+                //    default:
+                //        break;
+                //}
+                //resultValue = Double.Parse(totalTextBox.Text);
+
+
 
             }
 
-            //testing a method
-            //switch (operationPerformed)
-            //{
-            //    case "+":
-            //        totalTextBox.Text = (resultValue + Double.Parse(totalTextBox.Text)).ToString();
-            //        break;
-            //    case "*":
-            //        totalTextBox.Text = (resultValue * Double.Parse(totalTextBox.Text)).ToString();
-            //        break;
+            private void DiscountTextBox_TextChanged(object sender, EventArgs e)
+            {
+                if (discountTextBox.Text == "0.00")
+                    discountTextBox.Clear();
 
-            //    default:
-            //        break;
-            //}
-            //resultValue = Double.Parse(totalTextBox.Text);
+            }
 
+            private void DiscountButton__Click(object sender, EventArgs e)
+            {
+                if (discountTextBox.Text == "0.00")
+                    discountTextBox.Clear();
+                discountTextBox.Text = discountTextBox.Text + "%";
+            }
 
+            private void TotalTextBox_TextChanged(object sender, EventArgs e)
+            {
 
-        }
+            }
 
-        private void DiscountTextBox_TextChanged(object sender, EventArgs e)
-        {
-            if (discountTextBox.Text == "0.00")
-                discountTextBox.Clear();
+            private void TwentyPercentButton_Click(object sender, EventArgs e)
+            {
+                if (discountTextBox.Text == "0.00")
+                    discountTextBox.Clear();
+                discountTextBox.Text = discountTextBox.Text + "20%";
+                toPayTextBox.Text = (Convert.ToInt32(totalTextBox.Text) * 0.8).ToString();
+            }
 
-        }
+            private void TenPercentButton_Click(object sender, EventArgs e)
+            {
+                if (discountTextBox.Text == "0.00")
+                    discountTextBox.Clear();
+                discountTextBox.Text = discountTextBox.Text + "10%";
+                toPayTextBox.Text = (Convert.ToInt32(totalTextBox.Text) * 0.9).ToString();
+            }
 
-        private void DiscountButton__Click(object sender, EventArgs e)
-        {
-            if (discountTextBox.Text == "0.00")
-                discountTextBox.Clear();
-            discountTextBox.Text = discountTextBox.Text + "%";
-        }
+            private void ThertyPercentButton_Click(object sender, EventArgs e)
+            {
+                if (discountTextBox.Text == "0.00")
+                    discountTextBox.Clear();
+                discountTextBox.Text = discountTextBox.Text + "30%";
+                toPayTextBox.Text = (Convert.ToInt32(totalTextBox.Text) * 0.7).ToString();
+            }
 
-        private void TotalTextBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void TwentyPercentButton_Click(object sender, EventArgs e)
-        {
-            if (discountTextBox.Text == "0.00")
-                discountTextBox.Clear();
-            discountTextBox.Text = discountTextBox.Text + "20%";
-            toPayTextBox.Text = (Convert.ToInt32(totalTextBox.Text) * 0.8).ToString();
-        }
-
-        private void TenPercentButton_Click(object sender, EventArgs e)
-        {
-            if (discountTextBox.Text == "0.00")
-                discountTextBox.Clear();
-            discountTextBox.Text = discountTextBox.Text + "10%";
-            toPayTextBox.Text = (Convert.ToInt32(totalTextBox.Text) * 0.9).ToString();
-        }
-
-        private void ThertyPercentButton_Click(object sender, EventArgs e)
-        {
-            if (discountTextBox.Text == "0.00")
-                discountTextBox.Clear();
-            discountTextBox.Text = discountTextBox.Text + "30%";
-            toPayTextBox.Text = (Convert.ToInt32(totalTextBox.Text) * 0.7).ToString();
-        }
-
-        private void SearchButton_Click(object sender, EventArgs e)
-        {
-
-            if (searchTextBox.Text == "Search")
+            private void SearchButton_Click(object sender, EventArgs e)
             {
                 searchTextBox.Clear();
-                searchTextBox.Text = searchTextBox.Text + "#";
                 isSearchBtn = true;
+
+
+
+
             }
 
-            else if (operation == "#2")
+
+            DataTable dt = new DataTable();
+            private void SearchTextBox_TextChanged_1(object sender, EventArgs e)
+            {
+                if (searchTextBox.Text == "")
+                {
+
+                }
+
+
+
+            }
+
+            private void TextBox2_TextChanged(object sender, EventArgs e)
+            {
+
+            }
+
+            private void ToPayTextBox_TextChanged(object sender, EventArgs e)
+            {
+
+            }
+
+            private void ClearBotton_Click(object sender, EventArgs e)
             {
                 searchTextBox.Clear();
-                //searchTextBox.Text = Dbaccess.getProduct();
-                
-            
             }
-        }      
 
-       
-    DataTable dt = new DataTable();
-        private void SearchTextBox_TextChanged_1(object sender, EventArgs e)
-        {
-            if (searchTextBox.Text == "#")
+            private void momsButton_Click(object sender, EventArgs e)
             {
-                searchTextBox.Text = "Enter Product Nr";
+                if (momsTextBox.Text == "0.00")
+                    momsTextBox.Clear();
+                momsTextBox.Text = toPayTextBox.Text;
+                toPayTextBox.Text = (Convert.ToInt32(momsTextBox.Text) * 0.2).ToString();
             }
-            try
+
+
+            //*************************************************************************************************************************************
+
+            private void GoodsButton_Click(object sender, EventArgs e)
             {
+
                 Dbaccess db = new Dbaccess();
-                //dG_List.AutoGenerateColumns = true;
-                //DataTable dt = db.getReceipt(txtb_SearchBar.Text);
-                //bindingSource1.DataSource = dt;
-                //dG_List.DataSource = bindingSource1;
-
-                //dG_List.AutoSizeRowsMode =
-                //DataGridViewAutoSizeRowsMode.DisplayedCellsExceptHeaders;
-
-                //dG_List.BorderStyle = BorderStyle.Fixed3D;
-
-                //this.dt = dt;
-                //pnl_Search.SendToBack();
-
-
+                DataSet ds = db.GetGoodsList();
+                if (ds.Tables[0].Rows.Count == 0)
+                {
+                    MessageBox.Show("No items found");
+                }
+                try
+                {
+                    DataTable dtable = ds.Tables[0];
+                    GoodsListGridView gLGV = new GoodsListGridView(dtable);
+                    gLGV.Show();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
-            catch (Exception ex)
+
+            //*************************************************************************************************************************************
+
+
+            private void CloseButton_Click(object sender, EventArgs e)
             {
-                MessageBox.Show(ex.Message);
+                Calculator.ActiveForm.Close();
+
             }
-        }
 
-        private void TextBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ToPayTextBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ClearBotton_Click(object sender, EventArgs e)
-        {
-            searchTextBox.Clear();
-        }
-
-        private void momsButton_Click(object sender, EventArgs e)
-        {
-            if (momsTextBox.Text == "0.00")
-                momsTextBox.Clear();
-            momsTextBox.Text = toPayTextBox.Text;
-            toPayTextBox.Text = (Convert.ToInt32(momsTextBox.Text) * 0.2).ToString();
-        }
-
-
-        //*************************************************************************************************************************************
-
-        private void GoodsButton_Click(object sender, EventArgs e)
-        {
-
-            Dbaccess db = new Dbaccess();
-            DataSet ds = db.GetGoodsList();
-            if (ds.Tables[0].Rows.Count == 0)
+            private void ReceiptButton_Click(object sender, EventArgs e)
             {
-                MessageBox.Show("No items found");
+
+                Receipt receipt = new Receipt();
+                receipt.Show();
+
             }
-            try
+
+            private void idnameComboBox_SelectedIndexChanged(object sender, EventArgs e)
             {
-                DataTable dtable = ds.Tables[0];
-                GoodsListGridView gLGV = new GoodsListGridView(dtable);
-                gLGV.Show();
+                //ListViewItem minaFilmer;
+
+
+                //livFilmer.Items.Clear();
+                //DataSet ds = new DataSet();
+                //ds = Databas.ListaFilmer();//     .ListaFilmer();
+
+                //int antal = ds.Tables[0].Rows.Count;
+
+                //for (int i = 0; i < antal; i++)
+                //{
+                //    minaFilmer = new ListViewItem(Convert.ToString((ds.Tables[0].Rows[i][0])));
+                //    minaFilmer.SubItems.Add(Convert.ToString((ds.Tables[0].Rows[i][1])));
+
+                //    livFilmer.Items.Add(minaFilmer);
+                //}
+                //foreach(DataRow dr in ds.Tables[0].Rows)
+                //{
+                //    chk3.Items.Add(dr[0]);
+                //    lsb3.Items.Add(dr[0]);
+                //    cmb3.Items.Add(dr[0]);
+                //    txt3.Text = txt3.Text + dr[0] + Environment.NewLine;
+
+
             }
-            catch (Exception ex)
+
+            private void BarcodeBotton_Click(object sender, EventArgs e)
             {
-                MessageBox.Show(ex.Message);
+                barcode = new Barcode();
+                barcode.Show();
             }
-        }
 
-        //*************************************************************************************************************************************
+            private void NewCustomerButton_Click(object sender, EventArgs e)
+            {
+                customer = new RegisterNewCustomer();
+                customer.Show();
+            }
 
+            private void CustomerButton_Click(object sender, EventArgs e)
+            {
+                oldcustomer = new Existing_Customer();
+                oldcustomer.Show();
+            }
 
-        private void CloseButton_Click(object sender, EventArgs e)
-        {
-            Calculator.ActiveForm.Close();
+            private void goodsListBox_SelectedIndexChanged(object sender, EventArgs e)
+            {
+                //Dbaccess db = new Dbaccess();
+                //DataSet ds = db.GetGoodsList();
 
-        }
+                //foreach (DataRow r in ds.Tables[0].Rows)
+                //{
+                //    if (r["name"].ToString() == goodsListBox.SelectedValue)
+                //        label1.Text = r["id"].ToString();
+                //}
 
-        private void ReceiptButton_Click(object sender, EventArgs e)
-        {
+            }
 
-            Receipt receipt = new Receipt();
-            receipt.Show();
-
-        }
-
-        private void idnameComboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            //ListViewItem minaFilmer;
-
-
-            //livFilmer.Items.Clear();
-            //DataSet ds = new DataSet();
-            //ds = Databas.ListaFilmer();//     .ListaFilmer();
-
-            //int antal = ds.Tables[0].Rows.Count;
-
-            //for (int i = 0; i < antal; i++)
-            //{
-            //    minaFilmer = new ListViewItem(Convert.ToString((ds.Tables[0].Rows[i][0])));
-            //    minaFilmer.SubItems.Add(Convert.ToString((ds.Tables[0].Rows[i][1])));
-
-            //    livFilmer.Items.Add(minaFilmer);
-            //}
-            //foreach(DataRow dr in ds.Tables[0].Rows)
-            //{
-            //    chk3.Items.Add(dr[0]);
-            //    lsb3.Items.Add(dr[0]);
-            //    cmb3.Items.Add(dr[0]);
-            //    txt3.Text = txt3.Text + dr[0] + Environment.NewLine;
+            private void Calculator_Load(object sender, EventArgs e)
+            {
 
 
-        }
-
-        private void BarcodeBotton_Click(object sender, EventArgs e)
-        {
-            barcode = new Barcode();
-            barcode.Show();
-        }
-
-        private void NewCustomerButton_Click(object sender, EventArgs e)
-        {
-            customer = new RegisterNewCustomer();
-            customer.Show();
-        }
-
-        private void CustomerButton_Click(object sender, EventArgs e)
-        {
-            oldcustomer = new Existing_Customer();
-            oldcustomer.Show();
-        }
-
-        private void goodsListBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            //Dbaccess db = new Dbaccess();
-            //DataSet ds = db.GetGoodsList();
-
-            //foreach (DataRow r in ds.Tables[0].Rows)
-            //{
-            //    if (r["name"].ToString() == goodsListBox.SelectedValue)
-            //        label1.Text = r["id"].ToString();
-            //}
-
-        }
-
-        private void Calculator_Load(object sender, EventArgs e)
-        {
-
-
+            }
         }
     }
-}
 
 
 

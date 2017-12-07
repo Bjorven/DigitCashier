@@ -868,7 +868,6 @@ namespace Calculator2
             this.searchTextBox.Name = "searchTextBox";
             this.searchTextBox.Size = new System.Drawing.Size(131, 22);
             this.searchTextBox.TabIndex = 240;
-            this.searchTextBox.Text = "Search";
             this.searchTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.searchTextBox.TextChanged += new System.EventHandler(this.SearchTextBox_TextChanged_1);
             // 

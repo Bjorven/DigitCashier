@@ -40,12 +40,19 @@ namespace Calculator2
 
         }
 
-        public Product getProduct()
+        public Product getProduct(string searchText)
         {
+            SqlParameter workperameter1 = new SqlParameter();
             DataSet ds = new DataSet();
-            command.CommandText = "Select * from Product where id=@id";
-            command.Parameters.AddWithValue("@id", "#2");
+
             connection.Open();
+            command.CommandText = "spGetProduct";
+            command.CommandType = CommandType.StoredProcedure;
+
+            workperameter1 = command.Parameters.Add("@searchText", SqlDbType.VarChar);
+            workperameter1.Value = searchText;
+            command.ExecuteNonQuery();
+            
             SqlDataAdapter adapt = new SqlDataAdapter(command);
             adapt.Fill(ds);
             connection.Close();
@@ -54,12 +61,13 @@ namespace Calculator2
             {
                 Product getproduct = new Product
                  (
-                 Convert.ToInt32(ds.Tables[0].Rows[0][0].ToString()),
-                 Convert.ToInt32(ds.Tables[0].Rows[0][1].ToString()),
+                 Convert.ToInt16(ds.Tables[0].Rows[0][0].ToString()),
+                 Convert.ToInt16(ds.Tables[0].Rows[0][1].ToString()),
+                 //Convert.ToInt32(ds.Tables[0].Rows[0][2].ToString()),
                  Convert.ToString(ds.Tables[0].Rows[0][2].ToString()),
                  Convert.ToString(ds.Tables[0].Rows[0][3].ToString()),
                  Convert.ToString(ds.Tables[0].Rows[0][4].ToString()),
-                 Convert.ToInt32(ds.Tables[0].Rows[0][5].ToString()),
+                 Convert.ToDecimal(ds.Tables[0].Rows[0][5].ToString()),
                  Convert.ToBoolean(ds.Tables[0].Rows[0][6].ToString()),
                  Convert.ToBoolean(ds.Tables[0].Rows[0][7].ToString()),
                  Convert.ToString(ds.Tables[0].Rows[0][8].ToString())
@@ -71,9 +79,6 @@ namespace Calculator2
                 throw new Exception();
             }
         }
-        //or salePerson = @salePerson or receiptDate = @receiptDate
-
-
 
         //***************************************************************************************************************************************************
         //***************************************************************************************************************************************************
