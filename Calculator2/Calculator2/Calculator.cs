@@ -231,13 +231,7 @@ namespace Calculator2
         }
         private void OkBotton__Click(object sender, EventArgs e)
         {
-            //testing a method
-            //tal1 = ;
-            //tal2 = ;
-            //double num1, num2;
-            //double.TryParse(operand1, out num1);
-            //double.TryParse(operand2, out num2);
-
+          
             if (operation == "+")
             {
                 result += result;
@@ -248,6 +242,8 @@ namespace Calculator2
                 Mresult = Mresult * Convert.ToDouble(totalTextBox.Text);
                 totalTextBox.Text = Mresult.ToString();
             }
+
+           
             else
             {
                 totalTextBox.Text = "";
@@ -316,19 +312,55 @@ namespace Calculator2
             toPayTextBox.Text = (Convert.ToInt32(totalTextBox.Text) * 0.7).ToString();
         }
 
-        private void NrSearchButton_Click(object sender, EventArgs e)
+        private void SearchButton_Click(object sender, EventArgs e)
         {
 
             if (searchTextBox.Text == "Search")
+            {
                 searchTextBox.Clear();
-            searchTextBox.Text = searchTextBox.Text + "#";
-            isSearchBtn = true;
+                searchTextBox.Text = searchTextBox.Text + "#";
+                isSearchBtn = true;
+            }
 
-        }
+            else if (operation == "#2")
+            {
+                searchTextBox.Clear();
+                //searchTextBox.Text = Dbaccess.getProduct();
+                
 
+            }
+        }      
+
+       
+    DataTable dt = new DataTable();
         private void SearchTextBox_TextChanged_1(object sender, EventArgs e)
         {
+            if (searchTextBox.Text == "#")
+            {
+                searchTextBox.Text = "Enter Product Nr";
+            }
+            try
+            {
+                Dbaccess db = new Dbaccess();
+                //dG_List.AutoGenerateColumns = true;
+                //DataTable dt = db.getReceipt(txtb_SearchBar.Text);
+                //bindingSource1.DataSource = dt;
+                //dG_List.DataSource = bindingSource1;
 
+                //dG_List.AutoSizeRowsMode =
+                //DataGridViewAutoSizeRowsMode.DisplayedCellsExceptHeaders;
+
+                //dG_List.BorderStyle = BorderStyle.Fixed3D;
+
+                //this.dt = dt;
+                //pnl_Search.SendToBack();
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void TextBox2_TextChanged(object sender, EventArgs e)
@@ -362,13 +394,16 @@ namespace Calculator2
 
 
             foreach (DataRow r in ds.Tables[0].Rows)
-            {
-                //  if (r["name"].ToString() == goodsListBox.SelectedValue)
 
-                //label1.Text = r["id"].ToString();
+            {
+
+                //if (r["name"].ToString() == goodsListView.SelectedValue)
+                //{
+                //    label1.Text = r["id"].ToString();
+                //}
             }
 
-            
+
 
         }
 

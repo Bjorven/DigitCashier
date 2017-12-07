@@ -21,9 +21,29 @@ namespace Calculator2
 
         private Boolean pricePerKg;
         private Boolean pricePerHg;
+        private int v1;
+        private string v2;
+        private string v3;
+        private string v4;
+        private int v5;
+        private bool v6;
+        private bool v7;
+        private string v8;
 
-        public Product()
+        public Product(int v)
         {
+        }
+
+        public Product(int v, int v1, string v2, string v3, string v4, int v5, bool v6, bool v7, string v8) : this(v)
+        {
+            this.v1 = v1;
+            this.v2 = v2;
+            this.v3 = v3;
+            this.v4 = v4;
+            this.v5 = v5;
+            this.v6 = v6;
+            this.v7 = v7;
+            this.v8 = v8;
         }
 
         public Product(int idy, int pricy, int qty1, string manufac, string supply, string productG, decimal vaty, Boolean ppkg, Boolean ppHg, string namey)

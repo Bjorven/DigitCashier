@@ -76,32 +76,32 @@ namespace Calculator2
         private void btn_SubmitSearch_Click(object sender, EventArgs e)
         {
 
-            if (txtb_SearchBar.Text == "")
-            {
-                MessageBox.Show("Enter Search parameter");
-            }
-            try
-            {
-                Dbaccess db = new Dbaccess();
+            //if (txtb_SearchBar.Text == "")
+            //{
+            //    MessageBox.Show("Enter Search parameter");
+            //}
+            //try
+            //{
+            //    Dbaccess db = new Dbaccess();
 
-                dG_List.AutoGenerateColumns = true;
-                DataTable dt = db.getReceipt(txtb_SearchBar.Text);
-                bindingSource1.DataSource = dt;
-                dG_List.DataSource = bindingSource1;
+            //    dG_List.AutoGenerateColumns = true;
+            //    DataTable dt = db.getReceipt(txtb_SearchBar.Text);
+            //    bindingSource1.DataSource = dt;
+            //    dG_List.DataSource = bindingSource1;
 
-                dG_List.AutoSizeRowsMode =
-                DataGridViewAutoSizeRowsMode.DisplayedCellsExceptHeaders;
+            //    dG_List.AutoSizeRowsMode =
+            //    DataGridViewAutoSizeRowsMode.DisplayedCellsExceptHeaders;
 
-                dG_List.BorderStyle = BorderStyle.Fixed3D;
+            //    dG_List.BorderStyle = BorderStyle.Fixed3D;
 
-                this.dt = dt;
-                pnl_Search.SendToBack();
+            //    this.dt = dt;
+            //    pnl_Search.SendToBack();
 
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show(ex.Message);
+            //}
 
             //***************************************************************************************************************************************************
             //***************************************************************************************************************************************************

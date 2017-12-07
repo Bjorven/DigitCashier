@@ -37,7 +37,7 @@ namespace Calculator2
             this.twentyPercentButton = new System.Windows.Forms.Button();
             this.TimesButton = new System.Windows.Forms.Button();
             this.thertyPercentButton = new System.Windows.Forms.Button();
-            this.nrSearchButton = new System.Windows.Forms.Button();
+            this.SearchButton = new System.Windows.Forms.Button();
             this.CloseButton = new System.Windows.Forms.Button();
             this.CustomerButton = new System.Windows.Forms.Button();
             this.NewCustomerButton = new System.Windows.Forms.Button();
@@ -196,21 +196,21 @@ namespace Calculator2
             this.thertyPercentButton.UseVisualStyleBackColor = false;
             this.thertyPercentButton.Click += new System.EventHandler(this.ThertyPercentButton_Click);
             // 
-            // nrSearchButton
+            // SearchButton
             // 
-            this.nrSearchButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.nrSearchButton.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.nrSearchButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.nrSearchButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.nrSearchButton.Font = new System.Drawing.Font("Comic Sans MS", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nrSearchButton.ForeColor = System.Drawing.Color.White;
-            this.nrSearchButton.Location = new System.Drawing.Point(198, 625);
-            this.nrSearchButton.Name = "nrSearchButton";
-            this.nrSearchButton.Size = new System.Drawing.Size(97, 58);
-            this.nrSearchButton.TabIndex = 230;
-            this.nrSearchButton.Text = "#";
-            this.nrSearchButton.UseVisualStyleBackColor = false;
-            this.nrSearchButton.Click += new System.EventHandler(this.NrSearchButton_Click);
+            this.SearchButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.SearchButton.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.SearchButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.SearchButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.SearchButton.Font = new System.Drawing.Font("Comic Sans MS", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SearchButton.ForeColor = System.Drawing.Color.White;
+            this.SearchButton.Location = new System.Drawing.Point(198, 625);
+            this.SearchButton.Name = "SearchButton";
+            this.SearchButton.Size = new System.Drawing.Size(97, 58);
+            this.SearchButton.TabIndex = 230;
+            this.SearchButton.Text = "#";
+            this.SearchButton.UseVisualStyleBackColor = false;
+            this.SearchButton.Click += new System.EventHandler(this.SearchButton_Click);
             // 
             // CloseButton
             // 
@@ -930,7 +930,6 @@ namespace Calculator2
             this.goodsListView.Size = new System.Drawing.Size(770, 310);
             this.goodsListView.TabIndex = 246;
             this.goodsListView.UseCompatibleStateImageBehavior = false;
-           // this.goodsListView.SelectedIndexChanged += new System.EventHandler(this.goodsListView_SelectedIndexChanged);
             // 
             // Calculator
             // 
@@ -952,7 +951,7 @@ namespace Calculator2
             this.Controls.Add(this.twentyPercentButton);
             this.Controls.Add(this.TimesButton);
             this.Controls.Add(this.thertyPercentButton);
-            this.Controls.Add(this.nrSearchButton);
+            this.Controls.Add(this.SearchButton);
             this.Controls.Add(this.CloseButton);
             this.Controls.Add(this.CustomerButton);
             this.Controls.Add(this.NewCustomerButton);
@@ -1003,7 +1002,6 @@ namespace Calculator2
             this.MaximizeBox = false;
             this.Name = "Calculator";
             this.Text = "Kassa";
-            
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1019,7 +1017,7 @@ namespace Calculator2
         private System.Windows.Forms.Button twentyPercentButton;
         private System.Windows.Forms.Button TimesButton;
         private System.Windows.Forms.Button thertyPercentButton;
-        private System.Windows.Forms.Button nrSearchButton;
+        private System.Windows.Forms.Button SearchButton;
         private System.Windows.Forms.Button CloseButton;
         private System.Windows.Forms.Button CustomerButton;
         private System.Windows.Forms.Button NewCustomerButton;
