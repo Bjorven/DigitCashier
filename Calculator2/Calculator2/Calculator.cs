@@ -336,7 +336,7 @@ namespace Calculator2
                 searchTextBox.Clear();
                 //searchTextBox.Text = Dbaccess.getProduct();
                 
-
+            
             }
         }      
 
