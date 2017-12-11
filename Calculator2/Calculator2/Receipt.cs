@@ -8,16 +8,20 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
-using System.Data;
 using System.Data.SqlTypes;
 using System.Data.Sql;
 using System.Data.OleDb;
 using System.Data.Common;
+using CashierClasses;
+using System.Globalization;
 
 namespace Calculator2
 {
     public partial class Receipt : Form
     {
+        private double sum;
+        private int qty;
+
         private BindingSource bindingSource1 = new BindingSource();
 
         public Receipt()
@@ -27,9 +31,8 @@ namespace Calculator2
 
         private void button3_Click(object sender, EventArgs e)
         {
-            listV_searchResult.Items.Clear();
-            listV_searchResult.Items.Clear();
-            listV_searchResult.Items.Clear();
+            dG_List.Columns.Clear();
+
         }
 
         private void addItemButton_Click(object sender, EventArgs e)
@@ -49,30 +52,32 @@ namespace Calculator2
         {
             //MessageBox.Show("Printing receipt");
 
-            List<Reeipt> ReceiptList = new List<Reeipt>();
-            ReceiptList = (from DataRow dr in dt.Rows
-                           select new Reeipt()
-                           {
-                               //Foretagsnamn = dr[""].ToString(),
-                               //Orgnr = Convert.ToInt32(dr[]),
-                               //ReceiptId = Convert.ToInt32(dr["id"]),
-                               //ProductQty = Convert.ToInt32(dt.Rows.Count),
-                               //Issuedate = Convert.ToDateTime(dr["receiptDate"]),
-                               //ProductWeight = Convert.ToDecimal(dr[]),
-                               //TotalPrice = Convert.ToDouble(dr[]),
-                               //Vat1 = Convert.ToDouble(dr[]),
-                               //SumOfItems = Convert.ToDouble(dr[]),
-                               //Cash = Convert.ToBoolean(dr[]),
-                               //Credit = Convert.ToBoolean(dr[]),
-                               //Coupon = Convert.ToBoolean(dr[]),
-                               
-                           }).ToList();
+            //List<CashierClasses.Receipt> ReceiptList = new List<CashierClasses.Receipt>();
+            //ReceiptList = (from DataRow dr in dt.Rows
+            //               select new CashierClasses.Receipt()
+            //               {
+            //Foretagsnamn = dr[""].ToString(),
+            //Orgnr = Convert.ToInt32(dr[]),
+            //ReceiptId = Convert.ToInt32(dr["id"]),
+            //ProductQty = Convert.ToInt32(dt.Rows.Count),
+            //Issuedate = Convert.ToDateTime(dr["receiptDate"]),
+            //ProductWeight = Convert.ToDecimal(dr[]),
+            //TotalPrice = Convert.ToDouble(dr[]),
+            //Vat1 = Convert.ToDouble(dr[]),
+            //SumOfItems = Convert.ToDouble(dr[]),
+            //Cash = Convert.ToBoolean(dr[]),
+            //Credit = Convert.ToBoolean(dr[]),
+            //Coupon = Convert.ToBoolean(dr[]),
 
-            
+            //               }).ToList();
+
+
+
+
+
         }
         //***************************************************************************************************************************************************
-        //***************************************************************************************************************************************************
-        DataTable dt = new DataTable();
+        
         private void btn_SubmitSearch_Click(object sender, EventArgs e)
         {
 
@@ -82,7 +87,7 @@ namespace Calculator2
             }
             try
             {
-                DbAccess db = new DbAccess();
+                CashierClasses.DbAcess db = new CashierClasses.DbAcess();
 
                 dG_List.AutoGenerateColumns = true;
                 DataTable dt = db.getReceipt(txtb_SearchBar.Text);
@@ -94,7 +99,12 @@ namespace Calculator2
 
                 dG_List.BorderStyle = BorderStyle.Fixed3D;
 
-                this.dt = dt;
+
+                DataSet ds = db.getTotalPriceAndQty(txtb_SearchBar.Text);
+
+
+                txtb_TotalPrice.Text = ds.Tables[0].Rows[0][0].ToString();
+
                 pnl_Search.SendToBack();
 
             }
@@ -123,6 +133,9 @@ namespace Calculator2
 
         }
 
+        private void Receipt_Load(object sender, EventArgs e)
+        {
 
+        }
     }
 }

@@ -11,11 +11,9 @@ using System.Data.OleDb;
 using System.Data.Common;
 
 
-
-namespace databastestLocal
+namespace CashierClasses
 {
-
-    class DbAcess
+   public class DbAcess
     {
         // Detta läggs här för att slippa upprepa senare i de olika metoderna
         // variabler
@@ -32,13 +30,13 @@ namespace databastestLocal
         } // constructor
           ///////////////////////////////////////////////////////////////////
 
-            // getdataset är den metod vi använder för att checka username och password mot databas, den returnerar ett dataset med all data som tillhör denna användaren.
+        // getdataset är den metod vi använder för att checka username och password mot databas, den returnerar ett dataset med all data som tillhör denna användaren.
 
         // GetUser är den metod vi använder för att checka username och password mot databas, den returnerar en instans av klassen User med all data som tillhör denna användaren.
 
         public User GetUser(string txt_UserName, string txt_Password)
         {
-            
+
             command.CommandText = "Select * from Employee where id=@id and passwordPIN=@passwordPIN";
             command.Parameters.AddWithValue("@id", txt_UserName);
             command.Parameters.AddWithValue("@passwordPIN", txt_Password);
@@ -108,7 +106,7 @@ namespace databastestLocal
         {
 
             int timeelapsed = (int)user.CheckOut.Subtract(user.CheckIn).TotalMinutes;
-            
+
             user.HoursWorked = user.HoursWorked + timeelapsed;
 
             command.CommandText = "UPDATE Employee SET checkIn=@checkIn, checkOut=@checkOut, hoursWorked=@hoursWorked where id=@id";
@@ -142,7 +140,7 @@ namespace databastestLocal
 
         }
 
-        public Calculator2.Product  getProduct(string searchText)
+        public Product getProduct(string searchText)
         {
             SqlParameter workperameter1 = new SqlParameter();
             DataSet ds = new DataSet();
@@ -161,7 +159,7 @@ namespace databastestLocal
             int count = ds.Tables[0].Rows.Count;
             if (count == 1)
             {
-                Calculator2.Product getproduct = new Calculator2.Product
+                Product getproduct = new Product
                  (
                  Convert.ToInt16(ds.Tables[0].Rows[0][0].ToString()),
                  Convert.ToInt16(ds.Tables[0].Rows[0][1].ToString()),
@@ -211,7 +209,18 @@ namespace databastestLocal
 
 
 
-
+        public DataSet getTotalPriceAndQty (string Search_text)
+        {
+            command.CommandText = "Select sum (price*qty) as totalprice, sum (qty) as totalqty from Product where receiptId = @receiptId";
+            command.CommandType = CommandType.Text;
+            command.Parameters.AddWithValue("@receiptId", Search_text);
+            connection.Open();
+            SqlDataAdapter adapt = new SqlDataAdapter(command);
+            DataSet ds = new DataSet();
+            adapt.Fill(ds);
+            connection.Close();
+            return ds;
+        }
 
 
 

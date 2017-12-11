@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using CashierClasses;
 
 
 
@@ -46,10 +47,10 @@ namespace databastestLocal
             }
             try
             {
-                DbAcess db = new DbAcess();
+                CashierClasses.DbAcess db = new CashierClasses.DbAcess();
                 // här är vår metod för att kolla Db om lösenord och username finns och är rätt.
                 // Därefter skickas en fylld instans av klassen User ut.
-                User user = db.GetUser(txt_UserName.Text, txt_Password.Text);
+                CashierClasses.User user = db.GetUser(txt_UserName.Text, txt_Password.Text);
                 
                 
 

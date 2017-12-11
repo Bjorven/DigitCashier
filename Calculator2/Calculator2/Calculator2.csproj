@@ -62,7 +62,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </Compile>
-    <Compile Include="DbAccess.cs" />
     <Compile Include="Existing Customer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -81,14 +80,12 @@
     <Compile Include="Receipt.Designer.cs">
       <DependentUpon>Receipt.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reeipt.cs" />
     <Compile Include="Register new customer.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Register new customer.Designer.cs">
       <DependentUpon>Register new customer.cs</DependentUpon>
     </Compile>
-    <Compile Include="Product.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Barcode.resx">
@@ -144,6 +141,12 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\CashierClasses\CashierClasses\CashierClasses.csproj">
+      <Project>{00c8063c-cae2-434e-b710-6a59cd3996b7}</Project>
+      <Name>CashierClasses</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

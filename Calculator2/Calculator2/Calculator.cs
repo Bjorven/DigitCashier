@@ -13,6 +13,7 @@ using System.Data.SqlTypes;
 using System.Data.Sql;
 using System.Data.OleDb;
 using System.Data.Common;
+using CashierClasses;
 
 namespace Calculator2
 {
@@ -251,7 +252,7 @@ namespace Calculator2
                 Mresult = Mresult * Convert.ToDouble(totalTextBox.Text);
                 totalTextBox.Text = Mresult.ToString();
             }
-
+            
 
             else if
                 (isSearchBtn == true)
@@ -259,9 +260,10 @@ namespace Calculator2
 
                 if (searchTextBox.Text != "")
                 {
-                    DbAccess db = new DbAccess();
+                    
+                    CashierClasses.DbAcess db = new CashierClasses.DbAcess();
 
-                    Product searchProduct = db.getProduct(searchTextBox.Text);
+                    CashierClasses.Product searchProduct = db.getProduct(searchTextBox.Text);
 
                     goodsListView.Items.Add(searchProduct.Name);
 
@@ -387,7 +389,7 @@ namespace Calculator2
             private void GoodsButton_Click(object sender, EventArgs e)
             {
 
-                DbAccess db = new DbAccess();
+                CashierClasses.DbAcess db = new CashierClasses.DbAcess();
                 DataSet ds = db.GetGoodsList();
                 if (ds.Tables[0].Rows.Count == 0)
                 {
