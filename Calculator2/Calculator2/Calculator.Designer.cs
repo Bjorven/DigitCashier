@@ -942,7 +942,7 @@ namespace Calculator2
             this.goodsListView.TabIndex = 246;
             this.goodsListView.UseCompatibleStateImageBehavior = false;
             this.goodsListView.View = System.Windows.Forms.View.Details;
-            this.goodsListView.SelectedIndexChanged += new System.EventHandler(this.goodsListView_SelectedIndexChanged);
+            this.goodsListView.SelectedIndexChanged += new System.EventHandler(this.GoodsListView_SelectedIndexChanged);
             // 
             // columnHeader1
             // 

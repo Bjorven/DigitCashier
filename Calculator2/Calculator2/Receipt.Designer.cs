@@ -33,7 +33,7 @@
             this.subTotalButton = new System.Windows.Forms.Button();
             this.printReceiptButton = new System.Windows.Forms.Button();
             this.SearchItemButton = new System.Windows.Forms.Button();
-            this.addItemButton = new System.Windows.Forms.Button();
+            this.AddItemButton = new System.Windows.Forms.Button();
             this.removeItemButton = new System.Windows.Forms.Button();
             this.pnl_Search = new System.Windows.Forms.Panel();
             this.btn_CancelSearch = new System.Windows.Forms.Button();
@@ -109,16 +109,16 @@
             // 
             // addItemButton
             // 
-            this.addItemButton.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.addItemButton.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addItemButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.addItemButton.Location = new System.Drawing.Point(12, 491);
-            this.addItemButton.Name = "addItemButton";
-            this.addItemButton.Size = new System.Drawing.Size(162, 79);
-            this.addItemButton.TabIndex = 20;
-            this.addItemButton.Text = "ADD ITEM";
-            this.addItemButton.UseVisualStyleBackColor = false;
-            this.addItemButton.Click += new System.EventHandler(this.addItemButton_Click);
+            this.AddItemButton.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.AddItemButton.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AddItemButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.AddItemButton.Location = new System.Drawing.Point(12, 491);
+            this.AddItemButton.Name = "addItemButton";
+            this.AddItemButton.Size = new System.Drawing.Size(162, 79);
+            this.AddItemButton.TabIndex = 20;
+            this.AddItemButton.Text = "ADD ITEM";
+            this.AddItemButton.UseVisualStyleBackColor = false;
+            this.AddItemButton.Click += new System.EventHandler(this.AddItemButton_Click);
             // 
             // removeItemButton
             // 
@@ -208,7 +208,7 @@
             this.Controls.Add(this.subTotalButton);
             this.Controls.Add(this.printReceiptButton);
             this.Controls.Add(this.SearchItemButton);
-            this.Controls.Add(this.addItemButton);
+            this.Controls.Add(this.AddItemButton);
             this.Controls.Add(this.removeItemButton);
             this.Controls.Add(this.pnl_Search);
             this.MaximizeBox = false;
@@ -231,7 +231,7 @@
         private System.Windows.Forms.Button subTotalButton;
         private System.Windows.Forms.Button printReceiptButton;
         private System.Windows.Forms.Button SearchItemButton;
-        private System.Windows.Forms.Button addItemButton;
+        private System.Windows.Forms.Button AddItemButton;
         private System.Windows.Forms.Button removeItemButton;
         private System.Windows.Forms.Panel pnl_Search;
         private System.Windows.Forms.Button btn_CancelSearch;

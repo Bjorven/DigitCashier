@@ -491,7 +491,7 @@ namespace Calculator2
             oldcustomer.Show();
         }
 
-        private void goodsListBox_SelectedIndexChanged(object sender, EventArgs e)
+        private void GoodsListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             //DbAccess db = new DbAccess();
             //DataSet ds = db.GetGoodsList();
@@ -515,7 +515,7 @@ namespace Calculator2
 
         }
 
-        private void goodsListView_SelectedIndexChanged(object sender, EventArgs e)
+        private void GoodsListView_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
