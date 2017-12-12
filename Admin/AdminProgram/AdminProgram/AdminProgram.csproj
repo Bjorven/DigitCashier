@@ -4,28 +4,13 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{B2C0CD83-A0F9-41C7-AF22-0221414CF7FF}</ProjectGuid>
+    <ProjectGuid>{18CDBD04-F3A7-48E8-A935-F3A4B38CB3B0}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>databastestLocal</RootNamespace>
-    <AssemblyName>databastestLocal</AssemblyName>
+    <RootNamespace>AdminProgram</RootNamespace>
+    <AssemblyName>AdminProgram</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-    <PublishUrl>publish\</PublishUrl>
-    <Install>true</Install>
-    <InstallFrom>Disk</InstallFrom>
-    <UpdateEnabled>false</UpdateEnabled>
-    <UpdateMode>Foreground</UpdateMode>
-    <UpdateInterval>7</UpdateInterval>
-    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
-    <UpdatePeriodically>false</UpdatePeriodically>
-    <UpdateRequired>false</UpdateRequired>
-    <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
-    <UseApplicationTrust>false</UseApplicationTrust>
-    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -66,41 +51,10 @@
     <Compile Include="FrmAdmin.Designer.cs">
       <DependentUpon>FrmAdmin.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmBoss.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmBoss.Designer.cs">
-      <DependentUpon>FrmBoss.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrmCashier.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmCashier.Designer.cs">
-      <DependentUpon>FrmCashier.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrmLogin.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmLogin.Designer.cs">
-      <DependentUpon>FrmLogin.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrmMain.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmMain.Designer.cs">
-      <DependentUpon>FrmMain.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TimeStamp.cs" />
     <EmbeddedResource Include="FrmAdmin.resx">
       <DependentUpon>FrmAdmin.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmLogin.resx">
-      <DependentUpon>FrmLogin.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmMain.resx">
-      <DependentUpon>FrmMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -125,27 +79,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
-      <Visible>False</Visible>
-      <ProductName>Microsoft .NET Framework 4.6.1 %28x86 and x64%29</ProductName>
-      <Install>true</Install>
-    </BootstrapperPackage>
-    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
-      <Visible>False</Visible>
-      <ProductName>.NET Framework 3.5 SP1</ProductName>
-      <Install>false</Install>
-    </BootstrapperPackage>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\Admin\AdminProgram\AdminProgram\AdminProgram.csproj">
-      <Project>{18cdbd04-f3a7-48e8-a935-f3a4b38cb3b0}</Project>
-      <Name>AdminProgram</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Calculator2\Calculator2\Calculator2.csproj">
-      <Project>{4cbeb607-8074-4d36-a21c-c70ce5481e61}</Project>
-      <Name>Calculator2</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\CashierClasses\CashierClasses\CashierClasses.csproj">
+    <ProjectReference Include="..\..\..\CashierClasses\CashierClasses\CashierClasses.csproj">
       <Project>{00c8063c-cae2-434e-b710-6a59cd3996b7}</Project>
       <Name>CashierClasses</Name>
     </ProjectReference>

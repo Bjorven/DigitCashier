@@ -13,6 +13,7 @@ using System.Data.SqlTypes;
 using System.Data.Sql;
 using System.Data.OleDb;
 using System.Data.Common;
+using CashierClasses;
 
 namespace Calculator2
 {

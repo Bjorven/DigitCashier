@@ -7,15 +7,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CashierClasses;
 
 namespace databastestLocal
 {
     public partial class FrmMain : Form
     {
         //här får ut variablarna till ett objekt vi kan använda i resten av formappen
-        private User user;
+        private CashierClasses.User user;
         // --
-        public FrmMain(User user)
+        public FrmMain(CashierClasses.User user)
         {
             InitializeComponent();
             //--
@@ -67,12 +68,25 @@ namespace databastestLocal
             // vid utloggning ändrar vi värdet på user.checkOut till tidpunktens datum och tid.
             // vi skickar också in user'n till en metod som kommer att räkna ut differansen mellan checkIn och -Out, denna ska sparas till
             // hoursWork.
-            DbAcess db = new DbAcess();
+            CashierClasses.DbAcess db = new CashierClasses.DbAcess();
             this.Hide();
             user.CheckOut = DateTime.Now;
             db.GetTimestamp(user);
             FrmLogin frmLogin= new FrmLogin();
             frmLogin.Show();
+        }
+
+        private void btn_admin_Click_1(object sender, EventArgs e)
+        {
+            this.Hide();
+            AdminProgram.FrmAdmin frmAdmin = new AdminProgram.FrmAdmin();
+            frmAdmin.Show();
+
+        }
+
+        private void btn_boss_Click_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

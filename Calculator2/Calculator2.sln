@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calculator2", "Calculator2\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "databastestLocal", "..\databastestLocal\databastestLocal\databastestLocal.csproj", "{B2C0CD83-A0F9-41C7-AF22-0221414CF7FF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdminProgram", "..\Admin\AdminProgram\AdminProgram\AdminProgram.csproj", "{18CDBD04-F3A7-48E8-A935-F3A4B38CB3B0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CashierClasses", "..\CashierClasses\CashierClasses\CashierClasses.csproj", "{00C8063C-CAE2-434E-B710-6A59CD3996B7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{B2C0CD83-A0F9-41C7-AF22-0221414CF7FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B2C0CD83-A0F9-41C7-AF22-0221414CF7FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B2C0CD83-A0F9-41C7-AF22-0221414CF7FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{18CDBD04-F3A7-48E8-A935-F3A4B38CB3B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{18CDBD04-F3A7-48E8-A935-F3A4B38CB3B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{18CDBD04-F3A7-48E8-A935-F3A4B38CB3B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{18CDBD04-F3A7-48E8-A935-F3A4B38CB3B0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{00C8063C-CAE2-434E-B710-6A59CD3996B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00C8063C-CAE2-434E-B710-6A59CD3996B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00C8063C-CAE2-434E-B710-6A59CD3996B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{00C8063C-CAE2-434E-B710-6A59CD3996B7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

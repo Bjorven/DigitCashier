@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace databastestLocal
+namespace CashierClasses
 {
-   public class User//:Employee
+
+    public class User//:Employee
     {
 
         ///Instansvariabler
@@ -55,29 +56,29 @@ namespace databastestLocal
             CheckOut = cekOut;
         }
         //string forename, string surname, string hadress, int postcode, string hcity, string persnr,  int agey
-       // public User(string uname, string forename, string surname, string persnr, string hadress, Int64 sal, int postcode, int agey, int passcode, int ropTo, string compId, string roleIdy, int hw, DateTime hirDate, DateTime lstActivDat, DateTime cekIn, DateTime cekOut)
-       // {
-       //     uname = UserName;
-       //     passcode = Password;
-       //     roleIdy = RoleId;
-       //     hw = HoursWorked;
-       //     ropTo = ReportsTo;
-       //     compId = CompanyId;
-       //     cekIn = CheckIn;
-       //     cekOut = CheckOut;
-       //     lstActivDat = LastActivityDate;
-       //     hirDate = HiredDate;
-       //     forename = Fname;
-       //     surname = Sname;
-       //     hadress = Adress;
-       //     postcode = Postnr;
-       //     //hcity = City;
-       //     persnr = Personnr;
-       //     sal = Salary;
-       //     agey = Age;
-       //
-       //
-       // }
+        // public User(string uname, string forename, string surname, string persnr, string hadress, Int64 sal, int postcode, int agey, int passcode, int ropTo, string compId, string roleIdy, int hw, DateTime hirDate, DateTime lstActivDat, DateTime cekIn, DateTime cekOut)
+        // {
+        //     uname = UserName;
+        //     passcode = Password;
+        //     roleIdy = RoleId;
+        //     hw = HoursWorked;
+        //     ropTo = ReportsTo;
+        //     compId = CompanyId;
+        //     cekIn = CheckIn;
+        //     cekOut = CheckOut;
+        //     lstActivDat = LastActivityDate;
+        //     hirDate = HiredDate;
+        //     forename = Fname;
+        //     surname = Sname;
+        //     hadress = Adress;
+        //     postcode = Postnr;
+        //     //hcity = City;
+        //     persnr = Personnr;
+        //     sal = Salary;
+        //     agey = Age;
+        //
+        //
+        // }
         public int UserName { get; set; }
         public int Password { get; set; }
         public int RoleId { get; set; }
@@ -98,14 +99,6 @@ namespace databastestLocal
         public int Age { get; set; }
 
 
-
-
-
-
-
-
-
-
-
     }
 }
+
