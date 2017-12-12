@@ -34,6 +34,7 @@ namespace Calculator2
         double tal1 = 0;
         double tal2 = 0;
         double myTotal;
+        double count;
 
         Double resultValue = 0;
         String operationPerformed = "";
@@ -288,12 +289,21 @@ namespace Calculator2
                     totalTextBox.Text = "";
 
                 }
+                
+                
                 foreach (ListViewItem lstitem in goodsListView.Items)
                 {
+                    // nu summeras hela colummen om och om igen vilket gör att skannar man en vara och sen en till kommer båda priser läggas till ovanpå den som redan ligger där. 
+                    // samma vara summaras två gånger.
                     
+
                     myTotal += double.Parse(lstitem.SubItems[3].Text);
-                    totalTextBox.Text = myTotal.ToString();
+                    
+
                 }
+                myTotal -= count;
+                count = myTotal;
+                totalTextBox.Text = myTotal.ToString();
             }
 
             //testing a method
