@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
-using System.Data;
+
 using System.Data.SqlTypes;
 using System.Data.Sql;
 using System.Data.OleDb;
@@ -30,11 +30,6 @@ namespace Calculator2
             listV_searchResult.Items.Clear();
             listV_searchResult.Items.Clear();
             listV_searchResult.Items.Clear();
-        }
-
-        private void addItemButton_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void SearchItemButton_Click(object sender, EventArgs e)

@@ -637,7 +637,7 @@ namespace Calculator2
             this.momsButton.TabIndex = 203;
             this.momsButton.Text = "Moms";
             this.momsButton.UseVisualStyleBackColor = false;
-            this.momsButton.Click += new System.EventHandler(this.momsButton_Click);
+            this.momsButton.Click += new System.EventHandler(this.MomsButton_Click);
             // 
             // DiscountButton
             // 
@@ -920,7 +920,7 @@ namespace Calculator2
             this.idnameComboBox.Name = "idnameComboBox";
             this.idnameComboBox.Size = new System.Drawing.Size(190, 24);
             this.idnameComboBox.TabIndex = 245;
-            this.idnameComboBox.SelectedIndexChanged += new System.EventHandler(this.idnameComboBox_SelectedIndexChanged);
+            this.idnameComboBox.SelectedIndexChanged += new System.EventHandler(this.IdnameComboBox_SelectedIndexChanged);
             // 
             // goodsListView
             // 

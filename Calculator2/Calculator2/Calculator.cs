@@ -8,7 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
-using System.Data;
 using System.Data.SqlTypes;
 using System.Data.Sql;
 using System.Data.OleDb;
@@ -260,11 +259,10 @@ namespace Calculator2
                 if (searchTextBox.Text != "")
                 {
                     DbAccess db = new DbAccess();
-
-                    Product searchProduct = db.getProduct(searchTextBox.Text);
-
-                    goodsListView.Items.Add(searchProduct.Name);
-
+ 
+                   goodsListView.Items.Add(searchpr);
+                    // goodsListView.Items.Add(searchProduct.Price);
+                    ////goodsListView.Items.Add( searchProduct.Qty);
                 }
                 else
                 {
@@ -373,7 +371,7 @@ namespace Calculator2
                 searchTextBox.Clear();
             }
 
-            private void momsButton_Click(object sender, EventArgs e)
+            private void MomsButton_Click(object sender, EventArgs e)
             {
                 if (momsTextBox.Text == "0.00")
                     momsTextBox.Clear();
@@ -422,7 +420,7 @@ namespace Calculator2
 
             }
 
-            private void idnameComboBox_SelectedIndexChanged(object sender, EventArgs e)
+            private void IdnameComboBox_SelectedIndexChanged(object sender, EventArgs e)
             {
                 //ListViewItem minaFilmer;
 
@@ -468,7 +466,7 @@ namespace Calculator2
                 oldcustomer.Show();
             }
 
-            private void goodsListBox_SelectedIndexChanged(object sender, EventArgs e)
+            private void GoodsListBox_SelectedIndexChanged(object sender, EventArgs e)
             {
                 //DbAccess db = new DbAccess();
                 //DataSet ds = db.GetGoodsList();
