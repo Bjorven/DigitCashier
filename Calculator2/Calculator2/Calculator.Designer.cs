@@ -93,6 +93,11 @@ namespace Calculator2
             this.totalLabel = new System.Windows.Forms.Label();
             this.idnameComboBox = new System.Windows.Forms.ComboBox();
             this.goodsListView = new System.Windows.Forms.ListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // dateTimePicker1
@@ -924,11 +929,43 @@ namespace Calculator2
             // 
             // goodsListView
             // 
-            this.goodsListView.Location = new System.Drawing.Point(26, 52);
+            this.goodsListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2,
+            this.columnHeader3,
+            this.columnHeader4,
+            this.columnHeader5});
+            this.goodsListView.GridLines = true;
+            this.goodsListView.Location = new System.Drawing.Point(32, 53);
             this.goodsListView.Name = "goodsListView";
             this.goodsListView.Size = new System.Drawing.Size(770, 310);
             this.goodsListView.TabIndex = 246;
             this.goodsListView.UseCompatibleStateImageBehavior = false;
+            this.goodsListView.View = System.Windows.Forms.View.Details;
+            this.goodsListView.SelectedIndexChanged += new System.EventHandler(this.goodsListView_SelectedIndexChanged);
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "ProductId";
+            this.columnHeader1.Width = 90;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Name";
+            this.columnHeader2.Width = 130;
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "Product Group";
+            this.columnHeader3.Width = 250;
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "Price";
+            // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "Qty";
             // 
             // Calculator
             // 
@@ -1001,6 +1038,7 @@ namespace Calculator2
             this.MaximizeBox = false;
             this.Name = "Calculator";
             this.Text = "Kassa";
+            this.Load += new System.EventHandler(this.Calculator_Load_1);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1072,6 +1110,11 @@ namespace Calculator2
         private System.Windows.Forms.Label totalLabel;
         private System.Windows.Forms.ComboBox idnameComboBox;
         private System.Windows.Forms.ListView goodsListView;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.ColumnHeader columnHeader4;
+        private System.Windows.Forms.ColumnHeader columnHeader5;
 
         public EventHandler CommaButton_Click_1 { get; private set; }
         public EventHandler DeleteButton_Click_1 { get; private set; }

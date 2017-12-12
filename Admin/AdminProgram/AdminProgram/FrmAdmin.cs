@@ -21,19 +21,37 @@ namespace AdminProgram
             pnl_Product.Hide();
             
         }
-        
-        private void arkivToolStripMenuItem_Click(object sender, EventArgs e)
+   
+
+        private void ArkivToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            pnl_Start.Show();
+            //pnl_Start.Show();
+            //txtb_ENewAdress.Clear();
+            //txtb_ENewAge.Clear();
+            //txtb_ENewDob.Clear();
+            //txtb_ENewEmpnr.Clear();
+            //txtb_ENewFname.Clear();
+            //txtb_ENewHiredDate.Clear();
+            //txtb_ENewHoursWorked.Clear();
+            //txtb_ENewLastActivityDate.Clear();
+            //txtb_ENewPostcode.Clear();
+            //txtb_ENewReportsTo.Clear();
+            //txtb_ENewRole.Clear();
+            //txtb_ENewSalary.Clear();
+            //txtb_ENewSname.Clear();
+            //txtb_ENewTerminationDate.Clear();
+            //txtb_PNewManufacturer.Clear();
+            
+
 
         }
 
-        private void employee_NewToolStripMenuItem_Click(object sender, EventArgs e)
+        private void Employee_NewToolStripMenuItem_Click(object sender, EventArgs e)
         {
             
             pnl_Employee.Show();
@@ -41,7 +59,7 @@ namespace AdminProgram
             pnl_Product.Hide();
         }
 
-        private void product_NewToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void Product_NewToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             pnl_Employee.Hide();
             pnl_Start.Hide();

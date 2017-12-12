@@ -8,7 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
-using System.Data;
 using System.Data.SqlTypes;
 using System.Data.Sql;
 using System.Data.OleDb;
@@ -20,6 +19,12 @@ namespace Calculator2
     public partial class Calculator : Form
     {
 
+        ListViewItem myProducts;
+        Barcode barcode;
+        RegisterNewCustomer customer;
+        Existing_Customer oldcustomer;
+        Receipt receipt;
+        Product productList;
 
         string input = string.Empty;
         string operation = string.Empty;
@@ -28,23 +33,28 @@ namespace Calculator2
         double result = 0.0;
         double tal1 = 0;
         double tal2 = 0;
+        double myTotal;
+
         Double resultValue = 0;
         String operationPerformed = "";
         bool isOperationPerformed = false;
         bool isSearchBtn = false;
         double Mresult = 1;
+
+
         public Calculator()
 
         {
+            
             InitializeComponent();
 
-        }
 
-        Barcode barcode;
-        RegisterNewCustomer customer;
-        Existing_Customer oldcustomer;
-        Receipt receipt;
-        Product productList;
+
+        }
+        
+
+        
+        
 
 
         private void NrOneButton_Click_1(object sender, EventArgs e)
@@ -252,7 +262,7 @@ namespace Calculator2
                 Mresult = Mresult * Convert.ToDouble(totalTextBox.Text);
                 totalTextBox.Text = Mresult.ToString();
             }
-            
+
 
             else if
                 (isSearchBtn == true)
@@ -260,236 +270,257 @@ namespace Calculator2
 
                 if (searchTextBox.Text != "")
                 {
-                    
+
                     CashierClasses.DbAcess db = new CashierClasses.DbAcess();
 
                     CashierClasses.Product searchProduct = db.getProduct(searchTextBox.Text);
 
-                    goodsListView.Items.Add(searchProduct.Name);
+                    myProducts = new ListViewItem(searchProduct.Id.ToString());
+                    myProducts.SubItems.Add(searchProduct.Name); 
+                    myProducts.SubItems.Add(searchProduct.ProductGroup.ToString());
+                    myProducts.SubItems.Add(searchProduct.Price.ToString());
 
+                    goodsListView.Items.Add(myProducts);
+                    searchTextBox.Clear();
                 }
                 else
                 {
                     totalTextBox.Text = "";
 
                 }
-            }
-        
-                //testing a method
-                //switch (operationPerformed)
-                //{
-                //    case "+":
-                //        totalTextBox.Text = (resultValue + Double.Parse(totalTextBox.Text)).ToString();
-                //        break;
-                //    case "*":
-                //        totalTextBox.Text = (resultValue * Double.Parse(totalTextBox.Text)).ToString();
-                //        break;
-
-                //    default:
-                //        break;
-                //}
-                //resultValue = Double.Parse(totalTextBox.Text);
-
-
-
-            }
-
-            private void DiscountTextBox_TextChanged(object sender, EventArgs e)
-            {
-                if (discountTextBox.Text == "0.00")
-                    discountTextBox.Clear();
-
-            }
-
-            private void DiscountButton__Click(object sender, EventArgs e)
-            {
-                if (discountTextBox.Text == "0.00")
-                    discountTextBox.Clear();
-                discountTextBox.Text = discountTextBox.Text + "%";
-            }
-
-            private void TotalTextBox_TextChanged(object sender, EventArgs e)
-            {
-
-            }
-
-            private void TwentyPercentButton_Click(object sender, EventArgs e)
-            {
-                if (discountTextBox.Text == "0.00")
-                    discountTextBox.Clear();
-                discountTextBox.Text = discountTextBox.Text + "20%";
-                toPayTextBox.Text = (Convert.ToInt32(totalTextBox.Text) * 0.8).ToString();
-            }
-
-            private void TenPercentButton_Click(object sender, EventArgs e)
-            {
-                if (discountTextBox.Text == "0.00")
-                    discountTextBox.Clear();
-                discountTextBox.Text = discountTextBox.Text + "10%";
-                toPayTextBox.Text = (Convert.ToInt32(totalTextBox.Text) * 0.9).ToString();
-            }
-
-            private void ThertyPercentButton_Click(object sender, EventArgs e)
-            {
-                if (discountTextBox.Text == "0.00")
-                    discountTextBox.Clear();
-                discountTextBox.Text = discountTextBox.Text + "30%";
-                toPayTextBox.Text = (Convert.ToInt32(totalTextBox.Text) * 0.7).ToString();
-            }
-
-            private void SearchButton_Click(object sender, EventArgs e)
-            {
-                searchTextBox.Clear();
-                isSearchBtn = true;
-
-
-
-
-            }
-
-
-            DataTable dt = new DataTable();
-            private void SearchTextBox_TextChanged_1(object sender, EventArgs e)
-            {
-                if (searchTextBox.Text == "")
+                foreach (ListViewItem lstitem in goodsListView.Items)
                 {
-
-                }
-
-
-
-            }
-
-            private void TextBox2_TextChanged(object sender, EventArgs e)
-            {
-
-            }
-
-            private void ToPayTextBox_TextChanged(object sender, EventArgs e)
-            {
-
-            }
-
-            private void ClearBotton_Click(object sender, EventArgs e)
-            {
-                searchTextBox.Clear();
-            }
-
-            private void momsButton_Click(object sender, EventArgs e)
-            {
-                if (momsTextBox.Text == "0.00")
-                    momsTextBox.Clear();
-                momsTextBox.Text = toPayTextBox.Text;
-                toPayTextBox.Text = (Convert.ToInt32(momsTextBox.Text) * 0.2).ToString();
-            }
-
-
-            //*************************************************************************************************************************************
-
-            private void GoodsButton_Click(object sender, EventArgs e)
-            {
-
-                CashierClasses.DbAcess db = new CashierClasses.DbAcess();
-                DataSet ds = db.GetGoodsList();
-                if (ds.Tables[0].Rows.Count == 0)
-                {
-                    MessageBox.Show("No items found");
-                }
-                try
-                {
-                    DataTable dtable = ds.Tables[0];
-                    GoodsListGridView gLGV = new GoodsListGridView(dtable);
-                    gLGV.Show();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
+                    
+                    myTotal += double.Parse(lstitem.SubItems[3].Text);
+                    totalTextBox.Text = myTotal.ToString();
                 }
             }
 
-            //*************************************************************************************************************************************
+            //testing a method
+            //switch (operationPerformed)
+            //{
+            //    case "+":
+            //        totalTextBox.Text = (resultValue + Double.Parse(totalTextBox.Text)).ToString();
+            //        break;
+            //    case "*":
+            //        totalTextBox.Text = (resultValue * Double.Parse(totalTextBox.Text)).ToString();
+            //        break;
+
+            //    default:
+            //        break;
+            //}
+            //resultValue = Double.Parse(totalTextBox.Text);
 
 
-            private void CloseButton_Click(object sender, EventArgs e)
+
+        }
+
+        private void DiscountTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (discountTextBox.Text == "0.00")
+                discountTextBox.Clear();
+
+        }
+
+        private void DiscountButton__Click(object sender, EventArgs e)
+        {
+            if (discountTextBox.Text == "0.00")
+                discountTextBox.Clear();
+            discountTextBox.Text = discountTextBox.Text + "%";
+        }
+
+        private void TotalTextBox_TextChanged(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void TwentyPercentButton_Click(object sender, EventArgs e)
+        {
+            if (discountTextBox.Text == "0.00")
+                discountTextBox.Clear();
+            discountTextBox.Text = discountTextBox.Text + "20%";
+            toPayTextBox.Text = (Convert.ToInt32(totalTextBox.Text) * 0.8).ToString();
+        }
+
+        private void TenPercentButton_Click(object sender, EventArgs e)
+        {
+            if (discountTextBox.Text == "0.00")
+                discountTextBox.Clear();
+            discountTextBox.Text = discountTextBox.Text + "10%";
+            toPayTextBox.Text = (Convert.ToInt32(totalTextBox.Text) * 0.9).ToString();
+        }
+
+        private void ThertyPercentButton_Click(object sender, EventArgs e)
+        {
+            if (discountTextBox.Text == "0.00")
+                discountTextBox.Clear();
+            discountTextBox.Text = discountTextBox.Text + "30%";
+            toPayTextBox.Text = (Convert.ToInt32(totalTextBox.Text) * 0.7).ToString();
+        }
+
+        private void SearchButton_Click(object sender, EventArgs e)
+        {
+            searchTextBox.Clear();
+            isSearchBtn = true;
+
+
+
+
+        }
+
+
+        DataTable dt = new DataTable();
+        private void SearchTextBox_TextChanged_1(object sender, EventArgs e)
+        {
+            if (searchTextBox.Text == "")
             {
-                Calculator.ActiveForm.Close();
 
             }
 
-            private void ReceiptButton_Click(object sender, EventArgs e)
+
+
+        }
+
+        private void TextBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ToPayTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ClearBotton_Click(object sender, EventArgs e)
+        {
+            searchTextBox.Clear();
+        }
+
+        private void momsButton_Click(object sender, EventArgs e)
+        {
+            if (momsTextBox.Text == "0.00")
+                momsTextBox.Clear();
+            momsTextBox.Text = toPayTextBox.Text;
+            toPayTextBox.Text = (Convert.ToInt32(momsTextBox.Text) * 0.2).ToString();
+        }
+
+
+        //*************************************************************************************************************************************
+
+        private void GoodsButton_Click(object sender, EventArgs e)
+        {
+
+            CashierClasses.DbAcess db = new CashierClasses.DbAcess();
+            DataSet ds = db.GetGoodsList();
+            if (ds.Tables[0].Rows.Count == 0)
             {
-
-                Receipt receipt = new Receipt();
-                receipt.Show();
-
+                MessageBox.Show("No items found");
             }
-
-            private void idnameComboBox_SelectedIndexChanged(object sender, EventArgs e)
+            try
             {
-                //ListViewItem minaFilmer;
-
-
-                //livFilmer.Items.Clear();
-                //DataSet ds = new DataSet();
-                //ds = Databas.ListaFilmer();//     .ListaFilmer();
-
-                //int antal = ds.Tables[0].Rows.Count;
-
-                //for (int i = 0; i < antal; i++)
-                //{
-                //    minaFilmer = new ListViewItem(Convert.ToString((ds.Tables[0].Rows[i][0])));
-                //    minaFilmer.SubItems.Add(Convert.ToString((ds.Tables[0].Rows[i][1])));
-
-                //    livFilmer.Items.Add(minaFilmer);
-                //}
-                //foreach(DataRow dr in ds.Tables[0].Rows)
-                //{
-                //    chk3.Items.Add(dr[0]);
-                //    lsb3.Items.Add(dr[0]);
-                //    cmb3.Items.Add(dr[0]);
-                //    txt3.Text = txt3.Text + dr[0] + Environment.NewLine;
-
-
+                DataTable dtable = ds.Tables[0];
+                GoodsListGridView gLGV = new GoodsListGridView(dtable);
+                gLGV.Show();
             }
-
-            private void BarcodeBotton_Click(object sender, EventArgs e)
+            catch (Exception ex)
             {
-                barcode = new Barcode();
-                barcode.Show();
-            }
-
-            private void NewCustomerButton_Click(object sender, EventArgs e)
-            {
-                customer = new RegisterNewCustomer();
-                customer.Show();
-            }
-
-            private void CustomerButton_Click(object sender, EventArgs e)
-            {
-                oldcustomer = new Existing_Customer();
-                oldcustomer.Show();
-            }
-
-            private void goodsListBox_SelectedIndexChanged(object sender, EventArgs e)
-            {
-                //DbAccess db = new DbAccess();
-                //DataSet ds = db.GetGoodsList();
-
-                //foreach (DataRow r in ds.Tables[0].Rows)
-                //{
-                //    if (r["name"].ToString() == goodsListBox.SelectedValue)
-                //        label1.Text = r["id"].ToString();
-                //}
-
-            }
-
-            private void Calculator_Load(object sender, EventArgs e)
-            {
-
-
+                MessageBox.Show(ex.Message);
             }
         }
+
+        //*************************************************************************************************************************************
+
+
+        private void CloseButton_Click(object sender, EventArgs e)
+        {
+            Calculator.ActiveForm.Close();
+
+        }
+
+        private void ReceiptButton_Click(object sender, EventArgs e)
+        {
+
+            Receipt receipt = new Receipt();
+            receipt.Show();
+
+        }
+
+        private void idnameComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //ListViewItem minaFilmer;
+
+
+            //livFilmer.Items.Clear();
+            //DataSet ds = new DataSet();
+            //ds = Databas.ListaFilmer();//     .ListaFilmer();
+
+            //int antal = ds.Tables[0].Rows.Count;
+
+            //for (int i = 0; i < antal; i++)
+            //{
+            //    minaFilmer = new ListViewItem(Convert.ToString((ds.Tables[0].Rows[i][0])));
+            //    minaFilmer.SubItems.Add(Convert.ToString((ds.Tables[0].Rows[i][1])));
+
+            //    livFilmer.Items.Add(minaFilmer);
+            //}
+            //foreach(DataRow dr in ds.Tables[0].Rows)
+            //{
+            //    chk3.Items.Add(dr[0]);
+            //    lsb3.Items.Add(dr[0]);
+            //    cmb3.Items.Add(dr[0]);
+            //    txt3.Text = txt3.Text + dr[0] + Environment.NewLine;
+
+
+        }
+
+        private void BarcodeBotton_Click(object sender, EventArgs e)
+        {
+            barcode = new Barcode();
+            barcode.Show();
+        }
+
+        private void NewCustomerButton_Click(object sender, EventArgs e)
+        {
+            customer = new RegisterNewCustomer();
+            customer.Show();
+        }
+
+        private void CustomerButton_Click(object sender, EventArgs e)
+        {
+            oldcustomer = new Existing_Customer();
+            oldcustomer.Show();
+        }
+
+        private void goodsListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //DbAccess db = new DbAccess();
+            //DataSet ds = db.GetGoodsList();
+
+            //foreach (DataRow r in ds.Tables[0].Rows)
+            //{
+            //    if (r["name"].ToString() == goodsListBox.SelectedValue)
+            //        label1.Text = r["id"].ToString();
+            //}
+
+        }
+
+        private void Calculator_Load(object sender, EventArgs e)
+        {
+
+
+        }
+
+        private void Calculator_Load_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void goodsListView_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
+}
 
 
 

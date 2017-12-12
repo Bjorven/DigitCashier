@@ -11,7 +11,7 @@ namespace CashierClasses
         private int id;
         private Int32 qty;
 
-        private int price;
+        private double price;
 
 
         private decimal vat;
@@ -26,7 +26,7 @@ namespace CashierClasses
 
 
 
-        public Product(int idy, int pricy, string manufac, string supply, string productG, decimal vaty, Boolean ppkg, Boolean ppHg, string namey)
+        public Product(int idy, double pricy, string manufac, string supply, string productG, decimal vaty, Boolean ppkg, Boolean ppHg, string namey)
         {
             Id = idy;
             Price = pricy;
@@ -43,7 +43,7 @@ namespace CashierClasses
 
         public int Id { get; set; }
         public Int32 Qty { get; set; }
-        public int Price { get; set; }
+        public double Price { get; set; }
         public string Manufacturer { get; set; }
         public string Supplier { get; set; }
         public string ProductGroup { get; set; }

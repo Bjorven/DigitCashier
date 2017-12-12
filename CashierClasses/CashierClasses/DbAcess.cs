@@ -52,7 +52,7 @@ namespace CashierClasses
             {
                 // här skickar vi ut och tilldelar user's data
                 //vi måste göra detta en och en för att se vilken jag har parsat/castat fel.
-                User getUser = new User(
+                CashierClasses.User getUser = new User (
                 ////UserName 
                 Convert.ToInt16(ds.Tables[0].Rows[0][0]),
                 ////Fname 
@@ -90,6 +90,7 @@ namespace CashierClasses
                 );
 
                 return getUser;
+
 
 
             }
@@ -145,6 +146,21 @@ namespace CashierClasses
             SqlParameter workperameter1 = new SqlParameter();
             DataSet ds = new DataSet();
 
+            if (searchText.Contains("*"))
+            {
+                connection.Open();
+                command.CommandText = "spGetProduct";
+                command.CommandType = CommandType.StoredProcedure;
+
+                workperameter1 = command.Parameters.Add("@searchText", SqlDbType.VarChar);
+                workperameter1.Value = searchText;
+                command.ExecuteNonQuery();
+
+                SqlDataAdapter adapt1 = new SqlDataAdapter(command);
+                adapt1.Fill(ds);
+                connection.Close();
+            }
+
             connection.Open();
             command.CommandText = "spGetProduct";
             command.CommandType = CommandType.StoredProcedure;
@@ -162,14 +178,14 @@ namespace CashierClasses
                 Product getproduct = new Product
                  (
                  Convert.ToInt16(ds.Tables[0].Rows[0][0].ToString()),
-                 Convert.ToInt16(ds.Tables[0].Rows[0][1].ToString()),
+                 Convert.ToDouble(ds.Tables[0].Rows[0][1].ToString()),
                  //Convert.ToInt32(ds.Tables[0].Rows[0][2].ToString()),
                  Convert.ToString(ds.Tables[0].Rows[0][2].ToString()),
                  Convert.ToString(ds.Tables[0].Rows[0][3].ToString()),
                  Convert.ToString(ds.Tables[0].Rows[0][4].ToString()),
                  Convert.ToDecimal(ds.Tables[0].Rows[0][5].ToString()),
-                 Convert.ToBoolean(ds.Tables[0].Rows[0][6].ToString()),
                  Convert.ToBoolean(ds.Tables[0].Rows[0][7].ToString()),
+                 Convert.ToBoolean(ds.Tables[0].Rows[0][6].ToString()),
                  Convert.ToString(ds.Tables[0].Rows[0][8].ToString())
                  );
                 return getproduct;
