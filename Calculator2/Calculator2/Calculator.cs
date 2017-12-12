@@ -396,7 +396,7 @@ namespace Calculator2
             searchTextBox.Clear();
         }
 
-        private void momsButton_Click(object sender, EventArgs e)
+        private void MomsButton_Click(object sender, EventArgs e)
         {
             if (momsTextBox.Text == "0.00")
                 momsTextBox.Clear();
@@ -445,7 +445,7 @@ namespace Calculator2
 
         }
 
-        private void idnameComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        private void IdnameComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             //ListViewItem minaFilmer;
 
