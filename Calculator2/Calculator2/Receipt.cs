@@ -35,11 +35,6 @@ namespace Calculator2
 
         }
 
-        private void addItemButton_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void SearchItemButton_Click(object sender, EventArgs e)
         {
             pnl_Search.BringToFront();
