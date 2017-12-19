@@ -929,6 +929,7 @@ namespace Calculator2
             this.goodsListView.Size = new System.Drawing.Size(770, 310);
             this.goodsListView.TabIndex = 246;
             this.goodsListView.UseCompatibleStateImageBehavior = false;
+            this.goodsListView.SelectedIndexChanged += new System.EventHandler(this.goodsListView_SelectedIndexChanged);
             // 
             // Calculator
             // 

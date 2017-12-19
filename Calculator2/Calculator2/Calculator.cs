@@ -261,10 +261,10 @@ namespace Calculator2
                 {
                     
                     CashierClasses.DbAcess db = new CashierClasses.DbAcess();
-
                     CashierClasses.Product searchProduct = db.getProduct(searchTextBox.Text);
 
                     goodsListView.Items.Add(searchProduct.Name);
+                    
 
                 }
                 else
@@ -274,23 +274,7 @@ namespace Calculator2
                 }
             }
         
-                //testing a method
-                //switch (operationPerformed)
-                //{
-                //    case "+":
-                //        totalTextBox.Text = (resultValue + Double.Parse(totalTextBox.Text)).ToString();
-                //        break;
-                //    case "*":
-                //        totalTextBox.Text = (resultValue * Double.Parse(totalTextBox.Text)).ToString();
-                //        break;
-
-                //    default:
-                //        break;
-                //}
-                //resultValue = Double.Parse(totalTextBox.Text);
-
-
-
+               
             }
 
             private void DiscountTextBox_TextChanged(object sender, EventArgs e)
@@ -468,26 +452,19 @@ namespace Calculator2
                 oldcustomer = new Existing_Customer();
                 oldcustomer.Show();
             }
+        
+        private void goodsListView_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //DbAccess db = new DbAccess();
+            //DataSet ds = db.GetGoodsList();
 
-            private void GoodsListBox_SelectedIndexChanged(object sender, EventArgs e)
-            {
-                //DbAccess db = new DbAccess();
-                //DataSet ds = db.GetGoodsList();
-
-                //foreach (DataRow r in ds.Tables[0].Rows)
-                //{
-                //    if (r["name"].ToString() == goodsListBox.SelectedValue)
-                //        label1.Text = r["id"].ToString();
-                //}
-
-            }
-
-            private void Calculator_Load(object sender, EventArgs e)
-            {
-
-
-            }
+            //foreach (DataRow r in ds.Tables[0].Rows)
+            //{
+            //    if (r["name"].ToString() == goodsListView.SelectedValue)
+            //        label1.Text = r["id"].ToString();
+            //}
         }
+    }
     }
 
 

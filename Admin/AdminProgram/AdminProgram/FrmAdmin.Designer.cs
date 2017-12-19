@@ -43,25 +43,7 @@
             this.vat_NewToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.vat_EditToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.pnl_Employee = new System.Windows.Forms.Panel();
-            this.pnl_Product = new System.Windows.Forms.Panel();
-            this.cekb_PricePerHg = new System.Windows.Forms.CheckBox();
-            this.cekb_PricePerKg = new System.Windows.Forms.CheckBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.lbl_Supplier = new System.Windows.Forms.Label();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.lbl_Qty = new System.Windows.Forms.Label();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.lbl_Vat = new System.Windows.Forms.Label();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.lbl_ProductId = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.lbl_Manufacturer = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.lbl_ProductGroup = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.lbl_Price = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.lbl_Pname = new System.Windows.Forms.Label();
+            this.pnl_Start = new System.Windows.Forms.Panel();
             this.txtb_HoursWorked = new System.Windows.Forms.TextBox();
             this.lbl_hoursWorked = new System.Windows.Forms.Label();
             this.txtb_LastActivityDate = new System.Windows.Forms.TextBox();
@@ -90,7 +72,25 @@
             this.lbl_ForName = new System.Windows.Forms.Label();
             this.txtb_Sname = new System.Windows.Forms.TextBox();
             this.txtb_Fname = new System.Windows.Forms.TextBox();
-            this.pnl_Start = new System.Windows.Forms.Panel();
+            this.pnl_Product = new System.Windows.Forms.Panel();
+            this.cekb_PricePerHg = new System.Windows.Forms.CheckBox();
+            this.cekb_PricePerKg = new System.Windows.Forms.CheckBox();
+            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.lbl_Supplier = new System.Windows.Forms.Label();
+            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.lbl_Qty = new System.Windows.Forms.Label();
+            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.lbl_Vat = new System.Windows.Forms.Label();
+            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.lbl_ProductId = new System.Windows.Forms.Label();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.lbl_Manufacturer = new System.Windows.Forms.Label();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.lbl_ProductGroup = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.lbl_Price = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.lbl_Pname = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.pnl_Employee.SuspendLayout();
             this.pnl_Product.SuspendLayout();
@@ -124,20 +124,20 @@
             this.employee_NewToolStripMenuItem,
             this.employee_EditToolStripMenuItem});
             this.employeeToolStripMenuItem.Name = "employeeToolStripMenuItem";
-            this.employeeToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.employeeToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
             this.employeeToolStripMenuItem.Text = "Employee";
             // 
             // employee_NewToolStripMenuItem
             // 
             this.employee_NewToolStripMenuItem.Name = "employee_NewToolStripMenuItem";
-            this.employee_NewToolStripMenuItem.Size = new System.Drawing.Size(114, 26);
+            this.employee_NewToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
             this.employee_NewToolStripMenuItem.Text = "New";
             this.employee_NewToolStripMenuItem.Click += new System.EventHandler(this.employee_NewToolStripMenuItem_Click);
             // 
             // employee_EditToolStripMenuItem
             // 
             this.employee_EditToolStripMenuItem.Name = "employee_EditToolStripMenuItem";
-            this.employee_EditToolStripMenuItem.Size = new System.Drawing.Size(114, 26);
+            this.employee_EditToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
             this.employee_EditToolStripMenuItem.Text = "Edit";
             // 
             // productToolStripMenuItem
@@ -159,7 +159,7 @@
             // product_EditToolStripMenuItem1
             // 
             this.product_EditToolStripMenuItem1.Name = "product_EditToolStripMenuItem1";
-            this.product_EditToolStripMenuItem1.Size = new System.Drawing.Size(114, 26);
+            this.product_EditToolStripMenuItem1.Size = new System.Drawing.Size(181, 26);
             this.product_EditToolStripMenuItem1.Text = "Edit";
             // 
             // productGroupToolStripMenuItem
@@ -168,19 +168,19 @@
             this.productGroup_NewToolStripMenuItem2,
             this.productGroup_EditToolStripMenuItem2});
             this.productGroupToolStripMenuItem.Name = "productGroupToolStripMenuItem";
-            this.productGroupToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.productGroupToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
             this.productGroupToolStripMenuItem.Text = "Product Group";
             // 
             // productGroup_NewToolStripMenuItem2
             // 
             this.productGroup_NewToolStripMenuItem2.Name = "productGroup_NewToolStripMenuItem2";
-            this.productGroup_NewToolStripMenuItem2.Size = new System.Drawing.Size(114, 26);
+            this.productGroup_NewToolStripMenuItem2.Size = new System.Drawing.Size(181, 26);
             this.productGroup_NewToolStripMenuItem2.Text = "New";
             // 
             // productGroup_EditToolStripMenuItem2
             // 
             this.productGroup_EditToolStripMenuItem2.Name = "productGroup_EditToolStripMenuItem2";
-            this.productGroup_EditToolStripMenuItem2.Size = new System.Drawing.Size(114, 26);
+            this.productGroup_EditToolStripMenuItem2.Size = new System.Drawing.Size(181, 26);
             this.productGroup_EditToolStripMenuItem2.Text = "Edit";
             // 
             // vatToolStripMenuItem
@@ -189,19 +189,19 @@
             this.vat_NewToolStripMenuItem3,
             this.vat_EditToolStripMenuItem3});
             this.vatToolStripMenuItem.Name = "vatToolStripMenuItem";
-            this.vatToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.vatToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
             this.vatToolStripMenuItem.Text = "Vat";
             // 
             // vat_NewToolStripMenuItem3
             // 
             this.vat_NewToolStripMenuItem3.Name = "vat_NewToolStripMenuItem3";
-            this.vat_NewToolStripMenuItem3.Size = new System.Drawing.Size(114, 26);
+            this.vat_NewToolStripMenuItem3.Size = new System.Drawing.Size(181, 26);
             this.vat_NewToolStripMenuItem3.Text = "New";
             // 
             // vat_EditToolStripMenuItem3
             // 
             this.vat_EditToolStripMenuItem3.Name = "vat_EditToolStripMenuItem3";
-            this.vat_EditToolStripMenuItem3.Size = new System.Drawing.Size(114, 26);
+            this.vat_EditToolStripMenuItem3.Size = new System.Drawing.Size(181, 26);
             this.vat_EditToolStripMenuItem3.Text = "Edit";
             // 
             // pnl_Employee
@@ -241,179 +241,12 @@
             this.pnl_Employee.Size = new System.Drawing.Size(500, 600);
             this.pnl_Employee.TabIndex = 1;
             // 
-            // pnl_Product
+            // pnl_Start
             // 
-            this.pnl_Product.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.pnl_Product.Controls.Add(this.cekb_PricePerHg);
-            this.pnl_Product.Controls.Add(this.cekb_PricePerKg);
-            this.pnl_Product.Controls.Add(this.textBox7);
-            this.pnl_Product.Controls.Add(this.lbl_Supplier);
-            this.pnl_Product.Controls.Add(this.textBox8);
-            this.pnl_Product.Controls.Add(this.lbl_Qty);
-            this.pnl_Product.Controls.Add(this.textBox9);
-            this.pnl_Product.Controls.Add(this.lbl_Vat);
-            this.pnl_Product.Controls.Add(this.textBox10);
-            this.pnl_Product.Controls.Add(this.lbl_ProductId);
-            this.pnl_Product.Controls.Add(this.textBox4);
-            this.pnl_Product.Controls.Add(this.lbl_Manufacturer);
-            this.pnl_Product.Controls.Add(this.textBox3);
-            this.pnl_Product.Controls.Add(this.lbl_ProductGroup);
-            this.pnl_Product.Controls.Add(this.textBox2);
-            this.pnl_Product.Controls.Add(this.lbl_Price);
-            this.pnl_Product.Controls.Add(this.textBox1);
-            this.pnl_Product.Controls.Add(this.lbl_Pname);
-            this.pnl_Product.Location = new System.Drawing.Point(13, 31);
-            this.pnl_Product.Name = "pnl_Product";
-            this.pnl_Product.Size = new System.Drawing.Size(500, 600);
-            this.pnl_Product.TabIndex = 28;
-            // 
-            // cekb_PricePerHg
-            // 
-            this.cekb_PricePerHg.AutoSize = true;
-            this.cekb_PricePerHg.Location = new System.Drawing.Point(173, 130);
-            this.cekb_PricePerHg.Name = "cekb_PricePerHg";
-            this.cekb_PricePerHg.Size = new System.Drawing.Size(110, 21);
-            this.cekb_PricePerHg.TabIndex = 20;
-            this.cekb_PricePerHg.Text = "Price Per Hg";
-            this.cekb_PricePerHg.UseVisualStyleBackColor = true;
-            // 
-            // cekb_PricePerKg
-            // 
-            this.cekb_PricePerKg.AutoSize = true;
-            this.cekb_PricePerKg.Location = new System.Drawing.Point(6, 130);
-            this.cekb_PricePerKg.Name = "cekb_PricePerKg";
-            this.cekb_PricePerKg.Size = new System.Drawing.Size(109, 21);
-            this.cekb_PricePerKg.TabIndex = 19;
-            this.cekb_PricePerKg.Text = "Price Per Kg";
-            this.cekb_PricePerKg.UseVisualStyleBackColor = true;
-            // 
-            // textBox7
-            // 
-            this.textBox7.Location = new System.Drawing.Point(175, 263);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(100, 22);
-            this.textBox7.TabIndex = 17;
-            // 
-            // lbl_Supplier
-            // 
-            this.lbl_Supplier.AutoSize = true;
-            this.lbl_Supplier.Location = new System.Drawing.Point(175, 242);
-            this.lbl_Supplier.Name = "lbl_Supplier";
-            this.lbl_Supplier.Size = new System.Drawing.Size(60, 17);
-            this.lbl_Supplier.TabIndex = 16;
-            this.lbl_Supplier.Text = "Supplier";
-            // 
-            // textBox8
-            // 
-            this.textBox8.Location = new System.Drawing.Point(175, 193);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(100, 22);
-            this.textBox8.TabIndex = 15;
-            // 
-            // lbl_Qty
-            // 
-            this.lbl_Qty.AutoSize = true;
-            this.lbl_Qty.Location = new System.Drawing.Point(175, 172);
-            this.lbl_Qty.Name = "lbl_Qty";
-            this.lbl_Qty.Size = new System.Drawing.Size(30, 17);
-            this.lbl_Qty.TabIndex = 14;
-            this.lbl_Qty.Text = "Qty";
-            // 
-            // textBox9
-            // 
-            this.textBox9.Location = new System.Drawing.Point(175, 85);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(100, 22);
-            this.textBox9.TabIndex = 13;
-            // 
-            // lbl_Vat
-            // 
-            this.lbl_Vat.AutoSize = true;
-            this.lbl_Vat.Location = new System.Drawing.Point(175, 64);
-            this.lbl_Vat.Name = "lbl_Vat";
-            this.lbl_Vat.Size = new System.Drawing.Size(29, 17);
-            this.lbl_Vat.TabIndex = 12;
-            this.lbl_Vat.Text = "Vat";
-            // 
-            // textBox10
-            // 
-            this.textBox10.Location = new System.Drawing.Point(173, 25);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(100, 22);
-            this.textBox10.TabIndex = 11;
-            // 
-            // lbl_ProductId
-            // 
-            this.lbl_ProductId.AutoSize = true;
-            this.lbl_ProductId.Location = new System.Drawing.Point(173, 4);
-            this.lbl_ProductId.Name = "lbl_ProductId";
-            this.lbl_ProductId.Size = new System.Drawing.Size(72, 17);
-            this.lbl_ProductId.TabIndex = 10;
-            this.lbl_ProductId.Text = "Product id";
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(6, 263);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 22);
-            this.textBox4.TabIndex = 7;
-            // 
-            // lbl_Manufacturer
-            // 
-            this.lbl_Manufacturer.AutoSize = true;
-            this.lbl_Manufacturer.Location = new System.Drawing.Point(6, 242);
-            this.lbl_Manufacturer.Name = "lbl_Manufacturer";
-            this.lbl_Manufacturer.Size = new System.Drawing.Size(92, 17);
-            this.lbl_Manufacturer.TabIndex = 6;
-            this.lbl_Manufacturer.Text = "Manufacturer";
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(6, 193);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 22);
-            this.textBox3.TabIndex = 5;
-            // 
-            // lbl_ProductGroup
-            // 
-            this.lbl_ProductGroup.AutoSize = true;
-            this.lbl_ProductGroup.Location = new System.Drawing.Point(6, 172);
-            this.lbl_ProductGroup.Name = "lbl_ProductGroup";
-            this.lbl_ProductGroup.Size = new System.Drawing.Size(98, 17);
-            this.lbl_ProductGroup.TabIndex = 4;
-            this.lbl_ProductGroup.Text = "Product group";
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(6, 85);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 22);
-            this.textBox2.TabIndex = 3;
-            // 
-            // lbl_Price
-            // 
-            this.lbl_Price.AutoSize = true;
-            this.lbl_Price.Location = new System.Drawing.Point(6, 64);
-            this.lbl_Price.Name = "lbl_Price";
-            this.lbl_Price.Size = new System.Drawing.Size(40, 17);
-            this.lbl_Price.TabIndex = 2;
-            this.lbl_Price.Text = "Price";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(4, 25);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 22);
-            this.textBox1.TabIndex = 1;
-            // 
-            // lbl_Pname
-            // 
-            this.lbl_Pname.AutoSize = true;
-            this.lbl_Pname.Location = new System.Drawing.Point(4, 4);
-            this.lbl_Pname.Name = "lbl_Pname";
-            this.lbl_Pname.Size = new System.Drawing.Size(96, 17);
-            this.lbl_Pname.TabIndex = 0;
-            this.lbl_Pname.Text = "Product name";
+            this.pnl_Start.Location = new System.Drawing.Point(0, 0);
+            this.pnl_Start.Name = "pnl_Start";
+            this.pnl_Start.Size = new System.Drawing.Size(500, 600);
+            this.pnl_Start.TabIndex = 21;
             // 
             // txtb_HoursWorked
             // 
@@ -639,12 +472,179 @@
             this.txtb_Fname.Size = new System.Drawing.Size(82, 22);
             this.txtb_Fname.TabIndex = 0;
             // 
-            // pnl_Start
+            // pnl_Product
             // 
-            this.pnl_Start.Location = new System.Drawing.Point(0, 0);
-            this.pnl_Start.Name = "pnl_Start";
-            this.pnl_Start.Size = new System.Drawing.Size(500, 600);
-            this.pnl_Start.TabIndex = 21;
+            this.pnl_Product.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.pnl_Product.Controls.Add(this.cekb_PricePerHg);
+            this.pnl_Product.Controls.Add(this.cekb_PricePerKg);
+            this.pnl_Product.Controls.Add(this.textBox7);
+            this.pnl_Product.Controls.Add(this.lbl_Supplier);
+            this.pnl_Product.Controls.Add(this.textBox8);
+            this.pnl_Product.Controls.Add(this.lbl_Qty);
+            this.pnl_Product.Controls.Add(this.textBox9);
+            this.pnl_Product.Controls.Add(this.lbl_Vat);
+            this.pnl_Product.Controls.Add(this.textBox10);
+            this.pnl_Product.Controls.Add(this.lbl_ProductId);
+            this.pnl_Product.Controls.Add(this.textBox4);
+            this.pnl_Product.Controls.Add(this.lbl_Manufacturer);
+            this.pnl_Product.Controls.Add(this.textBox3);
+            this.pnl_Product.Controls.Add(this.lbl_ProductGroup);
+            this.pnl_Product.Controls.Add(this.textBox2);
+            this.pnl_Product.Controls.Add(this.lbl_Price);
+            this.pnl_Product.Controls.Add(this.textBox1);
+            this.pnl_Product.Controls.Add(this.lbl_Pname);
+            this.pnl_Product.Location = new System.Drawing.Point(13, 31);
+            this.pnl_Product.Name = "pnl_Product";
+            this.pnl_Product.Size = new System.Drawing.Size(500, 600);
+            this.pnl_Product.TabIndex = 28;
+            // 
+            // cekb_PricePerHg
+            // 
+            this.cekb_PricePerHg.AutoSize = true;
+            this.cekb_PricePerHg.Location = new System.Drawing.Point(173, 130);
+            this.cekb_PricePerHg.Name = "cekb_PricePerHg";
+            this.cekb_PricePerHg.Size = new System.Drawing.Size(110, 21);
+            this.cekb_PricePerHg.TabIndex = 20;
+            this.cekb_PricePerHg.Text = "Price Per Hg";
+            this.cekb_PricePerHg.UseVisualStyleBackColor = true;
+            // 
+            // cekb_PricePerKg
+            // 
+            this.cekb_PricePerKg.AutoSize = true;
+            this.cekb_PricePerKg.Location = new System.Drawing.Point(6, 130);
+            this.cekb_PricePerKg.Name = "cekb_PricePerKg";
+            this.cekb_PricePerKg.Size = new System.Drawing.Size(109, 21);
+            this.cekb_PricePerKg.TabIndex = 19;
+            this.cekb_PricePerKg.Text = "Price Per Kg";
+            this.cekb_PricePerKg.UseVisualStyleBackColor = true;
+            // 
+            // textBox7
+            // 
+            this.textBox7.Location = new System.Drawing.Point(175, 263);
+            this.textBox7.Name = "textBox7";
+            this.textBox7.Size = new System.Drawing.Size(100, 22);
+            this.textBox7.TabIndex = 17;
+            // 
+            // lbl_Supplier
+            // 
+            this.lbl_Supplier.AutoSize = true;
+            this.lbl_Supplier.Location = new System.Drawing.Point(175, 242);
+            this.lbl_Supplier.Name = "lbl_Supplier";
+            this.lbl_Supplier.Size = new System.Drawing.Size(60, 17);
+            this.lbl_Supplier.TabIndex = 16;
+            this.lbl_Supplier.Text = "Supplier";
+            // 
+            // textBox8
+            // 
+            this.textBox8.Location = new System.Drawing.Point(175, 193);
+            this.textBox8.Name = "textBox8";
+            this.textBox8.Size = new System.Drawing.Size(100, 22);
+            this.textBox8.TabIndex = 15;
+            // 
+            // lbl_Qty
+            // 
+            this.lbl_Qty.AutoSize = true;
+            this.lbl_Qty.Location = new System.Drawing.Point(175, 172);
+            this.lbl_Qty.Name = "lbl_Qty";
+            this.lbl_Qty.Size = new System.Drawing.Size(30, 17);
+            this.lbl_Qty.TabIndex = 14;
+            this.lbl_Qty.Text = "Qty";
+            // 
+            // textBox9
+            // 
+            this.textBox9.Location = new System.Drawing.Point(175, 85);
+            this.textBox9.Name = "textBox9";
+            this.textBox9.Size = new System.Drawing.Size(100, 22);
+            this.textBox9.TabIndex = 13;
+            // 
+            // lbl_Vat
+            // 
+            this.lbl_Vat.AutoSize = true;
+            this.lbl_Vat.Location = new System.Drawing.Point(175, 64);
+            this.lbl_Vat.Name = "lbl_Vat";
+            this.lbl_Vat.Size = new System.Drawing.Size(29, 17);
+            this.lbl_Vat.TabIndex = 12;
+            this.lbl_Vat.Text = "Vat";
+            // 
+            // textBox10
+            // 
+            this.textBox10.Location = new System.Drawing.Point(173, 25);
+            this.textBox10.Name = "textBox10";
+            this.textBox10.Size = new System.Drawing.Size(100, 22);
+            this.textBox10.TabIndex = 11;
+            // 
+            // lbl_ProductId
+            // 
+            this.lbl_ProductId.AutoSize = true;
+            this.lbl_ProductId.Location = new System.Drawing.Point(173, 4);
+            this.lbl_ProductId.Name = "lbl_ProductId";
+            this.lbl_ProductId.Size = new System.Drawing.Size(72, 17);
+            this.lbl_ProductId.TabIndex = 10;
+            this.lbl_ProductId.Text = "Product id";
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(6, 263);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(100, 22);
+            this.textBox4.TabIndex = 7;
+            // 
+            // lbl_Manufacturer
+            // 
+            this.lbl_Manufacturer.AutoSize = true;
+            this.lbl_Manufacturer.Location = new System.Drawing.Point(6, 242);
+            this.lbl_Manufacturer.Name = "lbl_Manufacturer";
+            this.lbl_Manufacturer.Size = new System.Drawing.Size(92, 17);
+            this.lbl_Manufacturer.TabIndex = 6;
+            this.lbl_Manufacturer.Text = "Manufacturer";
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(6, 193);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(100, 22);
+            this.textBox3.TabIndex = 5;
+            // 
+            // lbl_ProductGroup
+            // 
+            this.lbl_ProductGroup.AutoSize = true;
+            this.lbl_ProductGroup.Location = new System.Drawing.Point(6, 172);
+            this.lbl_ProductGroup.Name = "lbl_ProductGroup";
+            this.lbl_ProductGroup.Size = new System.Drawing.Size(98, 17);
+            this.lbl_ProductGroup.TabIndex = 4;
+            this.lbl_ProductGroup.Text = "Product group";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(6, 85);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(100, 22);
+            this.textBox2.TabIndex = 3;
+            // 
+            // lbl_Price
+            // 
+            this.lbl_Price.AutoSize = true;
+            this.lbl_Price.Location = new System.Drawing.Point(6, 64);
+            this.lbl_Price.Name = "lbl_Price";
+            this.lbl_Price.Size = new System.Drawing.Size(40, 17);
+            this.lbl_Price.TabIndex = 2;
+            this.lbl_Price.Text = "Price";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(4, 25);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 22);
+            this.textBox1.TabIndex = 1;
+            // 
+            // lbl_Pname
+            // 
+            this.lbl_Pname.AutoSize = true;
+            this.lbl_Pname.Location = new System.Drawing.Point(4, 4);
+            this.lbl_Pname.Name = "lbl_Pname";
+            this.lbl_Pname.Size = new System.Drawing.Size(96, 17);
+            this.lbl_Pname.TabIndex = 0;
+            this.lbl_Pname.Text = "Product name";
             // 
             // FrmAdmin
             // 
