@@ -183,7 +183,7 @@ namespace CashierClasses
                  Convert.ToString(ds.Tables[0].Rows[0][2].ToString()),
                  Convert.ToString(ds.Tables[0].Rows[0][3].ToString()),
                  Convert.ToString(ds.Tables[0].Rows[0][4].ToString()),
-                 Convert.ToDecimal(ds.Tables[0].Rows[0][5].ToString()),
+                 Convert.ToDouble(ds.Tables[0].Rows[0][5].ToString()),
                  Convert.ToBoolean(ds.Tables[0].Rows[0][7].ToString()),
                  Convert.ToBoolean(ds.Tables[0].Rows[0][6].ToString()),
                  Convert.ToString(ds.Tables[0].Rows[0][8].ToString())

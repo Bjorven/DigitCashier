@@ -68,6 +68,12 @@
     <Compile Include="Existing Customer.Designer.cs">
       <DependentUpon>Existing Customer.cs</DependentUpon>
     </Compile>
+    <Compile Include="Frm_CashPayAmount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_CashPayAmount.Designer.cs">
+      <DependentUpon>Frm_CashPayAmount.cs</DependentUpon>
+    </Compile>
     <Compile Include="GoodsListGridView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -96,6 +102,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Existing Customer.resx">
       <DependentUpon>Existing Customer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_CashPayAmount.resx">
+      <DependentUpon>Frm_CashPayAmount.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GoodsListGridView.resx">
       <DependentUpon>GoodsListGridView.cs</DependentUpon>
