@@ -251,10 +251,21 @@ namespace Calculator2
         {
             if (isSearchBtn == true)
             {
+                //double pris = Convert.ToDouble(myProducts.SubItems[3].Text);
+                //double antal = Convert.ToDouble(myProducts.SubItems[4].Text);
+                double total;
 
-                qtyAmount = new Frm_CashPayAmount(count);
-                qtyAmount.Show();
-                
+
+                tal2++;
+                myProducts.SubItems[4].Text = tal2.ToString();
+
+                total = GetTotalSum();
+                //qtyAmount = new Frm_CashPayAmount(count);
+                //qtyAmount.Show();
+                //total = (pris * antal);
+
+
+
             }
             else
             {
@@ -268,8 +279,6 @@ namespace Calculator2
             //{
             //    myProducts.SubItems.Add(tal2.ToString());
             //}
-
-
         }
 
         private void OkBotton__Click(object sender, EventArgs e)
@@ -303,6 +312,8 @@ namespace Calculator2
                     myProducts.SubItems.Add(searchProduct.Name);
                     myProducts.SubItems.Add(searchProduct.ProductGroup.ToString());
                     myProducts.SubItems.Add(searchProduct.Price.ToString());
+                    tal2 = 1;
+                    myProducts.SubItems.Add(tal2.ToString());
 
                     goodsListView.Items.Add(myProducts);
                     searchTextBox.Clear();
@@ -316,18 +327,8 @@ namespace Calculator2
                 }
 
                 // denna funktion summerar alla tillagda produkter till toTextBox
-                foreach (ListViewItem lstitem in goodsListView.Items)
-                {
+                double total = GetTotalSum();
 
-                    myTotal += double.Parse(lstitem.SubItems[3].Text);
-
-                }
-                myTotal -= count;
-                count = myTotal;
-                toPayTextBox.Text = myTotal.ToString();
-                momsTextBox.Clear();
-                momsTextBox.Text = toPayTextBox.Text;
-                momsTextBox.Text = (Convert.ToInt32(momsTextBox.Text) * SearchedProduct.Vat).ToString();
 
             }
 
@@ -518,19 +519,19 @@ namespace Calculator2
 
         private void Calculator_Load(object sender, EventArgs e)
         {
-           
+
 
         }
 
         private void Calculator_Load_1(object sender, EventArgs e)
         {
-       
+
 
         }
 
         private void GoodsListView_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private void CashButton_Click(object sender, EventArgs e)
@@ -564,6 +565,30 @@ namespace Calculator2
         {
             tal1 = e.KeyValue;
         }
+
+        public double GetTotalSum()
+        {
+            myTotal = 0;
+            foreach (ListViewItem lstitem in goodsListView.Items)
+            {
+                double pris = Convert.ToDouble(lstitem.SubItems[3].Text);
+                double antal = Convert.ToDouble(lstitem.SubItems[4].Text);
+
+                myTotal += (pris * antal);
+
+            }
+            //myTotal -= count;
+            //count = myTotal;
+            toPayTextBox.Text = myTotal.ToString();
+            momsTextBox.Clear();
+            momsTextBox.Text = toPayTextBox.Text;
+            momsTextBox.Text = (Convert.ToInt32(momsTextBox.Text) * SearchedProduct.Vat).ToString();
+
+            return myTotal;
+
+        }
+
+
     }
 }
 
