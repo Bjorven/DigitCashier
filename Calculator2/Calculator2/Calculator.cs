@@ -305,7 +305,6 @@ namespace Calculator2
                 {
 
                     CashierClasses.DbAcess db = new CashierClasses.DbAcess();
-
                     CashierClasses.Product searchProduct = db.getProduct(searchTextBox.Text);
 
                     myProducts = new ListViewItem(searchProduct.Id.ToString());
@@ -506,14 +505,16 @@ namespace Calculator2
             customer.Show();
         }
 
-        private void CustomerButton_Click(object sender, EventArgs e)
-        {
-            oldcustomer = new Existing_Customer();
-            oldcustomer.Show();
-        }
+            private void CustomerButton_Click(object sender, EventArgs e)
+            {
+                oldcustomer = new Existing_Customer();
+                oldcustomer.Show();
+            }
 
-        private void GoodsListBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
+            private void GoodsListBox_SelectedIndexChanged(object sender, EventArgs e)
+            {
+                //DbAccess db = new DbAccess();
+                //DataSet ds = db.GetGoodsList();
 
         }
 

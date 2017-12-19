@@ -13,7 +13,7 @@ using System.Data.Common;
 
 namespace CashierClasses
 {
-   public class DbAcess
+    public class DbAcess
     {
         // Detta läggs här för att slippa upprepa senare i de olika metoderna
         // variabler
@@ -164,7 +164,7 @@ namespace CashierClasses
             connection.Open();
             command.CommandText = "spGetProduct";
             command.CommandType = CommandType.StoredProcedure;
-
+            connection.Open();
             workperameter1 = command.Parameters.Add("@searchText", SqlDbType.VarChar);
             workperameter1.Value = searchText;
             command.ExecuteNonQuery();
@@ -225,7 +225,7 @@ namespace CashierClasses
 
 
 
-        public DataSet getTotalPriceAndQty (string Search_text)
+        public DataSet getTotalPriceAndQty(string Search_text)
         {
             command.CommandText = "Select sum (price*qty) as totalprice, sum (qty) as totalqty from Product where receiptId = @receiptId";
             command.CommandType = CommandType.Text;
