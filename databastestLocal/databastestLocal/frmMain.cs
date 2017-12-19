@@ -14,15 +14,16 @@ namespace databastestLocal
     public partial class FrmMain : Form
     {
         //här får ut variablarna till ett objekt vi kan använda i resten av formappen
-        private CashierClasses.User user;
+        private User myUser = new User();
         // --
         public FrmMain(CashierClasses.User user)
         {
             InitializeComponent();
             //--
-            this.user = user;
+            this.myUser = user;
+            
         }
-
+        
 
         private void Btn_cashier_Click(object sender, EventArgs e)
         {
@@ -44,7 +45,7 @@ namespace databastestLocal
         private void FrmMain_Load(object sender, EventArgs e)
         {
             // vi kollar vilken roll som User.user har och visar respektiv knapp.
-            switch (this.user.RoleId)
+            switch (this.myUser.RoleId)
             {
                 case 2:
                     btn_admin.Hide();
@@ -70,8 +71,8 @@ namespace databastestLocal
             // hoursWork.
             CashierClasses.DbAcess db = new CashierClasses.DbAcess();
             this.Hide();
-            user.CheckOut = DateTime.Now;
-            db.GetTimestamp(user);
+            myUser.CheckOut = DateTime.Now;
+            db.GetTimestamp(myUser);
             FrmLogin frmLogin= new FrmLogin();
             frmLogin.Show();
         }

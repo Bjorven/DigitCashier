@@ -27,7 +27,7 @@ namespace CashierClasses
 
         private double totalPrice;
         private double Vat;
-        private double sumOfItems;
+       
 
         private Boolean cash;
         private Boolean credit;
@@ -41,14 +41,14 @@ namespace CashierClasses
         public decimal ProductWeight { get => productWeight; set => productWeight = value; }
         public double TotalPrice { get => totalPrice; set => totalPrice = value; }
         public double Vat1 { get => Vat; set => Vat = value; }
-        public double SumOfItems { get => sumOfItems; set => sumOfItems = value; }
+        
         public bool Cash { get => cash; set => cash = value; }
         public bool Credit { get => credit; set => credit = value; }
         public bool Coupon { get => coupon; set => coupon = value; }
 
         public Receipt() { }
 
-        public Receipt(string foretagsnamn, int orgnr, int receiptId, int productQty, DateTime issuedate, decimal productWeight, double totalPrice, double vat1, double sumOfItems, bool cash, bool credit, bool coupon)
+        public Receipt(string foretagsnamn, int orgnr, int receiptId, int productQty, DateTime issuedate, decimal productWeight, double totalPrice, double vat1, bool cash, bool credit, bool coupon)
         {
             Foretagsnamn = foretagsnamn;
             Orgnr = orgnr;
@@ -58,13 +58,12 @@ namespace CashierClasses
             ProductWeight = productWeight;
             TotalPrice = totalPrice;
             Vat1 = vat1;
-            SumOfItems = sumOfItems;
             Cash = cash;
             Credit = credit;
             Coupon = coupon;
         }
 
-        public Receipt (string foretagsnamn, int orgnr, int receiptId, int productQty, DateTime issuedate, double totalPrice, double vat1)
+        public Receipt (string foretagsnamn, int orgnr, int receiptId, int productQty, DateTime issuedate, double totalPrice, double vat1, bool cash, bool credit, bool coupon)
         {
             Foretagsnamn = foretagsnamn;
             Orgnr = orgnr;
@@ -73,7 +72,10 @@ namespace CashierClasses
             Issuedate = issuedate;
             TotalPrice = totalPrice;
             Vat1 = vat1;
-            
+            Cash = cash;
+            Credit = credit;
+            Coupon = coupon;
+
 
         }
 

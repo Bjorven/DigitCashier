@@ -28,6 +28,7 @@ namespace Calculator2
         {
             InitializeComponent();
         }
+        private void AddItemButton_Click(object sender, EventArgs e) { }
 
         private void button3_Click(object sender, EventArgs e)
         {
@@ -99,6 +100,19 @@ namespace Calculator2
 
 
                 txtb_TotalPrice.Text = ds.Tables[0].Rows[0][0].ToString();
+
+                //CashierClasses.Receipt receipt = new CashierClasses.Receipt(
+                    //dt.Rows[0]["Cname"].ToString(),
+                    //Convert.ToInt16(dt.Rows[0]["CorgNr"].ToString()),
+                    //Convert.ToInt16(dt.Rows[0]["receiptId"].ToString()),
+                    //Convert.ToInt16(ds.Tables[0].Rows[0][1],
+                    //Convert.ToDateTime(dt.Rows[0]["receiptDate"].ToString()),
+
+
+
+
+
+                    //);
 
                 pnl_Search.SendToBack();
 
