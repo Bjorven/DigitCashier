@@ -88,6 +88,12 @@ namespace Calculator2
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.btn_subtract = new System.Windows.Forms.Button();
+            this.pnl_Amount = new System.Windows.Forms.Panel();
+            this.lbl_CashAmount = new System.Windows.Forms.Label();
+            this.btn_CashOk = new System.Windows.Forms.Button();
+            this.txtb_CashAmount = new System.Windows.Forms.TextBox();
+            this.pnl_Amount.SuspendLayout();
             this.SuspendLayout();
             // 
             // dateTimePicker1
@@ -137,7 +143,7 @@ namespace Calculator2
             this.TimesButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.TimesButton.Font = new System.Drawing.Font("Comic Sans MS", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TimesButton.ForeColor = System.Drawing.Color.White;
-            this.TimesButton.Location = new System.Drawing.Point(299, 371);
+            this.TimesButton.Location = new System.Drawing.Point(299, 432);
             this.TimesButton.Name = "TimesButton";
             this.TimesButton.Size = new System.Drawing.Size(97, 58);
             this.TimesButton.TabIndex = 232;
@@ -233,7 +239,7 @@ namespace Calculator2
             this.PlusButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.PlusButton.Font = new System.Drawing.Font("Comic Sans MS", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PlusButton.ForeColor = System.Drawing.Color.White;
-            this.PlusButton.Location = new System.Drawing.Point(299, 433);
+            this.PlusButton.Location = new System.Drawing.Point(299, 371);
             this.PlusButton.Name = "PlusButton";
             this.PlusButton.Size = new System.Drawing.Size(97, 58);
             this.PlusButton.TabIndex = 222;
@@ -617,7 +623,6 @@ namespace Calculator2
             this.toPayTextBox.TabIndex = 195;
             this.toPayTextBox.Text = "0.00";
             this.toPayTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.toPayTextBox.TextChanged += new System.EventHandler(this.ToPayTextBox_TextChanged);
             // 
             // discountLabel
             // 
@@ -732,7 +737,6 @@ namespace Calculator2
             this.searchTextBox.Size = new System.Drawing.Size(131, 22);
             this.searchTextBox.TabIndex = 240;
             this.searchTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.searchTextBox.TextChanged += new System.EventHandler(this.SearchTextBox_TextChanged_1);
             // 
             // momsTextBox
             // 
@@ -763,7 +767,6 @@ namespace Calculator2
             this.changeTextBox.TabIndex = 244;
             this.changeTextBox.Text = "0.00";
             this.changeTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.changeTextBox.TextChanged += new System.EventHandler(this.TextBox2_TextChanged);
             // 
             // totalLabel
             // 
@@ -783,7 +786,6 @@ namespace Calculator2
             this.idnameComboBox.Name = "idnameComboBox";
             this.idnameComboBox.Size = new System.Drawing.Size(190, 24);
             this.idnameComboBox.TabIndex = 245;
-            this.idnameComboBox.SelectedIndexChanged += new System.EventHandler(this.IdnameComboBox_SelectedIndexChanged);
             // 
             // goodsListView
             // 
@@ -793,14 +795,16 @@ namespace Calculator2
             this.columnHeader3,
             this.columnHeader4,
             this.columnHeader5});
+            this.goodsListView.FullRowSelect = true;
             this.goodsListView.GridLines = true;
             this.goodsListView.Location = new System.Drawing.Point(32, 53);
+            this.goodsListView.MultiSelect = false;
             this.goodsListView.Name = "goodsListView";
             this.goodsListView.Size = new System.Drawing.Size(770, 310);
             this.goodsListView.TabIndex = 246;
             this.goodsListView.UseCompatibleStateImageBehavior = false;
             this.goodsListView.View = System.Windows.Forms.View.Details;
-            this.goodsListView.SelectedIndexChanged += new System.EventHandler(this.GoodsListView_SelectedIndexChanged);
+            this.goodsListView.SelectedIndexChanged += new System.EventHandler(this.goodsListView_SelectedIndexChanged_1);
             // 
             // columnHeader1
             // 
@@ -825,11 +829,64 @@ namespace Calculator2
             // 
             this.columnHeader5.Text = "Qty";
             // 
+            // btn_subtract
+            // 
+            this.btn_subtract.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btn_subtract.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btn_subtract.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btn_subtract.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_subtract.Font = new System.Drawing.Font("Comic Sans MS", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_subtract.ForeColor = System.Drawing.Color.White;
+            this.btn_subtract.Location = new System.Drawing.Point(399, 371);
+            this.btn_subtract.Name = "btn_subtract";
+            this.btn_subtract.Size = new System.Drawing.Size(97, 58);
+            this.btn_subtract.TabIndex = 247;
+            this.btn_subtract.Text = "-";
+            this.btn_subtract.UseVisualStyleBackColor = false;
+            this.btn_subtract.Click += new System.EventHandler(this.btn_subtract_Click);
+            // 
+            // pnl_Amount
+            // 
+            this.pnl_Amount.Controls.Add(this.lbl_CashAmount);
+            this.pnl_Amount.Controls.Add(this.btn_CashOk);
+            this.pnl_Amount.Controls.Add(this.txtb_CashAmount);
+            this.pnl_Amount.Location = new System.Drawing.Point(396, 135);
+            this.pnl_Amount.Name = "pnl_Amount";
+            this.pnl_Amount.Size = new System.Drawing.Size(200, 131);
+            this.pnl_Amount.TabIndex = 248;
+            // 
+            // lbl_CashAmount
+            // 
+            this.lbl_CashAmount.AutoSize = true;
+            this.lbl_CashAmount.Location = new System.Drawing.Point(53, 14);
+            this.lbl_CashAmount.Name = "lbl_CashAmount";
+            this.lbl_CashAmount.Size = new System.Drawing.Size(94, 17);
+            this.lbl_CashAmount.TabIndex = 2;
+            this.lbl_CashAmount.Text = "Enter Amount";
+            // 
+            // btn_CashOk
+            // 
+            this.btn_CashOk.Location = new System.Drawing.Point(68, 89);
+            this.btn_CashOk.Name = "btn_CashOk";
+            this.btn_CashOk.Size = new System.Drawing.Size(75, 23);
+            this.btn_CashOk.TabIndex = 1;
+            this.btn_CashOk.Text = "Ok";
+            this.btn_CashOk.UseVisualStyleBackColor = true;
+            this.btn_CashOk.Click += new System.EventHandler(this.btn_AmountOk_Click);
+            // 
+            // txtb_CashAmount
+            // 
+            this.txtb_CashAmount.Location = new System.Drawing.Point(31, 41);
+            this.txtb_CashAmount.Name = "txtb_CashAmount";
+            this.txtb_CashAmount.Size = new System.Drawing.Size(142, 22);
+            this.txtb_CashAmount.TabIndex = 0;
+            // 
             // Calculator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1100, 696);
+            this.Controls.Add(this.btn_subtract);
             this.Controls.Add(this.goodsListView);
             this.Controls.Add(this.idnameComboBox);
             this.Controls.Add(this.changeTextBox);
@@ -883,12 +940,14 @@ namespace Calculator2
             this.Controls.Add(this.idNrLabel);
             this.Controls.Add(this.reciptNrTextBox);
             this.Controls.Add(this.reciptNrLabel);
+            this.Controls.Add(this.pnl_Amount);
             this.KeyPreview = true;
             this.MaximizeBox = false;
             this.Name = "Calculator";
             this.Text = "Kassa";
-            this.Load += new System.EventHandler(this.Calculator_Load_1);
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Calculator_KeyDown);
+            this.Load += new System.EventHandler(this.Calculator_Load);
+            this.pnl_Amount.ResumeLayout(false);
+            this.pnl_Amount.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -955,6 +1014,11 @@ namespace Calculator2
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.ColumnHeader columnHeader4;
         private System.Windows.Forms.ColumnHeader columnHeader5;
+        private System.Windows.Forms.Button btn_subtract;
+        private System.Windows.Forms.Panel pnl_Amount;
+        private System.Windows.Forms.Label lbl_CashAmount;
+        private System.Windows.Forms.Button btn_CashOk;
+        private System.Windows.Forms.TextBox txtb_CashAmount;
 
         public EventHandler CommaButton_Click_1 { get; private set; }
         public EventHandler DeleteButton_Click_1 { get; private set; }

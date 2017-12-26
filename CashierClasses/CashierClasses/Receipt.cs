@@ -15,6 +15,7 @@ namespace CashierClasses
     {
         PrintDocument pdoc = null;
 
+        ListView cartItem;
         private string foretagsnamn;
 
         private int orgnr;
@@ -86,8 +87,9 @@ namespace CashierClasses
 
 
 
-        public void print()
+        public void print(ListView cartItems)
         {
+            this.cartItem = cartItems;
             PrintDialog pd = new PrintDialog();
             pdoc = new PrintDocument();
             PrinterSettings ps = new PrinterSettings();
@@ -144,6 +146,17 @@ namespace CashierClasses
             String underLine = "------------------------------------------";
             graphics.DrawString(underLine, new Font("Courier New", 10),
                      new SolidBrush(Color.Black), startX, startY + Offset);
+
+
+            foreach (ListViewItem i in cartItem.Items) {
+                Offset = Offset + 20;
+                String productName = i.SubItems[1].Text;
+                String productPrice = i.SubItems[3].Text;
+                graphics.DrawString(productName + "               " + productPrice,
+                    new Font("Courier New", 10),
+                    new SolidBrush(Color.Black), startX, startY + Offset);
+            }
+
 
             Offset = Offset + 20;
             String Grosstotal = "Total Amount to Paid = " + this.TotalPrice;
