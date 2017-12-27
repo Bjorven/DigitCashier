@@ -25,6 +25,7 @@ namespace Calculator2
         Barcode barcode;
         Receipt receipt;
         Product SearchedProduct;
+        User myUser;
 
 
         private string checker;
@@ -53,14 +54,14 @@ namespace Calculator2
 
 
 
-        public Calculator()
+        public Calculator(User myUser)
 
         {
-
+            this.myUser = myUser;
             InitializeComponent();
             goodsListView.HideSelection = false;
             goodsListView.Focus();
-
+            idNrTextBox.Text = myUser.UserName.ToString();
 
 
 
@@ -612,6 +613,9 @@ namespace Calculator2
             txtb_CashAmount.Clear();
             pnl_Amount.BringToFront();
             DeployPayment = true;
+            
+            
+            // Här skapar vi ett datatable för att skicka upp de köpta produkterna till databasen.
             DataTable myPurchase = new DataTable();
             foreach (ListViewItem item in goodsListView.Items)
             {
@@ -620,7 +624,23 @@ namespace Calculator2
                 {
                     myPurchase.Rows.Add(it.ToString());
                 }
+                // Om vi använder skickar upp detta samtidigt här som där under knyter vi samman de köpta produkterna med kvittoInformationen.
+                myPurchase.Columns.Add(reciptNrTextBox.Text);
+                myPurchase.Rows.Add(reciptNrTextBox.Text);
             }
+
+            // Här skapar vi ett datatable för att skicka upp informationen om köpet
+            DataTable myReceiptInfo = new DataTable();
+            // Denna knyter samman de köpta produkterna till informationen här.
+            myReceiptInfo.Columns.Add(reciptNrTextBox.Text);
+            myReceiptInfo.Columns.Add(dateTimePicker1.Text);
+            myReceiptInfo.Columns.Add(totalTextBox.Text);
+            myReceiptInfo.Columns.Add(changeTextBox.Text);
+            myReceiptInfo.Columns.Add(couponTextBox.Text);
+            myReceiptInfo.Columns.Add(discountTextBox.Text);
+            myReceiptInfo.Columns.Add(momsTextBox.Text);
+            myReceiptInfo.Columns.Add(toPayTextBox.Text);
+            myReceiptInfo.Columns.Add(idNrTextBox.Text);
 
             //Frm_CashPayAmount cash = new Frm_CashPayAmount(totalTextBox);
             //cash.Show();

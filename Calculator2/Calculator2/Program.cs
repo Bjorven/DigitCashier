@@ -11,9 +11,10 @@ namespace Calculator2
         [STAThread]
         static void Main()
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Calculator());
+            // Jag har kommenterat ut detta då vi endast använder databastestLocal som Main
+            //Application.EnableVisualStyles();
+            //Application.SetCompatibleTextRenderingDefault(false);
+            //Application.Run(new Calculator());
 
         }
     }
