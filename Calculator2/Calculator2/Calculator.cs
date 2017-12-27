@@ -222,7 +222,7 @@ namespace Calculator2
                     myProducts.SubItems[4].Text = tal2.ToString();
 
                     //denna är bara till för att initiera GetTOtalSum
-                    getTotalSum();
+                    GetTotalSum();
                     // denna för ref till decimal
                     myRef = Convert.ToDouble(myProducts.SubItems[4].Text);
 
@@ -241,9 +241,24 @@ namespace Calculator2
 
         }
 
-        private double getTotalSum()
+        public double GetTotalSum()
         {
-            throw new NotImplementedException();
+            myTotal = 0;
+            foreach (ListViewItem lstitem in goodsListView.Items)
+            {
+                double pris = Convert.ToDouble(lstitem.SubItems[3].Text);
+                double antal = Convert.ToDouble(lstitem.SubItems[4].Text);
+
+                myTotal += (pris * antal);
+
+            }
+
+            toPayTextBox.Text = myTotal.ToString();
+            momsTextBox.Clear();
+            momsTextBox.Text = toPayTextBox.Text;
+            momsTextBox.Text = (Convert.ToDouble(momsTextBox.Text) * SearchedProduct.Vat).ToString();
+
+            return myTotal;
         }
 
         private void Btn_subtract_Click(object sender, EventArgs e)
@@ -261,7 +276,7 @@ namespace Calculator2
                 // för ref till decimal
                 myRef = Convert.ToDouble(myProducts.SubItems[4].Text);
 
-                total = getTotalSum();
+                GetTotalSum();
 
                 
 
@@ -390,7 +405,7 @@ namespace Calculator2
                 }
 
                 // denna funktion summerar alla tillagda produkter till toTextBox
-                double total = getTotalSum();
+                GetTotalSum();
                 // Vi gör detta för att kunna ha en ref till senare om värdet skulle bli decimal.
                 myRef = Convert.ToDouble(myProducts.SubItems[4].Text);
 
@@ -549,14 +564,40 @@ namespace Calculator2
                 //DbAcess db = new DbAcess();
                 //db.insertIntoDatabase(goodsListView);
 
-                //foreach (DataRow r in ds.Tables[0].Rows)
-                //{
-                //    if (r["name"].ToString() == goodsListBox.SelectedValue)
-                //        label1.Text = r["id"].ToString();
-                //}
-
+                // så att man inte skriver ut varjegång man klickar någonstans.
+                DeployPayment = false;
             }
+            else if (qtyAmount == true)
+            {
+                myProducts.SubItems[4].Text = txtb_CashAmount.Text;
+                qtyAmount = false;
+            }
+
+            GetTotalSum();
+            pnl_Amount.SendToBack();
         }
+
+
+
+        //private void Btn_AmountOk_Click(object sender, EventArgs e)
+        //{
+        //    if (DeployPayment == true)
+        //    {
+        //        totalTextBox.Text = txtb_CashAmount.Text;
+        //        CashierClasses.Receipt newReceipt = new CashierClasses.Receipt();
+        //        newReceipt.print(goodsListView);
+
+        //        //DbAcess db = new DbAcess();
+        //        //db.insertIntoDatabase(goodsListView);
+
+        //        //foreach (DataRow r in ds.Tables[0].Rows)
+        //        //{
+        //        //    if (r["name"].ToString() == goodsListBox.SelectedValue)
+        //        //        label1.Text = r["id"].ToString();
+        //        //}
+
+        //    }
+        //}
 
         private void calculator_Load(object sender, EventArgs e)
         {
