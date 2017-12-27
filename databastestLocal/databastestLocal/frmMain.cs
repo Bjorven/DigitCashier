@@ -27,7 +27,7 @@ namespace databastestLocal
 
         private void Btn_cashier_Click(object sender, EventArgs e)
         {
-            Calculator2.Calculator cashier = new Calculator2.Calculator();
+            Calculator2.Calculator cashier = new Calculator2.Calculator(myUser);
             cashier.Show();
         }
 
