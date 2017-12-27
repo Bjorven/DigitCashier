@@ -86,7 +86,7 @@ namespace Calculator2
                 CashierClasses.DbAcess db = new CashierClasses.DbAcess();
 
                 dG_List.AutoGenerateColumns = true;
-                DataTable dt = db.getReceipt(txtb_SearchBar.Text);
+                DataTable dt = db.GetReceipt(txtb_SearchBar.Text);
                 bindingSource1.DataSource = dt;
                 dG_List.DataSource = bindingSource1;
 
@@ -96,7 +96,7 @@ namespace Calculator2
                 dG_List.BorderStyle = BorderStyle.Fixed3D;
 
 
-                DataSet ds = db.getTotalPriceAndQty(txtb_SearchBar.Text);
+                DataSet ds = db.GetTotalPriceAndQty(txtb_SearchBar.Text);
 
 
                 txtb_TotalPrice.Text = ds.Tables[0].Rows[0][0].ToString();

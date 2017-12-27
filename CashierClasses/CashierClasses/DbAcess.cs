@@ -22,11 +22,15 @@ namespace CashierClasses
 
         public DbAcess()
         {
-            connection = new SqlConnection();
-            connection.ConnectionString = @"Data Source=LAPTOP-TU1UMOIC;Initial Catalog=DigitCashier;Integrated Security=True";
-            command = new SqlCommand();
-            command.Connection = connection;
-            command.CommandType = CommandType.Text;
+            connection = new SqlConnection
+            {
+                ConnectionString = @"Data Source=LAPTOP-TU1UMOIC;Initial Catalog=DigitCashier;Integrated Security=True"
+            };
+            command = new SqlCommand
+            {
+                Connection = connection,
+                CommandType = CommandType.Text
+            };
         } // constructor
           ///////////////////////////////////////////////////////////////////
 
@@ -141,7 +145,7 @@ namespace CashierClasses
 
         }
 
-        public Product getProduct(string searchText)
+        public Product GetProduct(string searchText)
         {
             SqlParameter workperameter1 = new SqlParameter();
             DataSet ds = new DataSet();
@@ -199,7 +203,7 @@ namespace CashierClasses
         //***************************************************************************************************************************************************
         //***************************************************************************************************************************************************
 
-        public DataTable getReceipt(string Search_text)
+        public DataTable GetReceipt(string Search_text)
 
         {
             SqlParameter workparameter1 = new SqlParameter();
@@ -225,7 +229,7 @@ namespace CashierClasses
 
 
 
-        public DataSet getTotalPriceAndQty(string Search_text)
+        public DataSet GetTotalPriceAndQty(string Search_text)
         {
             command.CommandText = "Select sum (price*qty) as totalprice, sum (qty) as totalqty from Product where receiptId = @receiptId";
             command.CommandType = CommandType.Text;

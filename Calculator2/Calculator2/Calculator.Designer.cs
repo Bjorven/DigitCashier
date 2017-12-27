@@ -94,6 +94,7 @@ namespace Calculator2
             this.lbl_CashAmount = new System.Windows.Forms.Label();
             this.btn_CashOk = new System.Windows.Forms.Button();
             this.txtb_CashAmount = new System.Windows.Forms.TextBox();
+            this.deletRowBotton = new System.Windows.Forms.Button();
             this.pnl_Amount.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -309,7 +310,7 @@ namespace Calculator2
             this.CouponButton.TabIndex = 218;
             this.CouponButton.Text = "Coupon";
             this.CouponButton.UseVisualStyleBackColor = false;
-            this.CouponButton.Click += new System.EventHandler(this.CouponButton_Click);
+            this.CouponButton.Click += new System.EventHandler(this.CouponButton_Click_1);
             // 
             // NrEightButton
             // 
@@ -469,7 +470,7 @@ namespace Calculator2
             this.CashButton.TabIndex = 208;
             this.CashButton.Text = "Cash";
             this.CashButton.UseVisualStyleBackColor = false;
-            this.CashButton.Click += new System.EventHandler(this.CashButton_Click);
+            this.CashButton.Click += new System.EventHandler(this.CashButton_Click_1);
             // 
             // CommaButton
             // 
@@ -714,7 +715,7 @@ namespace Calculator2
             // reciptNrLabel
             // 
             this.reciptNrLabel.AutoSize = true;
-            this.reciptNrLabel.Location = new System.Drawing.Point(29, 14);
+            this.reciptNrLabel.Location = new System.Drawing.Point(29, 18);
             this.reciptNrLabel.Name = "reciptNrLabel";
             this.reciptNrLabel.Size = new System.Drawing.Size(79, 17);
             this.reciptNrLabel.TabIndex = 182;
@@ -805,7 +806,7 @@ namespace Calculator2
             this.goodsListView.TabIndex = 246;
             this.goodsListView.UseCompatibleStateImageBehavior = false;
             this.goodsListView.View = System.Windows.Forms.View.Details;
-            this.goodsListView.SelectedIndexChanged += new System.EventHandler(this.goodsListView_SelectedIndexChanged_1);
+            this.goodsListView.SelectedIndexChanged += new System.EventHandler(this.GoodsListView_SelectedIndexChanged_1);
             // 
             // columnHeader1
             // 
@@ -844,7 +845,7 @@ namespace Calculator2
             this.btn_subtract.TabIndex = 247;
             this.btn_subtract.Text = "-";
             this.btn_subtract.UseVisualStyleBackColor = false;
-            this.btn_subtract.Click += new System.EventHandler(this.btn_subtract_Click);
+            this.btn_subtract.Click += new System.EventHandler(this.Btn_subtract_Click);
             // 
             // pnl_Amount
             // 
@@ -873,7 +874,7 @@ namespace Calculator2
             this.btn_CashOk.TabIndex = 1;
             this.btn_CashOk.Text = "Ok";
             this.btn_CashOk.UseVisualStyleBackColor = true;
-            this.btn_CashOk.Click += new System.EventHandler(this.btn_AmountOk_Click);
+            this.btn_CashOk.Click += new System.EventHandler(this.Btn_AmountOk_Click);
             // 
             // txtb_CashAmount
             // 
@@ -882,11 +883,25 @@ namespace Calculator2
             this.txtb_CashAmount.Size = new System.Drawing.Size(142, 22);
             this.txtb_CashAmount.TabIndex = 0;
             // 
+            // deletRowBotton
+            // 
+            this.deletRowBotton.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.deletRowBotton.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.deletRowBotton.ForeColor = System.Drawing.Color.White;
+            this.deletRowBotton.Location = new System.Drawing.Point(499, 369);
+            this.deletRowBotton.Name = "deletRowBotton";
+            this.deletRowBotton.Size = new System.Drawing.Size(197, 60);
+            this.deletRowBotton.TabIndex = 249;
+            this.deletRowBotton.Text = "Delet Row";
+            this.deletRowBotton.UseVisualStyleBackColor = false;
+            this.deletRowBotton.Click += new System.EventHandler(this.deletRowbotton);
+            // 
             // Calculator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1100, 696);
+            this.Controls.Add(this.deletRowBotton);
             this.Controls.Add(this.btn_subtract);
             this.Controls.Add(this.goodsListView);
             this.Controls.Add(this.idnameComboBox);
@@ -946,7 +961,6 @@ namespace Calculator2
             this.MaximizeBox = false;
             this.Name = "Calculator";
             this.Text = "Kassa";
-            this.Load += new System.EventHandler(this.Calculator_Load);
             this.pnl_Amount.ResumeLayout(false);
             this.pnl_Amount.PerformLayout();
             this.ResumeLayout(false);
@@ -1045,6 +1059,7 @@ namespace Calculator2
         private System.Windows.Forms.Label lbl_CashAmount;
         private System.Windows.Forms.Button btn_CashOk;
         private System.Windows.Forms.TextBox txtb_CashAmount;
+        private Button deletRowBotton;
 
         public EventHandler CommaButton_Click_1 { get; private set; }
         public EventHandler DeleteButton_Click_1 { get; private set; }
