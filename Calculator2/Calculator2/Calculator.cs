@@ -639,6 +639,14 @@ namespace Calculator2
                 GetTotalSum();
             }
         }
+
+
+        private void reciptNrTextBox_ControlAdded(object sender, ControlEventArgs e)
+        {
+            
+
+               
+        }
     }
 }
 

@@ -711,6 +711,7 @@ namespace Calculator2
             this.reciptNrTextBox.Size = new System.Drawing.Size(143, 22);
             this.reciptNrTextBox.TabIndex = 183;
             this.reciptNrTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.reciptNrTextBox.ControlAdded += new System.Windows.Forms.ControlEventHandler(this.reciptNrTextBox_ControlAdded);
             // 
             // reciptNrLabel
             // 
