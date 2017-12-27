@@ -538,10 +538,6 @@ namespace Calculator2
             
         }
 
-
-
-
-
         private void Btn_AmountOk_Click(object sender, EventArgs e)
         {
             if (DeployPayment == true)
@@ -609,6 +605,14 @@ namespace Calculator2
                     goodsListView.Items[i].Remove();
                 }
             }
+        }
+
+
+        private void reciptNrTextBox_ControlAdded(object sender, ControlEventArgs e)
+        {
+            
+
+               
         }
     }
 }
