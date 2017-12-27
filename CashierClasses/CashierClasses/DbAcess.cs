@@ -242,6 +242,7 @@ namespace CashierClasses
             return ds;
         }
 
+
         //public void insertIntoDatabase(ListView cartItems)
         //{
         //    string sql = ;
