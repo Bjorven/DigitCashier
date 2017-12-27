@@ -28,17 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.txtb_CashAmount = new System.Windows.Forms.TextBox();
             this.lbl_CashAmount = new System.Windows.Forms.Label();
             this.btn_CashOk = new System.Windows.Forms.Button();
+            this.txtb_CashAmount = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
-            // 
-            // txtb_CashAmount
-            // 
-            this.txtb_CashAmount.Location = new System.Drawing.Point(12, 78);
-            this.txtb_CashAmount.Name = "txtb_CashAmount";
-            this.txtb_CashAmount.Size = new System.Drawing.Size(257, 22);
-            this.txtb_CashAmount.TabIndex = 0;
             // 
             // lbl_CashAmount
             // 
@@ -59,25 +52,34 @@
             this.btn_CashOk.UseVisualStyleBackColor = true;
             this.btn_CashOk.Click += new System.EventHandler(this.btn_CashOk_Click);
             // 
+            // txtb_CashAmount
+            // 
+            this.txtb_CashAmount.Location = new System.Drawing.Point(12, 78);
+            this.txtb_CashAmount.Name = "txtb_CashAmount";
+            this.txtb_CashAmount.Size = new System.Drawing.Size(257, 22);
+            this.txtb_CashAmount.TabIndex = 0;
+            // 
             // Frm_CashPayAmount
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(287, 175);
+            this.ClientSize = new System.Drawing.Size(1106, 557);
             this.Controls.Add(this.btn_CashOk);
             this.Controls.Add(this.lbl_CashAmount);
             this.Controls.Add(this.txtb_CashAmount);
             this.Name = "Frm_CashPayAmount";
             this.Text = "Frm_CashPayAmount";
+            this.Controls.SetChildIndex(this.txtb_CashAmount, 0);
+            this.Controls.SetChildIndex(this.lbl_CashAmount, 0);
+            this.Controls.SetChildIndex(this.btn_CashOk, 0);
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox txtb_CashAmount;
         private System.Windows.Forms.Label lbl_CashAmount;
         private System.Windows.Forms.Button btn_CashOk;
+        private System.Windows.Forms.TextBox txtb_CashAmount;
     }
 }

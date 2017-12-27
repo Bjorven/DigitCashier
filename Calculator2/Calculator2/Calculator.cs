@@ -14,6 +14,8 @@ using System.Data.OleDb;
 using System.Data.Common;
 using CashierClasses;
 
+
+
 namespace Calculator2
 {
     public partial class Calculator : Form
@@ -21,12 +23,11 @@ namespace Calculator2
 
         ListViewItem myProducts;
         Barcode barcode;
-        RegisterNewCustomer customer;
-        Existing_Customer oldcustomer;
         Receipt receipt;
         Product SearchedProduct;
-        Frm_CashPayAmount qtyAmount;
 
+
+        private string checker;
         string input = string.Empty;
         string operation = string.Empty;
         string operand1 = string.Empty;
@@ -36,12 +37,16 @@ namespace Calculator2
         double tal2 = 0;
         double myTotal;
         double count;
+        double myRef;
 
 
         Double resultValue = 0;
         String operationPerformed = "";
         bool isOperationPerformed = false;
         bool isSearchBtn = false;
+        bool isCalc = false;
+        bool qtyAmount = false;
+        bool DeployPayment = false;
         bool hasDiscount;
         bool hasCoupon;
         double Mresult = 1;
@@ -53,6 +58,9 @@ namespace Calculator2
         {
 
             InitializeComponent();
+            goodsListView.HideSelection = false;
+            goodsListView.Focus();
+
 
 
 
@@ -189,15 +197,74 @@ namespace Calculator2
                 totalTextBox.Text = totalTextBox.Text + "9";
             }
         }
-
+  
         private void PlusButton_Click(object sender, EventArgs e)
         {
-            string operand1 = PlusButton.Text;
-            result += double.Parse(totalTextBox.Text);
-            totalTextBox.Text = "";
-            operation = "+";
+            if (isSearchBtn == true)
+            {
+                
+
+
+                if (SearchedProduct.PricePerHG || SearchedProduct.PricePerKG == true)
+                {
+                    
+                    txtb_CashAmount.Clear();
+                    pnl_Amount.BringToFront();
+                    qtyAmount = true;
+                    count = 1;
+
+                }
+
+                else
+                {
+
+                    tal2++;
+                    myProducts.SubItems[4].Text = tal2.ToString();
+
+                    //denna är bara till för att initiera GetTOtalSum
+                    GetTotalSum();
+                    // denna för ref till decimal
+                    myRef = Convert.ToDouble(myProducts.SubItems[4].Text);
+
+                }
+
+
+            }
+            else
+            {
+                string operand1 = PlusButton.Text;
+                result += double.Parse(totalTextBox.Text);
+                totalTextBox.Text = "";
+                operation = "+";
+            }
+            qtyAmount = false;
 
         }
+
+
+
+        private void btn_subtract_Click(object sender, EventArgs e)
+        {
+            if (isSearchBtn == true)
+            {
+                //double pris = Convert.ToDouble(myProducts.SubItems[3].Text);
+                //double antal = Convert.ToDouble(myProducts.SubItems[4].Text);
+                double total;
+
+
+                tal2--;
+                myProducts.SubItems[4].Text = tal2.ToString();
+
+                // för ref till decimal
+                myRef = Convert.ToDouble(myProducts.SubItems[4].Text);
+
+
+                total = GetTotalSum();
+
+            }
+        }
+
+
 
         private void CommaButton_Click(object sender, EventArgs e)
         {
@@ -249,47 +316,33 @@ namespace Calculator2
 
         private void TimesButton_Click(object sender, EventArgs e)
         {
-            if (isSearchBtn == true)
-            {
-
-                qtyAmount = new Frm_CashPayAmount(count);
-                qtyAmount.Show();
-
-            }
-            else
-            {
-                string operand2 = TimesButton.Text;
-                Mresult *= double.Parse(totalTextBox.Text);
-                totalTextBox.Text = "";
-                operation = "*";
-            }
-
-            //if (qtyAmount.Qty > 0)
-            //{
-            //    myProducts.SubItems.Add(tal2.ToString());
-            //}
-
-
+            string operand2 = TimesButton.Text;
+            Mresult *= double.Parse(totalTextBox.Text);
+            totalTextBox.Text = "";
+            operation = "*";
         }
 
         private void OkBotton__Click(object sender, EventArgs e)
         {
-
-            if (operation == "+")
+            if (isCalc == true)
             {
-                result += result;
-                totalTextBox.Text = result.ToString();
-            }
-            else if (operation == "*")
-            {
-                Mresult = Mresult * Convert.ToDouble(totalTextBox.Text);
-                totalTextBox.Text = Mresult.ToString();
+
+                if (operation == "+")
+                {
+                    result += result;
+                    totalTextBox.Text = result.ToString();
+                }
+                else if (operation == "*")
+                {
+                    Mresult = Mresult * Convert.ToDouble(totalTextBox.Text);
+                    totalTextBox.Text = Mresult.ToString();
+
+                }
 
             }
 
+            else if (isSearchBtn == true)
 
-            else if
-                (isSearchBtn == true)
             {
 
                 if (searchTextBox.Text != "")
@@ -302,11 +355,29 @@ namespace Calculator2
                     myProducts.SubItems.Add(searchProduct.Name);
                     myProducts.SubItems.Add(searchProduct.ProductGroup.ToString());
                     myProducts.SubItems.Add(searchProduct.Price.ToString());
+                    tal2 = 1;
+                    myProducts.SubItems.Add(tal2.ToString());
 
                     goodsListView.Items.Add(myProducts);
                     searchTextBox.Clear();
                     SearchedProduct = new Product(searchProduct.Id, searchProduct.Price, searchProduct.Manufacturer, searchProduct.Supplier, searchProduct.ProductGroup, searchProduct.Vat, searchProduct.PricePerKG, searchProduct.PricePerHG, searchProduct.Name);
+                    if (searchProduct.PricePerHG || searchProduct.PricePerKG == true)
+                    {
+                        qtyAmount = true;
+                        pnl_Amount.BringToFront();
+                    }
 
+                    // Detta ska bli en funktion för att kunna ladda in två av samma vara och bara addera en qty på en och samma listview-rad.
+                    //foreach (ListViewItem i in goodsListView.Items)
+                    //{
+                    //    if (searchProduct.Id == Convert.ToInt16(i.SubItems[0].Text))
+                    //    {
+                    //        double qtyRef;
+                    //        qtyRef = Convert.ToDouble(i.SubItems[4].Text);
+                    //        qtyRef++;
+                    //        i.SubItems[4].Text = qtyRef.ToString();
+                    //    }
+                    //}
                 }
                 else
                 {
@@ -315,36 +386,13 @@ namespace Calculator2
                 }
 
                 // denna funktion summerar alla tillagda produkter till toTextBox
-                foreach (ListViewItem lstitem in goodsListView.Items)
-                {
+                double total = GetTotalSum();
+                // Vi gör detta för att kunna ha en ref till senare om värdet skulle bli decimal.
+                myRef = Convert.ToDouble(myProducts.SubItems[4].Text);
 
-                    myTotal += double.Parse(lstitem.SubItems[3].Text);
 
-                }
-                myTotal -= count;
-                count = myTotal;
-                toPayTextBox.Text = myTotal.ToString();
-                momsTextBox.Clear();
-                momsTextBox.Text = toPayTextBox.Text;
-                momsTextBox.Text = (Convert.ToInt32(momsTextBox.Text) * SearchedProduct.Vat).ToString();
 
             }
-
-            //testing a method
-            //switch (operationPerformed)
-            //{
-            //    case "+":
-            //        totalTextBox.Text = (resultValue + Double.Parse(totalTextBox.Text)).ToString();
-            //        break;
-            //    case "*":
-            //        totalTextBox.Text = (resultValue * Double.Parse(totalTextBox.Text)).ToString();
-            //        break;
-
-            //    default:
-            //        break;
-            //}
-            //resultValue = Double.Parse(totalTextBox.Text);
-
 
 
         }
@@ -367,13 +415,16 @@ namespace Calculator2
         private void TotalTextBox_TextChanged(object sender, EventArgs e)
         {
             // Räknar ut change basserat på total minus toPay fälten. denna aktieras först när totalTextBox fylls med något. typ när vi klickar på btn_Cash.
-            int x;
-            int y;
-            int sum;
-            Int32.TryParse(totalTextBox.Text, out x);
-            Int32.TryParse(toPayTextBox.Text, out y);
-            sum = x - y;
-            changeTextBox.Text = sum.ToString();
+            if (DeployPayment == true)
+            {
+                double x;
+                double y;
+                double sum;
+                double.TryParse(totalTextBox.Text, out x);
+                double.TryParse(toPayTextBox.Text, out y);
+                sum = x - y;
+                changeTextBox.Text = sum.ToString();
+            }
         }
 
         private void TwentyPercentButton_Click(object sender, EventArgs e)
@@ -404,32 +455,7 @@ namespace Calculator2
         {
             searchTextBox.Clear();
             isSearchBtn = true;
-
-
-
-
-        }
-
-
-        DataTable dt = new DataTable();
-        private void SearchTextBox_TextChanged_1(object sender, EventArgs e)
-        {
-            if (searchTextBox.Text == "")
-            {
-
-            }
-
-
-
-        }
-
-        private void TextBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ToPayTextBox_TextChanged(object sender, EventArgs e)
-        {
+            isCalc = false;
 
         }
 
@@ -487,10 +513,7 @@ namespace Calculator2
 
         }
 
-        private void IdnameComboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
 
-        }
 
         private void BarcodeBotton_Click(object sender, EventArgs e)
         {
@@ -498,38 +521,84 @@ namespace Calculator2
             barcode.Show();
         }
 
-        private void NewCustomerButton_Click(object sender, EventArgs e)
-        {
-            customer = new RegisterNewCustomer();
-            customer.Show();
-        }
 
-        private void CustomerButton_Click(object sender, EventArgs e)
-        {
-            oldcustomer = new Existing_Customer();
-            oldcustomer.Show();
-        }
-
-        private void GoodsListBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            //DbAccess db = new DbAccess();
-            //DataSet ds = db.GetGoodsList();
-
-            //foreach (DataRow r in ds.Tables[0].Rows)
-            //{
-            //    if (r["name"].ToString() == goodsListBox.SelectedValue)
-            //        label1.Text = r["id"].ToString();
-            //}
-
-        }
 
         private void Calculator_Load(object sender, EventArgs e)
         {
 
 
         }
+
+        // Med denna kan man nu klicka i listViewn och selecta en rad och ändra tex qty.
+        private void goodsListView_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            foreach (ListViewItem item in goodsListView.SelectedItems)
+            {
+                myProducts = item;
+                //denna raden göra så att vi sparar upp den aktuella radens qty och kan därmed ändra korrekt.
+                tal2 = Convert.ToDouble(myProducts.SubItems[4].Text);
+            }
+        }
+
+        private void CashButton_Click(object sender, EventArgs e)
+        {
+            if (hasDiscount == true)
+            {
+
+            }
+            if (hasCoupon == true)
+            {
+
+            }
+
+            txtb_CashAmount.Clear();
+            pnl_Amount.BringToFront();
+            DeployPayment = true;
+
+            //Frm_CashPayAmount cash = new Frm_CashPayAmount(totalTextBox);
+            //cash.Show();
+
+        }
+
+
+
+        private void CouponButton_Click(object sender, EventArgs e)
+        {
+            hasCoupon = true;
+        }
+
+
+
+        private void btn_AmountOk_Click(object sender, EventArgs e)
+        {
+            if (DeployPayment == true)
+            {
+                totalTextBox.Text = txtb_CashAmount.Text;
+                CashierClasses.Receipt newReceipt = new CashierClasses.Receipt();
+                newReceipt.print(goodsListView);
+
+                //DbAcess db = new DbAcess();
+                //db.insertIntoDatabase(goodsListView);
+
+                //foreach (DataRow r in ds.Tables[0].Rows)
+                //{
+                //    if (r["name"].ToString() == goodsListBox.SelectedValue)
+                //        label1.Text = r["id"].ToString();
+                //}
+
+            }
+
+            private void Calculator_Load(object sender, EventArgs e)
+            {
+
+            toPayTextBox.Text = myTotal.ToString();
+            momsTextBox.Clear();
+            momsTextBox.Text = toPayTextBox.Text;
+            momsTextBox.Text = (Convert.ToDouble(momsTextBox.Text) * SearchedProduct.Vat).ToString();
+
+            }
+        }
     }
-}
 
 
 

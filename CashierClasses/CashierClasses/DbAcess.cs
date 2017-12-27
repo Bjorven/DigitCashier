@@ -9,7 +9,7 @@ using System.Data.SqlTypes;
 using System.Data.Sql;
 using System.Data.OleDb;
 using System.Data.Common;
-
+using System.Windows.Forms;
 
 namespace CashierClasses
 {
@@ -161,7 +161,7 @@ namespace CashierClasses
                 connection.Close();
             }
 
-            connection.Open();
+            
             command.CommandText = "spGetProduct";
             command.CommandType = CommandType.StoredProcedure;
             connection.Open();
@@ -238,6 +238,22 @@ namespace CashierClasses
             return ds;
         }
 
+        //public void insertIntoDatabase(ListView cartItems)
+        //{
+        //    string sql = ;
+        //    command.CommandType = CommandType.Text;
+        //    foreach(ListViewItem item in cartItems.Items)
+        //    {
+        //        string qry = string.Format(sql, item.SubItems[0].Text, item.SubItems[1].Text, item.SubItems[3].Text, item.SubItems[4].Text);
+        //        using (command = new SqlCommand(qry, connection))
+        //        {
+        //            connection.Open();
+        //            command.ExecuteNonQuery();
+        //            connection.Close();
+        //        }
+        //    }
+            
+        //}
 
 
     }

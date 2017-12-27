@@ -62,12 +62,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Existing Customer.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Existing Customer.Designer.cs">
-      <DependentUpon>Existing Customer.cs</DependentUpon>
-    </Compile>
     <Compile Include="Frm_CashPayAmount.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -86,12 +80,6 @@
     <Compile Include="Receipt.Designer.cs">
       <DependentUpon>Receipt.cs</DependentUpon>
     </Compile>
-    <Compile Include="Register new customer.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Register new customer.Designer.cs">
-      <DependentUpon>Register new customer.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Barcode.resx">
@@ -99,9 +87,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Calculator.resx">
       <DependentUpon>Calculator.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Existing Customer.resx">
-      <DependentUpon>Existing Customer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frm_CashPayAmount.resx">
       <DependentUpon>Frm_CashPayAmount.cs</DependentUpon>
@@ -111,9 +96,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Receipt.resx">
       <DependentUpon>Receipt.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Register new customer.resx">
-      <DependentUpon>Register new customer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
