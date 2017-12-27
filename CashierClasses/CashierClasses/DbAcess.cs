@@ -242,6 +242,69 @@ namespace CashierClasses
             return ds;
         }
 
+        #region Export Store Data to Sql
+
+        //public void ExportSqlData(DataTable prod)
+        //{
+
+        //    try
+        //    {
+        //        connection.Open();
+
+
+        //        //cmd = new SqlCommand("Delete  from [" + reg.Getstorename + "]", sc);
+        //        //cmd.ExecuteNonQuery();
+        //        for (int i = 0; prod.Count > i; i++)
+        //        {
+        //            command = new SqlCommand("dbo.InsertUpdate "
+
+        //            + reg.StoreId + ","
+        //            + prod[i].ID + ",'"
+        //            + prod[i].ProductName + "','"
+        //            + prod[i].Category + "',"
+        //            + prod[i].Price + ","
+        //            + prod[i].Instock + ","
+        //            + prod[i].Count + ",'"
+        //            + prod[i].DateUpdate + "','"
+        //            + prod[i].Description + "','"
+        //            + prod[i].url + "'", sc);
+
+        //            command.ExecuteNonQuery();
+        //            // export all the image
+        //            command = new SqlCommand("dbo.UpdateImage " + prod[i].ID + ",@img", sc);
+        //            command.Parameters.Add(new SqlParameter("@img", prod[i].img));
+        //            command.ExecuteNonQuery();
+        //        }
+
+
+
+
+
+        //    }
+        //    catch (Exception ex)
+        //    {
+
+        //        MessageBox.Show(ex.Message);
+
+
+        //    }
+
+
+        //    finally
+        //    {
+        //        connection.Close();
+
+
+        //    }
+
+
+
+
+        //}
+
+        #endregion
+
+
 
         //public void insertIntoDatabase(ListView cartItems)
         //{
@@ -257,7 +320,7 @@ namespace CashierClasses
         //            connection.Close();
         //        }
         //    }
-            
+
         //}
 
 

@@ -579,25 +579,7 @@ namespace Calculator2
 
 
 
-        //private void Btn_AmountOk_Click(object sender, EventArgs e)
-        //{
-        //    if (DeployPayment == true)
-        //    {
-        //        totalTextBox.Text = txtb_CashAmount.Text;
-        //        CashierClasses.Receipt newReceipt = new CashierClasses.Receipt();
-        //        newReceipt.print(goodsListView);
-
-        //        //DbAcess db = new DbAcess();
-        //        //db.insertIntoDatabase(goodsListView);
-
-        //        //foreach (DataRow r in ds.Tables[0].Rows)
-        //        //{
-        //        //    if (r["name"].ToString() == goodsListBox.SelectedValue)
-        //        //        label1.Text = r["id"].ToString();
-        //        //}
-
-        //    }
-        //}
+        
 
         private void calculator_Load(object sender, EventArgs e)
         {
@@ -630,6 +612,15 @@ namespace Calculator2
             txtb_CashAmount.Clear();
             pnl_Amount.BringToFront();
             DeployPayment = true;
+            DataTable myPurchase = new DataTable();
+            foreach (ListViewItem item in goodsListView.Items)
+            {
+                myPurchase.Columns.Add(item.ToString());
+                foreach (var it in item.SubItems)
+                {
+                    myPurchase.Rows.Add(it.ToString());
+                }
+            }
 
             //Frm_CashPayAmount cash = new Frm_CashPayAmount(totalTextBox);
             //cash.Show();
@@ -645,6 +636,7 @@ namespace Calculator2
                 {
                     goodsListView.Items[i].Remove();
                 }
+                GetTotalSum();
             }
         }
     }
