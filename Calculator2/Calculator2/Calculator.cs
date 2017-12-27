@@ -670,13 +670,18 @@ namespace Calculator2
 
         private void reciptNrTextBox_TextChanged(object sender, EventArgs e)
         {
-            //CashierClasses.DbAcess db = new CashierClasses.DbAcess();
-            //DataSet ds = db.GetReceipt();
-           
+            
+            //string Row = "";
+            //for (int i = 1; i <= 5; i++)
+            //{
+            //    Row += "st" + i.ToString("000") + System.Environment.NewLine;
+            //}
+            //label1.Text = Row;
 
 
-            }
+
         }
+    }
     }
 
 
