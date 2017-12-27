@@ -254,7 +254,7 @@ namespace Calculator2
 
                 qtyAmount = new Frm_CashPayAmount(count);
                 qtyAmount.Show();
-                
+
             }
             else
             {
@@ -504,32 +504,32 @@ namespace Calculator2
             customer.Show();
         }
 
-            private void CustomerButton_Click(object sender, EventArgs e)
-            {
-                oldcustomer = new Existing_Customer();
-                oldcustomer.Show();
-            }
+        private void CustomerButton_Click(object sender, EventArgs e)
+        {
+            oldcustomer = new Existing_Customer();
+            oldcustomer.Show();
+        }
 
-            private void GoodsListBox_SelectedIndexChanged(object sender, EventArgs e)
-            {
-                //DbAccess db = new DbAccess();
-                //DataSet ds = db.GetGoodsList();
+        private void GoodsListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //DbAccess db = new DbAccess();
+            //DataSet ds = db.GetGoodsList();
 
-                //foreach (DataRow r in ds.Tables[0].Rows)
-                //{
-                //    if (r["name"].ToString() == goodsListBox.SelectedValue)
-                //        label1.Text = r["id"].ToString();
-                //}
+            //foreach (DataRow r in ds.Tables[0].Rows)
+            //{
+            //    if (r["name"].ToString() == goodsListBox.SelectedValue)
+            //        label1.Text = r["id"].ToString();
+            //}
 
-            }
+        }
 
-            private void Calculator_Load(object sender, EventArgs e)
-            {
+        private void Calculator_Load(object sender, EventArgs e)
+        {
 
 
-            }
         }
     }
+}
 
 
 

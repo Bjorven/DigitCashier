@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Windows.Forms;
 
 namespace Calculator2
 {
@@ -894,7 +895,32 @@ namespace Calculator2
 
         }
 
-       
+        private void Calculator_KeyDown(object sender, KeyEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void Calculator_Load_1(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void CashButton_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void CouponButton_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void GoodsListView_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+
         #endregion
 
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
