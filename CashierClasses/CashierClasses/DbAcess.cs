@@ -24,7 +24,7 @@ namespace CashierClasses
         {
             connection = new SqlConnection
             {
-                ConnectionString = @"Data Source=LAPTOP-TU1UMOIC;Initial Catalog=DigitCashier;Integrated Security=True"
+                ConnectionString = @"Data Source=LAPTOP-B9AASP37\SQLEXPRESS;Initial Catalog=DigitCashier;Integrated Security=True"
             };
             command = new SqlCommand
             {

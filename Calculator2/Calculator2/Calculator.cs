@@ -649,7 +649,7 @@ namespace Calculator2
 
         }
 
-
+        // denna är för att kunna radera valda varor från varolistan
         private void deletRowbotton(object sender, EventArgs e)
         {
             for (int i = goodsListView.Items.Count - 1; i >= 0; i--)
@@ -669,8 +669,23 @@ namespace Calculator2
 
                
         }
+
+        private void reciptNrTextBox_TextChanged(object sender, EventArgs e)
+        {
+            
+            //string Row = "";
+            //for (int i = 1; i <= 5; i++)
+            //{
+            //    Row += "st" + i.ToString("000") + System.Environment.NewLine;
+            //}
+            //label1.Text = Row;
+
+
+
+        }
     }
-}
+    }
+
 
 
     
