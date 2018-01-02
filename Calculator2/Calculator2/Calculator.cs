@@ -663,7 +663,7 @@ namespace Calculator2
         }
 
 
-        private void ReciptNrTextBox_ControlAdded(object sender, ControlEventArgs e)
+        private void reciptNrTextBox_ControlAdded(object sender, ControlEventArgs e)
         {
             
 
@@ -688,11 +688,11 @@ namespace Calculator2
 
         private void Calculator_Load_2(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'digitCashierDataSet1.receipt' table. You can move, or remove it, as needed.
+            // TODO: This line of code loads data into the 'digitCashierDataSet2.Employee' table. You can move, or remove it, as needed.
+            this.employeeTableAdapter.Fill(this.digitCashierDataSet2.Employee);
+            // This line of code loads data into the 'digitCashierDataSet1.receipt' table. You can move, or remove it, as needed.
             this.receiptTableAdapter1.Fill(this.digitCashierDataSet1.receipt);
-            // TODO: This line of code loads data into the 'digitCashierDataSet.receipt' table. You can move, or remove it, as needed.
-            this.receiptTableAdapter.Fill(this.digitCashierDataSet.receipt);
-
+           
         }
 
         private void DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)

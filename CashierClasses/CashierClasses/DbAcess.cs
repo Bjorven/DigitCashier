@@ -254,11 +254,11 @@ namespace CashierClasses
 
         //        //cmd = new SqlCommand("Delete  from [" + reg.Getstorename + "]", sc);
         //        //cmd.ExecuteNonQuery();
-        //        for (int i = 0; prod.Count > i; i++)
+        //      /  for (int i = 0; prod.Count > i; i++)
         //        {
         //            command = new SqlCommand("dbo.InsertUpdate ");
         //            command.ExecuteNonQuery();
-                    
+
         //        }
 
         //    }
