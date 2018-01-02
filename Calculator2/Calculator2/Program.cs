@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Calculator2
@@ -11,7 +14,7 @@ namespace Calculator2
         [STAThread]
         static void Main()
         {
-            // Jag har kommenterat ut detta då vi endast använder databastestLocal som Main
+            //Jag har kommenterat ut detta då vi endast använder databastestLocal som Main
             //Application.EnableVisualStyles();
             //Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new Calculator());

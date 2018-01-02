@@ -582,7 +582,7 @@ namespace Calculator2
 
         
 
-        private void calculator_Load(object sender, EventArgs e)
+        private void Calculator_Load(object sender, EventArgs e)
         {
 
             toPayTextBox.Text = myTotal.ToString();
@@ -650,7 +650,7 @@ namespace Calculator2
         }
 
         // denna är för att kunna radera valda varor från varolistan
-        private void deletRowbotton(object sender, EventArgs e)
+        private void DeletRowbotton(object sender, EventArgs e)
         {
             for (int i = goodsListView.Items.Count - 1; i >= 0; i--)
             {
@@ -663,14 +663,14 @@ namespace Calculator2
         }
 
 
-        private void reciptNrTextBox_ControlAdded(object sender, ControlEventArgs e)
+        private void ReciptNrTextBox_ControlAdded(object sender, ControlEventArgs e)
         {
             
 
                
         }
 
-        private void reciptNrTextBox_TextChanged(object sender, EventArgs e)
+        private void ReciptNrTextBox_TextChanged(object sender, EventArgs e)
         {
            
             
@@ -695,7 +695,7 @@ namespace Calculator2
 
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }

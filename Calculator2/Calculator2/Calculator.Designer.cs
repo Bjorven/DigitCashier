@@ -101,10 +101,10 @@ namespace Calculator2
             this.digitCashierDataSet = new Calculator2.DigitCashierDataSet();
             this.receiptBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.receiptTableAdapter = new Calculator2.DigitCashierDataSetTableAdapters.receiptTableAdapter();
-            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.digitCashierDataSet1 = new Calculator2.DigitCashierDataSet1();
             this.receiptBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.receiptTableAdapter1 = new Calculator2.DigitCashierDataSet1TableAdapters.receiptTableAdapter();
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnl_Amount.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.reciptNrTextBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
@@ -903,7 +903,7 @@ namespace Calculator2
             this.deletRowBotton.TabIndex = 249;
             this.deletRowBotton.Text = "Delet Row";
             this.deletRowBotton.UseVisualStyleBackColor = false;
-            this.deletRowBotton.Click += new System.EventHandler(this.deletRowbotton);
+            this.deletRowBotton.Click += new System.EventHandler(this.DeletRowbotton);
             // 
             // reciptNrTextBox
             // 
@@ -914,12 +914,12 @@ namespace Calculator2
             this.idDataGridViewTextBoxColumn});
             this.reciptNrTextBox.DataSource = this.receiptBindingSource1;
             this.reciptNrTextBox.GridColor = System.Drawing.Color.White;
-            this.reciptNrTextBox.Location = new System.Drawing.Point(102, -1);
+            this.reciptNrTextBox.Location = new System.Drawing.Point(102, 5);
             this.reciptNrTextBox.Name = "reciptNrTextBox";
             this.reciptNrTextBox.RowTemplate.Height = 24;
-            this.reciptNrTextBox.Size = new System.Drawing.Size(146, 52);
+            this.reciptNrTextBox.Size = new System.Drawing.Size(146, 45);
             this.reciptNrTextBox.TabIndex = 250;
-            this.reciptNrTextBox.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.reciptNrTextBox.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView1_CellContentClick);
             // 
             // dataSet1
             // 
@@ -945,12 +945,6 @@ namespace Calculator2
             // 
             this.receiptTableAdapter.ClearBeforeFill = true;
             // 
-            // idDataGridViewTextBoxColumn
-            // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "id";
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            // 
             // digitCashierDataSet1
             // 
             this.digitCashierDataSet1.DataSetName = "DigitCashierDataSet1";
@@ -964,6 +958,13 @@ namespace Calculator2
             // receiptTableAdapter1
             // 
             this.receiptTableAdapter1.ClearBeforeFill = true;
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "id";
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.Visible = false;
             // 
             // Calculator
             // 
@@ -1142,10 +1143,10 @@ namespace Calculator2
         private DigitCashierDataSet digitCashierDataSet;
         private BindingSource receiptBindingSource;
         private DigitCashierDataSetTableAdapters.receiptTableAdapter receiptTableAdapter;
-        private DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private DigitCashierDataSet1 digitCashierDataSet1;
         private BindingSource receiptBindingSource1;
         private DigitCashierDataSet1TableAdapters.receiptTableAdapter receiptTableAdapter1;
+        private DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
 
         public EventHandler CommaButton_Click_1 { get; private set; }
         public EventHandler DeleteButton_Click_1 { get; private set; }
