@@ -670,7 +670,7 @@ namespace Calculator2
 
         private void reciptNrTextBox_TextChanged(object sender, EventArgs e)
         {
-            
+
             //string Row = "";
             //for (int i = 1; i <= 5; i++)
             //{
