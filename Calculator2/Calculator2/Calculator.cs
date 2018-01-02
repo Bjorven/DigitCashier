@@ -628,6 +628,7 @@ namespace Calculator2
                 myPurchase.Columns.Add(reciptNrTextBox.Text);
                 myPurchase.Rows.Add(reciptNrTextBox.Text);
             }
+            
 
             // Här skapar vi ett datatable för att skicka upp informationen om köpet
             DataTable myReceiptInfo = new DataTable();
@@ -642,6 +643,7 @@ namespace Calculator2
             myReceiptInfo.Columns.Add(toPayTextBox.Text);
             myReceiptInfo.Columns.Add(idNrTextBox.Text);
 
+           
             //Frm_CashPayAmount cash = new Frm_CashPayAmount(totalTextBox);
             //cash.Show();
 
