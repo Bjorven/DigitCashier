@@ -672,7 +672,9 @@ namespace Calculator2
 
         private void reciptNrTextBox_TextChanged(object sender, EventArgs e)
         {
-
+           
+            
+            // för söker hitta rätt kod för att generera unik id nr till kvittot 
             //string Row = "";
             //for (int i = 1; i <= 5; i++)
             //{
@@ -681,6 +683,20 @@ namespace Calculator2
             //label1.Text = Row;
 
 
+
+        }
+
+        private void Calculator_Load_2(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'digitCashierDataSet1.receipt' table. You can move, or remove it, as needed.
+            this.receiptTableAdapter1.Fill(this.digitCashierDataSet1.receipt);
+            // TODO: This line of code loads data into the 'digitCashierDataSet.receipt' table. You can move, or remove it, as needed.
+            this.receiptTableAdapter.Fill(this.digitCashierDataSet.receipt);
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
 
         }
     }

@@ -31,6 +31,7 @@ namespace Calculator2
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.tenPercentButton = new System.Windows.Forms.Button();
             this.twentyPercentButton = new System.Windows.Forms.Button();
@@ -74,7 +75,6 @@ namespace Calculator2
             this.customerNrLabel = new System.Windows.Forms.Label();
             this.customerNrTextBox = new System.Windows.Forms.TextBox();
             this.idNrLabel = new System.Windows.Forms.Label();
-            this.reciptNrTextBox = new System.Windows.Forms.TextBox();
             this.reciptNrLabel = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.searchTextBox = new System.Windows.Forms.TextBox();
@@ -95,7 +95,24 @@ namespace Calculator2
             this.btn_CashOk = new System.Windows.Forms.Button();
             this.txtb_CashAmount = new System.Windows.Forms.TextBox();
             this.deletRowBotton = new System.Windows.Forms.Button();
+            this.reciptNrTextBox = new System.Windows.Forms.DataGridView();
+            this.dataSet1 = new Calculator2.DataSet1();
+            this.dataSet1BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.digitCashierDataSet = new Calculator2.DigitCashierDataSet();
+            this.receiptBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.receiptTableAdapter = new Calculator2.DigitCashierDataSetTableAdapters.receiptTableAdapter();
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.digitCashierDataSet1 = new Calculator2.DigitCashierDataSet1();
+            this.receiptBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.receiptTableAdapter1 = new Calculator2.DigitCashierDataSet1TableAdapters.receiptTableAdapter();
             this.pnl_Amount.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.reciptNrTextBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet1BindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.digitCashierDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.receiptBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.digitCashierDataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.receiptBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // dateTimePicker1
@@ -704,16 +721,6 @@ namespace Calculator2
             this.idNrLabel.TabIndex = 184;
             this.idNrLabel.Text = "ID Nr: ";
             // 
-            // reciptNrTextBox
-            // 
-            this.reciptNrTextBox.Location = new System.Drawing.Point(105, 17);
-            this.reciptNrTextBox.Name = "reciptNrTextBox";
-            this.reciptNrTextBox.Size = new System.Drawing.Size(143, 22);
-            this.reciptNrTextBox.TabIndex = 183;
-            this.reciptNrTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.reciptNrTextBox.TextChanged += new System.EventHandler(this.reciptNrTextBox_TextChanged);
-            this.reciptNrTextBox.ControlAdded += new System.Windows.Forms.ControlEventHandler(this.reciptNrTextBox_ControlAdded);
-            // 
             // reciptNrLabel
             // 
             this.reciptNrLabel.AutoSize = true;
@@ -898,11 +905,72 @@ namespace Calculator2
             this.deletRowBotton.UseVisualStyleBackColor = false;
             this.deletRowBotton.Click += new System.EventHandler(this.deletRowbotton);
             // 
+            // reciptNrTextBox
+            // 
+            this.reciptNrTextBox.AutoGenerateColumns = false;
+            this.reciptNrTextBox.BackgroundColor = System.Drawing.Color.White;
+            this.reciptNrTextBox.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.reciptNrTextBox.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idDataGridViewTextBoxColumn});
+            this.reciptNrTextBox.DataSource = this.receiptBindingSource1;
+            this.reciptNrTextBox.GridColor = System.Drawing.Color.White;
+            this.reciptNrTextBox.Location = new System.Drawing.Point(102, -1);
+            this.reciptNrTextBox.Name = "reciptNrTextBox";
+            this.reciptNrTextBox.RowTemplate.Height = 24;
+            this.reciptNrTextBox.Size = new System.Drawing.Size(146, 52);
+            this.reciptNrTextBox.TabIndex = 250;
+            this.reciptNrTextBox.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // dataSet1
+            // 
+            this.dataSet1.DataSetName = "DataSet1";
+            this.dataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // dataSet1BindingSource
+            // 
+            this.dataSet1BindingSource.DataSource = this.dataSet1;
+            this.dataSet1BindingSource.Position = 0;
+            // 
+            // digitCashierDataSet
+            // 
+            this.digitCashierDataSet.DataSetName = "DigitCashierDataSet";
+            this.digitCashierDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // receiptBindingSource
+            // 
+            this.receiptBindingSource.DataMember = "receipt";
+            this.receiptBindingSource.DataSource = this.digitCashierDataSet;
+            // 
+            // receiptTableAdapter
+            // 
+            this.receiptTableAdapter.ClearBeforeFill = true;
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "id";
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            // 
+            // digitCashierDataSet1
+            // 
+            this.digitCashierDataSet1.DataSetName = "DigitCashierDataSet1";
+            this.digitCashierDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // receiptBindingSource1
+            // 
+            this.receiptBindingSource1.DataMember = "receipt";
+            this.receiptBindingSource1.DataSource = this.digitCashierDataSet1;
+            // 
+            // receiptTableAdapter1
+            // 
+            this.receiptTableAdapter1.ClearBeforeFill = true;
+            // 
             // Calculator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1100, 696);
+            this.Controls.Add(this.reciptNrTextBox);
             this.Controls.Add(this.deletRowBotton);
             this.Controls.Add(this.btn_subtract);
             this.Controls.Add(this.goodsListView);
@@ -956,15 +1024,22 @@ namespace Calculator2
             this.Controls.Add(this.customerNrLabel);
             this.Controls.Add(this.customerNrTextBox);
             this.Controls.Add(this.idNrLabel);
-            this.Controls.Add(this.reciptNrTextBox);
             this.Controls.Add(this.reciptNrLabel);
             this.Controls.Add(this.pnl_Amount);
             this.KeyPreview = true;
             this.MaximizeBox = false;
             this.Name = "Calculator";
             this.Text = "Kassa";
+            this.Load += new System.EventHandler(this.Calculator_Load_2);
             this.pnl_Amount.ResumeLayout(false);
             this.pnl_Amount.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.reciptNrTextBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet1BindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.digitCashierDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.receiptBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.digitCashierDataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.receiptBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1041,7 +1116,6 @@ namespace Calculator2
         private System.Windows.Forms.Label customerNrLabel;
         private System.Windows.Forms.TextBox customerNrTextBox;
         private System.Windows.Forms.Label idNrLabel;
-        private System.Windows.Forms.TextBox reciptNrTextBox;
         private System.Windows.Forms.Label reciptNrLabel;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox searchTextBox;
@@ -1062,6 +1136,16 @@ namespace Calculator2
         private System.Windows.Forms.Button btn_CashOk;
         private System.Windows.Forms.TextBox txtb_CashAmount;
         private Button deletRowBotton;
+        private DataGridView reciptNrTextBox;
+        private BindingSource dataSet1BindingSource;
+        private DataSet1 dataSet1;
+        private DigitCashierDataSet digitCashierDataSet;
+        private BindingSource receiptBindingSource;
+        private DigitCashierDataSetTableAdapters.receiptTableAdapter receiptTableAdapter;
+        private DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private DigitCashierDataSet1 digitCashierDataSet1;
+        private BindingSource receiptBindingSource1;
+        private DigitCashierDataSet1TableAdapters.receiptTableAdapter receiptTableAdapter1;
 
         public EventHandler CommaButton_Click_1 { get; private set; }
         public EventHandler DeleteButton_Click_1 { get; private set; }

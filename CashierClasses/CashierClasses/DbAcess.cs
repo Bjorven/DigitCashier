@@ -244,44 +244,44 @@ namespace CashierClasses
 
         #region Export Store Data to Sql
 
-        public void ExportSqlData(DataTable prod)
-        {
+        //public void ExportSqlData(DataTable prod)
+        //{
 
-            try
-            {
-                connection.Open();
+        //    try
+        //    {
+        //        connection.Open();
 
 
-                //cmd = new SqlCommand("Delete  from [" + reg.Getstorename + "]", sc);
-                //cmd.ExecuteNonQuery();
-                for (int i = 0; prod.Count > i; i++)
-                {
-                    command = new SqlCommand("dbo.InsertUpdate ");
-                    command.ExecuteNonQuery();
+        //        //cmd = new SqlCommand("Delete  from [" + reg.Getstorename + "]", sc);
+        //        //cmd.ExecuteNonQuery();
+        //        for (int i = 0; prod.Count > i; i++)
+        //        {
+        //            command = new SqlCommand("dbo.InsertUpdate ");
+        //            command.ExecuteNonQuery();
                     
-                }
+        //        }
 
-            }
-            catch (Exception ex)
-            {
+        //    }
+        //    catch (Exception ex)
+        //    {
 
-                MessageBox.Show(ex.Message);
-
-
-            }
+        //        MessageBox.Show(ex.Message);
 
 
-            finally
-            {
-                connection.Close();
+        //    }
 
 
-            }
+        //    finally
+        //    {
+        //        connection.Close();
+
+
+        //    }
 
 
 
 
-        }
+        //}
 
         #endregion
 
