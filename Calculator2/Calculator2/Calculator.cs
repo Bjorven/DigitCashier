@@ -688,10 +688,11 @@ namespace Calculator2
 
         private void Calculator_Load_2(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'digitCashierDataSet2.Employee' table. You can move, or remove it, as needed.
-            this.employeeTableAdapter.Fill(this.digitCashierDataSet2.Employee);
-            // This line of code loads data into the 'digitCashierDataSet1.receipt' table. You can move, or remove it, as needed.
-            this.receiptTableAdapter1.Fill(this.digitCashierDataSet1.receipt);
+            // TODO: This line of code loads data into the 'digitCashierDataSet9.receipt' table. You can move, or remove it, as needed.
+            this.receiptTableAdapter.Fill(this.digitCashierDataSet9.receipt);
+            // TODO: This line of code loads data into the 'digitCashierDataSet8.Employee' table. You can move, or remove it, as needed.
+            this.employeeTableAdapter.Fill(this.digitCashierDataSet8.Employee);
+           
            
         }
 
@@ -699,6 +700,10 @@ namespace Calculator2
         {
 
         }
+
+       
+
+        
     }
     }
 
