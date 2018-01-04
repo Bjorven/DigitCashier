@@ -18,6 +18,5 @@ namespace AdminProgram
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new FrmAdmin());
         }
-        
     }
 }

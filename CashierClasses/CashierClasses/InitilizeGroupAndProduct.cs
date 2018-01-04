@@ -15,7 +15,6 @@ namespace CashierClasses
         private DataSet productGroups;
         private DataSet products;
 
-
         //protected override void Seed(ProductContext context)
         //{
         //    GetCategories().ForEach(c => context.Categories.Add(c)); 
@@ -24,7 +23,6 @@ namespace CashierClasses
 
         public static List<ProductGroup> GetCategories()
         {
-
             DbAcess db = new DbAcess();
             DataSet productGroups = db.GetPgGroup();
 
@@ -44,12 +42,10 @@ namespace CashierClasses
                     PGId = Convert.ToInt16(productGroups.Tables[0].Rows[2][0]),
                     PGName = productGroups.Tables[0].Rows[2][1].ToString()
                 },
-
             };
 
             return ProductGroup;
         }
-
         public static List<Product> GetProducts()
         {
             DbAcess db = new DbAcess();
@@ -70,8 +66,6 @@ namespace CashierClasses
                      Supplier = products.Tables[0].Rows[0][9].ToString(),
                      Vat = Convert.ToDouble(products.Tables[0].Rows[0][7]),
                      InStock = Convert.ToDouble(products.Tables[0].Rows[0][11]),
-
-
                 },
                 new Product
                 {
@@ -143,9 +137,7 @@ namespace CashierClasses
                      Vat = Convert.ToDouble(products.Tables[0].Rows[5][7]),
                      InStock = Convert.ToDouble(products.Tables[0].Rows[5][11]),
                 },
-              
             };
-
             return Products;
         }
     }

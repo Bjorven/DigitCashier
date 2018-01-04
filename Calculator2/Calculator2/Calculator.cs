@@ -752,8 +752,6 @@ namespace Calculator2
             //}
             //label1.Text = Row;
         }
-
-
     }
 }
 

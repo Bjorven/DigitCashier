@@ -24,12 +24,10 @@ namespace CashierClasses
 
         private DateTime issuedate;
 
-
         private double change;
         private double totalPrice;
         private double Vat;
         private double toPay;
-       
 
         private Boolean cash;
         private Boolean credit;
@@ -52,8 +50,6 @@ namespace CashierClasses
 
         public Receipt() { }
 
-        
-
         public Receipt (string foretagsnamn, int orgnr, int receiptId, int productQty, DateTime issuedate, double totalPrice, double vat1, bool cash, bool credit, bool coupon)
         {
             Foretagsnamn = foretagsnamn;
@@ -66,16 +62,8 @@ namespace CashierClasses
             Cash = cash;
             Credit = credit;
             Coupon = coupon;
-
-
         }
-
         //*************************************************************************************************************************************************
-
-
-        
-
-
 
         public void print(List<Product> cartItems)
         {
@@ -84,7 +72,6 @@ namespace CashierClasses
             pdoc = new PrintDocument();
             PrinterSettings ps = new PrinterSettings();
             Font font = new Font("Courier New", 15);
-
 
             PaperSize psize = new PaperSize("Custom", 100, 200);
             //ps.DefaultPageSettings.PaperSize = psize;
@@ -109,9 +96,7 @@ namespace CashierClasses
                     pdoc.Print();
                 }
             }
-
         }
-
         //************************************************************************************************************************************************
 
         void pdoc_PrintPage(object sender, PrintPageEventArgs e)
@@ -137,7 +122,6 @@ namespace CashierClasses
             graphics.DrawString(underLine, new Font("Courier New", 10),
                      new SolidBrush(Color.Black), startX, startY + Offset);
 
-
             foreach (Product p in cartItem) {
                 Offset = Offset + 20;
                 String productName = p.Name;
@@ -147,7 +131,6 @@ namespace CashierClasses
                     new Font("Courier New", 10),
                     new SolidBrush(Color.Black), startX, startY + Offset);
             }
-
 
             Offset = Offset + 20;
             String Grosstotal = "Total Amount to Paid = " + this.TotalPrice;
@@ -161,7 +144,6 @@ namespace CashierClasses
             graphics.DrawString(Grosstotal, new Font("Courier New", 10),
                      new SolidBrush(Color.Black), startX, startY + Offset);
             Offset = Offset + 20;
-
         }
         //**************************************************************************************************************************************************
     }
