@@ -27,6 +27,7 @@ namespace Calculator2
         Product SearchedProduct;
         User myUser;
         List<Product> shoppingCart = new List<Product>();
+        DbAcess dbReceipt;
 
         private string checker;
         string input = string.Empty;
@@ -48,8 +49,10 @@ namespace Calculator2
         bool isCalc = false;
         bool qtyAmount = false;
         bool DeployPayment = false;
-        bool hasDiscount;
-        bool hasCoupon;
+        private bool cash = false;
+        private bool credit = false;
+        bool hasDiscount = false;
+        bool hasCoupon = false;
         double Mresult = 1;
 
         public Calculator(User myUser)
@@ -58,12 +61,17 @@ namespace Calculator2
             this.myUser = myUser;
             InitializeComponent();
             InitilizeGroupAndProduct initilize = new InitilizeGroupAndProduct();
-
+            dbReceipt = new DbAcess();
+            reciptNrTextBox.Text = dbReceipt.getReceiptid().ToString("0000");
+            idnameComboBox.Text = myUser.Fname + " " + myUser.Sname;
             goodsListView.HideSelection = false;
             goodsListView.Focus();
             idNrTextBox.Text = myUser.UserName.ToString();
 
         }
+
+        public bool Cash { get; set; }
+        public bool Credit { get; set; }
         //*************************************************************************************************************************************
         // Siffrorna till kassaprogrammet/Calculator
 
@@ -629,15 +637,16 @@ namespace Calculator2
                 {
                     Foretagsnamn = "Ica Nära",
                     Orgnr = 1337,
-                    ReceiptId = 0003,//Convert.ToInt16(reciptNrTextBox.Text),
-                    Issuedate = DateTime.Now,//Convert.ToDateTime(dateTimePicker1.Text),
+                    ReceiptId = Convert.ToInt16(reciptNrTextBox.Text),
+                    Issuedate = DateTime.Now,
                     TotalPrice = Convert.ToDouble(totalTextBox.Text),
                     Topay = Convert.ToDouble(toPayTextBox.Text),
                     Change = Convert.ToDouble(changeTextBox.Text),
                     Vat1 = Convert.ToDouble(momsTextBox.Text),
-                    Cash = DeployPayment,
+                    Cash = cash,
                     Coupon = hasCoupon,
-                    Credit = DeployPayment,
+                    Credit = credit,
+                    ProductQty = shoppingCart.Count,
                 };
                 newReceipt.print(shoppingCart);
 
@@ -686,6 +695,7 @@ namespace Calculator2
             txtb_CashAmount.Clear();
             pnl_Amount.BringToFront();
             DeployPayment = true;
+            Credit = true;
 
 
             //// Här skapar vi ett datatable för att skicka upp de köpta produkterna till databasen.
@@ -746,6 +756,11 @@ namespace Calculator2
             //    Row += "st" + i.ToString("000") + System.Environment.NewLine;
             //}
             //label1.Text = Row;
+        }
+
+        private void CardButton_Click(object sender, EventArgs e)
+        {
+            Credit = true;
         }
     }
 }

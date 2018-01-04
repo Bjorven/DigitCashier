@@ -68,6 +68,7 @@ namespace CashierClasses
         public void print(List<Product> cartItems)
         {
             this.cartItem = cartItems;
+
             PrintDialog pd = new PrintDialog();
             pdoc = new PrintDocument();
             PrinterSettings ps = new PrinterSettings();
@@ -96,6 +97,10 @@ namespace CashierClasses
                     pdoc.Print();
                 }
             }
+            Receipt myreceipt = new Receipt();
+            myreceipt = this;
+            DbAcess db = new DbAcess();
+            db.insertIntoReceiptdb();
         }
         //************************************************************************************************************************************************
 
