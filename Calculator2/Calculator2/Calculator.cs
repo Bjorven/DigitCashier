@@ -690,8 +690,7 @@ namespace Calculator2
         {
             // TODO: This line of code loads data into the 'digitCashierDataSet9.receipt' table. You can move, or remove it, as needed.
             this.receiptTableAdapter.Fill(this.digitCashierDataSet9.receipt);
-            // TODO: This line of code loads data into the 'digitCashierDataSet8.Employee' table. You can move, or remove it, as needed.
-            this.employeeTableAdapter.Fill(this.digitCashierDataSet8.Employee);
+           
            
            
         }
@@ -701,9 +700,10 @@ namespace Calculator2
 
         }
 
-       
+        private void reciptNrTextBox_TextChanged_1(object sender, EventArgs e)
+        {
 
-        
+        }
     }
     }
 

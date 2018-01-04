@@ -81,6 +81,8 @@ namespace Calculator2
             this.changeTextBox = new System.Windows.Forms.TextBox();
             this.totalLabel = new System.Windows.Forms.Label();
             this.idnameComboBox = new System.Windows.Forms.ComboBox();
+            this.employeeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.digitCashierDataSet8 = new Calculator2.DigitCashierDataSet8();
             this.goodsListView = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -93,17 +95,15 @@ namespace Calculator2
             this.btn_CashOk = new System.Windows.Forms.Button();
             this.txtb_CashAmount = new System.Windows.Forms.TextBox();
             this.deletRowBotton = new System.Windows.Forms.Button();
-            this.digitCashierDataSet8 = new Calculator2.DigitCashierDataSet8();
-            this.employeeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.employeeTableAdapter = new Calculator2.DigitCashierDataSet8TableAdapters.EmployeeTableAdapter();
             this.digitCashierDataSet9 = new Calculator2.DigitCashierDataSet9();
             this.receiptBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.receiptTableAdapter = new Calculator2.DigitCashierDataSet9TableAdapters.receiptTableAdapter();
             this.reciptNrTextBox = new System.Windows.Forms.TextBox();
             this.receiptTableAdapter1 = new Calculator2.DigitCashierDataSet4TableAdapters.receiptTableAdapter();
-            this.pnl_Amount.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.digitCashierDataSet8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.employeeBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.digitCashierDataSet8)).BeginInit();
+            this.pnl_Amount.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.digitCashierDataSet9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.receiptBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -777,6 +777,16 @@ namespace Calculator2
             this.idnameComboBox.TabIndex = 245;
             this.idnameComboBox.ValueMember = "sName";
             // 
+            // employeeBindingSource
+            // 
+            this.employeeBindingSource.DataMember = "Employee";
+            this.employeeBindingSource.DataSource = this.digitCashierDataSet8;
+            // 
+            // digitCashierDataSet8
+            // 
+            this.digitCashierDataSet8.DataSetName = "DigitCashierDataSet8";
+            this.digitCashierDataSet8.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // goodsListView
             // 
             this.goodsListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
@@ -884,16 +894,6 @@ namespace Calculator2
             this.deletRowBotton.UseVisualStyleBackColor = false;
             this.deletRowBotton.Click += new System.EventHandler(this.DeletRowbotton);
             // 
-            // digitCashierDataSet8
-            // 
-            this.digitCashierDataSet8.DataSetName = "DigitCashierDataSet8";
-            this.digitCashierDataSet8.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // employeeBindingSource
-            // 
-            this.employeeBindingSource.DataMember = "Employee";
-            this.employeeBindingSource.DataSource = this.digitCashierDataSet8;
-            // 
             // employeeTableAdapter
             // 
             this.employeeTableAdapter.ClearBeforeFill = true;
@@ -918,6 +918,7 @@ namespace Calculator2
             this.reciptNrTextBox.Name = "reciptNrTextBox";
             this.reciptNrTextBox.Size = new System.Drawing.Size(258, 22);
             this.reciptNrTextBox.TabIndex = 250;
+            this.reciptNrTextBox.TextChanged += new System.EventHandler(this.reciptNrTextBox_TextChanged_1);
             // 
             // receiptTableAdapter1
             // 
@@ -987,10 +988,10 @@ namespace Calculator2
             this.Name = "Calculator";
             this.Text = "Kassa";
             this.Load += new System.EventHandler(this.Calculator_Load_2);
+            ((System.ComponentModel.ISupportInitialize)(this.employeeBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.digitCashierDataSet8)).EndInit();
             this.pnl_Amount.ResumeLayout(false);
             this.pnl_Amount.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.digitCashierDataSet8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.employeeBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.digitCashierDataSet9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.receiptBindingSource)).EndInit();
             this.ResumeLayout(false);
