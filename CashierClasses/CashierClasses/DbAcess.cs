@@ -24,7 +24,7 @@ namespace CashierClasses
         {
             connection = new SqlConnection
             {
-                ConnectionString = @"Data Source=LAPTOP-B9AASP37\SQLEXPRESS;Initial Catalog=DigitCashier;Integrated Security=True"
+                ConnectionString = @"Data Source=LAPTOP-TU1UMOIC;Initial Catalog=DigitCashier;Integrated Security=True"
             };
             command = new SqlCommand
             {
@@ -56,7 +56,7 @@ namespace CashierClasses
             {
                 // här skickar vi ut och tilldelar user's data
                 //vi måste göra detta en och en för att se vilken jag har parsat/castat fel.
-                CashierClasses.User getUser = new User (
+                CashierClasses.User getUser = new User(
                 ////UserName 
                 Convert.ToInt16(ds.Tables[0].Rows[0][0]),
                 ////Fname 
@@ -105,6 +105,7 @@ namespace CashierClasses
             }
         }
 
+
         // Detta är vår metod för att spara upp hur lång tid en användare har arbetat (varit inloggad), 
         // denna tid summeras upp till en "total arbetade timmar"-coloumn i Databasen.
         public User GetTimestamp(User user)
@@ -132,10 +133,21 @@ namespace CashierClasses
 
 
 
+        public DataSet GetPgGroup()
+        {
+            command.CommandText = "select * from ProductGroup";
+            connection.Open();
+            SqlDataAdapter adapt = new SqlDataAdapter();
+            DataSet ds = new DataSet();
+            adapt.Fill(ds);
+            connection.Close();
+            return ds;
+        }
+
         public DataSet GetGoodsList()
         {
 
-            command.CommandText = "Select P.idnumber, P.Pname, P.price, P.qty, P.PricePerHg, P.pricePerKg, PG.PGname, V.Vvalue, M.Mname, S.Supname from Product P, ProductGroup PG, Vat V, Manufacturer M, Supplier s Where P.receiptId is NULL and P.productGroupId = PG.PGid and P.vatId = V.Vid and P.manufacturerId = M.Mid and P.supplierId = S.Supid";
+            command.CommandText = "Select P.idnumber, P.Pname, P.price, P.qty, P.PricePerHg, P.pricePerKg, PG.PGname, V.Vvalue, M.Mname, S.Supname, P.productGroupId, P.inStock from Product P, ProductGroup PG, Vat V, Manufacturer M, Supplier s Where P.receiptId is NULL and P.productGroupId = PG.PGid and P.vatId = V.Vid and P.manufacturerId = M.Mid and P.supplierId = S.Supid";
             connection.Open();
             SqlDataAdapter adapt = new SqlDataAdapter(command);
             DataSet ds = new DataSet();
@@ -150,22 +162,6 @@ namespace CashierClasses
             SqlParameter workperameter1 = new SqlParameter();
             DataSet ds = new DataSet();
 
-            if (searchText.Contains("*"))
-            {
-                connection.Open();
-                command.CommandText = "spGetProduct";
-                command.CommandType = CommandType.StoredProcedure;
-
-                workperameter1 = command.Parameters.Add("@searchText", SqlDbType.VarChar);
-                workperameter1.Value = searchText;
-                command.ExecuteNonQuery();
-
-                SqlDataAdapter adapt1 = new SqlDataAdapter(command);
-                adapt1.Fill(ds);
-                connection.Close();
-            }
-
-            
             command.CommandText = "spGetProduct";
             command.CommandType = CommandType.StoredProcedure;
             connection.Open();
@@ -180,18 +176,23 @@ namespace CashierClasses
             if (count == 1)
             {
                 Product getproduct = new Product
-                 (
-                 Convert.ToInt16(ds.Tables[0].Rows[0][0].ToString()),
-                 Convert.ToDouble(ds.Tables[0].Rows[0][1].ToString()),
-                 //Convert.ToInt32(ds.Tables[0].Rows[0][2].ToString()),
-                 Convert.ToString(ds.Tables[0].Rows[0][2].ToString()),
-                 Convert.ToString(ds.Tables[0].Rows[0][3].ToString()),
-                 Convert.ToString(ds.Tables[0].Rows[0][4].ToString()),
-                 Convert.ToDouble(ds.Tables[0].Rows[0][5].ToString()),
-                 Convert.ToBoolean(ds.Tables[0].Rows[0][7].ToString()),
-                 Convert.ToBoolean(ds.Tables[0].Rows[0][6].ToString()),
-                 Convert.ToString(ds.Tables[0].Rows[0][8].ToString())
-                 );
+                {
+                    Id = Convert.ToInt16(ds.Tables[0].Rows[0][0]),
+                    Price = Convert.ToDouble(ds.Tables[0].Rows[0][1]),
+                    Manufacturer = ds.Tables[0].Rows[0][2].ToString(),
+                    Supplier = ds.Tables[0].Rows[0][3].ToString(),
+                    Vat = Convert.ToDouble(ds.Tables[0].Rows[0][5]),
+                    PricePerHG = Convert.ToBoolean(ds.Tables[0].Rows[0][6]),
+                    PricePerKG = Convert.ToBoolean(ds.Tables[0].Rows[0][7]),
+                    Name = ds.Tables[0].Rows[0][8].ToString(),
+                    InStock = Convert.ToDouble(ds.Tables[0].Rows[0][9]),
+                    Qty = Convert.ToDouble(ds.Tables[0].Rows[0][10]),
+                    ProductGroupId = Convert.ToInt16(ds.Tables[0].Rows[0][10]),
+                    ProductGroupname = ds.Tables[0].Rows[0][4].ToString(),
+
+                };
+                
+                 
                 return getproduct;
             }
             else
@@ -249,17 +250,13 @@ namespace CashierClasses
 
         //    try
         //    {
+        //        command.CommandText = "Select P.idnumber, P.Pname, P.price, P.qty, P.PricePerHg, P.pricePerKg, PG.PGname, V.Vvalue, M.Mname, S.Supname from Product P, ProductGroup PG, Vat V, Manufacturer M, Supplier s Where P.receiptId is NULL and P.productGroupId = PG.PGid and P.vatId = V.Vid and P.manufacturerId = M.Mid and P.supplierId = S.Supid";
+        //        command.CommandType = CommandType.Text;
         //        connection.Open();
+        //        command.ExecuteNonQuery();
+        //        SqlDataAdapter adapt = new SqlDataAdapter(command);
+        //        adapt.Fill(prod);
 
-
-        //        //cmd = new SqlCommand("Delete  from [" + reg.Getstorename + "]", sc);
-        //        //cmd.ExecuteNonQuery();
-        //      /  for (int i = 0; prod.Count > i; i++)
-        //        {
-        //            command = new SqlCommand("dbo.InsertUpdate ");
-        //            command.ExecuteNonQuery();
-
-        //        }
 
         //    }
         //    catch (Exception ex)
@@ -287,13 +284,13 @@ namespace CashierClasses
 
 
 
-        //public void insertIntoDatabase(ListView cartItems)
+        //public void insertIntoDatabase(List<Product> cartItems, string textBox)
         //{
-        //    string sql = ;
+        //    string sql = "";
         //    command.CommandType = CommandType.Text;
-        //    foreach(ListViewItem item in cartItems.Items)
+        //    foreach (Product item in cartItems)
         //    {
-        //        string qry = string.Format(sql, item.SubItems[0].Text, item.SubItems[1].Text, item.SubItems[3].Text, item.SubItems[4].Text);
+        //        string qry = string.Format(sql, item.Id, item.Name, item.Price, item.Qty, item.Vat, item.Manufacturer, item.Supplier, item.ProductGroupname, item.PricePerHG, item.PricePerKG);
         //        using (command = new SqlCommand(qry, connection))
         //        {
         //            connection.Open();

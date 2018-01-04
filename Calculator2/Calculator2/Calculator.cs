@@ -26,7 +26,7 @@ namespace Calculator2
         Receipt receipt;
         Product SearchedProduct;
         User myUser;
-
+        List<Product> shoppingCart = new List<Product>();
 
         private string checker;
         string input = string.Empty;
@@ -59,6 +59,8 @@ namespace Calculator2
         {
             this.myUser = myUser;
             InitializeComponent();
+            InitilizeGroupAndProduct initilize = new InitilizeGroupAndProduct();
+
             goodsListView.HideSelection = false;
             goodsListView.Focus();
             idNrTextBox.Text = myUser.UserName.ToString();
@@ -279,7 +281,7 @@ namespace Calculator2
 
                 GetTotalSum();
 
-                
+
 
             }
         }
@@ -342,6 +344,7 @@ namespace Calculator2
             operation = "*";
         }
 
+        #region OK BUTTON
         private void OkBotton__Click(object sender, EventArgs e)
         {
             if (isCalc == true)
@@ -367,20 +370,130 @@ namespace Calculator2
 
                 if (searchTextBox.Text != "")
                 {
-
+                    // laddar in produkter i listviewn.
+                    // kollar ifall den redan finns i listan genom .name och containskey funktionerna i listvew.
+                    // adderar qty ifall den redan finns.
                     CashierClasses.DbAcess db = new CashierClasses.DbAcess();
                     CashierClasses.Product searchProduct = db.GetProduct(searchTextBox.Text);
+                    this.SearchedProduct = searchProduct;
 
-                    myProducts = new ListViewItem(searchProduct.Id.ToString());
-                    myProducts.SubItems.Add(searchProduct.Name);
-                    myProducts.SubItems.Add(searchProduct.ProductGroup.ToString());
-                    myProducts.SubItems.Add(searchProduct.Price.ToString());
-                    tal2 = 1;
-                    myProducts.SubItems.Add(tal2.ToString());
+                    if (goodsListView.Items.Count > 0)
+                    {
 
-                    goodsListView.Items.Add(myProducts);
-                    searchTextBox.Clear();
-                    SearchedProduct = new Product(searchProduct.Id, searchProduct.Price, searchProduct.Manufacturer, searchProduct.Supplier, searchProduct.ProductGroup, searchProduct.Vat, searchProduct.PricePerKG, searchProduct.PricePerHG, searchProduct.Name);
+                        if (!goodsListView.Items.ContainsKey(searchProduct.Id.ToString()))
+                        {
+                            #region add new product to listview
+                            myProducts = new ListViewItem(searchProduct.Id.ToString());
+                            myProducts.Name = searchProduct.Id.ToString();
+                            myProducts.SubItems.Add(searchProduct.Name);
+                            myProducts.SubItems.Add(searchProduct.ProductGroupname.ToString());
+                            myProducts.SubItems.Add(searchProduct.Price.ToString());
+                            tal2 = 1;
+                            myProducts.SubItems.Add(tal2.ToString());
+
+                            goodsListView.Items.Add(myProducts);
+                            searchTextBox.Clear();
+                            // Vi gör detta för att kunna ha en ref till senare om värdet skulle bli decimal.
+                            myRef = Convert.ToDouble(myProducts.SubItems[4].Text);
+
+                            shoppingCart.Add(new Product()
+                            {
+
+                                Id = SearchedProduct.Id,
+                                InStock = SearchedProduct.InStock,
+                                Manufacturer = SearchedProduct.Manufacturer,
+                                Name = SearchedProduct.Name,
+                                Price = SearchedProduct.Price,
+                                PricePerHG = SearchedProduct.PricePerHG,
+                                PricePerKG = SearchedProduct.PricePerKG,
+                                ProductGroup = SearchedProduct.ProductGroup,
+                                ProductGroupId = SearchedProduct.ProductGroupId,
+                                ProductGroupname = SearchedProduct.ProductGroupname,
+                                Qty = tal2,
+                                Supplier = SearchedProduct.Supplier,
+                                Vat = SearchedProduct.Vat,
+                            });
+                            #endregion
+
+                        }
+
+                        else
+                        {
+                            #region qty++
+                            
+
+                            // för ref till decimal
+                            myRef = Convert.ToDouble(myProducts.SubItems[4].Text);
+                            searchTextBox.Clear();
+                            
+                            var index = shoppingCart.FindIndex(c => c.Id == searchProduct.Id);
+                            tal2++;
+                            shoppingCart[index] = new Product
+                            {
+
+                                Id = SearchedProduct.Id,
+                                InStock = SearchedProduct.InStock,
+                                Manufacturer = SearchedProduct.Manufacturer,
+                                Name = SearchedProduct.Name,
+                                Price = SearchedProduct.Price,
+                                PricePerHG = SearchedProduct.PricePerHG,
+                                PricePerKG = SearchedProduct.PricePerKG,
+                                ProductGroup = SearchedProduct.ProductGroup,
+                                ProductGroupId = SearchedProduct.ProductGroupId,
+                                ProductGroupname = SearchedProduct.ProductGroupname,
+                                Qty = tal2,
+                                Supplier = SearchedProduct.Supplier,
+                                Vat = SearchedProduct.Vat,
+                            };
+                            
+                            myProducts.SubItems[4].Text = tal2.ToString();
+
+                            #endregion
+
+                        }
+
+                    }
+                    else if (goodsListView.Items.Count < 1)
+                    {
+                        #region add new product to listview
+                        myProducts = new ListViewItem(searchProduct.Id.ToString());
+                        myProducts.Name = searchProduct.Id.ToString();
+                        myProducts.SubItems.Add(searchProduct.Name);
+                        myProducts.SubItems.Add(searchProduct.ProductGroupname.ToString());
+                        myProducts.SubItems.Add(searchProduct.Price.ToString());
+                        tal2 = 1;
+                        myProducts.SubItems.Add(tal2.ToString());
+
+                        goodsListView.Items.Add(myProducts);
+                        searchTextBox.Clear();
+                        // Vi gör detta för att kunna ha en ref till senare om värdet skulle bli decimal.
+                        myRef = Convert.ToDouble(myProducts.SubItems[4].Text);
+
+                        shoppingCart.Add(new Product()
+                        {
+
+                            Id = SearchedProduct.Id,
+                            InStock = SearchedProduct.InStock,
+                            Manufacturer = SearchedProduct.Manufacturer,
+                            Name = SearchedProduct.Name,
+                            Price = SearchedProduct.Price,
+                            PricePerHG = SearchedProduct.PricePerHG,
+                            PricePerKG = SearchedProduct.PricePerKG,
+                            ProductGroup = SearchedProduct.ProductGroup,
+                            ProductGroupId = SearchedProduct.ProductGroupId,
+                            ProductGroupname = SearchedProduct.ProductGroupname,
+                            Qty = tal2,
+                            Supplier = SearchedProduct.Supplier,
+                            Vat = SearchedProduct.Vat,
+                        });
+                        #endregion
+
+                    }
+
+
+
+
+                    //SearchedProduct = new Product(searchProduct.Id, searchProduct.Price, searchProduct.Manufacturer, searchProduct.Supplier, searchProduct.ProductGroup, searchProduct.Vat, searchProduct.PricePerKG, searchProduct.PricePerHG, searchProduct.Name);
                     if (searchProduct.PricePerHG || searchProduct.PricePerKG == true)
                     {
                         qtyAmount = true;
@@ -398,24 +511,27 @@ namespace Calculator2
                     //        i.SubItems[4].Text = qtyRef.ToString();
                     //    }
                     //}
-                }
-                else
-                {
-                    toPayTextBox.Text = "";
 
+                    else
+                    {
+                        toPayTextBox.Text = "";
+
+                    }
                 }
 
                 // denna funktion summerar alla tillagda produkter till toTextBox
                 GetTotalSum();
-                // Vi gör detta för att kunna ha en ref till senare om värdet skulle bli decimal.
-                myRef = Convert.ToDouble(myProducts.SubItems[4].Text);
-
-
 
             }
-
-
+            // här skapas en lista över alla produkter i varukorgen.
+            #region Shoppingcart list
+            
+            
+            #endregion
         }
+
+
+        #endregion
 
         private void DiscountTextBox_TextChanged(object sender, EventArgs e)
         {
@@ -551,7 +667,7 @@ namespace Calculator2
                 tal2 = Convert.ToDouble(myProducts.SubItems[4].Text);
             }
 
-            
+
         }
 
         private void Btn_AmountOk_Click(object sender, EventArgs e)
@@ -559,11 +675,24 @@ namespace Calculator2
             if (DeployPayment == true)
             {
                 totalTextBox.Text = txtb_CashAmount.Text;
-                CashierClasses.Receipt newReceipt = new CashierClasses.Receipt();
-                newReceipt.print(goodsListView);
+                CashierClasses.Receipt newReceipt = new CashierClasses.Receipt
+                {
+                    Foretagsnamn = "Ica Nära",
+                    Orgnr = 1337,
+                    ReceiptId =  0003,//Convert.ToInt16(reciptNrTextBox.Text),
+                    Issuedate = Convert.ToDateTime(dateTimePicker1.Text),
+                    TotalPrice = Convert.ToDouble(totalTextBox.Text),
+                    Topay = Convert.ToDouble(toPayTextBox.Text),
+                    Change = Convert.ToDouble(changeTextBox.Text),
+                    Vat1 = Convert.ToDouble(momsTextBox.Text),
+                    Cash = DeployPayment,
+                    Coupon = hasCoupon,
+                    Credit = DeployPayment,
+                }; 
+                newReceipt.print(shoppingCart);
 
                 //DbAcess db = new DbAcess();
-                //db.insertIntoDatabase(goodsListView);
+                //db.insertIntoDatabase(shoppingCart, reciptNrTextBox.Text);
 
                 // så att man inte skriver ut varjegång man klickar någonstans.
                 DeployPayment = false;
@@ -580,7 +709,7 @@ namespace Calculator2
 
 
 
-        
+
 
         private void Calculator_Load(object sender, EventArgs e)
         {
@@ -613,37 +742,39 @@ namespace Calculator2
             txtb_CashAmount.Clear();
             pnl_Amount.BringToFront();
             DeployPayment = true;
-            
-            
-            // Här skapar vi ett datatable för att skicka upp de köpta produkterna till databasen.
-            DataTable myPurchase = new DataTable();
-            foreach (ListViewItem item in goodsListView.Items)
-            {
-                myPurchase.Columns.Add(item.ToString());
-                foreach (var it in item.SubItems)
-                {
-                    myPurchase.Rows.Add(it.ToString());
-                }
-                // Om vi använder skickar upp detta samtidigt här som där under knyter vi samman de köpta produkterna med kvittoInformationen.
-                myPurchase.Columns.Add(reciptNrTextBox.Text);
-                myPurchase.Rows.Add(reciptNrTextBox.Text);
-            }
-            
 
-            // Här skapar vi ett datatable för att skicka upp informationen om köpet
-            DataTable myReceiptInfo = new DataTable();
-            // Denna knyter samman de köpta produkterna till informationen här.
-            myReceiptInfo.Columns.Add(reciptNrTextBox.Text);
-            myReceiptInfo.Columns.Add(dateTimePicker1.Text);
-            myReceiptInfo.Columns.Add(totalTextBox.Text);
-            myReceiptInfo.Columns.Add(changeTextBox.Text);
-            myReceiptInfo.Columns.Add(couponTextBox.Text);
-            myReceiptInfo.Columns.Add(discountTextBox.Text);
-            myReceiptInfo.Columns.Add(momsTextBox.Text);
-            myReceiptInfo.Columns.Add(toPayTextBox.Text);
-            myReceiptInfo.Columns.Add(idNrTextBox.Text);
 
-           
+            //// Här skapar vi ett datatable för att skicka upp de köpta produkterna till databasen.
+            //DataTable myPurchase = new DataTable();
+            //foreach (ListViewItem item in goodsListView.Items)
+            //{
+            //    myPurchase.Columns.Add(item.ToString());
+            //    foreach (var it in item.SubItems)
+            //    {
+            //        myPurchase.Rows.Add(it.ToString());
+            //    }
+            //    // Om vi använder skickar upp detta samtidigt här som där under knyter vi samman de köpta produkterna med kvittoInformationen.
+
+            //}
+            //myPurchase.Columns.Add(reciptNrTextBox.Text);
+            //myPurchase.Rows.Add(reciptNrTextBox.Text);
+            //DbAcess db = new DbAcess();
+
+            //// Här skapar vi ett datatable för att skicka upp informationen om köpet
+            //DataTable myReceiptInfo = new DataTable();
+            //// Denna knyter samman de köpta produkterna till informationen här.
+            //myReceiptInfo.Columns.Add(reciptNrTextBox.Text);
+            //myReceiptInfo.Columns.Add(dateTimePicker1.Text);
+            //myReceiptInfo.Columns.Add(totalTextBox.Text);
+            //myReceiptInfo.Columns.Add(changeTextBox.Text);
+            //myReceiptInfo.Columns.Add(couponTextBox.Text);
+            //myReceiptInfo.Columns.Add(discountTextBox.Text);
+            //myReceiptInfo.Columns.Add(momsTextBox.Text);
+            //myReceiptInfo.Columns.Add(toPayTextBox.Text);
+            //myReceiptInfo.Columns.Add(idNrTextBox.Text);
+            //db.ExportSqlData(myReceiptInfo);
+
+
             //Frm_CashPayAmount cash = new Frm_CashPayAmount(totalTextBox);
             //cash.Show();
 
@@ -665,9 +796,9 @@ namespace Calculator2
 
         private void reciptNrTextBox_ControlAdded(object sender, ControlEventArgs e)
         {
-            
 
-               
+
+
         }
 
         private void ReciptNrTextBox_TextChanged(object sender, EventArgs e)
@@ -705,11 +836,11 @@ namespace Calculator2
 
         }
     }
-    }
+}
 
 
 
-    
+
 
 
 

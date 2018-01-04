@@ -15,7 +15,7 @@ namespace CashierClasses
     {
         PrintDocument pdoc = null;
 
-        ListView cartItem;
+        List<Product> cartItem;
         private string foretagsnamn;
 
         private int orgnr;
@@ -24,10 +24,11 @@ namespace CashierClasses
 
         private DateTime issuedate;
 
-        private decimal productWeight;
 
+        private double change;
         private double totalPrice;
         private double Vat;
+        private double toPay;
        
 
         private Boolean cash;
@@ -39,30 +40,19 @@ namespace CashierClasses
         public int ReceiptId { get => receiptId; set => receiptId = value; }
         public int ProductQty { get => productQty; set => productQty = value; }
         public DateTime Issuedate { get => issuedate; set => issuedate = value; }
-        public decimal ProductWeight { get => productWeight; set => productWeight = value; }
+        
         public double TotalPrice { get => totalPrice; set => totalPrice = value; }
         public double Vat1 { get => Vat; set => Vat = value; }
-        
+        public double Topay { get; set; }
+        public double Change { get; set; }
+
         public bool Cash { get => cash; set => cash = value; }
         public bool Credit { get => credit; set => credit = value; }
         public bool Coupon { get => coupon; set => coupon = value; }
 
         public Receipt() { }
 
-        public Receipt(string foretagsnamn, int orgnr, int receiptId, int productQty, DateTime issuedate, decimal productWeight, double totalPrice, double vat1, bool cash, bool credit, bool coupon)
-        {
-            Foretagsnamn = foretagsnamn;
-            Orgnr = orgnr;
-            ReceiptId = receiptId;
-            ProductQty = productQty;
-            Issuedate = issuedate;
-            ProductWeight = productWeight;
-            TotalPrice = totalPrice;
-            Vat1 = vat1;
-            Cash = cash;
-            Credit = credit;
-            Coupon = coupon;
-        }
+        
 
         public Receipt (string foretagsnamn, int orgnr, int receiptId, int productQty, DateTime issuedate, double totalPrice, double vat1, bool cash, bool credit, bool coupon)
         {
@@ -87,7 +77,7 @@ namespace CashierClasses
 
 
 
-        public void print(ListView cartItems)
+        public void print(List<Product> cartItems)
         {
             this.cartItem = cartItems;
             PrintDialog pd = new PrintDialog();
@@ -148,11 +138,12 @@ namespace CashierClasses
                      new SolidBrush(Color.Black), startX, startY + Offset);
 
 
-            foreach (ListViewItem i in cartItem.Items) {
+            foreach (Product p in cartItem) {
                 Offset = Offset + 20;
-                String productName = i.SubItems[1].Text;
-                String productPrice = i.SubItems[3].Text;
-                graphics.DrawString(productName + "               " + productPrice,
+                String productName = p.Name;
+                String productPrice = (p.Qty * p.Price).ToString();
+                String productqty = p.Qty.ToString();
+                graphics.DrawString(productName + "               " + productPrice + "               " + productqty,
                     new Font("Courier New", 10),
                     new SolidBrush(Color.Black), startX, startY + Offset);
             }
