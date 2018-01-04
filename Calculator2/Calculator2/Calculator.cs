@@ -51,8 +51,8 @@ namespace Calculator2
         bool DeployPayment = false;
         private bool cash = false;
         private bool credit = false;
-        bool hasDiscount;
-        bool hasCoupon;
+        bool hasDiscount = false;
+        bool hasCoupon = false;
         double Mresult = 1;
 
         public Calculator(User myUser)
@@ -651,6 +651,7 @@ namespace Calculator2
                     Cash = cash,
                     Coupon = hasCoupon,
                     Credit = credit,
+                    ProductQty = shoppingCart.Count,
                 };
                 newReceipt.print(shoppingCart);
 
