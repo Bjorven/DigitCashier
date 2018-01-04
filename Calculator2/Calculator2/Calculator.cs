@@ -27,6 +27,7 @@ namespace Calculator2
         Product SearchedProduct;
         User myUser;
         List<Product> shoppingCart = new List<Product>();
+        DbAcess dbReceipt;
 
         private string checker;
         string input = string.Empty;
@@ -60,7 +61,9 @@ namespace Calculator2
             this.myUser = myUser;
             InitializeComponent();
             InitilizeGroupAndProduct initilize = new InitilizeGroupAndProduct();
-
+            dbReceipt = new DbAcess();
+            reciptNrTextBox.Text = dbReceipt.getReceiptid().ToString("0000");
+            idnameComboBox.Text = myUser.Fname + " " + myUser.Sname;
             goodsListView.HideSelection = false;
             goodsListView.Focus();
             idNrTextBox.Text = myUser.UserName.ToString();
@@ -68,11 +71,6 @@ namespace Calculator2
 
 
         }
-
-
-
-
-
 
         private void NrOneButton_Click_1(object sender, EventArgs e)
         {
@@ -647,8 +645,6 @@ namespace Calculator2
 
         }
 
-
-
         private void BarcodeBotton_Click(object sender, EventArgs e)
         {
             barcode = new Barcode();
@@ -679,8 +675,8 @@ namespace Calculator2
                 {
                     Foretagsnamn = "Ica Nära",
                     Orgnr = 1337,
-                    ReceiptId =  0003,//Convert.ToInt16(reciptNrTextBox.Text),
-                    Issuedate = Convert.ToDateTime(dateTimePicker1.Text),
+                    ReceiptId = Convert.ToInt16(reciptNrTextBox.Text),
+                    Issuedate = DateTime.Now,
                     TotalPrice = Convert.ToDouble(totalTextBox.Text),
                     Topay = Convert.ToDouble(toPayTextBox.Text),
                     Change = Convert.ToDouble(changeTextBox.Text),
@@ -793,14 +789,6 @@ namespace Calculator2
             }
         }
 
-
-        private void reciptNrTextBox_ControlAdded(object sender, ControlEventArgs e)
-        {
-
-
-
-        }
-
         private void ReciptNrTextBox_TextChanged(object sender, EventArgs e)
         {
            
@@ -821,10 +809,6 @@ namespace Calculator2
         {
 
         }
-
-       
-
-        
     }
 }
 

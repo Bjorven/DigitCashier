@@ -321,5 +321,24 @@ namespace CashierClasses
 
         }
 
+        public void insertIntoReceiptdb()
+        {
+            command.CommandText = "Insert Into receipt (receiptDate, salePerson, cash, credit, coupon, vatAmount, total) Values (@receiptDate, @salePerson, @cash, @credit, @coupon, @vatAmount, @total)";
+            command.CommandType = CommandType.Text;
+            connection.Open();
+            command.Parameters.Add("@receiptDate", SqlDbType.DateTime);
+            command.Parameters.Add("@salePerson", SqlDbType.VarChar);
+            command.Parameters.Add("@cash", SqlDbType.Bit);
+            command.Parameters.Add("@credit", SqlDbType.Bit);
+            command.Parameters.Add("@coupon", SqlDbType.Bit);
+            command.Parameters.Add("@vatAmount", SqlDbType.Money);
+            command.Parameters.Add("@total", SqlDbType.Money);
+
+            SqlDataAdapter adapt = new SqlDataAdapter(command);
+            DataSet ds = new DataSet();
+            adapt.Fill(ds);
+            connection.Close();
+        }
+
     }
 }
