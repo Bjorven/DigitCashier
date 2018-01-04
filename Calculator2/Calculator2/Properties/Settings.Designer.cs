@@ -32,5 +32,16 @@ namespace Calculator2.Properties {
                 return ((string)(this["ConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=LAPTOP-B9AASP37\\SQLEXPRESS;Initial Catalog=DigitCashier;Integrated Se" +
+            "curity=True")]
+        public string DigitCashierConnectionString {
+            get {
+                return ((string)(this["DigitCashierConnectionString"]));
+            }
+        }
     }
 }

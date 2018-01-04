@@ -711,7 +711,7 @@ namespace Calculator2
 
 
 
-        private void calculator_Load(object sender, EventArgs e)
+        private void Calculator_Load(object sender, EventArgs e)
         {
 
             toPayTextBox.Text = myTotal.ToString();
@@ -781,7 +781,7 @@ namespace Calculator2
         }
 
         // denna är för att kunna radera valda varor från varolistan
-        private void deletRowbotton(object sender, EventArgs e)
+        private void DeletRowbotton(object sender, EventArgs e)
         {
             for (int i = goodsListView.Items.Count - 1; i >= 0; i--)
             {
@@ -801,9 +801,11 @@ namespace Calculator2
 
         }
 
-        private void reciptNrTextBox_TextChanged(object sender, EventArgs e)
+        private void ReciptNrTextBox_TextChanged(object sender, EventArgs e)
         {
-
+           
+            
+            // för söker hitta rätt kod för att generera unik id nr till kvittot 
             //string Row = "";
             //for (int i = 1; i <= 5; i++)
             //{
@@ -814,6 +816,25 @@ namespace Calculator2
 
 
         }
+
+        private void Calculator_Load_2(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'digitCashierDataSet9.receipt' table. You can move, or remove it, as needed.
+            this.receiptTableAdapter.Fill(this.digitCashierDataSet9.receipt);
+            // TODO: This line of code loads data into the 'digitCashierDataSet8.Employee' table. You can move, or remove it, as needed.
+            this.employeeTableAdapter.Fill(this.digitCashierDataSet8.Employee);
+           
+           
+        }
+
+        private void DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+       
+
+        
     }
 }
 
