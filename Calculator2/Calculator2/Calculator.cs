@@ -53,8 +53,6 @@ namespace Calculator2
         bool hasCoupon;
         double Mresult = 1;
 
-
-
         public Calculator(User myUser)
 
         {
@@ -68,9 +66,9 @@ namespace Calculator2
             goodsListView.Focus();
             idNrTextBox.Text = myUser.UserName.ToString();
 
-
-
         }
+        //*************************************************************************************************************************************
+        // Siffrorna till kassaprogrammet/Calculator
 
         private void NrOneButton_Click_1(object sender, EventArgs e)
         {
@@ -198,14 +196,12 @@ namespace Calculator2
                 totalTextBox.Text = totalTextBox.Text + "9";
             }
         }
+        //*************************************************************************************************************************************
 
         private void PlusButton_Click(object sender, EventArgs e)
         {
             if (isSearchBtn == true)
             {
-
-
-
                 if (SearchedProduct.PricePerHG || SearchedProduct.PricePerKG == true)
                 {
 
@@ -213,12 +209,9 @@ namespace Calculator2
                     pnl_Amount.BringToFront();
                     qtyAmount = true;
                     count = 1;
-
                 }
-
                 else
                 {
-
                     tal2++;
                     myProducts.SubItems[4].Text = tal2.ToString();
 
@@ -226,10 +219,7 @@ namespace Calculator2
                     GetTotalSum();
                     // denna för ref till decimal
                     myRef = Convert.ToDouble(myProducts.SubItems[4].Text);
-
                 }
-
-
             }
             else
             {
@@ -239,7 +229,6 @@ namespace Calculator2
                 operation = "+";
             }
             qtyAmount = false;
-
         }
 
         public double GetTotalSum()
@@ -251,14 +240,12 @@ namespace Calculator2
                 double antal = Convert.ToDouble(lstitem.SubItems[4].Text);
 
                 myTotal += (pris * antal);
-
             }
 
             toPayTextBox.Text = myTotal.ToString();
             momsTextBox.Clear();
             momsTextBox.Text = toPayTextBox.Text;
             momsTextBox.Text = (Convert.ToDouble(momsTextBox.Text) * SearchedProduct.Vat).ToString();
-
             return myTotal;
         }
 
@@ -269,8 +256,6 @@ namespace Calculator2
                 //double pris = Convert.ToDouble(myProducts.SubItems[3].Text);
                 //double antal = Convert.ToDouble(myProducts.SubItems[4].Text);
                 double total;
-
-
                 tal2--;
                 myProducts.SubItems[4].Text = tal2.ToString();
 
@@ -278,21 +263,14 @@ namespace Calculator2
                 myRef = Convert.ToDouble(myProducts.SubItems[4].Text);
 
                 GetTotalSum();
-
-
-
             }
         }
-
-
-
         private void CommaButton_Click(object sender, EventArgs e)
         {
             if (totalTextBox.Text == "0.00")
                 totalTextBox.Clear();
             totalTextBox.Text = totalTextBox.Text + ",";
         }
-
         private void DoubleZeroButton_Click(object sender, EventArgs e)
         {
             if (isSearchBtn)
@@ -306,7 +284,6 @@ namespace Calculator2
                 totalTextBox.Text = totalTextBox.Text + "00";
             }
         }
-
         private void ZeroButton_Click(object sender, EventArgs e)
         {
             if (isSearchBtn)
@@ -320,7 +297,6 @@ namespace Calculator2
                 totalTextBox.Text = totalTextBox.Text + "0";
             }
         }
-
         private void DeleteButton_Click(object sender, EventArgs e)
         {
             goodsListView.Items.Clear();
@@ -330,8 +306,6 @@ namespace Calculator2
             changeTextBox.Clear();
             toPayTextBox.Clear();
             momsTextBox.Clear();
-
-
         }
 
         private void TimesButton_Click(object sender, EventArgs e)
@@ -341,7 +315,6 @@ namespace Calculator2
             totalTextBox.Text = "";
             operation = "*";
         }
-
         #region OK BUTTON
         private void OkBotton__Click(object sender, EventArgs e)
         {
@@ -418,12 +391,12 @@ namespace Calculator2
                         else
                         {
                             #region qty++
-                            
+
 
                             // för ref till decimal
                             myRef = Convert.ToDouble(myProducts.SubItems[4].Text);
                             searchTextBox.Clear();
-                            
+
                             var index = shoppingCart.FindIndex(c => c.Id == searchProduct.Id);
                             tal2++;
                             shoppingCart[index] = new Product
@@ -443,7 +416,7 @@ namespace Calculator2
                                 Supplier = SearchedProduct.Supplier,
                                 Vat = SearchedProduct.Vat,
                             };
-                            
+
                             myProducts.SubItems[4].Text = tal2.ToString();
 
                             #endregion
@@ -523,8 +496,8 @@ namespace Calculator2
             }
             // här skapas en lista över alla produkter i varukorgen.
             #region Shoppingcart list
-            
-            
+
+
             #endregion
         }
 
@@ -535,7 +508,6 @@ namespace Calculator2
         {
             if (discountTextBox.Text == "0.00")
                 discountTextBox.Clear();
-
         }
 
         private void DiscountButton__Click(object sender, EventArgs e)
@@ -588,7 +560,6 @@ namespace Calculator2
             searchTextBox.Clear();
             isSearchBtn = true;
             isCalc = false;
-
         }
 
         private void ClearBotton_Click(object sender, EventArgs e)
@@ -603,7 +574,6 @@ namespace Calculator2
             momsTextBox.Text = toPayTextBox.Text;
             toPayTextBox.Text = (Convert.ToInt32(momsTextBox.Text) * 0.2).ToString();
         }
-
 
         //*************************************************************************************************************************************
         // plockar fram en lista på alla produkter vi har i butiken.
@@ -627,9 +597,7 @@ namespace Calculator2
                 MessageBox.Show(ex.Message);
             }
         }
-
         //*************************************************************************************************************************************
-
 
         private void CloseButton_Click(object sender, EventArgs e)
         {
@@ -639,10 +607,8 @@ namespace Calculator2
 
         private void ReceiptButton_Click(object sender, EventArgs e)
         {
-
             Receipt receipt = new Receipt();
             receipt.Show();
-
         }
 
         private void BarcodeBotton_Click(object sender, EventArgs e)
@@ -650,8 +616,6 @@ namespace Calculator2
             barcode = new Barcode();
             barcode.Show();
         }
-
-
 
         // Med denna kan man nu klicka i listViewn och selecta en rad och ändra tex qty.
         private void GoodsListView_SelectedIndexChanged_1(object sender, EventArgs e)
@@ -662,8 +626,6 @@ namespace Calculator2
                 //denna raden göra så att vi sparar upp den aktuella radens qty och kan därmed ändra korrekt.
                 tal2 = Convert.ToDouble(myProducts.SubItems[4].Text);
             }
-
-
         }
 
         private void Btn_AmountOk_Click(object sender, EventArgs e)
@@ -684,7 +646,7 @@ namespace Calculator2
                     Cash = DeployPayment,
                     Coupon = hasCoupon,
                     Credit = DeployPayment,
-                }; 
+                };
                 newReceipt.print(shoppingCart);
 
                 //DbAcess db = new DbAcess();
@@ -703,10 +665,6 @@ namespace Calculator2
             pnl_Amount.SendToBack();
         }
 
-
-
-
-
         private void Calculator_Load(object sender, EventArgs e)
         {
 
@@ -716,8 +674,6 @@ namespace Calculator2
             momsTextBox.Text = (Convert.ToDouble(momsTextBox.Text) * SearchedProduct.Vat).ToString();
 
         }
-
-
 
         private void CouponButton_Click_1(object sender, EventArgs e)
         {
@@ -791,8 +747,6 @@ namespace Calculator2
 
         private void ReciptNrTextBox_TextChanged(object sender, EventArgs e)
         {
-           
-            
             // för söker hitta rätt kod för att generera unik id nr till kvittot 
             //string Row = "";
             //for (int i = 1; i <= 5; i++)
@@ -800,14 +754,6 @@ namespace Calculator2
             //    Row += "st" + i.ToString("000") + System.Environment.NewLine;
             //}
             //label1.Text = Row;
-            
-
-
-        }
-        
-        private void DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
     }
 }

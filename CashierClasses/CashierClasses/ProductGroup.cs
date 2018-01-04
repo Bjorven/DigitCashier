@@ -8,12 +8,8 @@ namespace CashierClasses
 {
     public class ProductGroup
     {
-
         public int PGId { get; set; }
-
         public string PGName { get; set; }
-
         public virtual ICollection<Product> Products { get; set; }
-
     }
 }

@@ -6,13 +6,10 @@ using System.Threading.Tasks;
 
 namespace CashierClasses
 {
-
     public class User//:Employee
     {
-
         ///Instansvariabler
         ///
-
         private int userName;
         private int password;
         private string companyId;
@@ -33,9 +30,7 @@ namespace CashierClasses
         private DateTime checkOut;
         private DateTime lastActivityDate;
         private DateTime hiredDate;
-        
-
-
+  
         public User() { }
         //
         public User(int uname, string forename, string surname, string persnr, string hadress, Int64 sal, int postcode, int agey, int pword, int ropTo, string compId, int roly, int hw, DateTime hirDate, DateTime lstActivDat, DateTime cekIn, DateTime cekOut)
@@ -57,8 +52,6 @@ namespace CashierClasses
             LastActivityDate = lstActivDat;
             CheckIn = cekIn;
             CheckOut = cekOut;
-            
-
         }
         //string forename, string surname, string hadress, int postcode, string hcity, string persnr,  int agey
         // public User(string uname, string forename, string surname, string persnr, string hadress, Int64 sal, int postcode, int agey, int passcode, int ropTo, string compId, string roleIdy, int hw, DateTime hirDate, DateTime lstActivDat, DateTime cekIn, DateTime cekOut)
@@ -81,9 +74,7 @@ namespace CashierClasses
         //     persnr = Personnr;
         //     sal = Salary;
         //     agey = Age;
-        //
-        //
-        // }
+       // }
         public int UserName { get; set; }
         public int Password { get; set; }
         public int RoleId { get; set; }
@@ -102,9 +93,6 @@ namespace CashierClasses
         public string Personnr { get; set; }
         public Int64 Salary { get; set; }
         public int Age { get; set; }
-
-        
-
     }
 }
 

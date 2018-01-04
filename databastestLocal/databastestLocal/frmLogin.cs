@@ -10,36 +10,22 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using CashierClasses;
 
-
-
 namespace databastestLocal
 {
     public partial class FrmLogin : Form
     {
-         
-
-        public FrmLogin()
+          public FrmLogin()
         {
             InitializeComponent();
 
         }
 
-
         private void FrmLogin_Load(object sender, EventArgs e)
         {
-
-
-
         }
-
-
-
         //LOGIN BUTTON
         private void Btn_Submit_Click(object sender, EventArgs e)
         {
-
-
-
             if (txt_UserName.Text == "" || txt_Password.Text == "")
             {
                 MessageBox.Show("Please provide UserName and Password");
@@ -51,14 +37,7 @@ namespace databastestLocal
                 // här är vår metod för att kolla Db om lösenord och username finns och är rätt.
                 // Därefter skickas en fylld instans av klassen User ut.
                 CashierClasses.User user = db.GetUser(txt_UserName.Text, txt_Password.Text);
-                
-                
-
-
-
-                
-
-
+ 
                 MessageBox.Show("Login Successful!");
                 this.Hide();
                 // Om allt är rätt skickas vi till nästa fönster, och då skickar vi med den ifyllda instansen
@@ -68,7 +47,6 @@ namespace databastestLocal
                 user.CheckIn = DateTime.Now;
                 FrmMain Main = new FrmMain(user);
                 Main.Show();
-
             }
             catch (Exception ex)
             {
@@ -77,26 +55,5 @@ namespace databastestLocal
                 //ex.StackTrace
             }
         }
-
-
-
-
-
-
-
-
-
-
-
-
     }
 }
-
-
-
-//        private void Btn_Submit_Click(object sender, EventArgs e)
-//        {
-
-//        }
-//    }
-//}

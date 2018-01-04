@@ -16,10 +16,8 @@ namespace Calculator2
         {
             InitializeComponent();
         }
-
         private void Barcode_Load(object sender, EventArgs e)
         {
-
         }
     }
 }

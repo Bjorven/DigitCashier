@@ -21,7 +21,6 @@ namespace Calculator2
     {
         private double sum;
         private int qty;
-
         private BindingSource bindingSource1 = new BindingSource();
 
         public Receipt()
@@ -33,17 +32,11 @@ namespace Calculator2
         private void button3_Click(object sender, EventArgs e)
         {
             dG_List.Columns.Clear();
-
         }
-
         private void SearchItemButton_Click(object sender, EventArgs e)
         {
             pnl_Search.BringToFront();
-
-
-
         }
-
         private void printReceiptButton_Click(object sender, EventArgs e)
         {
             //MessageBox.Show("Printing receipt");
@@ -66,17 +59,11 @@ namespace Calculator2
             //Coupon = Convert.ToBoolean(dr[]),
 
             //               }).ToList();
-
-
-
-
-
         }
         //***************************************************************************************************************************************************
         
         private void btn_SubmitSearch_Click(object sender, EventArgs e)
         {
-
             if (txtb_SearchBar.Text == "")
             {
                 MessageBox.Show("Enter Search parameter");
@@ -95,9 +82,7 @@ namespace Calculator2
 
                 dG_List.BorderStyle = BorderStyle.Fixed3D;
 
-
                 DataSet ds = db.GetTotalPriceAndQty(txtb_SearchBar.Text);
-
 
                 txtb_TotalPrice.Text = ds.Tables[0].Rows[0][0].ToString();
 
@@ -107,25 +92,16 @@ namespace Calculator2
                     //Convert.ToInt16(dt.Rows[0]["receiptId"].ToString()),
                     //Convert.ToInt16(ds.Tables[0].Rows[0][1],
                     //Convert.ToDateTime(dt.Rows[0]["receiptDate"].ToString()),
-
-
-
-
-
                     //);
-
                 pnl_Search.SendToBack();
-
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-
             //***************************************************************************************************************************************************
             //***************************************************************************************************************************************************
         }
-
         private void btn_CancelSearch_Click(object sender, EventArgs e)
         {
             pnl_Search.SendToBack();
@@ -135,16 +111,12 @@ namespace Calculator2
         {
 
         }
-
-
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
-
         private void Receipt_Load(object sender, EventArgs e)
         {
-
         }
     }
 }

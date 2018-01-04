@@ -21,10 +21,8 @@ namespace databastestLocal
             InitializeComponent();
             //--
             this.myUser = user;
-            
         }
-        
-
+     
         private void Btn_cashier_Click(object sender, EventArgs e)
         {
             Calculator2.Calculator cashier = new Calculator2.Calculator(myUser);
@@ -33,14 +31,11 @@ namespace databastestLocal
 
         private void Btn_admin_Click(object sender, EventArgs e)
         {
-
         }
 
         private void Btn_boss_Click(object sender, EventArgs e)
         {
-
         }
-
 
         private void FrmMain_Load(object sender, EventArgs e)
         {
@@ -63,7 +58,6 @@ namespace databastestLocal
                     break;
             }
         }
-
         private void Btn_logOut_Click(object sender, EventArgs e)
         {
             // vid utloggning ändrar vi värdet på user.checkOut till tidpunktens datum och tid.
@@ -76,18 +70,14 @@ namespace databastestLocal
             FrmLogin frmLogin= new FrmLogin();
             frmLogin.Show();
         }
-
         private void btn_admin_Click_1(object sender, EventArgs e)
         {
             this.Hide();
             AdminProgram.FrmAdmin frmAdmin = new AdminProgram.FrmAdmin();
             frmAdmin.Show();
-
         }
-
         private void btn_boss_Click_1(object sender, EventArgs e)
         {
-
         }
     }
 }

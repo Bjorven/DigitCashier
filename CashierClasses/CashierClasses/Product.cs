@@ -25,8 +25,6 @@ namespace CashierClasses
         private Boolean pricePerKg;
         private Boolean pricePerHg;
 
-        
-
         //public Product(int idy, double pricy, string manufac, string supply, ProductGroup productGroup1, double vaty, Boolean ppkg, Boolean ppHg, string namey)
         //{
         //    Id = idy;
@@ -39,9 +37,7 @@ namespace CashierClasses
         //    PricePerKG = ppkg;
         //    PricePerHG = ppHg;
         //    Name = namey;
-
-        //}
-
+       //}
 
         public int Id { get; set; }
         public double Qty { get; set; }
@@ -56,6 +52,5 @@ namespace CashierClasses
         public double InStock { get; set; }
         public int ProductGroupId { get; set; }
         public string ProductGroupname { get; set; }
-
     }
 }

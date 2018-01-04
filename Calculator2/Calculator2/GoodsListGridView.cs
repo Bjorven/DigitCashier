@@ -38,11 +38,10 @@ namespace Calculator2
             GoodsDataGridView.BorderStyle = BorderStyle.Fixed3D;
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+       private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
-
         private void GoodsDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             GoodsDataGridView.Rows[e.RowIndex].ReadOnly = true;
@@ -51,7 +50,5 @@ namespace Calculator2
                 GoodsDataGridView.Rows[e.RowIndex].ReadOnly = false;
             }
         }
-
-
     }
 }

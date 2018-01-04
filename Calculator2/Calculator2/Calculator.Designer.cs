@@ -874,6 +874,7 @@ namespace Calculator2
             // reciptNrTextBox
             // 
             this.reciptNrTextBox.Location = new System.Drawing.Point(104, 17);
+            this.reciptNrTextBox.Multiline = true;
             this.reciptNrTextBox.Name = "reciptNrTextBox";
             this.reciptNrTextBox.Size = new System.Drawing.Size(258, 22);
             this.reciptNrTextBox.TabIndex = 250;
@@ -1037,8 +1038,6 @@ namespace Calculator2
         private System.Windows.Forms.Button btn_CashOk;
         private System.Windows.Forms.TextBox txtb_CashAmount;
         private Button deletRowBotton;
-        
-        
         private TextBox reciptNrTextBox;
        
 

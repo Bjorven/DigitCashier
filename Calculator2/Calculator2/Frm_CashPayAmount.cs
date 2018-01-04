@@ -23,18 +23,12 @@ namespace Calculator2
         public bool IsDOne { get => isDone; set => isDone = value; }
         public double Qty { get => qty; set => qty = value; }
 
-        
-        
        
-
-        
-
         public Frm_CashPayAmount(TextBox totaltextbox)
         {
             this.totaltextbox = totaltextbox;
             InitializeComponent();
             totalPaycon = true;
-            
         }
 
         public Frm_CashPayAmount(ListViewItem myProducts)
@@ -42,12 +36,10 @@ namespace Calculator2
             this.myProducts = myProducts;
             InitializeComponent();
             qtyAmount = true;
-            
-        }
+         }
 
         private void btn_CashOk_Click(object sender, EventArgs e)
         {
-
             // om det gäller uträkning och inmatning av total amount sker denna uträkning.
             if (totalPaycon == true)
             {
@@ -68,19 +60,9 @@ namespace Calculator2
                 // Calculator calculator = new Calculator();
                 // calculator.GetTotalSum();
                
-
-
             }
-
             isDone = true;
             this.Hide();
         }
-
-
-
-
-
-
-
     }
 }
