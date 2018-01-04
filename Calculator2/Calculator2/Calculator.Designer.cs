@@ -293,6 +293,7 @@ namespace Calculator2
             this.CardButton.TabIndex = 219;
             this.CardButton.Text = "Card";
             this.CardButton.UseVisualStyleBackColor = false;
+            this.CardButton.Click += new System.EventHandler(this.CardButton_Click);
             // 
             // CouponButton
             // 
