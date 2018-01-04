@@ -109,7 +109,6 @@ namespace Calculator2
                 totalTextBox.Text = totalTextBox.Text + "3";
             }
         }
-
         private void NrFourButton_Click_1(object sender, EventArgs e)
         {
             if (isSearchBtn)
@@ -137,7 +136,6 @@ namespace Calculator2
                 totalTextBox.Text = totalTextBox.Text + "5";
             }
         }
-
         private void NrSixButton_Click(object sender, EventArgs e)
         {
             if (isSearchBtn)
@@ -151,7 +149,6 @@ namespace Calculator2
                 totalTextBox.Text = totalTextBox.Text + "6";
             }
         }
-
         private void NrSevenButton_Click(object sender, EventArgs e)
         {
             if (isSearchBtn)
@@ -165,7 +162,6 @@ namespace Calculator2
                 totalTextBox.Text = totalTextBox.Text + "7";
             }
         }
-
         private void NrEightButton_Click(object sender, EventArgs e)
         {
             if (isSearchBtn)
@@ -179,7 +175,6 @@ namespace Calculator2
                 totalTextBox.Text = totalTextBox.Text + "8";
             }
         }
-
         private void NrNineButton_Click(object sender, EventArgs e)
         {
             if (isSearchBtn)
@@ -635,7 +630,7 @@ namespace Calculator2
                     Foretagsnamn = "Ica Nära",
                     Orgnr = 1337,
                     ReceiptId = 0003,//Convert.ToInt16(reciptNrTextBox.Text),
-                    Issuedate = Convert.ToDateTime(dateTimePicker1.Text),
+                    Issuedate = DateTime.Now,//Convert.ToDateTime(dateTimePicker1.Text),
                     TotalPrice = Convert.ToDouble(totalTextBox.Text),
                     Topay = Convert.ToDouble(toPayTextBox.Text),
                     Change = Convert.ToDouble(changeTextBox.Text),
