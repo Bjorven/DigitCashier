@@ -816,23 +816,16 @@ namespace Calculator2
 
 
         }
+     
+        private void reciptNrTextBox_TextChanged_1(object sender, EventArgs e)
+        {
+
+        }
 
         private void Calculator_Load_2(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'digitCashierDataSet9.receipt' table. You can move, or remove it, as needed.
-            this.receiptTableAdapter.Fill(this.digitCashierDataSet9.receipt);
-           
-           
-           
-        }
-
-        private void DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void reciptNrTextBox_TextChanged_1(object sender, EventArgs e)
-        {
+            // This line of code loads data into the 'digitCashierDataSet15.Employee' table. You can move, or remove it, as needed.
+            this.employeeTableAdapter1.Fill(this.digitCashierDataSet15.Employee);
 
         }
     }

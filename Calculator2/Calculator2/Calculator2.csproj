@@ -72,6 +72,36 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DigitCashierDataSet1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DigitCashierDataSet10.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DigitCashierDataSet10.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DigitCashierDataSet11.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DigitCashierDataSet11.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DigitCashierDataSet12.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DigitCashierDataSet12.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DigitCashierDataSet13.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DigitCashierDataSet13.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DigitCashierDataSet14.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DigitCashierDataSet14.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DigitCashierDataSet151.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DigitCashierDataSet151.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DigitCashierDataSet2.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -188,6 +218,72 @@
     </None>
     <None Include="DigitCashierDataSet1.xss">
       <DependentUpon>DigitCashierDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="DigitCashierDataSet10.xsc">
+      <DependentUpon>DigitCashierDataSet10.xsd</DependentUpon>
+    </None>
+    <None Include="DigitCashierDataSet10.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DigitCashierDataSet10.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DigitCashierDataSet10.xss">
+      <DependentUpon>DigitCashierDataSet10.xsd</DependentUpon>
+    </None>
+    <None Include="DigitCashierDataSet11.xsc">
+      <DependentUpon>DigitCashierDataSet11.xsd</DependentUpon>
+    </None>
+    <None Include="DigitCashierDataSet11.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DigitCashierDataSet11.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DigitCashierDataSet11.xss">
+      <DependentUpon>DigitCashierDataSet11.xsd</DependentUpon>
+    </None>
+    <None Include="DigitCashierDataSet12.xsc">
+      <DependentUpon>DigitCashierDataSet12.xsd</DependentUpon>
+    </None>
+    <None Include="DigitCashierDataSet12.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DigitCashierDataSet12.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DigitCashierDataSet12.xss">
+      <DependentUpon>DigitCashierDataSet12.xsd</DependentUpon>
+    </None>
+    <None Include="DigitCashierDataSet13.xsc">
+      <DependentUpon>DigitCashierDataSet13.xsd</DependentUpon>
+    </None>
+    <None Include="DigitCashierDataSet13.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DigitCashierDataSet13.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DigitCashierDataSet13.xss">
+      <DependentUpon>DigitCashierDataSet13.xsd</DependentUpon>
+    </None>
+    <None Include="DigitCashierDataSet14.xsc">
+      <DependentUpon>DigitCashierDataSet14.xsd</DependentUpon>
+    </None>
+    <None Include="DigitCashierDataSet14.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DigitCashierDataSet14.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DigitCashierDataSet14.xss">
+      <DependentUpon>DigitCashierDataSet14.xsd</DependentUpon>
+    </None>
+    <None Include="DigitCashierDataSet151.xsc">
+      <DependentUpon>DigitCashierDataSet151.xsd</DependentUpon>
+    </None>
+    <None Include="DigitCashierDataSet151.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DigitCashierDataSet151.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DigitCashierDataSet151.xss">
+      <DependentUpon>DigitCashierDataSet151.xsd</DependentUpon>
     </None>
     <None Include="DigitCashierDataSet2.xsc">
       <DependentUpon>DigitCashierDataSet2.xsd</DependentUpon>
