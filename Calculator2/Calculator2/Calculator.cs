@@ -812,21 +812,11 @@ namespace Calculator2
             //    Row += "st" + i.ToString("000") + System.Environment.NewLine;
             //}
             //label1.Text = Row;
-
+            
 
 
         }
-
-        private void Calculator_Load_2(object sender, EventArgs e)
-        {
-            // TODO: This line of code loads data into the 'digitCashierDataSet9.receipt' table. You can move, or remove it, as needed.
-            this.receiptTableAdapter.Fill(this.digitCashierDataSet9.receipt);
-            // TODO: This line of code loads data into the 'digitCashierDataSet8.Employee' table. You can move, or remove it, as needed.
-            this.employeeTableAdapter.Fill(this.digitCashierDataSet8.Employee);
-           
-           
-        }
-
+        
         private void DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
