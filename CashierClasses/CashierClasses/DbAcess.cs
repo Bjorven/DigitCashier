@@ -301,6 +301,25 @@ namespace CashierClasses
 
         //}
 
+        public int getReceiptid()
+        {
+            int receiptId;
+            command.CommandText = "Select id from receipt Order By receiptDate DESC";
+            command.CommandType = CommandType.Text;
+            connection.Open();
+            SqlDataAdapter adapt = new SqlDataAdapter(command);
+            DataSet ds = new DataSet();
+            adapt.Fill(ds);
+            connection.Close();
+
+            receiptId = Convert.ToInt16(ds.Tables[0].Rows[0][0]);
+            receiptId++;
+
+            return receiptId;
+
+
+
+        }
 
     }
 }

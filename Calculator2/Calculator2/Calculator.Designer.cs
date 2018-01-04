@@ -1039,9 +1039,7 @@ namespace Calculator2
         private System.Windows.Forms.TextBox txtb_CashAmount;
         private Button deletRowBotton;
         private TextBox reciptNrTextBox;
-
-        private BindingSource employeeBindingSource1;
-
+       
 
         public EventHandler CommaButton_Click_1 { get; private set; }
         public EventHandler DeleteButton_Click_1 { get; private set; }
