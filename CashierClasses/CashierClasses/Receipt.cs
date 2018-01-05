@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using System.Drawing.Printing;
 using System.Drawing;
 using System.Data;
+using System.Drawing.Drawing2D;
 
 namespace CashierClasses
 {
@@ -102,7 +103,7 @@ namespace CashierClasses
                 Receipt myreceipt = new Receipt();
                 myreceipt = this;
                 DbAcess db = new DbAcess();
-                
+
                 db.insertIntoReceiptdb(myreceipt);
 
                 PrintPreviewDialog pp = new PrintPreviewDialog();
@@ -114,7 +115,7 @@ namespace CashierClasses
                     pdoc.Print();
                 }
             }
-            
+
         }
         //************************************************************************************************************************************************
 
@@ -126,12 +127,19 @@ namespace CashierClasses
             int startX = 50;
             int startY = 55;
             int Offset = 40;
+            int Offset1 = 170;
 
 
+            // quality of the layout.
+            //**********************************************************************
+            graphics.SmoothingMode = SmoothingMode.AntiAlias;
+            graphics.InterpolationMode = InterpolationMode.HighQualityBicubic;
+            graphics.PixelOffsetMode = PixelOffsetMode.HighQuality;
+            //**********************************************************************
 
-
+            
             graphics.DrawString("ICA Nära",
-               new Font("Courier New", 20, FontStyle.Bold),
+               new Font("Courier New", 20, FontStyle.Bold), 
                new SolidBrush(Color.Black), startX, startY + Offset);
             Offset = Offset + 30;
 
@@ -200,6 +208,12 @@ namespace CashierClasses
                 Offset = Offset + 20;
 
             }
+            Offset = Offset + 30;
+            graphics.DrawString("Total amout to pay:  " + this.Topay,
+                new Font("Courier New", 13),
+                new SolidBrush(Color.Black), startX, startY + Offset);
+            Offset = Offset + 30;
+
             // making space with lines between the rows
             //**********************************************************************
             underLine = "------------------------------------------";
@@ -231,26 +245,33 @@ namespace CashierClasses
                 new SolidBrush(Color.Black), startX, startY + Offset);
             Offset = Offset + 20;
 
-            graphics.DrawString("Cash:  " + this.totalPrice,
-               new Font("Courier New", 12),
-               new SolidBrush(Color.Black), startX, startY + Offset);
-            Offset = Offset + 20;
+
 
             // försökte med det för att få ut om de cash eller credit, eftersom vi har bara cash så går det inte än 
-            //if (Cash == true)
-            //{
-            //    graphics.DrawString("Cash:   " + this.Cash,
-            //      new Font("Courier New", 12),
-            //      new SolidBrush(Color.Black), startX, startY + Offset);
-            //    Offset = Offset + 20;
-            //}
-            //else if (Credit == true)
-            //{
-            //    graphics.DrawString("Credit:   " + this.Credit,
-            //    new Font("Courier New", 12),
-            //    new SolidBrush(Color.Black), startX, startY + Offset);
-            //    Offset = Offset + 20;
-            //}
+            //graphics.DrawString("Cash:  " + this.totalPrice,
+            //   new Font("Courier New", 12),
+            //   new SolidBrush(Color.Black), startX, startY + Offset);
+            //Offset = Offset + 20;
+
+            if (Cash == true)
+            {
+                graphics.DrawString("Cash:   " + this.TotalPrice,
+                  new Font("Courier New", 12),
+                  new SolidBrush(Color.Black), startX, startY + Offset);
+                Offset = Offset + 20;
+                graphics.DrawString("Change: " + this.Change,
+                 new Font("Courier New", 12),
+                 new SolidBrush(Color.Black), startX, startY + Offset);
+                Offset = Offset + 20;
+            }
+            else if (Credit == true)
+            {
+                graphics.DrawString("Credit:   " + this.TotalPrice,
+                new Font("Courier New", 12),
+                new SolidBrush(Color.Black), startX, startY + Offset);
+                Offset = Offset + 20;
+
+            }
 
             // making space with lines between the rows
             //**********************************************************************
