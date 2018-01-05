@@ -127,8 +127,6 @@ namespace CashierClasses
             int startX = 50;
             int startY = 55;
             int Offset = 40;
-            int Offset1 = 170;
-
 
             // quality of the layout.
             //**********************************************************************
@@ -137,30 +135,51 @@ namespace CashierClasses
             graphics.PixelOffsetMode = PixelOffsetMode.HighQuality;
             //**********************************************************************
 
-            
-            graphics.DrawString("ICA Nära",
-               new Font("Courier New", 20, FontStyle.Bold), 
-               new SolidBrush(Color.Black), startX, startY + Offset);
+            //  layout.
+            //****************************************************************************************
+            Font font9 = new Font("Courier New", 9);
+            Font font10 = new Font("Courier New", 10);
+            Font font12 = new Font("Courier New", 12);
+            Font font14 = new Font("Courier New", 14);
+
+            float leading = 4;
+            float lineheight10 = font10.GetHeight() + leading;
+            float lineheight12 = font12.GetHeight() + leading;
+            float lineheight14 = font14.GetHeight() + leading;
+
+            StringFormat formatLeft = new StringFormat(StringFormatFlags.NoClip);
+            StringFormat formatCenter = new StringFormat(formatLeft);
+            StringFormat formatRight = new StringFormat(formatLeft);
+
+            formatCenter.Alignment = StringAlignment.Center;
+            formatRight.Alignment = StringAlignment.Far;
+            formatLeft.Alignment = StringAlignment.Near;
+
+            int PrintAreaWidth = 500;
+            SizeF layoutSize = new SizeF(PrintAreaWidth - Offset * 2, lineheight14);
+            RectangleF layout = new RectangleF(new PointF(startX, startY + Offset), layoutSize);
+            Brush brush = Brushes.Black;
+            //****************************************************************************************
+
+            graphics.DrawString("ICA Nära", font14, brush, layout, formatCenter);
             Offset = Offset + 30;
+            layout = new RectangleF(new PointF(startX, startY + Offset), layoutSize);
 
-            graphics.DrawString("Näverlursgatan 18 " + this.Adress,
-                new Font("Courier New", 12),
-                new SolidBrush(Color.Black), startX, startY + Offset);
-            Offset = Offset + 20;
-            graphics.DrawString("421 44 Västra Frölunda " + this.Adress,
-               new Font("Courier New", 12),
-               new SolidBrush(Color.Black), startX, startY + Offset);
-            Offset = Offset + 20;
+            graphics.DrawString("Näverlursgatan 18" , font10, brush, layout, formatCenter);
+            Offset = Offset + 30;
+            layout = new RectangleF(new PointF(startX, startY + Offset), layoutSize);
 
-            graphics.DrawString("Telnr: 031-3562254 " + this.TelefonNr,
-                new Font("Courier New", 12),
-                new SolidBrush(Color.Black), startX, startY + Offset);
-            Offset = Offset + 20;
+            graphics.DrawString("421 44 Västra Frölunda" , font10, brush, layout, formatCenter);
+            Offset = Offset + 30;
+            layout = new RectangleF(new PointF(startX, startY + Offset), layoutSize);
 
-            graphics.DrawString("Org Nr: " + this.Orgnr,
-                new Font("Courier New", 12),
-                new SolidBrush(Color.Black), startX, startY + Offset);
-            Offset = Offset + 20;
+            graphics.DrawString("Telnr: 031-3562254", font10, brush, layout, formatCenter);
+            Offset = Offset + 30;
+            layout = new RectangleF(new PointF(startX, startY + Offset), layoutSize);
+
+            graphics.DrawString("Org Nr: " + this.Orgnr , font10, brush, layout, formatCenter);
+            Offset = Offset + 30;
+            layout = new RectangleF(new PointF(startX, startY + Offset), layoutSize);
 
             // making space with lines between the rows
             //**********************************************************************
@@ -280,18 +299,21 @@ namespace CashierClasses
                      new SolidBrush(Color.Black), startX, startY + Offset);
             Offset = Offset + 20;
             //**********************************************************************
-            graphics.DrawString("Thank you for your visit",
-               new Font("Courier New", 9),
-               new SolidBrush(Color.Black), startX, startY + Offset);
-            Offset = Offset + 20;
+            graphics.DrawString("".PadRight(46), font10, brush, layout, formatLeft);
+            Offset = Offset + 50;
+            layout = new RectangleF(new PointF(startX, startY + Offset), layoutSize);
 
-            graphics.DrawString("Welcome back to ICA Nära!",
-               new Font("Courier New", 9),
-               new SolidBrush(Color.Black), startX, startY + Offset);
+            graphics.DrawString("Thank you for your visit", font9, brush, layout,formatCenter);
             Offset = Offset + 20;
+            layout = new RectangleF(new PointF(startX, startY + Offset), layoutSize);
 
+            graphics.DrawString("Welcome back to ICA Nära!", font9, brush, layout, formatCenter);
+            Offset = Offset + 20;
+            layout = new RectangleF(new PointF(startX, startY + Offset), layoutSize);
+
+            //**************************************************************************************************************************************************
         }
-        //**************************************************************************************************************************************************
+
     }
 }
 
