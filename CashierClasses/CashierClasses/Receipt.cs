@@ -17,10 +17,13 @@ namespace CashierClasses
 
         List<Product> cartItem;
         private string foretagsnamn;
+        private string employeeNamn;
+        private string adress;
 
         private int orgnr;
         private int receiptId;
         private int productQty;
+        private int telefonNr;
 
         private DateTime issuedate;
 
@@ -34,11 +37,14 @@ namespace CashierClasses
         private Boolean coupon;
 
         public string Foretagsnamn { get => foretagsnamn; set => foretagsnamn = value; }
+        public string EmployeeNamn { get => employeeNamn; set => employeeNamn = value; }
+        public string Adress { get => adress; set => adress = value; }
+        public int TelefonNr { get => telefonNr; set => telefonNr = value; }
         public int Orgnr { get => orgnr; set => orgnr = value; }
         public int ReceiptId { get => receiptId; set => receiptId = value; }
         public int ProductQty { get => productQty; set => productQty = value; }
         public DateTime Issuedate { get => issuedate; set => issuedate = value; }
-        
+
         public double TotalPrice { get => totalPrice; set => totalPrice = value; }
         public double Vat1 { get => Vat; set => Vat = value; }
         public double Topay { get; set; }
@@ -50,9 +56,12 @@ namespace CashierClasses
 
         public Receipt() { }
 
-        public Receipt (string foretagsnamn, int orgnr, int receiptId, int productQty, DateTime issuedate, double totalPrice, double vat1, bool cash, bool credit, bool coupon)
+        public Receipt(string foretagsnamn, string adress, int telefonNr, string employeeName, int orgnr, int receiptId, int productQty, DateTime issuedate, double totalPrice, double vat1, bool cash, bool credit, bool coupon)
         {
             Foretagsnamn = foretagsnamn;
+            Adress = adress;
+            TelefonNr = telefonNr;
+            EmployeeNamn = employeeName;
             Orgnr = orgnr;
             ReceiptId = receiptId;
             ProductQty = productQty;
@@ -112,46 +121,153 @@ namespace CashierClasses
             int startX = 50;
             int startY = 55;
             int Offset = 40;
-            graphics.DrawString("Welcome back to ICA Nära", new Font("Courier New", 14),
-                                new SolidBrush(Color.Black), startX, startY + Offset);
+
+
+
+
+            graphics.DrawString("ICA Nära",
+               new Font("Courier New", 20, FontStyle.Bold),
+               new SolidBrush(Color.Black), startX, startY + Offset);
+            Offset = Offset + 30;
+
+            graphics.DrawString("Näverlursgatan 18 " + this.Adress,
+                new Font("Courier New", 12),
+                new SolidBrush(Color.Black), startX, startY + Offset);
             Offset = Offset + 20;
+            graphics.DrawString("421 44 Västra Frölunda " + this.Adress,
+               new Font("Courier New", 12),
+               new SolidBrush(Color.Black), startX, startY + Offset);
+            Offset = Offset + 20;
+
+            graphics.DrawString("Telnr: 031-3562254 " + this.TelefonNr,
+                new Font("Courier New", 12),
+                new SolidBrush(Color.Black), startX, startY + Offset);
+            Offset = Offset + 20;
+
+            graphics.DrawString("Org Nr: " + this.Orgnr,
+                new Font("Courier New", 12),
+                new SolidBrush(Color.Black), startX, startY + Offset);
+            Offset = Offset + 20;
+
+            // making space with lines between the rows
+            //**********************************************************************
+            String underLine = "------------------------------------------";
+            Offset = Offset + 20;
+            graphics.DrawString(underLine,
+                new Font("Courier New", 10),
+                new SolidBrush(Color.Black), startX, startY + Offset);
+            Offset = Offset + 20;
+            //**********************************************************************
+
             graphics.DrawString("Receipt No: " + this.ReceiptId,
-                     new Font("Courier New", 14),
+                     new Font("Courier New", 12),
                      new SolidBrush(Color.Black), startX, startY + Offset);
             Offset = Offset + 20;
+
             graphics.DrawString("Receipt Date: " + this.Issuedate,
                      new Font("Courier New", 12),
                      new SolidBrush(Color.Black), startX, startY + Offset);
             Offset = Offset + 20;
-           // graphics.DrawString("Cashier name: " + this.)
-            String underLine = "------------------------------------------";
-            graphics.DrawString(underLine, new Font("Courier New", 10),
-                     new SolidBrush(Color.Black), startX, startY + Offset);
 
-            foreach (Product p in cartItem) {
+            graphics.DrawString("Cashier name: Roger Federör " + this.EmployeeNamn,
+                new Font("Courier New", 12),
+                new SolidBrush(Color.Black), startX, startY + Offset);
+            Offset = Offset + 20;
+
+            // making space with lines between the rows
+            //**********************************************************************
+            String underline = "------------------------------------------";
+            Offset = Offset + 20;
+            graphics.DrawString(underLine,
+                new Font("Courier New", 10),
+                new SolidBrush(Color.Black), startX, startY + Offset);
+            Offset = Offset + 20;
+            //**********************************************************************
+            foreach (Product p in cartItem)
+            {
                 Offset = Offset + 20;
                 String productName = p.Name;
                 String productPrice = (p.Qty * p.Price).ToString();
                 String productqty = p.Qty.ToString();
-                graphics.DrawString(productName + "               " + productPrice + "               " + productqty,
+                graphics.DrawString(productName + "                    " + productPrice + "                    ",
                     new Font("Courier New", 10),
                     new SolidBrush(Color.Black), startX, startY + Offset);
+                Offset = Offset + 20;
+
             }
+            // making space with lines between the rows
+            //**********************************************************************
+            underLine = "------------------------------------------";
+            graphics.DrawString(underLine, new Font("Courier New", 10),
+                     new SolidBrush(Color.Black), startX, startY + Offset);
+            Offset = Offset + 3;
+            //**********************************************************************
+            // making space with lines between the rows
+            //**********************************************************************
+            underLine = "------------------------------------------";
+            graphics.DrawString(underLine, new Font("Courier New", 10),
+                     new SolidBrush(Color.Black), startX, startY + Offset);
+            Offset = Offset + 3;
+            //**********************************************************************
 
             Offset = Offset + 20;
-            String Grosstotal = "Total Amount to Paid = " + this.TotalPrice;
-
+            graphics.DrawString("Product Qty:   " + this.ProductQty,
+                new Font("Courier New", 12),
+                new SolidBrush(Color.Black), startX, startY + Offset);
             Offset = Offset + 20;
+
+            graphics.DrawString("Moms: " + this.Vat1,
+                new Font("Courier New", 12),
+                new SolidBrush(Color.Black), startX, startY + Offset);
+            Offset = Offset + 20;
+
+            graphics.DrawString("Total Amount Paid: " + this.TotalPrice,
+                new Font("Courier New", 15, FontStyle.Bold),
+                new SolidBrush(Color.Black), startX, startY + Offset);
+            Offset = Offset + 20;
+
+            graphics.DrawString("Cash:  " + this.totalPrice,
+               new Font("Courier New", 12),
+               new SolidBrush(Color.Black), startX, startY + Offset);
+            Offset = Offset + 20;
+
+            // försökte med det för att få ut om de cash eller credit, eftersom vi har bara cash så går det inte än 
+            //if (Cash == true)
+            //{
+            //    graphics.DrawString("Cash:   " + this.Cash,
+            //      new Font("Courier New", 12),
+            //      new SolidBrush(Color.Black), startX, startY + Offset);
+            //    Offset = Offset + 20;
+            //}
+            //else if (Credit == true)
+            //{
+            //    graphics.DrawString("Credit:   " + this.Credit,
+            //    new Font("Courier New", 12),
+            //    new SolidBrush(Color.Black), startX, startY + Offset);
+            //    Offset = Offset + 20;
+            //}
+
+            // making space with lines between the rows
+            //**********************************************************************
             underLine = "------------------------------------------";
             graphics.DrawString(underLine, new Font("Courier New", 10),
                      new SolidBrush(Color.Black), startX, startY + Offset);
             Offset = Offset + 20;
-
-            graphics.DrawString(Grosstotal, new Font("Courier New", 10),
-                     new SolidBrush(Color.Black), startX, startY + Offset);
+            //**********************************************************************
+            graphics.DrawString("Thank you for your visit",
+               new Font("Courier New", 9),
+               new SolidBrush(Color.Black), startX, startY + Offset);
             Offset = Offset + 20;
+
+            graphics.DrawString("Welcome back to ICA Nära!",
+               new Font("Courier New", 9),
+               new SolidBrush(Color.Black), startX, startY + Offset);
+            Offset = Offset + 20;
+
+
         }
         //**************************************************************************************************************************************************
     }
 }
+
 
