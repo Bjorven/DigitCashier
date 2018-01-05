@@ -120,14 +120,15 @@ namespace CashierClasses
             graphics.DrawString("Welcome back to ICA Nära", new Font("Courier New", 14),
                                 new SolidBrush(Color.Black), startX, startY + Offset);
             Offset = Offset + 20;
-            graphics.DrawString("Receipt No:" + this.ReceiptId,
+            graphics.DrawString("Receipt No: " + this.ReceiptId,
                      new Font("Courier New", 14),
                      new SolidBrush(Color.Black), startX, startY + Offset);
             Offset = Offset + 20;
-            graphics.DrawString("Receipt Date :" + this.Issuedate,
+            graphics.DrawString("Receipt Date: " + this.Issuedate,
                      new Font("Courier New", 12),
                      new SolidBrush(Color.Black), startX, startY + Offset);
             Offset = Offset + 20;
+           // graphics.DrawString("Cashier name: " + this.)
             String underLine = "------------------------------------------";
             graphics.DrawString(underLine, new Font("Courier New", 10),
                      new SolidBrush(Color.Black), startX, startY + Offset);
