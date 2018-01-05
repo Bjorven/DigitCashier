@@ -20,7 +20,7 @@ namespace CashierClasses
         private string manufacturer;
         private string supplier;
         private string name;
-        private int productGroupId;
+        private double productGroupId;
 
         private Boolean pricePerKg;
         private Boolean pricePerHg;
@@ -43,14 +43,18 @@ namespace CashierClasses
         public double Qty { get; set; }
         public double Price { get; set; }
         public string Manufacturer { get; set; }
+        public int ManufacturerId { get; set; }
         public string Supplier { get; set; }
+        public int SupplierId { get; set; }
         public virtual ProductGroup ProductGroup { get; set; }
         public double Vat { get; set; }
+        public int VatId { get; set; }
         public Boolean PricePerKG { get; set; }
         public Boolean PricePerHG { get; set; }
         public string Name { get; set; }
         public double InStock { get; set; }
-        public int ProductGroupId { get; set; }
+        public double ProductGroupId { get; set; }
         public string ProductGroupname { get; set; }
+        public int ReceiptId { get; set; }
     }
 }
