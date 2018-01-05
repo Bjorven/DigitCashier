@@ -125,6 +125,7 @@ namespace CashierClasses
             SqlDataAdapter adapt = new SqlDataAdapter(command);
             DataSet ds = new DataSet();
             adapt.Fill(ds);
+            command.ExecuteNonQuery();
             connection.Close();
 
 
@@ -180,14 +181,17 @@ namespace CashierClasses
                     Id = Convert.ToInt16(ds.Tables[0].Rows[0][0]),
                     Price = Convert.ToDouble(ds.Tables[0].Rows[0][1]),
                     Manufacturer = ds.Tables[0].Rows[0][2].ToString(),
+                    ManufacturerId = Convert.ToInt16(ds.Tables[0].Rows[0][12]),
                     Supplier = ds.Tables[0].Rows[0][3].ToString(),
+                    SupplierId = Convert.ToInt16(ds.Tables[0].Rows[0][13]),
                     Vat = Convert.ToDouble(ds.Tables[0].Rows[0][5]),
+                    VatId = Convert.ToInt16(ds.Tables[0].Rows[0][14]),
                     PricePerHG = Convert.ToBoolean(ds.Tables[0].Rows[0][6]),
                     PricePerKG = Convert.ToBoolean(ds.Tables[0].Rows[0][7]),
                     Name = ds.Tables[0].Rows[0][8].ToString(),
                     InStock = Convert.ToDouble(ds.Tables[0].Rows[0][9]),
                     Qty = Convert.ToDouble(ds.Tables[0].Rows[0][10]),
-                    ProductGroupId = Convert.ToInt16(ds.Tables[0].Rows[0][10]),
+                    ProductGroupId = Convert.ToInt16(ds.Tables[0].Rows[0][11]),
                     ProductGroupname = ds.Tables[0].Rows[0][4].ToString(),
 
                 };
@@ -284,27 +288,12 @@ namespace CashierClasses
 
 
 
-        //public void insertIntoDatabase(List<Product> cartItems, string textBox)
-        //{
-        //    string sql = "";
-        //    command.CommandType = CommandType.Text;
-        //    foreach (Product item in cartItems)
-        //    {
-        //        string qry = string.Format(sql, item.Id, item.Name, item.Price, item.Qty, item.Vat, item.Manufacturer, item.Supplier, item.ProductGroupname, item.PricePerHG, item.PricePerKG);
-        //        using (command = new SqlCommand(qry, connection))
-        //        {
-        //            connection.Open();
-        //            command.ExecuteNonQuery();
-        //            connection.Close();
-        //        }
-        //    }
-
-        //}
+        
 
         public int getReceiptid()
         {
             int receiptId;
-            command.CommandText = "Select id from receipt Order By receiptDate DESC";
+            command.CommandText = "Select id from receipt Order By id DESC";
             command.CommandType = CommandType.Text;
             connection.Open();
             SqlDataAdapter adapt = new SqlDataAdapter(command);
@@ -321,7 +310,114 @@ namespace CashierClasses
 
         }
 
-        public void insertIntoReceiptdb()
+        public DataSet beforeInsertProduct()
+        {
+            command.CommandText = "Select * from Product where receiptId is null";
+            command.CommandType = CommandType.Text;
+            connection.Open();
+            SqlDataAdapter adapt = new SqlDataAdapter(command);
+            DataSet ds = new DataSet();
+            adapt.Fill(ds);
+            connection.Close();
+
+            return ds;
+        }
+
+        public void insertIntoDatabase(List<Product> cartItems, string textBox)
+        {
+            #region Create and Insert to tempTable
+            //"create table tempTable1 ([id] [bigint] IDENTITY(1,1) NOT NULL, [idnumber] [nchar] (10) NULL, [price] [money] NULL, [manufacturerId] [nvarchar] (50) NULL, [supplierId] [nvarchar] (50) NULL, [productGroupId] [nchar] (10) NULL, [vatId] [nchar] (10) NULL, [pricePerKg] [bit] NULL, [PricePerHg] [bit] NULL, [Pname] [nvarchar] (50) NULL, [receiptId] [bigint] NULL, [qty] [decimal](18, 2) NULL, [inStock] [decimal](18, 2) NULL,)" +
+            //"Insert into tempTable1 (idnumber, price, manufacturerId, supplierId, productGroupId, vatId, pricePerKg, PricePerHg, Pname, receiptId, qty, inStock)" +
+            connection.Open();
+
+            command.CommandText = "Insert Into Product (idnumber, price, manufacturerId, supplierId, productGroupId, vatId, pricePerKg, PricePerHg, Pname, receiptId, qty, inStock) Values (@idnumber, @price, @manufacturerId, @supplierId, @productGroupId, @vatId, @pricePerKg, @PricePerHg, @Pname, @receiptId, @qty, @inStock)";
+            command.CommandType = CommandType.Text;
+            command.Connection = connection;
+
+
+            command.Parameters.Add("@idnumber", SqlDbType.NChar);
+            command.Parameters.Add("@price", SqlDbType.Money);
+            command.Parameters.Add("@manufacturerId", SqlDbType.NVarChar);
+            command.Parameters.Add("@supplierId", SqlDbType.NVarChar);
+            command.Parameters.Add("@productGroupId", SqlDbType.NChar);
+            command.Parameters.Add("@vatId", SqlDbType.NChar);
+            command.Parameters.Add("@pricePerKg", SqlDbType.Bit);
+            command.Parameters.Add("@PricePerHg", SqlDbType.Bit);
+            command.Parameters.Add("@Pname", SqlDbType.NVarChar);
+            command.Parameters.Add("@receiptId", SqlDbType.BigInt);
+            command.Parameters.Add("@qty", SqlDbType.Decimal);
+            command.Parameters.Add("@inStock", SqlDbType.Decimal);
+            
+
+            foreach (var p in cartItems)
+            {
+                command.Parameters[0].Value = p.Id;
+                command.Parameters[1].Value = p.Price;
+                command.Parameters[2].Value = p.ManufacturerId;
+                command.Parameters[3].Value = p.SupplierId;
+                command.Parameters[4].Value = p.ProductGroupId;
+                command.Parameters[5].Value = p.VatId;
+                command.Parameters[6].Value = p.PricePerKG;
+                command.Parameters[7].Value = p.PricePerHG;
+                command.Parameters[8].Value = p.Name;
+                command.Parameters[9].Value = p.ReceiptId;
+                command.Parameters[10].Value = p.Qty;
+                command.Parameters[11].Value = p.InStock - p.Qty;
+
+                command.ExecuteNonQuery();
+
+            }
+            command.CommandText = "Update Product Set inStock=@inStock where receiptId is Null and idnumber=@idnumber";
+            command.CommandType = CommandType.Text;
+            command.Connection = connection;
+            
+            foreach (var p in cartItems)
+            {
+                command.Parameters[11].Value = p.InStock - p.Qty;
+                command.ExecuteNonQuery();
+            }
+
+
+            connection.Close();
+            #endregion
+
+        }
+        public void insertproduct(Product p, string textBox)
+        {
+            command.CommandText = "Insert Into Product (idnumber, price, manufacturerId, supplierId, productGroupId, vatId, pricePerKg, PricePerHg, Pname, receiptId, qty, inStock) Values (@idnumber, @price, @manufacturerId, @supplierId, @productGroupId, @vatId, @pricePerKg, @PricePerHg, @Pname, @receiptId, @qty, @inStock)";
+            command.CommandType = CommandType.Text;
+            connection.Open();
+            command.Parameters.Add("@idnumber", SqlDbType.NChar);
+            command.Parameters.Add("@price", SqlDbType.Money);
+            command.Parameters.Add("@manufacturerId", SqlDbType.NVarChar);
+            command.Parameters.Add("@supplierId", SqlDbType.NVarChar);
+            command.Parameters.Add("@productGroupId", SqlDbType.NChar);
+            command.Parameters.Add("@vatId", SqlDbType.NChar);
+            command.Parameters.Add("@pricePerKg", SqlDbType.Bit);
+            command.Parameters.Add("@PricePerHg", SqlDbType.Bit);
+            command.Parameters.Add("@Pname", SqlDbType.NVarChar);
+            command.Parameters.Add("@receiptId", SqlDbType.BigInt);
+            command.Parameters.Add("@qty", SqlDbType.Decimal);
+            command.Parameters.Add("@inStock", SqlDbType.Decimal);
+
+            command.Parameters[0].Value = p.Id;
+            command.Parameters[1].Value = p.Price;
+            command.Parameters[2].Value = p.ManufacturerId;
+            command.Parameters[3].Value = p.SupplierId;
+            command.Parameters[4].Value = p.ProductGroupId;
+            command.Parameters[5].Value = p.VatId;
+            command.Parameters[6].Value = p.PricePerKG;
+            command.Parameters[7].Value = p.PricePerHG;
+            command.Parameters[8].Value = p.Name;
+            command.Parameters[9].Value = Convert.ToDecimal(textBox);
+            command.Parameters[10].Value = 3.5;
+            command.Parameters[11].Value = p.InStock - p.Qty;
+            command.ExecuteNonQuery();
+
+            connection.Close();
+        }
+
+        public void insertIntoReceiptdb(Receipt myreceipt)
         {
             command.CommandText = "Insert Into receipt (receiptDate, salePerson, cash, credit, coupon, vatAmount, total) Values (@receiptDate, @salePerson, @cash, @credit, @coupon, @vatAmount, @total)";
             command.CommandType = CommandType.Text;
@@ -334,9 +430,15 @@ namespace CashierClasses
             command.Parameters.Add("@vatAmount", SqlDbType.Money);
             command.Parameters.Add("@total", SqlDbType.Money);
 
-            SqlDataAdapter adapt = new SqlDataAdapter(command);
-            DataSet ds = new DataSet();
-            adapt.Fill(ds);
+            command.Parameters[0].Value = myreceipt.Issuedate;
+            command.Parameters[1].Value = myreceipt.SalesPerson;
+            command.Parameters[2].Value = myreceipt.Cash;
+            command.Parameters[3].Value = myreceipt.Credit;
+            command.Parameters[4].Value = myreceipt.Coupon;
+            command.Parameters[5].Value = myreceipt.Vat1;
+            command.Parameters[6].Value = myreceipt.Topay;
+            command.ExecuteNonQuery();
+
             connection.Close();
         }
 

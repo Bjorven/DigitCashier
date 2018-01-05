@@ -212,7 +212,31 @@ namespace Calculator2
                 }
                 else
                 {
+                    var index = shoppingCart.FindIndex(c => c.Id == SearchedProduct.Id);
                     tal2++;
+                    shoppingCart[index] = new Product
+                    {
+
+                        Id = SearchedProduct.Id,
+                        InStock = SearchedProduct.InStock,
+                        Manufacturer = SearchedProduct.Manufacturer,
+                        Name = SearchedProduct.Name,
+                        Price = SearchedProduct.Price,
+                        PricePerHG = SearchedProduct.PricePerHG,
+                        PricePerKG = SearchedProduct.PricePerKG,
+                        ProductGroup = SearchedProduct.ProductGroup,
+                        ProductGroupId = SearchedProduct.ProductGroupId,
+                        ProductGroupname = SearchedProduct.ProductGroupname,
+                        Qty = tal2,
+                        Supplier = SearchedProduct.Supplier,
+                        Vat = SearchedProduct.Vat,
+                        ReceiptId = Convert.ToInt16(reciptNrTextBox.Text),
+                        ManufacturerId = SearchedProduct.ManufacturerId,
+                        SupplierId = SearchedProduct.SupplierId,
+                        VatId = SearchedProduct.VatId,
+
+                    };
+                   
                     myProducts.SubItems[4].Text = tal2.ToString();
 
                     //denna är bara till för att initiera GetTOtalSum
@@ -253,10 +277,31 @@ namespace Calculator2
         {
             if (isSearchBtn == true)
             {
-                //double pris = Convert.ToDouble(myProducts.SubItems[3].Text);
-                //double antal = Convert.ToDouble(myProducts.SubItems[4].Text);
-                double total;
+                var index = shoppingCart.FindIndex(c => c.Id == SearchedProduct.Id);
                 tal2--;
+                shoppingCart[index] = new Product
+                {
+
+                    Id = SearchedProduct.Id,
+                    InStock = SearchedProduct.InStock,
+                    Manufacturer = SearchedProduct.Manufacturer,
+                    Name = SearchedProduct.Name,
+                    Price = SearchedProduct.Price,
+                    PricePerHG = SearchedProduct.PricePerHG,
+                    PricePerKG = SearchedProduct.PricePerKG,
+                    ProductGroup = SearchedProduct.ProductGroup,
+                    ProductGroupId = SearchedProduct.ProductGroupId,
+                    ProductGroupname = SearchedProduct.ProductGroupname,
+                    Qty = tal2,
+                    Supplier = SearchedProduct.Supplier,
+                    Vat = SearchedProduct.Vat,
+                    ReceiptId = Convert.ToInt16(reciptNrTextBox.Text),
+                    ManufacturerId = SearchedProduct.ManufacturerId,
+                    SupplierId = SearchedProduct.SupplierId,
+                    VatId = SearchedProduct.VatId,
+
+                };
+                
                 myProducts.SubItems[4].Text = tal2.ToString();
 
                 // för ref till decimal
@@ -383,6 +428,10 @@ namespace Calculator2
                                 Qty = tal2,
                                 Supplier = SearchedProduct.Supplier,
                                 Vat = SearchedProduct.Vat,
+                                ReceiptId = Convert.ToInt16(reciptNrTextBox.Text),
+                                ManufacturerId = searchProduct.ManufacturerId,
+                                SupplierId = searchProduct.SupplierId,
+                                VatId = searchProduct.VatId,
                             });
                             #endregion
 
@@ -415,6 +464,11 @@ namespace Calculator2
                                 Qty = tal2,
                                 Supplier = SearchedProduct.Supplier,
                                 Vat = SearchedProduct.Vat,
+                                ReceiptId = Convert.ToInt16(reciptNrTextBox.Text),
+                                ManufacturerId = searchProduct.ManufacturerId,
+                                SupplierId = searchProduct.SupplierId,
+                                VatId = searchProduct.VatId,
+
                             };
 
                             myProducts.SubItems[4].Text = tal2.ToString();
@@ -456,6 +510,11 @@ namespace Calculator2
                             Qty = tal2,
                             Supplier = SearchedProduct.Supplier,
                             Vat = SearchedProduct.Vat,
+                            ReceiptId = Convert.ToInt16(reciptNrTextBox.Text),
+                            ManufacturerId = searchProduct.ManufacturerId,
+                            SupplierId = searchProduct.SupplierId,
+                            VatId = searchProduct.VatId,
+
                         });
                         #endregion
 
@@ -643,18 +702,32 @@ namespace Calculator2
                     Topay = Convert.ToDouble(toPayTextBox.Text),
                     Change = Convert.ToDouble(changeTextBox.Text),
                     Vat1 = Convert.ToDouble(momsTextBox.Text),
-                    Cash = cash,
+                    Cash = Cash,
                     Coupon = hasCoupon,
-                    Credit = credit,
+                    Credit = Credit,
                     ProductQty = shoppingCart.Count,
+                    SalesPerson = myUser.UserName,
                 };
                 newReceipt.print(shoppingCart);
 
-                //DbAcess db = new DbAcess();
-                //db.insertIntoDatabase(shoppingCart, reciptNrTextBox.Text);
+                DbAcess db = new DbAcess();
+                //db.insertproduct(SearchedProduct, reciptNrTextBox.Text);
+                //DataSet ds =db.beforeInsertProduct();
+                db.insertIntoDatabase(shoppingCart, reciptNrTextBox.Text);
 
+                MessageBox.Show("Return change to customer" + "  " + changeTextBox.Text + "Kr");
                 // så att man inte skriver ut varjegång man klickar någonstans.
                 DeployPayment = false;
+                reciptNrTextBox.Text = dbReceipt.getReceiptid().ToString("0000");
+                goodsListView.Items.Clear();
+                totalTextBox.Clear();
+                discountTextBox.Clear();
+                couponTextBox.Clear();
+                changeTextBox.Clear();
+                toPayTextBox.Clear();
+                momsTextBox.Clear();
+                shoppingCart.Clear();
+                
             }
             else if (qtyAmount == true)
             {
@@ -695,7 +768,7 @@ namespace Calculator2
             txtb_CashAmount.Clear();
             pnl_Amount.BringToFront();
             DeployPayment = true;
-            Credit = true;
+            Cash = true;
 
 
             //// Här skapar vi ett datatable för att skicka upp de köpta produkterna till databasen.

@@ -43,6 +43,7 @@ namespace CashierClasses
         public int Orgnr { get => orgnr; set => orgnr = value; }
         public int ReceiptId { get => receiptId; set => receiptId = value; }
         public int ProductQty { get => productQty; set => productQty = value; }
+        public int SalesPerson { get; set; }
         public DateTime Issuedate { get => issuedate; set => issuedate = value; }
 
         public double TotalPrice { get => totalPrice; set => totalPrice = value; }
@@ -98,18 +99,22 @@ namespace CashierClasses
             DialogResult result = pd.ShowDialog();
             if (result == DialogResult.OK)
             {
+                Receipt myreceipt = new Receipt();
+                myreceipt = this;
+                DbAcess db = new DbAcess();
+                
+                db.insertIntoReceiptdb(myreceipt);
+
                 PrintPreviewDialog pp = new PrintPreviewDialog();
                 pp.Document = pdoc;
                 result = pp.ShowDialog();
+
                 if (result == DialogResult.OK)
                 {
                     pdoc.Print();
                 }
             }
-            Receipt myreceipt = new Receipt();
-            myreceipt = this;
-            DbAcess db = new DbAcess();
-            db.insertIntoReceiptdb();
+            
         }
         //************************************************************************************************************************************************
 
