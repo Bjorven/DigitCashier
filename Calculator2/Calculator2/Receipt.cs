@@ -95,7 +95,9 @@ namespace Calculator2
                     //);
                 pnl_Search.SendToBack();
             }
+            
             catch (Exception ex)
+            
             {
                 MessageBox.Show(ex.Message);
             }

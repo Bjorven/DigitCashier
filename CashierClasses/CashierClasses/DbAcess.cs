@@ -24,7 +24,7 @@ namespace CashierClasses
         {
             connection = new SqlConnection
             {
-                ConnectionString = @"Data Source=LAPTOP-B9AASP37\SQLEXPRESS;Initial Catalog=DigitCashier;Integrated Security=True"
+                ConnectionString = @"Data Source=LAPTOP-TU1UMOIC;Initial Catalog=DigitCashier;Integrated Security=True"
             };
             command = new SqlCommand
             {
@@ -103,6 +103,23 @@ namespace CashierClasses
 
                 throw new Exception();
             }
+        }
+
+        public DataSet GetAllUser()
+        {
+
+            command.CommandText = "Select * from Employee";
+            
+            connection.Open();
+            SqlDataAdapter adapt = new SqlDataAdapter(command);
+            DataSet ds = new DataSet();
+            adapt.Fill(ds);
+            connection.Close();
+
+            
+
+                return ds;
+
         }
 
 

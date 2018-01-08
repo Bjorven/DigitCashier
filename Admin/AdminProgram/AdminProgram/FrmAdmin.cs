@@ -20,12 +20,20 @@ namespace AdminProgram
             pnl_Employee.Hide();
             pnl_Product.Hide();
             
+            
+            
+
+            
+
+
+
+
+
         }
-   
+
 
         private void ArkivToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -46,8 +54,11 @@ namespace AdminProgram
             //txtb_ENewSname.Clear();
             //txtb_ENewTerminationDate.Clear();
             //txtb_PNewManufacturer.Clear();
-            
-
+            DbAcess db = new DbAcess();
+            DataSet ds = db.GetAllUser();
+            employee_EdittoolStripComboBox.ComboBox.DataSource = ds.DefaultViewManager;
+            employee_EdittoolStripComboBox.ComboBox.DisplayMember = "fname";
+            employee_EdittoolStripComboBox.ComboBox.ValueMember = "id";
 
         }
 
@@ -57,6 +68,7 @@ namespace AdminProgram
             pnl_Employee.Show();
             pnl_Start.Hide();
             pnl_Product.Hide();
+            
         }
 
         private void Product_NewToolStripMenuItem1_Click(object sender, EventArgs e)

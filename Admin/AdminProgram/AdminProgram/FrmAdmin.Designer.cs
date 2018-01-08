@@ -91,6 +91,7 @@
             this.lbl_PNewPrice = new System.Windows.Forms.Label();
             this.txtb_PNewName = new System.Windows.Forms.TextBox();
             this.lbl_PNewName = new System.Windows.Forms.Label();
+            this.employee_EdittoolStripComboBox = new System.Windows.Forms.ToolStripComboBox();
             this.mnu_Admin.SuspendLayout();
             this.pnl_Employee.SuspendLayout();
             this.pnl_Product.SuspendLayout();
@@ -130,14 +131,16 @@
             // employee_NewToolStripMenuItem
             // 
             this.employee_NewToolStripMenuItem.Name = "employee_NewToolStripMenuItem";
-            this.employee_NewToolStripMenuItem.Size = new System.Drawing.Size(114, 26);
+            this.employee_NewToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
             this.employee_NewToolStripMenuItem.Text = "New";
             this.employee_NewToolStripMenuItem.Click += new System.EventHandler(this.Employee_NewToolStripMenuItem_Click);
             // 
             // employee_EditToolStripMenuItem
             // 
+            this.employee_EditToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.employee_EdittoolStripComboBox});
             this.employee_EditToolStripMenuItem.Name = "employee_EditToolStripMenuItem";
-            this.employee_EditToolStripMenuItem.Size = new System.Drawing.Size(114, 26);
+            this.employee_EditToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
             this.employee_EditToolStripMenuItem.Text = "Edit";
             // 
             // productToolStripMenuItem
@@ -152,14 +155,14 @@
             // product_NewToolStripMenuItem1
             // 
             this.product_NewToolStripMenuItem1.Name = "product_NewToolStripMenuItem1";
-            this.product_NewToolStripMenuItem1.Size = new System.Drawing.Size(114, 26);
+            this.product_NewToolStripMenuItem1.Size = new System.Drawing.Size(181, 26);
             this.product_NewToolStripMenuItem1.Text = "New";
             this.product_NewToolStripMenuItem1.Click += new System.EventHandler(this.Product_NewToolStripMenuItem1_Click);
             // 
             // product_EditToolStripMenuItem1
             // 
             this.product_EditToolStripMenuItem1.Name = "product_EditToolStripMenuItem1";
-            this.product_EditToolStripMenuItem1.Size = new System.Drawing.Size(114, 26);
+            this.product_EditToolStripMenuItem1.Size = new System.Drawing.Size(181, 26);
             this.product_EditToolStripMenuItem1.Text = "Edit";
             // 
             // productGroupToolStripMenuItem
@@ -646,6 +649,12 @@
             this.lbl_PNewName.TabIndex = 0;
             this.lbl_PNewName.Text = "Product name";
             // 
+            // employee_EdittoolStripComboBox
+            // 
+            this.employee_EdittoolStripComboBox.Name = "employee_EdittoolStripComboBox";
+            this.employee_EdittoolStripComboBox.Size = new System.Drawing.Size(121, 28);
+            this.employee_EdittoolStripComboBox.Click += new System.EventHandler(this.Form1_Load);
+            // 
             // FrmAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -735,6 +744,7 @@
         private System.Windows.Forms.TextBox txtb_ENewSalary;
         private System.Windows.Forms.Label lbl_ENewSalary;
         private System.Windows.Forms.Panel pnl_Start;
+        private System.Windows.Forms.ToolStripComboBox employee_EdittoolStripComboBox;
     }
 }
 

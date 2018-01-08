@@ -447,7 +447,11 @@ namespace Calculator2
                             searchTextBox.Clear();
 
                             var index = shoppingCart.FindIndex(c => c.Id == searchProduct.Id);
+                            
+                            myProducts = goodsListView.FindItemWithText(searchProduct.Name);
+                            tal2 = Convert.ToDouble(myProducts.SubItems[4].Text);
                             tal2++;
+                            myProducts.SubItems[4].Text = tal2.ToString();
                             shoppingCart[index] = new Product
                             {
 
@@ -471,7 +475,8 @@ namespace Calculator2
 
                             };
 
-                            myProducts.SubItems[4].Text = tal2.ToString();
+                            
+                            tal2 = 0;
 
                             #endregion
 
